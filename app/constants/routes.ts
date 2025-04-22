@@ -1,0 +1,9 @@
+export const DEFAULT_IMAGES_PATH = "/assets/images";
+export const DEFAULT_LOGO_PATH = `${DEFAULT_IMAGES_PATH}/logo.png`;
+export const DEFAULT_LOGO_MILAVEH_PATH = `${DEFAULT_IMAGES_PATH}/logo-milaveh.png`;
+export const DEFAULT_HOME_PAGE_PATH = "/";
+export const DEFAULT_LOGIN_PATH = "/login";
+export const DEFAULT_ABOUT_PATH = "/about";
+export const DEFAULT_TERMS_PATH = "/terms";
+export const DEFAULT_FAQ_PATH = "/faq";
+export const DEFAULT_CONTACT_PATH = "/contact-us";
