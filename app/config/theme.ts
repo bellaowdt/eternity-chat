@@ -24,7 +24,8 @@ const themeOptions: ThemeOptions = {
       contrastText: "#FFF",
     },
     background: {
-      default: "#E1E1E1",
+      default: "#FFF",
+      paper: "#E1E1E1",
     },
   },
   typography: {

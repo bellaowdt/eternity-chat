@@ -13,8 +13,7 @@ const ChatExperience = () => {
       justifyContent="center"
       alignItems="center"
       gap={2}
-      p={8}
-      bgcolor="common.white"
+      py={16}
     >
       <Grid container>
         <Grid size={{ xs: 12, sm: 4 }} p={2}>
