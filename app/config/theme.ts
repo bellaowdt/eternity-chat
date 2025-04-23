@@ -3,7 +3,7 @@
 import { GlobalStylesProps, ThemeOptions, createTheme } from "@mui/material";
 import Link from "next/link";
 
-export const globalStyles: GlobalStylesProps["styles"] = (theme) => ({
+export const globalStyles: GlobalStylesProps["styles"] = () => ({
   a: {
     textDecoration: "none !important",
   },
@@ -12,19 +12,19 @@ export const globalStyles: GlobalStylesProps["styles"] = (theme) => ({
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: "#0f4c75",
+      main: "#000",
       dark: "#0a3f63",
       light: "#2878ad",
-      contrastText: "#000",
+      contrastText: "#FFF",
     },
     secondary: {
       main: "#AE8625",
       dark: "#EDC967",
       light: "#F7EF8A",
-      contrastText: "#000",
+      contrastText: "#FFF",
     },
     background: {
-      default: "#fcfcfc",
+      default: "#E1E1E1",
     },
   },
   typography: {
@@ -110,10 +110,9 @@ const themeOptions: ThemeOptions = {
     MuiCssBaseline: {
       styleOverrides: `
             @font-face {
-            font-family: 'iransans';
-            src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('truetype');
-            }
-            `,
+             font-family: 'iransans';
+              src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('truetype');
+             }`,
     },
     MuiSkeleton: {
       styleOverrides: {

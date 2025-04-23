@@ -1,9 +1,10 @@
+import { CustomButton } from "@/components/common/CustomStyle";
 import {
   DEFAULT_ABOUT_PATH,
   DEFAULT_CONTACT_PATH,
   DEFAULT_FAQ_PATH,
 } from "@/constants/routes";
-import { Button, Stack, useMediaQuery } from "@mui/material";
+import { Stack, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
 
@@ -27,11 +28,10 @@ const MenusSection = () => {
         justifyContent: isSmallScreen ? "center" : "flex-start",
         alignItems: "center",
         gap: 1,
-        width: "100%",
       }}
     >
       {pagesMenu.map((page) => (
-        <Button
+        <CustomButton
           component={Link}
           href={page.href}
           key={page.label}
@@ -42,7 +42,7 @@ const MenusSection = () => {
           }}
         >
           {page.label}
-        </Button>
+        </CustomButton>
       ))}
     </Stack>
   );

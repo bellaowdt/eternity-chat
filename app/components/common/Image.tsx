@@ -18,7 +18,7 @@ const Image: FC<
   };
 
   const _src = src ?? DEFAULt_NO_IMAGE;
-  const _alt = alt ?? "بدون تصویر";
+  const _alt = alt ?? "No Image";
 
   return (
     <>

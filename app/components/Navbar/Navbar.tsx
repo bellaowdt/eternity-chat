@@ -8,12 +8,12 @@ import {
   Container,
   IconButton,
   Link,
-  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../common/Logo";
 import MenusSection from "./components/MenusSection";
 import { DEFAULT_HOME_PAGE_PATH } from "@/constants/routes";
+import { CustomButton } from "../common/CustomStyle";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -51,18 +51,9 @@ const Navbar = () => {
           </Link>
           <MenusSection />
           <Box display="flex" justifyContent="center" alignItems="center">
-            <Button
-              variant="contained"
-              size="medium"
-              fullWidth
-              sx={{
-                borderRadius: 8,
-                backgroundColor: theme.palette.common.white,
-                color: theme.palette.common.black,
-              }}
-            >
+            <CustomButton variant="contained" size="medium">
               Let’s Start
-            </Button>
+            </CustomButton>
           </Box>
         </Box>
 
