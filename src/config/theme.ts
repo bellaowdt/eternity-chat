@@ -140,6 +140,7 @@ export const defaultTheme = createTheme({
 
 export const persianTheme = createTheme({
   ...themeOptions,
+  direction: "rtl",
   typography: {
     fontFamily: "'iransans'," + defaultTheme.typography.fontFamily,
     ...themeOptions.typography,
