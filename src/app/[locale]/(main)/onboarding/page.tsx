@@ -1,15 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  Typography,
-  Link,
-  useMediaQuery,
-  Container,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Box, Button, Typography, Link, Container } from "@mui/material";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Image from "next/image";
 

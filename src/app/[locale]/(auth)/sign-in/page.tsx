@@ -1,0 +1,139 @@
+"use client";
+
+import Title from "@/components/Auth/components/Title";
+import LinearFieldset from "@/components/common/LinearFieldset";
+import { FormBuilder } from "@/components/Fields";
+import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
+import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
+import auth from "@/lib/auth";
+import { signIn } from "@/services/iam";
+import { SignInPayload } from "@/services/iam/types";
+import { onInvalidSubmit } from "@/utils/form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Box, Divider, Grid } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import * as yup from "yup";
+import GoogleLoginButton from "../components/GoogleLoginButton";
+
+const SignIn = () => {
+  const router = useRouter();
+
+  const labels: Record<keyof SignInPayload, string> = {
+    email: "Email",
+    password: "Password",
+  };
+
+  const resolveSchema: yup.ObjectSchema<SignInPayload> = yup.object({
+    email: yup.string().nullable().required().label(labels.email),
+    password: yup.string().nullable().required().label(labels.password),
+  });
+
+  const methods = useForm<Partial<SignInPayload>>({
+    resolver: yupResolver(resolveSchema),
+  });
+
+  const { handleSubmit } = methods;
+
+  const { mutateAsync, isPending } = useMutation({
+    mutationFn: signIn,
+  });
+
+  const onSubmit: SubmitHandler<SignInPayload> = async (payload) => {
+    const { data, status } = await mutateAsync({ payload });
+    if (status === 200) {
+      auth.login({ access_token: data.data.token });
+      router.push("");
+    }
+  };
+
+  const fields: FormBuilderProps["fields"] = {
+    email: {
+      name: "email",
+      label: labels.email,
+      type: "String",
+      ui: {
+        grid: {
+          size: { xs: 12 },
+        },
+      },
+    },
+    password: {
+      name: "password",
+      label: labels.password,
+      type: "String",
+      props: {
+        type: "password",
+      },
+      ui: {
+        grid: {
+          size: { xs: 12 },
+        },
+      },
+    },
+  };
+
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      width="100%"
+      alignItems="center"
+      justifyContent="center"
+      minHeight="100vh"
+      p={4}
+    >
+      <FormProvider {...methods}>
+        <Title
+          title="Welcome to Eternity Chat"
+          subTitle="A Space to Reconnect and Remember."
+          sx={{ my: 5 }}
+        />
+        <Grid
+          container
+          spacing={2}
+          component="form"
+          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+        >
+          <FormBuilder fields={fields} />
+
+          <Grid size={{ xs: 12 }}>
+            <GradientButtonWithLoading
+              isLoading={isPending}
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              size="large"
+            >
+              Continue
+            </GradientButtonWithLoading>
+          </Grid>
+
+          <Grid size={{ xs: 12 }}>
+            <Divider />
+          </Grid>
+
+          <Grid size={{ xs: 12 }}>
+            <Grid
+              container
+              spacing={2}
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Grid size={{ xs: 12 }}>
+                <LinearFieldset title="Or" />
+              </Grid>
+              <Grid size={{ xs: 12 }}>
+                <GoogleLoginButton />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </FormProvider>
+    </Box>
+  );
+};
+
+export default SignIn;
