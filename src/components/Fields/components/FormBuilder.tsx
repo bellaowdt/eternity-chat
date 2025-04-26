@@ -11,9 +11,10 @@ import CustomRadioButtons from "./CustomRadioButtons";
 import { Labels } from "../types";
 import CustomCheckbox from "./CustomCheckbox";
 import CustomTextField from "./CustomTextField";
-
+import CustomDatePicker from "./CustomDatePicker";
+import CustomSelect from "./CustomSelect";
 export interface FormBuilderProps {
-  fields: Labels<any>;
+  fields: Labels<string>;
 }
 const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
   return (
@@ -23,29 +24,28 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
 
         switch (common.type) {
           case "Custom":
-            return (
-              <Grid item {...ui.grid}>
-                {common.component}
-              </Grid>
-            );
+            return <Grid {...ui.grid}>{common.component}</Grid>;
+
           case "RadioButtons":
             return (
-              <Grid item {...ui.grid}>
+              <Grid {...ui.grid}>
                 <CustomRadioButtons {...common} />
               </Grid>
             );
           case "Switch":
             return (
-              <Grid item {...ui.grid}>
+              <Grid {...ui.grid}>
                 <CustomSwitch {...common} />
               </Grid>
             );
+
           case "Checkbox":
             return (
-              <Grid item {...ui.grid}>
+              <Grid {...ui.grid}>
                 <CustomCheckbox {...common} />
               </Grid>
             );
+
           case "String":
             return (
               <Grid {...ui.grid}>
@@ -70,7 +70,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "Number":
             return (
-              <Grid item {...ui.grid}>
+              <Grid {...ui.grid}>
                 <CustomTextField
                   type="number"
                   size="small"
@@ -112,7 +112,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "ServerSideSelective":
             return (
-              <Grid item {...ui.grid}>
+              <Grid {...ui.grid}>
                 <ServerSideCustomAutoComplete
                   fullWidth
                   size="small"
@@ -124,13 +124,13 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "FreeSoloSelective":
             return (
-              <Grid item {...ui.grid}>
+              <Grid {...ui.grid}>
                 <MultipleFreeSolo size="small" {...common} {...common.props} />
               </Grid>
             );
           case "SearchableSelective":
             return (
-              <Grid item {...ui.grid}>
+              <Grid {...ui.grid}>
                 <CustomAutoComplete fullWidth size="small" {...common} />
               </Grid>
             );

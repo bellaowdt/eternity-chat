@@ -1,4 +1,5 @@
-import { createContext, FC, PropsWithChildren } from 'react';
+"use client";
+import { createContext, FC, PropsWithChildren } from "react";
 
 interface ILocalFormContext {
   isLoading?: boolean;

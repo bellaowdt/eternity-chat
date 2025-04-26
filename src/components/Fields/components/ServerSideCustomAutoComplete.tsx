@@ -1,15 +1,17 @@
-import { Close } from '@mui/icons-material';
+"use client";
+
+import { Close } from "@mui/icons-material";
 import {
   Autocomplete,
   CircularProgress,
   debounce,
   TextField,
-} from '@mui/material';
-import { FC, useEffect, useState } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
-import CustomSkeleton from '../../CustomSkeleton';
-import useLocalFormContext from '../hooks/useLocalFormContext';
-import { Option, ServerSideCustomAutoCompleteProps } from '../types';
+} from "@mui/material";
+import { FC, useEffect, useState } from "react";
+import { Controller, useFormContext } from "react-hook-form";
+import CustomSkeleton from "../../CustomSkeleton";
+import useLocalFormContext from "../hooks/useLocalFormContext";
+import { Option, ServerSideCustomAutoCompleteProps } from "../types";
 
 const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
   name,
@@ -40,7 +42,7 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
     }
   }, [open, options.length]);
 
-  const handleChangeInput = debounce(async event => {
+  const handleChangeInput = debounce(async (event) => {
     const searchText = event.target.value;
     await mutateAsync(searchText);
   }, 700);
@@ -58,8 +60,9 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
           field: { onChange, value, name },
           formState: { errors },
         }) => {
-          const selectedOption = (options.find(item => item.value === value) ||
-            '') as any;
+          const selectedOption = (options.find(
+            (item) => item.value === value
+          ) || "") as any;
 
           return (
             <Autocomplete
@@ -76,7 +79,7 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
               isOptionEqualToValue={(option, value) =>
                 (option.value as any) === value
               }
-              getOptionLabel={option => option.label?.toString?.() || ''}
+              getOptionLabel={(option) => option.label?.toString?.() || ""}
               options={options}
               loading={isLoading}
               clearIcon={
@@ -91,7 +94,7 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
                   }}
                 />
               }
-              renderInput={params => (
+              renderInput={(params) => (
                 <TextField
                   {...params}
                   label={label}

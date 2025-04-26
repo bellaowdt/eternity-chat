@@ -1,3 +1,5 @@
+"use client";
+
 import { Autocomplete, Chip, IconButton, TextField } from "@mui/material";
 import { digitsArToEn, digitsFaToEn } from "@persian-tools/persian-tools";
 import { FC, useState } from "react";
@@ -7,6 +9,7 @@ import useLocalFormContext from "./hooks/useLocalFormContext";
 import { MultipleFreeSoloProps } from "./types";
 import { PlusOneOutlined } from "@mui/icons-material";
 import CustomSkeleton from "../CustomSkeleton";
+
 const MultipleFreeSolo: FC<MultipleFreeSoloProps> = ({
   name,
   size,
@@ -34,7 +37,7 @@ const MultipleFreeSolo: FC<MultipleFreeSoloProps> = ({
             <Autocomplete
               {...props}
               size={size}
-              disableClearable
+              // disableClearable
               multiple
               value={value || []}
               onChange={(_event, value) => {
