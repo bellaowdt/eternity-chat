@@ -1,4 +1,4 @@
-import { TextField, Typography } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import CustomSkeleton from "../../CustomSkeleton";
@@ -63,7 +63,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
 
         return (
           <CustomSkeleton isLoading={isLoading}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <Box style={{ display: "flex", flexDirection: "column", gap: 4 }}>
               {/* Separate label on top */}
               {label && (
                 <Typography
@@ -111,7 +111,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                   ),
                 }}
               />
-            </div>
+            </Box>
           </CustomSkeleton>
         );
       }}

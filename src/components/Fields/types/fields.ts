@@ -19,7 +19,7 @@ export interface Option {
   id: number | string;
   label: ReactNode;
   value: string | number | boolean;
-  other?: Record<any, any>;
+  other?: Record<never, never>;
 }
 
 export interface ButtonWithLoadingProps extends ButtonProps {
@@ -33,7 +33,7 @@ export interface CustomDateTimePickerProps<TDate extends PickerValidDate>
   label: string;
   fullWidth?: boolean;
   variant?: TextFieldProps['variant'];
-  valueFormatter?: (value) => any;
+  valueFormatter?: (value) => never;
 }
 
 export interface CustomDatePickerProps<TDate extends PickerValidDate>
@@ -42,7 +42,7 @@ export interface CustomDatePickerProps<TDate extends PickerValidDate>
   label: string;
   fullWidth?: boolean;
   variant?: TextFieldProps['variant'];
-  valueFormatter?: (value) => any;
+  valueFormatter?: (value) => never;
 }
 export interface CustomSelectProps extends OutlinedTextFieldProps {
   resetFieldsOnChange?: string[];
@@ -124,8 +124,8 @@ export interface CurrencyTextFieldProps
 }
 
 export type DateLimitations = Partial<{
-  minDate: any;
-  maxDate: any;
+  minDate: never;
+  maxDate: never;
 }>;
 
 export interface JalaliDatePickerProps {
@@ -254,9 +254,9 @@ export type Labels<Keys extends string> = Record<
 >;
 
 export interface TextAreaProps {
-  register?: any;
+  register?: never;
   rows: number;
   name: string;
   label: string;
-  defaultValue: any;
+  defaultValue: never;
 }

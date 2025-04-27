@@ -8,7 +8,7 @@ export interface TitleProps {
 }
 const Title: FC<TitleProps> = ({ title, subTitle, sx }) => {
   return (
-    <Stack alignItems="center" spacing={2} sx={{ ...sx }}>
+    <Stack spacing={2} sx={{ ...sx }}>
       <Typography variant="h2">{title}</Typography>
       <Typography variant="h6" color="text.primary">
         {subTitle}

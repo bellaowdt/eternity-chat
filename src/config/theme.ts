@@ -95,7 +95,7 @@ const themeOptions: ThemeOptions = {
     },
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 24,
   },
   components: {
     MuiLink: {
@@ -122,6 +122,16 @@ const themeOptions: ThemeOptions = {
         },
       },
     },
+    // MuiInputBase: { 
+    //   styleOverrides: { 
+    //     root: { height: "2.5rem", } 
+    //   } 
+    // },
+    // MuiButton: { 
+    //   styleOverrides: { 
+    //     root: { height: "2.5rem", } 
+    //   } 
+    // }
   },
   breakpoints: {
     values: {

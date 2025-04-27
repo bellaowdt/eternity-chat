@@ -1,7 +1,7 @@
 "use client";
 
 import Title from "@/components/Auth/components/Title";
-import { FormBuilder } from "@/components/Fields";
+import { FormBuilder, Option } from "@/components/Fields";
 import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
 import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
 import { generalInformationUpdate } from "@/services/onboarding";
@@ -31,8 +31,7 @@ const GeneralInformation = () => {
       gender: yup.string().nullable().required().label(labels.gender),
     }
   );
-
-  const methods = useForm<Partial<GeneralInformationPayload>>({
+  const methods = useForm<GeneralInformationPayload>({
     resolver: yupResolver(resolveSchema),
   });
 
@@ -47,6 +46,38 @@ const GeneralInformation = () => {
   ) => {
     await mutateAsync({ payload });
   };
+
+  // TODO: Get from API
+  const relationshipList: Option[] = [
+    {
+      id: 1,
+      label: "Friend",
+      value: "Friend",
+    },
+    {
+      id: 2,
+      label: "Family",
+      value: "Family",
+    },
+    {
+      id: 3,
+      label: "Spouse",
+      value: "Spouse",
+    },
+  ];
+
+  const genderList: Option[] = [
+    {
+      id: 1,
+      label: "Female",
+      value: "Female",
+    },
+    {
+      id: 2,
+      label: "Male",
+      value: "Male",
+    },
+  ];
 
   const fields: FormBuilderProps["fields"] = {
     name: {
@@ -66,7 +97,10 @@ const GeneralInformation = () => {
       name: "relationship",
       label: "What was your relationship with them?",
       type: "Selective",
-      options: [],
+      options: relationshipList || [],
+      props: {
+        placeholder: "What was your relationship with them?",
+      },
       ui: {
         grid: {
           size: { xs: 12 },
@@ -77,7 +111,10 @@ const GeneralInformation = () => {
       name: "gender",
       label: "Their Gender (Optional)",
       type: "Selective",
-      options: [],
+      options: genderList || [],
+      props: {
+        placeholder: "Their Gender (Optional)",
+      },
       ui: {
         grid: {
           size: { xs: 12 },
@@ -91,13 +128,14 @@ const GeneralInformation = () => {
       display="flex"
       flexDirection="column"
       width="100%"
-      alignItems="center"
-      justifyContent="center"
       minHeight="100vh"
       p={4}
     >
       <FormProvider {...methods}>
-        <Title title="General Information" sx={{ my: 5 }} />
+        <Title
+          title="General Information"
+          sx={{ my: 5, justifyContent: "flex-start" }}
+        />
         <Grid
           container
           spacing={2}

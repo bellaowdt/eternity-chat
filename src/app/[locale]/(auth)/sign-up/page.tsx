@@ -12,6 +12,7 @@ import { SignUpPayload } from "@/services/iam/types";
 import { onInvalidSubmit } from "@//utils/form";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
+import Title from "@/components/Auth/components/Title";
 
 const SignUp = () => {
   const router = useRouter();
@@ -30,12 +31,12 @@ const SignUp = () => {
       .string()
       .nullable()
       .required()
-      .oneOf([yup.ref("password"), null], "passwordMustMatch")
+      .oneOf([yup.ref("password")], "passwordMustMatch")
       .label(labels.confirmPassword),
     name: yup.string().nullable().required().label(labels.name),
   });
 
-  const methods = useForm<Partial<SignUpPayload>>({
+  const methods = useForm<SignUpPayload>({
     resolver: yupResolver(resolveSchema),
   });
 
@@ -130,15 +131,15 @@ const SignUp = () => {
       display="flex"
       flexDirection="column"
       width="100%"
-      alignItems="center"
       justifyContent="center"
       minHeight="100vh"
       p={4}
     >
       <FormProvider {...methods}>
-        <Box width="100%" display="flex" justifyContent="flex-start">
-          <Typography variant="h3">Create your Account</Typography>
-        </Box>
+        <Title
+          title="Create your Account"
+          sx={{ my: 1, justifyContent: "flex-start" }}
+        />
         <Grid
           container
           spacing={2}
