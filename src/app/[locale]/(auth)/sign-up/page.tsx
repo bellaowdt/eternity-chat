@@ -1,7 +1,7 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Grid, Link, Typography, Box, Stack } from "@mui/material";
+import { Grid, Link, Typography, Box } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { ButtonWithLoading } from "@/components/ButtonWithLoading";
@@ -39,7 +39,12 @@ const SignUp = () => {
     resolver: yupResolver(resolveSchema),
   });
 
-  const { handleSubmit } = methods;
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = methods;
+
+  console.log("errors>>>", errors);
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: sendCode,
@@ -64,15 +69,20 @@ const SignUp = () => {
           size: { xs: 12 },
         },
       },
-    },
-    email: {
-      name: "email",
-      label: labels.email,
-      type: "String",
       props: {
+        placeholder: "ex. John Doe",
         inputProps: {
           autoComplete: "new-password",
         },
+      },
+    },
+    email: {
+      name: "email",
+      key: "email",
+      label: labels.email,
+      type: "String",
+      props: {
+        placeholder: labels.email,
       },
       ui: {
         grid: {
@@ -86,6 +96,7 @@ const SignUp = () => {
       type: "String",
       props: {
         type: "password",
+        placeholder: labels.password,
         inputProps: {
           autoComplete: "new-password",
         },
@@ -102,6 +113,7 @@ const SignUp = () => {
       label: labels.confirmPassword,
       props: {
         type: "password",
+        placeholder: labels.confirmPassword,
         inputProps: {
           autoComplete: "new-password",
         },
@@ -132,12 +144,12 @@ const SignUp = () => {
           container
           spacing={2}
           component="form"
+          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
           sx={{
             mt: 3,
             flexDirection: (theme) =>
               theme.direction === "rtl" ? "row-reverse" : "row",
           }}
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
         >
           <FormBuilder fields={fields} />
 
@@ -151,7 +163,7 @@ const SignUp = () => {
               disableElevation
               size="large"
             >
-              register
+              Continue
             </ButtonWithLoading>
           </Grid>
           <Grid size={{ xs: 12 }}>

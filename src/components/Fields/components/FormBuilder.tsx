@@ -24,31 +24,35 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
 
         switch (common.type) {
           case "Custom":
-            return <Grid {...ui.grid}>{common.component}</Grid>;
+            return (
+              <Grid key={common?.name} {...ui.grid}>
+                {common.component}
+              </Grid>
+            );
 
           case "RadioButtons":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomRadioButtons {...common} />
               </Grid>
             );
           case "Switch":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomSwitch {...common} />
               </Grid>
             );
 
           case "Checkbox":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomCheckbox {...common} />
               </Grid>
             );
 
           case "String":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomTextField
                   size="small"
                   fullWidth
@@ -59,7 +63,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "Textarea":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomTextarea
                   {...common?.props}
                   size="small"
@@ -70,7 +74,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "Number":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomTextField
                   type="number"
                   size="small"
@@ -82,13 +86,13 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "Currency":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CurrencyTextField fullWidth {...common} />
               </Grid>
             );
           case "Date":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomDatePicker
                   fullWidth
                   {...common}
@@ -101,7 +105,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "Selective":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomSelect
                   size="small"
                   fullWidth
@@ -112,7 +116,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "ServerSideSelective":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <ServerSideCustomAutoComplete
                   fullWidth
                   size="small"
@@ -124,13 +128,13 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
             );
           case "FreeSoloSelective":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <MultipleFreeSolo size="small" {...common} {...common.props} />
               </Grid>
             );
           case "SearchableSelective":
             return (
-              <Grid {...ui.grid}>
+              <Grid key={common?.name} {...ui.grid}>
                 <CustomAutoComplete fullWidth size="small" {...common} />
               </Grid>
             );

@@ -3,7 +3,6 @@ import {
   ButtonProps,
   GridProps,
   OutlinedTextFieldProps,
-  RegularBreakpoints,
   SwitchProps,
   TextFieldProps,
 } from '@mui/material';

@@ -52,6 +52,7 @@ const SignIn = () => {
     email: {
       name: "email",
       label: labels.email,
+      placeholder: labels.email,
       type: "String",
       ui: {
         grid: {

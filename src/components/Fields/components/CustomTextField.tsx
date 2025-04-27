@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import CustomSkeleton from "../../CustomSkeleton";
@@ -12,6 +12,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
   size = "small",
   ControllerProps = {},
   forbiddenChars = DEFAULT_FORBIDDEN_CHARS,
+  label,
   ...props
 }) => {
   const {
@@ -62,43 +63,55 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
 
         return (
           <CustomSkeleton isLoading={isLoading}>
-            <TextField
-              {...props}
-              fullWidth={fullWidth}
-              size={size}
-              onKeyDown={
-                props.type?.toLowerCase() === "number" ? onKeyDown : undefined
-              }
-              value={value ?? ""}
-              onChange={_onChange}
-              error={!!errors[props.name]}
-              helperText={errors[props.name]?.message?.toString()}
-              FormHelperTextProps={{
-                sx: {
-                  fontSize: 10,
-                  m: 0,
-                },
-              }}
-              inputProps={{
-                ...props.inputProps,
-                onAnimationStart: (e) => {
-                  if (e.animationName === "mui-auto-fill") {
-                    setValue(props.name, value || " ");
-                  }
-                },
-              }}
-              InputProps={{
-                endAdornment: (
-                  <>
-                    {!props.disabled && value && (
-                      <ClearButtonAdornment onChange={onChange} />
-                    )}
+            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              {/* Separate label on top */}
+              {label && (
+                <Typography
+                  variant="body2"
+                  sx={{ fontWeight: 500, fontSize: 14 }}
+                >
+                  {label}
+                </Typography>
+              )}
 
-                    {props.InputProps?.endAdornment}
-                  </>
-                ),
-              }}
-            />
+              {/* TextField itself */}
+              <TextField
+                {...props}
+                fullWidth={fullWidth}
+                size={size}
+                onKeyDown={
+                  props.type?.toLowerCase() === "number" ? onKeyDown : undefined
+                }
+                value={value ?? ""}
+                onChange={_onChange}
+                error={!!errors[props.name]}
+                helperText={errors[props.name]?.message?.toString()}
+                FormHelperTextProps={{
+                  sx: {
+                    m: 0,
+                    mt: 1,
+                  },
+                }}
+                inputProps={{
+                  ...props.inputProps,
+                  onAnimationStart: (e) => {
+                    if (e.animationName === "mui-auto-fill") {
+                      setValue(props.name, value || " ");
+                    }
+                  },
+                }}
+                InputProps={{
+                  endAdornment: (
+                    <>
+                      {!props.disabled && value && (
+                        <ClearButtonAdornment onChange={onChange} />
+                      )}
+                      {props.InputProps?.endAdornment}
+                    </>
+                  ),
+                }}
+              />
+            </div>
           </CustomSkeleton>
         );
       }}
