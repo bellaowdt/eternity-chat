@@ -6,6 +6,12 @@ export interface GeneralInformationPayload {
   gender: string;
 }
 
+export interface PersonalityTraitsPayload {
+  favoriteActivities: string;
+  personality: string[];
+}
+
+
 export interface GeneralInformationUpdateService {
   ({ payload }: { payload: GeneralInformationPayload }): Response;
 }
