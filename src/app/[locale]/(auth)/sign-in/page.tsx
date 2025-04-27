@@ -52,8 +52,10 @@ const SignIn = () => {
     email: {
       name: "email",
       label: labels.email,
-      placeholder: labels.email,
       type: "String",
+      props: {
+        placeholder: labels.email,
+      },
       ui: {
         grid: {
           size: { xs: 12 },

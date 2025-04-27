@@ -78,11 +78,10 @@ const SignUp = () => {
     },
     email: {
       name: "email",
-      key: "email",
       label: labels.email,
       type: "String",
       props: {
-        placeholder: labels.email,
+        placeholder: "ex. johndoe@gmail.com",
       },
       ui: {
         grid: {

@@ -1,24 +1,21 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { userAgent } from "next/server";
-import { headers } from "next/headers";
+import { defaultTheme, globalStyles, persianTheme } from "@/config/theme";
+import { languages } from "@/navigation";
+import { AppProvider, TanstackProvider } from "@/providers";
+import ConfirmAlertProvider from "@/providers/ConfirmAlertProvider";
+import ToastProvider from "@/providers/ToastProvider";
 import {
   CssBaseline,
   GlobalStyles,
   ThemeOptions,
   ThemeProvider,
 } from "@mui/material";
-import { defaultTheme, globalStyles, persianTheme } from "@/config/theme";
-import ToastProvider from "@/providers/ToastProvider";
-import ConfirmAlertProvider from "@/providers/ConfirmAlertProvider";
-import { AppProvider, TanstackProvider } from "@/providers";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import type { Metadata } from "next";
 import { Locale } from "next-intl";
+import { headers } from "next/headers";
+import { userAgent } from "next/server";
 import { PropsWithChildren } from "react";
-import RTLProvider from "@/providers/RTLProvider";
-import { languages } from "@/navigation";
-import I18nProvider from "@/providers/I18nProvider";
-import CustomLocalizationProvider from "@/providers/CustomLocalizationProvider";
+import "./globals.css";
 
 export type LocaleLayoutParams = { params: { locale: Locale } };
 
