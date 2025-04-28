@@ -1,8 +1,8 @@
 import { CustomButton } from "@/components/common/CustomStyle";
 import {
-  DEFAULT_ABOUT_PATH,
-  DEFAULT_CONTACT_PATH,
-  DEFAULT_FAQ_PATH,
+  DEFAULT_ONBOARDING_PATH,
+  DEFAULT_SIGNIN_PATH,
+  DEFAULT_SIGNUP_PATH,
 } from "@/constants/routes";
 import { Stack, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -13,9 +13,9 @@ const MenusSection = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const pagesMenu = [
-    { label: "Menu item", href: DEFAULT_FAQ_PATH },
-    { label: "Menu item", href: DEFAULT_ABOUT_PATH },
-    { label: "Menu item", href: DEFAULT_CONTACT_PATH },
+    { label: "Onboarding", href: DEFAULT_ONBOARDING_PATH },
+    { label: "Sig In", href: DEFAULT_SIGNIN_PATH },
+    { label: "Sign Up", href: DEFAULT_SIGNUP_PATH },
   ];
 
   return (

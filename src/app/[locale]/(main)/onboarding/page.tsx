@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Box, Button, Typography, Link, Container } from "@mui/material";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Image from "next/image";
+import { DEFAULT_SIGNIN_PATH } from "@/constants/routes";
 
 const steps = [
   {
@@ -140,9 +141,11 @@ export default function ReconnectSlider() {
                 >
                   <KeyboardArrowRight />
                 </Button>
-                <Typography variant="body1" color="text.secondary">
-                  {activeStep === steps.length - 1 ? "Let's Begin" : "Next"}
-                </Typography>
+                {activeStep === steps.length - 1 ? (
+                  <Link href={DEFAULT_SIGNIN_PATH}>Let's Begin</Link>
+                ) : (
+                  <Typography variant="body1">Next</Typography>
+                )}
               </Box>
 
               <Link

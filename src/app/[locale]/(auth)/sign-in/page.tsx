@@ -91,7 +91,7 @@ const SignIn = () => {
         <Title
           title="Welcome to Eternity Chat"
           subTitle="A Space to Reconnect and Remember."
-          sx={{ my: 5 }}
+          sx={{ my: 5, textAlign: "center" }}
         />
         <Grid
           container

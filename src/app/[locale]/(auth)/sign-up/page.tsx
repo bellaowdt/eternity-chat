@@ -137,7 +137,7 @@ const SignUp = () => {
     >
       <FormProvider {...methods}>
         <Title
-          title="Create your Account"
+          title="Create Your Account"
           sx={{ my: 1, justifyContent: "flex-start" }}
         />
         <Grid
@@ -168,7 +168,8 @@ const SignUp = () => {
           </Grid>
           <Grid size={{ xs: 12 }}>
             <Typography>
-              already Have An Account
+              By signing up, you agree to our Terms of Service and Privacy
+              Policy.
               <Link href="/sign-in">login</Link>
             </Typography>
           </Grid>
