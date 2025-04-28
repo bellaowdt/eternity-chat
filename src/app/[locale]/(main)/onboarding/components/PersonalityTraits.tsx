@@ -8,7 +8,7 @@ import { generalInformationUpdate } from "@/services/onboarding";
 import { PersonalityTraitsPayload } from "@/services/onboarding/types";
 import { onInvalidSubmit } from "@/utils/form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -39,7 +39,7 @@ const GeneralInformation = () => {
   });
 
   const onSubmit: SubmitHandler<PersonalityTraitsPayload> = async (payload) => {
-    await mutateAsync({ payload });
+    // await mutateAsync({ payload });
   };
 
   // TODO: Get from API
@@ -79,11 +79,24 @@ const GeneralInformation = () => {
   const fields: FormBuilderProps["fields"] = {
     favoriteActivities: {
       name: "favoriteActivities",
-      label: labels.favoriteActivities,
+      label: "Did they have any hobbies or favorite activities?",
       type: "String",
       props: {
-        placeholder: "What was their name?",
+        placeholder: "Type Here",
       },
+      ui: {
+        grid: {
+          size: { xs: 12 },
+        },
+      },
+    },
+    personalityLabel: {
+      type: "Custom",
+      component: (
+        <Typography variant="body1" pt={3}>
+          Which words best describe their personality?
+        </Typography>
+      ),
       ui: {
         grid: {
           size: { xs: 12 },
@@ -95,9 +108,6 @@ const GeneralInformation = () => {
         name: item.value,
         label: item.label,
         type: "Checkbox",
-        props: {
-          placeholder: "Which words best describe their personality?",
-        },
         ui: {
           grid: {
             size: { xs: 12 },

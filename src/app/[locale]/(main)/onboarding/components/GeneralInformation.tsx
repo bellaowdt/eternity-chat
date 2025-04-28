@@ -82,10 +82,10 @@ const GeneralInformation = () => {
   const fields: FormBuilderProps["fields"] = {
     name: {
       name: "name",
-      label: labels.name,
+      label: "What was their name?*",
       type: "String",
       props: {
-        placeholder: "What was their name?",
+        placeholder: "ex. John Doe",
       },
       ui: {
         grid: {

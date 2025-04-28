@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { DEFAULT_ONBOARDING_STEPS_PATH } from "@/constants/routes";
+import { Button, Stack } from "@mui/material";
+import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormHelperText from "@mui/material/FormHelperText";
-import Box from "@mui/material/Box";
+import { useRouter } from "next/navigation";
+import { Controller, useForm } from "react-hook-form";
 
 type FormValues = {
   acceptClubRule: boolean;
@@ -16,6 +18,7 @@ const CheckClubRulesForm = ({
 }: {
   onSubmitFunc?: () => void;
 }) => {
+  const router = useRouter();
   const {
     control,
     handleSubmit,
@@ -32,25 +35,34 @@ const CheckClubRulesForm = ({
     }
   };
 
+  const handleStart = () => {
+    router.push(DEFAULT_ONBOARDING_STEPS_PATH);
+  };
+
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 1 }}>
-      <Controller
-        name="acceptClubRule"
-        control={control}
-        rules={{ required: "You must accept the Terms of Service" }}
-        render={({ field }) => (
-          <FormControlLabel
-            control={
-              <Checkbox {...field} checked={!!field.value} color="primary" />
-            }
-            label="I have read and agree to the Terms of Service"
-          />
+    <Stack spacing={1}>
+      <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 1 }}>
+        <Controller
+          name="acceptClubRule"
+          control={control}
+          rules={{ required: "You must accept the Terms of Service" }}
+          render={({ field }) => (
+            <FormControlLabel
+              control={
+                <Checkbox {...field} checked={!!field.value} color="primary" />
+              }
+              label="I have read and agree to the Terms of Service"
+            />
+          )}
+        />
+        {errors.acceptClubRule && (
+          <FormHelperText error>{errors.acceptClubRule.message}</FormHelperText>
         )}
-      />
-      {errors.acceptClubRule && (
-        <FormHelperText error>{errors.acceptClubRule.message}</FormHelperText>
-      )}
-    </Box>
+      </Box>
+      <Button variant="contained" onClick={handleStart}>
+        Let’s Start
+      </Button>
+    </Stack>
   );
 };
 

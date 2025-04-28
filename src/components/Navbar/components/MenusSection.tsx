@@ -1,6 +1,7 @@
 import { CustomButton } from "@/components/common/CustomStyle";
 import {
   DEFAULT_ONBOARDING_PATH,
+  DEFAULT_ONBOARDING_WELCOME_PATH,
   DEFAULT_SIGNIN_PATH,
   DEFAULT_SIGNUP_PATH,
 } from "@/constants/routes";
@@ -16,6 +17,7 @@ const MenusSection = () => {
     { label: "Onboarding", href: DEFAULT_ONBOARDING_PATH },
     { label: "Sig In", href: DEFAULT_SIGNIN_PATH },
     { label: "Sign Up", href: DEFAULT_SIGNUP_PATH },
+    { label: "Onboarding Steps", href: DEFAULT_ONBOARDING_WELCOME_PATH },
   ];
 
   return (

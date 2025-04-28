@@ -28,7 +28,9 @@ const WelcomeAboard = () => {
         mb={4}
       >
         <Typography variant="h4" mb={2}>
-          Let’s Begin with Your Loved One’s Story
+          Let’s Begin with Your Loved
+          <br />
+          One’s Story
         </Typography>
         <Typography variant="body1" mb={2}>
           To create a meaningful experience together, <br />
