@@ -1,4 +1,4 @@
-import {  Response } from '@/types/common';
+import { Response } from "@/types/common";
 
 export interface GeneralInformationPayload {
   name: string;
@@ -11,6 +11,15 @@ export interface PersonalityTraitsPayload {
   personality: string[];
 }
 
+export interface AppearancePayload {
+  description: string;
+  photo: string;
+}
+
+export interface CommunicationPayload {
+  description: string;
+  saying: string;
+}
 
 export interface GeneralInformationUpdateService {
   ({ payload }: { payload: GeneralInformationPayload }): Response;
