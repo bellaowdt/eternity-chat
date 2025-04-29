@@ -19,6 +19,8 @@ export interface AppearancePayload {
 export interface CommunicationPayload {
   description: string;
   saying: string;
+  lovedVoice: string;
+  textVoice: string;
 }
 
 export interface MemoriesPayload {

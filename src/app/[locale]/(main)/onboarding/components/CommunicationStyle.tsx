@@ -3,6 +3,7 @@
 import Title from "@/components/Auth/components/Title";
 import { FormBuilder } from "@/components/Fields";
 import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
+import FileUploadForm from "@/components/FileUpload/FileUploadForm";
 import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
 import {
   AppearancePayload,
@@ -19,11 +20,15 @@ const CommunicationStyle = () => {
   const labels: Record<keyof CommunicationPayload, string> = {
     description: "description",
     saying: "saying",
+    lovedVoice: "Loved Voice",
+    textVoice: "Text Voice",
   };
 
   const resolveSchema: yup.ObjectSchema<CommunicationPayload> = yup.object({
     description: yup.string().nullable().required().label(labels.description),
     saying: yup.string().nullable().required().label(labels.saying),
+    lovedVoice: yup.string().nullable().label(labels.lovedVoice),
+    textVoice: yup.string().nullable().label(labels.textVoice),
   });
 
   const methods = useForm<AppearancePayload>({
@@ -31,13 +36,12 @@ const CommunicationStyle = () => {
   });
 
   const { handleSubmit } = methods;
-
   const { mutateAsync, isPending } = useMutation({
     // mutationFn: AppearanceUpdate,
   });
 
   const onSubmit: SubmitHandler<AppearancePayload> = async (payload) => {
-    await mutateAsync({ payload });
+    //   await mutateAsync({ payload });
   };
 
   const fields: FormBuilderProps["fields"] = {
@@ -87,11 +91,30 @@ const CommunicationStyle = () => {
         />
         <Grid
           container
-          spacing={2}
+          spacing={3}
           component="form"
           onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
         >
           <FormBuilder fields={fields} />
+
+          <Grid size={{ xs: 12 }}>
+            <FileUploadForm
+              name="lovedVoice"
+              label="Upload a voice recording of your loved one"
+              acceptedFormat=".mp3,wav"
+              acceptedFormatText="Supported formats: MP3, WAV"
+            />
+          </Grid>
+
+          <Grid size={{ xs: 12 }}>
+            <FileUploadForm
+              name="textVoice"
+              label="Would you like to upload text messages they’ve sent you?"
+              subLabel="This helps us better understand their unique way of talking."
+              acceptedFormat=".mp3,wav"
+              acceptedFormatText="Supported formats: MP3, WAV"
+            />
+          </Grid>
 
           <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading

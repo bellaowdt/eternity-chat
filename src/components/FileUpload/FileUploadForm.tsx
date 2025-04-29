@@ -7,24 +7,35 @@ import { Controller, useFormContext } from "react-hook-form";
 type FileUploadFormProps = {
   name: string;
   label: string;
-  chooseFileText: string;
+  subLabel?: string;
+  chooseFileText?: string;
+  acceptedFormat: string;
+  acceptedFormatText: string;
 };
 
 export default function FileUploadForm({
   name,
   label,
-  chooseFileText,
+  subLabel = "",
+  chooseFileText = "Choose File",
+  acceptedFormat,
+  acceptedFormatText,
 }: FileUploadFormProps) {
   const { control } = useFormContext();
   const [fileName, setFileName] = useState("No file chosen");
   const [filePreview, setFilePreview] = useState<string | null>(null);
-  const acceptedFormat = ".jpg,.jpeg,.png";
 
   return (
     <Box width="100%">
-      <Typography variant="h6" mb={2}>
+      <Typography variant="h6" mb={1}>
         {label}
       </Typography>
+
+      {subLabel && (
+        <Typography variant="body1" mb={1}>
+          {subLabel}
+        </Typography>
+      )}
 
       <Controller
         name={name}
@@ -92,7 +103,7 @@ export default function FileUploadForm({
       />
 
       <Typography variant="body2" color="textSecondary" my={2}>
-        Supported formats: JPG, JPEG, PNG
+        {acceptedFormatText}
       </Typography>
 
       {filePreview && (

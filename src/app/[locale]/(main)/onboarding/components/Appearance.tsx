@@ -3,7 +3,7 @@
 import Title from "@/components/Auth/components/Title";
 import { FormBuilder } from "@/components/Fields";
 import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import UploadField from "@/components/Fields/components/UploadField";
+import FileUploadForm from "@/components/FileUpload/FileUploadForm";
 import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
 import { AppearancePayload } from "@/services/onboarding/types";
 import { onInvalidSubmit } from "@/utils/form";
@@ -12,7 +12,6 @@ import { Box, Grid } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
-import FileUploadForm from "./FileUploadForm";
 
 const Appearance = () => {
   const labels: Record<keyof AppearancePayload, string> = {
@@ -36,7 +35,7 @@ const Appearance = () => {
   });
 
   const onSubmit: SubmitHandler<AppearancePayload> = async (payload) => {
-    await mutateAsync({ payload });
+    // await mutateAsync({ payload });
   };
 
   const fields: FormBuilderProps["fields"] = {
@@ -83,7 +82,8 @@ const Appearance = () => {
             <FileUploadForm
               name="photo"
               label="Do you have a photo you'd like to share?"
-              chooseFileText="Choose File"
+              acceptedFormat=".jpg,.jpeg,.png"
+              acceptedFormatText="Supported formats: JPG, JPEG, PNG"
             />
           </Grid>
 
