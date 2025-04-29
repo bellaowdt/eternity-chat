@@ -1,6 +1,9 @@
-import axios from '../../lib/axios';
+import axios from "../../lib/axios";
 import {
+  GetAccountDetail,
+  GetPrivilegesService,
   GetProfileService,
+  getUserDetailService,
   LoginByRefreshTokenService,
   LoginService,
   LogoutService,
@@ -8,9 +11,9 @@ import {
   RegisterVerifyService,
   SendLoginOtpService,
   UpdateProfileService,
-} from './types';
+} from "./types";
 
-const BASE_URL = '/api/v1/account';
+const BASE_URL = "/api/v1/account";
 
 export const register: RegisterService = ({ payload }) => {
   return axios.post(`${BASE_URL}/register`, payload);
@@ -44,4 +47,15 @@ export const getProfile: GetProfileService = () => {
 
 export const updateProfile: UpdateProfileService = ({ payload }) => {
   return axios.put(`${BASE_URL}/updateProfile`, payload);
+};
+
+export const getAccountDetail: GetAccountDetail = () => {
+  return axios.post(`${BASE_URL}/detail`);
+};
+
+export const getUserDetail: getUserDetailService = ({ userId }) => {
+  return axios.get(`${BASE_URL}/${userId}/GetSummaryById`);
+};
+export const getPrivileges: GetPrivilegesService = () => {
+  return axios.post(`${BASE_URL}/getPrivileges`);
 };

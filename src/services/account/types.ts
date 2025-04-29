@@ -72,3 +72,45 @@ export interface IUserEducation {
   job: string;
   income: string;
 }
+
+export interface getUserDetailService {
+  (args: { userId: number }): Response;
+}
+
+export interface IAccount {
+  user_id: number;
+  mobile: string;
+  // verify_status: VerifyStatusEnum;
+  // user_type: UserTypeEnum;
+  // user_types: UserTypeEnum[];
+  agreement: true;
+  status: string;
+  status_description: string;
+  kyc_status: string[];
+  kyc_desc: string;
+  // contract_status: IContractStatus;
+  // contract_statuses: IContractStatus[];
+  referral_id: number;
+  profile_file_id: number;
+  privileges: {
+    privilege_id: number;
+  }[];
+  //config: IUserConfig[];
+  reference_chain: number[];
+}
+
+export interface GetAccountDetail {
+  (): Response<Basic<IAccount>>;
+}
+
+export interface IPrivilege {
+  application_privilege_id: number;
+  name: string;
+  type: number[];
+  group: string;
+  hasPrivilege?: boolean;
+}
+
+export interface GetPrivilegesService {
+  (): Response<Basic<IPrivilege[]>>;
+}
