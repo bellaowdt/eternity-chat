@@ -1,13 +1,10 @@
-import { alpha, Grid, Typography } from '@mui/material';
-import { FC } from 'react';
-import { useController, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import FileUpload from 'react-material-file-upload';
-import { UploadFieldProps } from '../types';
+import { alpha, Grid, Typography } from "@mui/material";
+import { FC } from "react";
+import { useController, useFormContext } from "react-hook-form";
+import FileUpload from "react-material-file-upload";
+import { UploadFieldProps } from "../types";
 
 const UploadField: FC<UploadFieldProps> = ({ name, title, ...props }) => {
-  const { t } = useTranslation();
-
   const { control, watch } = useFormContext();
   const value = watch(name);
 
@@ -18,19 +15,19 @@ const UploadField: FC<UploadFieldProps> = ({ name, title, ...props }) => {
 
   return (
     <Grid container spacing={1}>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <FileUpload
           key={title}
           title={title}
           buttonProps={{
-            variant: 'outlined',
-            size: 'small',
+            variant: "outlined",
+            size: "small",
           }}
           typographyProps={{
-            variant: 'body2',
+            variant: "body2",
           }}
           multiple={false}
-          onChange={files => {
+          onChange={(files) => {
             if (props.multiple) {
               onChange([...(value ?? []), ...files]);
             } else {
@@ -38,17 +35,17 @@ const UploadField: FC<UploadFieldProps> = ({ name, title, ...props }) => {
             }
           }}
           value={value}
-          buttonText={t('common:fields.select')}
+          buttonText="Select"
           {...props}
           sx={{
-            border: 'none !important',
-            outline: 'none !important',
-            bgcolor: theme => alpha(theme.palette.primary.main, 0.1),
-            borderColor: theme => theme.palette.divider,
+            border: "none !important",
+            outline: "none !important",
+            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
+            borderColor: (theme) => theme.palette.divider,
             mb: 0,
             pb: 0,
-            '& ul': {
-              display: 'none',
+            "& ul": {
+              display: "none",
             },
             ...props.sx,
           }}
@@ -56,9 +53,9 @@ const UploadField: FC<UploadFieldProps> = ({ name, title, ...props }) => {
       </Grid>
 
       {!!error && (
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Typography variant="body2" color="error">
-            {error.message?.toString()}
+            {error?.message?.toString()}
           </Typography>
         </Grid>
       )}

@@ -21,6 +21,11 @@ export interface CommunicationPayload {
   saying: string;
 }
 
+export interface MemoriesPayload {
+  description: string;
+  receiveReminderDate: string;
+}
+
 export interface GeneralInformationUpdateService {
   ({ payload }: { payload: GeneralInformationPayload }): Response;
 }

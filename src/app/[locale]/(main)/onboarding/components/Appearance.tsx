@@ -3,6 +3,7 @@
 import Title from "@/components/Auth/components/Title";
 import { FormBuilder } from "@/components/Fields";
 import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
+import UploadField from "@/components/Fields/components/UploadField";
 import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
 import { AppearancePayload } from "@/services/onboarding/types";
 import { onInvalidSubmit } from "@/utils/form";
@@ -11,6 +12,7 @@ import { Box, Grid } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
+import FileUploadForm from "./FileUploadForm";
 
 const Appearance = () => {
   const labels: Record<keyof AppearancePayload, string> = {
@@ -38,8 +40,8 @@ const Appearance = () => {
   };
 
   const fields: FormBuilderProps["fields"] = {
-    describe: {
-      name: "describe",
+    description: {
+      name: "description",
       label: "What did they look like?",
       type: "String",
       props: {
@@ -47,19 +49,6 @@ const Appearance = () => {
           "E.g., They were tall with short brown hair and often wore glasses. Their smile was warm, and they had a calming presence.",
         multiline: true,
         minRows: 8,
-      },
-      ui: {
-        grid: {
-          size: { xs: 12 },
-        },
-      },
-    },
-    photo: {
-      name: "relationship",
-      label: "Do you have a photo you'd like to share?",
-      type: "String",
-      props: {
-        placeholder: "File",
       },
       ui: {
         grid: {
@@ -89,6 +78,14 @@ const Appearance = () => {
           onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
         >
           <FormBuilder fields={fields} />
+
+          <Grid size={{ xs: 12 }}>
+            <FileUploadForm
+              name="photo"
+              label="Do you have a photo you'd like to share?"
+              chooseFileText="Choose File"
+            />
+          </Grid>
 
           <Grid size={{ xs: 12 }}>
             <GradientButtonWithLoading
