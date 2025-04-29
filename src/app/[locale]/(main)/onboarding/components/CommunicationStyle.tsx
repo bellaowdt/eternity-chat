@@ -11,12 +11,18 @@ import {
 } from "@/services/onboarding/types";
 import { onInvalidSubmit } from "@/utils/form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
+import { FC } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
+import SkipStep from "./SkipStep";
 
-const CommunicationStyle = () => {
+interface CommunicationStyleProps {
+  onSkip: VoidFunction;
+}
+
+const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
   const labels: Record<keyof CommunicationPayload, string> = {
     description: "description",
     saying: "saying",
@@ -127,9 +133,7 @@ const CommunicationStyle = () => {
             >
               Continue
             </GradientButtonWithLoading>
-            <Button variant="text" sx={{ p: 2 }}>
-              Skip for Now
-            </Button>
+            <SkipStep onSkip={onSkip} />
           </Grid>
         </Grid>
       </FormProvider>

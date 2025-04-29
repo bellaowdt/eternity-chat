@@ -12,8 +12,14 @@ import { Box, Grid } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
+import SkipStep from "./SkipStep";
+import { FC } from "react";
 
-const Appearance = () => {
+interface AppearanceProsp {
+  onSkip: VoidFunction;
+}
+
+const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
   const labels: Record<keyof AppearancePayload, string> = {
     description: "description",
     photo: "photo",
@@ -87,7 +93,7 @@ const Appearance = () => {
             />
           </Grid>
 
-          <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading
               isLoading={isPending}
               type="submit"
@@ -98,6 +104,7 @@ const Appearance = () => {
             >
               Continue
             </GradientButtonWithLoading>
+            <SkipStep onSkip={onSkip} />
           </Grid>
         </Grid>
       </FormProvider>

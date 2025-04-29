@@ -10,10 +10,16 @@ import { onInvalidSubmit } from "@/utils/form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Grid, Typography } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
+import { FC } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
+import SkipStep from "./SkipStep";
 
-const GeneralInformation = () => {
+interface GeneralInformationProps {
+  onSkip: VoidFunction;
+}
+
+const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
   const labels: Record<keyof PersonalityTraitsPayload, string> = {
     favoriteActivities: "Favorite Activities",
     personality: "Personality",
@@ -138,7 +144,7 @@ const GeneralInformation = () => {
           onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
         >
           <FormBuilder fields={fields} />
-          <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading
               isLoading={isPending}
               type="submit"
@@ -149,6 +155,7 @@ const GeneralInformation = () => {
             >
               Continue
             </GradientButtonWithLoading>
+            <SkipStep onSkip={onSkip} />
           </Grid>
         </Grid>
       </FormProvider>

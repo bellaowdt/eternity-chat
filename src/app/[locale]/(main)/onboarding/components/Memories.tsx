@@ -11,8 +11,17 @@ import { Box, Grid } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
+import SkipStep from "./SkipStep";
+import { FC } from "react";
+import { useRouter } from "next/navigation";
+import { DEFAULT_ONBOARDING_COMPLETE_PATH } from "@/constants/routes";
 
-const Memories = () => {
+interface MemoriesProps {
+  onSkip: VoidFunction;
+}
+
+const Memories: FC<MemoriesProps> = ({ onSkip }) => {
+  const router = useRouter();
   const labels: Record<keyof MemoriesPayload, string> = {
     description: "description",
     receiveReminderDate: "receiveReminderDate",
@@ -23,7 +32,6 @@ const Memories = () => {
     receiveReminderDate: yup
       .string()
       .nullable()
-      .required()
       .label(labels.receiveReminderDate),
   });
 
@@ -39,6 +47,7 @@ const Memories = () => {
 
   const onSubmit: SubmitHandler<MemoriesPayload> = async (payload) => {
     // await mutateAsync({ payload });
+    router.push(DEFAULT_ONBOARDING_COMPLETE_PATH);
   };
 
   const fields: FormBuilderProps["fields"] = {
@@ -57,17 +66,17 @@ const Memories = () => {
         },
       },
     },
-    receiveReminderDate: {
-      name: "receiveReminderDate",
-      type: "Date",
-      label:
-        "If you'd like, you can provide a meaningful date to receive a gentle reminder.",
-      ui: {
-        grid: {
-          size: { xs: 12 },
-        },
-      },
-    },
+    // receiveReminderDate: {
+    //   name: "receiveReminderDate",
+    //   type: "Date",
+    //   label:
+    //     "If you'd like, you can provide a meaningful date to receive a gentle reminder.",
+    //   ui: {
+    //     grid: {
+    //       size: { xs: 12 },
+    //     },
+    //   },
+    // },
   };
 
   return (
@@ -88,7 +97,7 @@ const Memories = () => {
         >
           <FormBuilder fields={fields} />
 
-          <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading
               isLoading={isPending}
               type="submit"
@@ -99,6 +108,7 @@ const Memories = () => {
             >
               Continue
             </GradientButtonWithLoading>
+            <SkipStep onSkip={onSkip} />
           </Grid>
         </Grid>
       </FormProvider>

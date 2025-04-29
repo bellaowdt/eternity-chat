@@ -7,3 +7,4 @@ export const DEFAULT_SIGNUP_PATH = "/sign-up";
 export const DEFAULT_ONBOARDING_PATH = "/onboarding";
 export const DEFAULT_ONBOARDING_WELCOME_PATH = "/onboarding/welcome";
 export const DEFAULT_ONBOARDING_STEPS_PATH = "/onboarding/steps";
+export const DEFAULT_ONBOARDING_COMPLETE_PATH = "/onboarding/complete";

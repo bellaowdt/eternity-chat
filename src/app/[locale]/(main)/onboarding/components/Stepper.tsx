@@ -23,7 +23,7 @@ const steps = [
 
 const ProgressStepper = () => {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(3);
+  const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -34,6 +34,12 @@ const ProgressStepper = () => {
   const handleBack = () => {
     if (activeStep > 0) {
       setActiveStep((prev) => prev - 1);
+    }
+  };
+
+  const handleSkip = () => {
+    if (activeStep < steps.length - 1) {
+      setActiveStep((prev) => prev + 1);
     }
   };
 
@@ -77,7 +83,7 @@ const ProgressStepper = () => {
           </Button>
         }
       />
-      <StepComponent />
+      <StepComponent onSkip={handleSkip} />
     </Box>
   );
 };
