@@ -1,4 +1,4 @@
-import { Response } from "@/types/common";
+import { Response } from "../types/common";
 
 export interface GeneralInformationPayload {
   name: string;

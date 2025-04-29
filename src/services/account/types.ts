@@ -1,4 +1,4 @@
-import { Basic, Response } from '@/types/common';
+import { Basic, Response } from "../types/common";
 
 export interface RegisterPayload {
   mobileNumber: string;
