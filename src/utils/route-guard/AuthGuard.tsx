@@ -1,9 +1,9 @@
 import { CircularProgress, Stack } from "@mui/material";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "src/store";
-import { fetchPermissions } from "src/store/reducers/permissions";
-import { fetchOrganizations } from "src/store/reducers/user";
-import { GuardProps } from "src/types/auth";
+import { useDispatch, useSelector } from "@/store";
+import { fetchPermissions } from "@/store/reducers/permissions";
+import { fetchOrganizations } from "@/store/reducers/user";
+import { GuardProps } from "@/types/auth";
 
 const AuthGuard = ({ children }: GuardProps) => {
   const dispatch = useDispatch();

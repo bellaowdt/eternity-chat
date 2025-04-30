@@ -1,3 +1,5 @@
+"use client";
+
 import { CustomButton } from "@/components/common/CustomStyle";
 import {
   DEFAULT_ONBOARDING_PATH,
