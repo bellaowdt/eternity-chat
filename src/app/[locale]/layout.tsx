@@ -4,6 +4,12 @@ import { AppProvider, TanstackProvider } from '@/providers';
 import ConfirmAlertProvider from '@/providers/ConfirmAlertProvider';
 import I18nProvider from '@/providers/I18nProvider';
 import ToastProvider from '@/providers/ToastProvider';
+import { defaultTheme, globalStyles, persianTheme } from '@/config/theme';
+import { languages, Locale } from '@/navigation';
+import { AppProvider, TanstackProvider } from '@/providers';
+import ConfirmAlertProvider from '@/providers/ConfirmAlertProvider';
+import I18nProvider from '@/providers/I18nProvider';
+import ToastProvider from '@/providers/ToastProvider';
 import {
   CssBaseline,
   GlobalStyles,
@@ -16,10 +22,22 @@ import { headers } from 'next/headers';
 import { userAgent } from 'next/server';
 import { PropsWithChildren } from 'react';
 import './globals.css';
+} from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import type { Metadata } from 'next';
+import { headers } from 'next/headers';
+import { userAgent } from 'next/server';
+import { PropsWithChildren } from 'react';
+import './globals.css';
 
-export type LocaleLayoutParams = { params: { locale: Locale } };
+type LocaleLayoutParams = {
+  children: ReactNode;
+  params: Promise<{ locale: Locale }>;
+};
 
 export const metadata: Metadata = {
+  title: 'Eternity Chat',
+  description: 'Reconnect with Memories. Cherish the Moments.',
   title: 'Eternity Chat',
   description: 'Reconnect with Memories. Cherish the Moments.',
 };
@@ -27,7 +45,10 @@ export const metadata: Metadata = {
 export default async function LocaleLayout({
   children,
   params,
+  params,
 }: PropsWithChildren<LocaleLayoutParams>) {
+  const headersList = await headers();
+  const reqUserAgent = userAgent({ headers: headersList });
   const headersList = await headers();
   const reqUserAgent = userAgent({ headers: headersList });
 
@@ -50,6 +71,11 @@ export default async function LocaleLayout({
                 <CssBaseline />
                 <GlobalStyles styles={globalStyles} />
                 {/* <RTLProvider>
+                  <CustomLocalizationProvider locale={locale}>*/}
+                <I18nProvider locale={locale}>
+                  <ConfirmAlertProvider>{children}</ConfirmAlertProvider>
+                </I18nProvider>
+                {/*
                   <CustomLocalizationProvider locale={locale}>*/}
                 <I18nProvider locale={locale}>
                   <ConfirmAlertProvider>{children}</ConfirmAlertProvider>
