@@ -1,9 +1,8 @@
-import { Direction } from "@mui/material";
-import { createNavigation } from "next-intl/navigation";
+import { Direction } from '@mui/material';
+import { createNavigation } from 'next-intl/navigation';
+import { routing } from './routing';
 
-export const defaultLocale = "en" as const;
-export const locales = ["en", "fa"] as const;
-
+export type Locale = 'en' | 'fa';
 export const languages: Record<
   Locale,
   {
@@ -12,17 +11,14 @@ export const languages: Record<
   }
 > = {
   en: {
-    label: "English",
-    direction: "ltr",
+    label: 'English',
+    direction: 'ltr',
   },
   fa: {
-    label: "Persian",
-    direction: "rtl",
+    label: 'Persian',
+    direction: 'rtl',
   },
 };
 
-export type Locale = (typeof locales)[number];
-
-export const { Link, redirect, usePathname, useRouter } = createNavigation({
-  locales,
-});
+export const { Link, getPathname, redirect, usePathname, useRouter } =
+  createNavigation(routing);
