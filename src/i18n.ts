@@ -1,23 +1,15 @@
-import deepmerge from "deepmerge";
-import type { AbstractIntlMessages } from "next-intl";
-import { getRequestConfig } from "next-intl/server";
+import { hasLocale } from 'next-intl';
+import { getRequestConfig } from 'next-intl/server';
+import { routing } from './routing';
 
-import en from "@/data/i18n/en.json";
-import fa from "@/data/i18n/fa.json";
-import { Locale } from "./navigation";
+export default getRequestConfig(async ({ requestLocale }) => {
+  const requested = await requestLocale;
+  const locale = hasLocale(routing.locales, requested)
+    ? requested
+    : routing.defaultLocale;
 
-const localeMessages: Partial<Record<Locale, any>> = {
-  en,
-  fa,
-};
-
-export default getRequestConfig(async ({ locale = "en" }) => {
-  console.log("locale", locale);
-  const primaryMessages: AbstractIntlMessages =
-    localeMessages[locale as Locale] || localeMessages["en"];
-
-  const fallbackMessages: AbstractIntlMessages = localeMessages["en"];
-
-  const messages = deepmerge(fallbackMessages, primaryMessages);
-  return { messages };
+  return {
+    locale,
+    messages: (await import(`@/data/i18n/${locale}.json`)).default,
+  };
 });

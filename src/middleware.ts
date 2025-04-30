@@ -1,35 +1,11 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import nextIntlMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from '@/navigation';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './routing';
 
-const intlMiddleware = (request: NextRequest) =>
-  Promise.resolve(
-    nextIntlMiddleware({
-      localePrefix: 'as-needed',
-      defaultLocale,
-      locales,
-      localeDetection: false,
-    })(request),
-  );
+export default createMiddleware(routing);
 
-export default async function middleware(request: NextRequest) {
-  request.headers.set('x-pathname', request.nextUrl.pathname);
-  const intlResponse = await intlMiddleware(request);
-  return intlResponse ? intlResponse : NextResponse.next();
-}
 export const config = {
-  matcher: [
-    /**
-     * It matches all paths except:
-     * 1. /api/ (includes trpc there)
-     * 2. /_next/ (Next.js internals)
-     * 3. /_proxy/ (OG tags proxying)
-     * 4. /_vercel (Vercel internals)
-     * 5. /_static (inside of /public)
-     * 6. /favicon.ico, /sitemap.xml, /robots.txt (static files)
-     * 7. The paths containing a file extension (e.g., .jpg, .png, etc.)
-     */
-    '/((?!api/|_next/|_proxy/|_vercel|_static|favicon.ico|sitemap.xml|robots.txt|.*\\..*).*)',
-  ],
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
 };
