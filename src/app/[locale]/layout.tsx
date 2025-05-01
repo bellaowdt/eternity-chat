@@ -1,15 +1,9 @@
-import { defaultTheme, globalStyles, persianTheme } from '@/config/theme';
 import { languages, Locale } from '@/navigation';
 import { AppProvider, TanstackProvider } from '@/providers';
-import ConfirmAlertProvider from '@/providers/ConfirmAlertProvider';
 import I18nProvider from '@/providers/I18nProvider';
 import ToastProvider from '@/providers/ToastProvider';
 import { defaultTheme, globalStyles, persianTheme } from '@/config/theme';
-import { languages, Locale } from '@/navigation';
-import { AppProvider, TanstackProvider } from '@/providers';
 import ConfirmAlertProvider from '@/providers/ConfirmAlertProvider';
-import I18nProvider from '@/providers/I18nProvider';
-import ToastProvider from '@/providers/ToastProvider';
 import {
   CssBaseline,
   GlobalStyles,
@@ -20,15 +14,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { userAgent } from 'next/server';
-import { PropsWithChildren } from 'react';
-import './globals.css';
-} from '@mui/material';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import type { Metadata } from 'next';
-import { headers } from 'next/headers';
-import { userAgent } from 'next/server';
-import { PropsWithChildren } from 'react';
-import './globals.css';
+
+import { PropsWithChildren, ReactNode, ReactNode } from 'react';
 
 type LocaleLayoutParams = {
   children: ReactNode;
@@ -38,17 +25,12 @@ type LocaleLayoutParams = {
 export const metadata: Metadata = {
   title: 'Eternity Chat',
   description: 'Reconnect with Memories. Cherish the Moments.',
-  title: 'Eternity Chat',
-  description: 'Reconnect with Memories. Cherish the Moments.',
 };
 
 export default async function LocaleLayout({
   children,
   params,
-  params,
 }: PropsWithChildren<LocaleLayoutParams>) {
-  const headersList = await headers();
-  const reqUserAgent = userAgent({ headers: headersList });
   const headersList = await headers();
   const reqUserAgent = userAgent({ headers: headersList });
 
