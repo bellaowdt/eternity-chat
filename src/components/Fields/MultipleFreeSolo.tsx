@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { Autocomplete, Chip, IconButton, TextField } from "@mui/material";
-import { digitsArToEn, digitsFaToEn } from "@persian-tools/persian-tools";
-import { FC, useState } from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import { isAllNumbers } from "@/utils/form";
-import useLocalFormContext from "./hooks/useLocalFormContext";
-import { MultipleFreeSoloProps } from "./types";
-import { PlusOneOutlined } from "@mui/icons-material";
-import CustomSkeleton from "../CustomSkeleton";
+import { Autocomplete, Chip, IconButton, TextField } from '@mui/material';
+import { digitsArToEn, digitsFaToEn } from '@persian-tools/persian-tools';
+import { FC, useState } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import { isAllNumbers } from '@/utils/form';
+import useLocalFormContext from './hooks/useLocalFormContext';
+import { MultipleFreeSoloProps } from './types';
+import { PlusOneOutlined } from '@mui/icons-material';
+import CustomSkeleton from '../CustomSkeleton';
 
 const MultipleFreeSolo: FC<MultipleFreeSoloProps> = ({
   name,
@@ -19,7 +19,7 @@ const MultipleFreeSolo: FC<MultipleFreeSoloProps> = ({
   ...props
 }) => {
   const { control, setValue } = useFormContext();
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const context = useLocalFormContext();
 
   return (
@@ -28,9 +28,9 @@ const MultipleFreeSolo: FC<MultipleFreeSoloProps> = ({
       name={name}
       render={({ field: { onChange, value }, fieldState: { error } }) => {
         const handleClickOnAdd = () => {
-          if (inputValue.trim() === "") return;
+          if (inputValue.trim() === '') return;
           onChange([...(value || []), inputValue.trim()]);
-          setInputValue("");
+          setInputValue('');
         };
         return (
           <CustomSkeleton isLoading={context?.isLoading}>

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import Image from "./Image";
-import { ImageProps } from "next/image";
-import { DEFAULT_LOGO_PATH } from "@/constants/routes";
+import React, { FC } from 'react';
+import Image from './Image';
+import { ImageProps } from 'next/image';
+import { DEFAULT_LOGO_PATH } from '@/constants/routes';
 
 const Logo: FC<Partial<ImageProps>> = (props) => {
   return (

@@ -1,27 +1,26 @@
-"use client";
+'use client';
 
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Grid, Link, Typography, Box } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { ButtonWithLoading } from "@/components/ButtonWithLoading";
-import { FormBuilder } from "@/components/Fields";
-import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import { sendCode } from "@/services/iam";
-import { SignUpPayload } from "@/services/iam/types";
-import { onInvalidSubmit } from "@//utils/form";
-import * as yup from "yup";
-import { useRouter } from "next/navigation";
-import Title from "@/components/Auth/components/Title";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Grid, Link, Typography, Box } from '@mui/material';
+import { useMutation } from '@tanstack/react-query';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { ButtonWithLoading } from '@/components/ButtonWithLoading';
+import { FormBuilder } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import { SignUpPayload } from '@/services/iam/types';
+import { onInvalidSubmit } from '@//utils/form';
+import * as yup from 'yup';
+import { useRouter } from 'next/navigation';
+import Title from '@/components/Auth/components/Title';
 
 const SignUp = () => {
   const router = useRouter();
 
-  const labels: Record<keyof SignUpPayload | "confirmPassword", string> = {
-    email: "Email",
-    password: "Password",
-    name: "Full Name",
-    confirmPassword: "Confirm Password",
+  const labels: Record<keyof SignUpPayload | 'confirmPassword', string> = {
+    email: 'Email',
+    password: 'Password',
+    name: 'Full Name',
+    confirmPassword: 'Confirm Password',
   };
 
   const resolveSchema: yup.ObjectSchema<SignUpPayload> = yup.object({
@@ -31,7 +30,7 @@ const SignUp = () => {
       .string()
       .nullable()
       .required()
-      .oneOf([yup.ref("password")], "passwordMustMatch")
+      .oneOf([yup.ref('password')], 'passwordMustMatch')
       .label(labels.confirmPassword),
     name: yup.string().nullable().required().label(labels.name),
   });
@@ -45,10 +44,10 @@ const SignUp = () => {
     formState: { errors },
   } = methods;
 
-  console.log("errors>>>", errors);
+  console.log('errors>>>', errors);
 
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: sendCode,
+    //  mutationFn: sendCode,
   });
 
   const onSubmit: SubmitHandler<SignUpPayload> = async (payload) => {
@@ -57,32 +56,32 @@ const SignUp = () => {
         email: payload.email,
       },
     });
-    router.push("", { state: payload });
+    router.push('', { state: payload });
   };
 
-  const fields: FormBuilderProps["fields"] = {
+  const fields: FormBuilderProps['fields'] = {
     name: {
-      name: "name",
+      name: 'name',
       label: labels.name,
-      type: "String",
+      type: 'String',
       ui: {
         grid: {
           size: { xs: 12 },
         },
       },
       props: {
-        placeholder: "ex. John Doe",
+        placeholder: 'ex. John Doe',
         inputProps: {
-          autoComplete: "new-password",
+          autoComplete: 'new-password',
         },
       },
     },
     email: {
-      name: "email",
+      name: 'email',
       label: labels.email,
-      type: "String",
+      type: 'String',
       props: {
-        placeholder: "ex. johndoe@gmail.com",
+        placeholder: 'ex. johndoe@gmail.com',
       },
       ui: {
         grid: {
@@ -91,14 +90,14 @@ const SignUp = () => {
       },
     },
     password: {
-      name: "password",
+      name: 'password',
       label: labels.password,
-      type: "String",
+      type: 'String',
       props: {
-        type: "password",
+        type: 'password',
         placeholder: labels.password,
         inputProps: {
-          autoComplete: "new-password",
+          autoComplete: 'new-password',
         },
       },
       ui: {
@@ -108,14 +107,14 @@ const SignUp = () => {
       },
     },
     confirmPassword: {
-      type: "String",
-      name: "confirmPassword",
+      type: 'String',
+      name: 'confirmPassword',
       label: labels.confirmPassword,
       props: {
-        type: "password",
+        type: 'password',
         placeholder: labels.confirmPassword,
         inputProps: {
-          autoComplete: "new-password",
+          autoComplete: 'new-password',
         },
       },
       ui: {
@@ -138,7 +137,7 @@ const SignUp = () => {
       <FormProvider {...methods}>
         <Title
           title="Create Your Account"
-          sx={{ my: 1, justifyContent: "flex-start" }}
+          sx={{ my: 1, justifyContent: 'flex-start' }}
         />
         <Grid
           container
@@ -148,7 +147,7 @@ const SignUp = () => {
           sx={{
             mt: 3,
             flexDirection: (theme) =>
-              theme.direction === "rtl" ? "row-reverse" : "row",
+              theme.direction === 'rtl' ? 'row-reverse' : 'row',
           }}
         >
           <FormBuilder fields={fields} />
