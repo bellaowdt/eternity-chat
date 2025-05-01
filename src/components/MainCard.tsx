@@ -16,7 +16,7 @@ import { useTheme } from '@mui/material/styles';
 // project import
 
 // types
-import { KeyedObject } from 'src/types/root';
+import { KeyedObject } from '@/types/root';
 
 // header style
 const headerSX = {
@@ -101,7 +101,7 @@ const MainCard = forwardRef(
             },
           }),
           ...(modal && {
-            position: 'absolute' as 'absolute',
+            position: 'absolute' as const,
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',

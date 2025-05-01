@@ -1,26 +1,26 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo } from 'react';
 
 // material-ui
-import { CssBaseline, GlobalStyles, StyledEngineProvider } from "@mui/material";
+import { CssBaseline, GlobalStyles, StyledEngineProvider } from '@mui/material';
 import {
   createTheme,
   ThemeOptions,
   ThemeProvider,
   Theme,
   TypographyVariantsOptions,
-} from "@mui/material/styles";
+} from '@mui/material/styles';
 
-import Palette from "./palette";
-import Typography from "./typography";
-import CustomShadows from "./shadows";
-import componentsOverride from "./overrides";
+import Palette from './palette';
+import Typography from './typography';
+import CustomShadows from './shadows';
+import componentsOverride from './overrides';
 
 // types
-import { CustomShadowProps } from "src/types/theme";
-import { LanguagesType } from "src/configs/languages";
-import { Direction } from "@mui/system";
-import { useSelector } from "@/store";
-import { grey } from "@mui/material/colors";
+import { CustomShadowProps } from '@/types/theme';
+import { Direction } from '@mui/system';
+import { useSelector } from '@/store';
+import { grey } from '@mui/material/colors';
+import { LanguagesType } from '@/configs/languages';
 
 // types
 type ThemeCustomizationProps = {
@@ -31,17 +31,17 @@ export const languageMapper: Record<
   LanguagesType,
   { direction: Direction; fontFamily: string }
 > = {
-  "en-US": {
-    direction: "ltr",
-    fontFamily: "manrope, noto-Arabic",
+  'en-US': {
+    direction: 'ltr',
+    fontFamily: 'manrope, noto-Arabic',
   },
-  "ar-OM": {
-    direction: "rtl",
-    fontFamily: "noto-Arabic, manrope",
+  'ar-OM': {
+    direction: 'rtl',
+    fontFamily: 'noto-Arabic, manrope',
   },
-  "fa-IR": {
-    direction: "rtl",
-    fontFamily: "yekan-bakh, manrope",
+  'fa-IR': {
+    direction: 'rtl',
+    fontFamily: 'yekan-bakh, manrope',
   },
 };
 
@@ -52,7 +52,7 @@ export default function ThemeCustomization({
 
   const theme: Theme = useMemo<Theme>(
     () => Palette(mode, presetColor),
-    [mode, presetColor]
+    [mode, presetColor],
   );
 
   const themeTypography: TypographyVariantsOptions =
@@ -63,7 +63,7 @@ export default function ThemeCustomization({
 
   const themeCustomShadows: CustomShadowProps = useMemo<CustomShadowProps>(
     () => CustomShadows(theme),
-    [theme]
+    [theme],
   );
 
   const themeOptions: ThemeOptions = useMemo(
@@ -89,7 +89,7 @@ export default function ThemeCustomization({
       customShadows: themeCustomShadows,
       typography: themeTypography,
     }),
-    [theme, themeTypography, themeCustomShadows]
+    [theme, themeTypography, themeCustomShadows],
   );
 
   const themes: Theme = createTheme(themeOptions);
@@ -101,14 +101,14 @@ export default function ThemeCustomization({
         <CssBaseline />
         <GlobalStyles
           styles={{
-            "*::-webkit-scrollbar-track": {
+            '*::-webkit-scrollbar-track': {
               backgroundColor: grey[200],
             },
-            "*::-webkit-scrollbar": {
+            '*::-webkit-scrollbar': {
               width: 8,
-              backgroundColor: "#F5F5F5",
+              backgroundColor: '#F5F5F5',
             },
-            "*::-webkit-scrollbar-thumb": {
+            '*::-webkit-scrollbar-thumb': {
               backgroundColor: grey[500],
             },
           }}

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Box,
@@ -11,28 +11,28 @@ import {
   Stack,
   Tooltip,
   Typography,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { ReactNode, useRef, useState } from "react";
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { ReactNode, useRef, useState } from 'react';
 
 // project import
-import Avatar from "@/components/@extended/Avatar";
-import Transitions from "@/components/@extended/Transitions";
-import { IconButtonWithLoading } from "@/components/IconButtonWithLoading";
-import MainCard from "@/components/MainCard";
-import useGetAccountDetail from "@/hooks/useGetAccountDetail";
-import { logout } from "@/services/account";
-import { clearPrivileges } from "@/store/reducers/privileges";
-import { LogoutOutlined } from "@ant-design/icons";
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import ProfileTab from "./ProfileTab";
-import SettingTab from "./SettingTab";
+import Avatar from '@/components/@extended/Avatar';
+import Transitions from '@/components/@extended/Transitions';
+import { IconButtonWithLoading } from '@/components/IconButtonWithLoading';
+import MainCard from '@/components/MainCard';
+import useGetAccountDetail from '@/hooks/useGetAccountDetail';
+import { logout } from '@/services/account';
+import { clearPrivileges } from '@/store/reducers/privileges';
+import { LogoutOutlined } from '@ant-design/icons';
+import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import ProfileTab from './ProfileTab';
+import SettingTab from './SettingTab';
+import { useTranslations } from 'next-intl';
 
 // assets
-const avatar1 = "/assets/images/users/avatar-1.png";
+const avatar1 = '/assets/images/users/avatar-1.png';
 
 // types
 interface TabPanelProps {
@@ -46,7 +46,7 @@ interface TabPanelProps {
 
 const Profile = () => {
   const theme = useTheme();
-  const { t } = useTranslation();
+  const t = useTranslations();
   const accountDetailQuery = useGetAccountDetail();
 
   const data = accountDetailQuery?.data?.data?.data;
@@ -62,7 +62,7 @@ const Profile = () => {
   const handleLogout = async () => {
     await mutateAsync();
     dispatch(clearPrivileges());
-    navigate.push("/login");
+    navigate.push('/login');
   };
 
   const anchorRef = useRef<any>(null);
@@ -79,29 +79,29 @@ const Profile = () => {
   };
 
   const iconBackColorOpen =
-    theme.palette.mode === "dark" ? "grey.200" : "grey.300";
+    theme.palette.mode === 'dark' ? 'grey.200' : 'grey.300';
 
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
       <ButtonBase
         sx={{
           p: 0.25,
-          bgcolor: open ? iconBackColorOpen : "transparent",
+          bgcolor: open ? iconBackColorOpen : 'transparent',
           borderRadius: 1,
-          "&:hover": {
+          '&:hover': {
             bgcolor:
-              theme.palette.mode === "dark"
-                ? "secondary.light"
-                : "secondary.lighter",
+              theme.palette.mode === 'dark'
+                ? 'secondary.light'
+                : 'secondary.lighter',
           },
-          "&:focus-visible": {
+          '&:focus-visible': {
             outline: `2px solid ${theme.palette.secondary.dark}`,
             outlineOffset: 2,
           },
         }}
         aria-label="open profile"
         ref={anchorRef}
-        aria-controls={open ? "profile-grow" : undefined}
+        aria-controls={open ? 'profile-grow' : undefined}
         aria-haspopup="true"
         onClick={handleToggle}
       >
@@ -120,7 +120,7 @@ const Profile = () => {
         popperOptions={{
           modifiers: [
             {
-              name: "offset",
+              name: 'offset',
               options: {
                 offset: [0, 9],
               },
@@ -137,7 +137,7 @@ const Profile = () => {
                   width: 290,
                   minWidth: 240,
                   maxWidth: 290,
-                  [theme.breakpoints.down("md")]: {
+                  [theme.breakpoints.down('md')]: {
                     maxWidth: 250,
                   },
                 }}
@@ -171,11 +171,11 @@ const Profile = () => {
                           </Stack>
                         </Grid>
                         <Grid>
-                          <Tooltip title={t("common:buttons.logout")}>
+                          <Tooltip title={t('common:buttons.logout')}>
                             <IconButtonWithLoading
                               isLoading={isPending}
                               size="large"
-                              sx={{ color: "text.primary" }}
+                              sx={{ color: 'text.primary' }}
                               onClick={handleLogout}
                             >
                               <LogoutOutlined />

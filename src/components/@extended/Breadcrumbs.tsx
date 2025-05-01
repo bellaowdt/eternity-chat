@@ -1,21 +1,21 @@
-import { CSSProperties, ReactElement, useEffect, useState } from "react";
-import { Link, useLocation } from "next/navigation";
+import { CSSProperties, ReactElement, useEffect, useState } from 'react';
+import { Link, useLocation } from 'next/navigation';
 
 // material-ui
-import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
-import { useTheme } from "@mui/material/styles";
-import { Divider, Grid, Typography } from "@mui/material";
+import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
+import { useTheme } from '@mui/material/styles';
+import { Divider, Grid, Typography } from '@mui/material';
 
 // project imports
-import MainCard from "../MainCard";
+import MainCard from '../MainCard';
 
 // assets
-import { ApartmentOutlined, HomeOutlined, HomeFilled } from "@ant-design/icons";
+import { ApartmentOutlined, HomeOutlined, HomeFilled } from '@ant-design/icons';
 
 // types
-import { OverrideIcon } from "src/types/root";
-import { NavItemType } from "src/types/menu";
-import { useTranslation } from "react-i18next";
+import { OverrideIcon } from '@/types/root';
+import { NavItemType } from '@/types/menu';
+import { useTranslations } from 'next-intl';
 
 // ==============================|| BREADCRUMBS ||============================== //
 
@@ -57,19 +57,19 @@ const Breadcrumbs = ({
   const [main, setMain] = useState<NavItemType | undefined>();
   const [item, setItem] = useState<NavItemType>();
 
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const iconSX = {
     marginRight: theme.spacing(0.75),
     marginTop: `-${theme.spacing(0.25)}`,
-    width: "1rem",
-    height: "1rem",
+    width: '1rem',
+    height: '1rem',
     color: theme.palette.secondary.main,
   };
 
   useEffect(() => {
     navigation?.items?.map((menu: NavItemType, index: number) => {
-      if (menu.type && menu.type === "group") {
+      if (menu.type && menu.type === 'group') {
         getCollapse(menu as { children: NavItemType[]; type?: string });
       }
       return false;
@@ -77,17 +77,17 @@ const Breadcrumbs = ({
   });
 
   // only used for component demo breadcrumbs
-  if (location.pathname === "/components-overview/breadcrumbs") {
-    location.pathname = "/dashboard/analytics";
+  if (location.pathname === '/components-overview/breadcrumbs') {
+    location.pathname = '/dashboard/analytics';
   }
 
   // set active item state
   const getCollapse = (menu: NavItemType) => {
     if (menu.children) {
       menu.children.filter((collapse: NavItemType) => {
-        if (collapse.type && collapse.type === "collapse") {
+        if (collapse.type && collapse.type === 'collapse') {
           getCollapse(collapse as { children: NavItemType[]; type?: string });
-        } else if (collapse.type && collapse.type === "item") {
+        } else if (collapse.type && collapse.type === 'item') {
           if (location.pathname === collapse.url) {
             setMain(menu);
             setItem(collapse);
@@ -101,27 +101,27 @@ const Breadcrumbs = ({
   // item separator
   const SeparatorIcon = separator!;
   const separatorIcon = separator ? (
-    <SeparatorIcon style={{ fontSize: "0.75rem", marginTop: 2 }} />
+    <SeparatorIcon style={{ fontSize: '0.75rem', marginTop: 2 }} />
   ) : (
-    "/"
+    '/'
   );
 
   let mainContent;
   let itemContent;
   let breadcrumbContent: ReactElement = <Typography />;
-  let itemTitle: NavItemType["title"] = "";
+  let itemTitle: NavItemType['title'] = '';
   let CollapseIcon;
   let ItemIcon;
 
   // collapse item
-  if (main && main.type === "collapse") {
+  if (main && main.type === 'collapse') {
     CollapseIcon = main.icon ? main.icon : ApartmentOutlined;
     mainContent = (
       <Typography
         component={Link}
         to={document.location.pathname}
         variant="h6"
-        sx={{ textDecoration: "none" }}
+        sx={{ textDecoration: 'none' }}
         color="textSecondary"
       >
         {icons && <CollapseIcon style={iconSX} />}
@@ -131,7 +131,7 @@ const Breadcrumbs = ({
   }
 
   // items
-  if (item && item.type === "item") {
+  if (item && item.type === 'item') {
     itemTitle = item.title;
 
     ItemIcon = item.icon ? item.icon : ApartmentOutlined;
@@ -149,7 +149,7 @@ const Breadcrumbs = ({
           border={card}
           sx={
             card === false
-              ? { mb: 3, bgcolor: "transparent", ...sx }
+              ? { mb: 3, bgcolor: 'transparent', ...sx }
               : { mb: 3, ...sx }
           }
           {...others}
@@ -158,9 +158,9 @@ const Breadcrumbs = ({
         >
           <Grid
             container
-            direction={rightAlign ? "row" : "column"}
-            justifyContent={rightAlign ? "space-between" : "flex-start"}
-            alignItems={rightAlign ? "center" : "flex-start"}
+            direction={rightAlign ? 'row' : 'column'}
+            justifyContent={rightAlign ? 'space-between' : 'flex-start'}
+            alignItems={rightAlign ? 'center' : 'flex-start'}
             spacing={1}
           >
             {title && !titleBottom && (
@@ -179,13 +179,13 @@ const Breadcrumbs = ({
                   to="/"
                   color="textSecondary"
                   variant="h6"
-                  sx={{ textDecoration: "none" }}
+                  sx={{ textDecoration: 'none' }}
                 >
                   {icons && <HomeOutlined style={iconSX} />}
                   {icon && !icons && (
                     <HomeFilled style={{ ...iconSX, marginRight: 0 }} />
                   )}
-                  {(!icon || icons) && t("common:breadcrumbs.home")}
+                  {(!icon || icons) && t('common:breadcrumbs.home')}
                 </Typography>
                 {mainContent}
                 {itemContent}

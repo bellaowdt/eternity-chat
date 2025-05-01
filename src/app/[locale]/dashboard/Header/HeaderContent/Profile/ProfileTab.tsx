@@ -9,7 +9,7 @@ import {
 
 // assets
 import { LogoutOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   handleLogout: () => void;
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const ProfileTab = ({ handleLogout, isPending }: Props) => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   return (
     <List
       component="nav"

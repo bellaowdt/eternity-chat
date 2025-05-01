@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 import {
   Link,
@@ -8,18 +8,18 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-} from "@mui/material";
+} from '@mui/material';
 
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { useTranslation } from "react-i18next";
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { useTranslations } from 'next-intl';
 
 const SettingTab = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const handleListItemClick = (
     event: React.MouseEvent<HTMLDivElement>,
-    index: number
+    index: number,
   ) => {
     setSelectedIndex(index);
   };
@@ -27,7 +27,7 @@ const SettingTab = () => {
   return (
     <List
       component="nav"
-      sx={{ p: 0, "& .MuiListItemIcon-root": { minWidth: 32 } }}
+      sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32 } }}
     >
       {/* <ListItemButton selected={selectedIndex === 0} onClick={(event: React.MouseEvent<HTMLDivElement>) => handleListItemClick(event, 0)}>
         <ListItemIcon>
@@ -43,7 +43,7 @@ const SettingTab = () => {
         <ListItemIcon>
           <LockOutlined />
         </ListItemIcon>
-        <ListItemText primary={t("common:buttons.changePassword")} />
+        <ListItemText primary={t('common:buttons.changePassword')} />
       </ListItemButton>
       <ListItemButton
         selected={selectedIndex === 1}
@@ -54,7 +54,7 @@ const SettingTab = () => {
         <ListItemIcon>
           <UserOutlined />
         </ListItemIcon>
-        <ListItemText primary={t("common:buttons.account")} />
+        <ListItemText primary={t('common:buttons.account')} />
       </ListItemButton>
       {/* <ListItemButton
         selected={selectedIndex === 3}

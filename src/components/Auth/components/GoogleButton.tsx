@@ -1,12 +1,9 @@
 import { Stack, Typography } from '@mui/material';
 import { useGoogleLogin } from '@react-oauth/google';
-import { useTranslation } from 'react-i18next';
 
 const GoogleButton = () => {
-  const { t } = useTranslation();
-
   const handleGoogleLogin = useGoogleLogin({
-    onSuccess: tokenResponse => console.log(tokenResponse),
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
 
   return (
@@ -19,7 +16,7 @@ const GoogleButton = () => {
       sx={{
         p: 1,
         border: '1px solid',
-        borderColor: theme => theme.palette.divider,
+        borderColor: (theme) => theme.palette.divider,
         cursor: 'pointer',
       }}
     >
@@ -32,7 +29,8 @@ const GoogleButton = () => {
           flexGrow: 1,
         }}
       >
-        {t('common:buttons.continueWithGoogle')}
+        {/* {t('common:buttons.continueWithGoogle')} */}
+        continueWithGoogle
       </Typography>
     </Stack>
   );
