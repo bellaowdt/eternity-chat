@@ -3,10 +3,8 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import CheckClubRulesForm from '../components/CheckRulesForm';
-import { useTranslations } from 'next-intl';
 
 const WelcomeAboard = () => {
-  const t = useTranslations();
   return (
     <Box
       display="flex"
@@ -30,7 +28,6 @@ const WelcomeAboard = () => {
         mb={4}
       >
         <Typography variant="h4" mb={2}>
-          aaaaaL: {t('siteInfo.title')}
           Let’s Begin with Your Loved
           <br />
           One’s Story

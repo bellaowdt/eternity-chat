@@ -1,21 +1,25 @@
 import { languages, Locale } from '@/navigation';
-import { AppProvider, TanstackProvider } from '@/providers';
-import I18nProvider from '@/providers/I18nProvider';
-import ToastProvider from '@/providers/ToastProvider';
+import {
+  AppProvider,
+  ConfirmAlertProvider,
+  TanstackProvider,
+  I18nProvider,
+  ToastProvider,
+  RTLProvider,
+  CustomLocalizationProvider,
+} from '@/providers';
 import { defaultTheme, globalStyles, persianTheme } from '@/config/theme';
-import ConfirmAlertProvider from '@/providers/ConfirmAlertProvider';
 import {
   CssBaseline,
-  GlobalStyles,
   ThemeOptions,
   ThemeProvider,
+  GlobalStyles,
 } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { userAgent } from 'next/server';
-
-import { PropsWithChildren, ReactNode, ReactNode } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 type LocaleLayoutParams = {
   children: ReactNode;
@@ -38,9 +42,7 @@ export default async function LocaleLayout({
     en: defaultTheme,
     fa: persianTheme,
   };
-
   const { locale } = await params;
-  console.log('🚀 ~ locale:', locale);
 
   return (
     <html lang={locale} dir={languages?.[locale]?.direction}>
@@ -52,19 +54,13 @@ export default async function LocaleLayout({
               <AppProvider userAgent={reqUserAgent}>
                 <CssBaseline />
                 <GlobalStyles styles={globalStyles} />
-                {/* <RTLProvider>
-                  <CustomLocalizationProvider locale={locale}>*/}
-                <I18nProvider locale={locale}>
-                  <ConfirmAlertProvider>{children}</ConfirmAlertProvider>
-                </I18nProvider>
-                {/*
-                  <CustomLocalizationProvider locale={locale}>*/}
-                <I18nProvider locale={locale}>
-                  <ConfirmAlertProvider>{children}</ConfirmAlertProvider>
-                </I18nProvider>
-                {/*
-                </CustomLocalizationProvider>
-                </RTLProvider> */}
+                <RTLProvider locale={locale}>
+                  <CustomLocalizationProvider locale={locale}>
+                    <I18nProvider locale={locale}>
+                      <ConfirmAlertProvider>{children}</ConfirmAlertProvider>
+                    </I18nProvider>
+                  </CustomLocalizationProvider>
+                </RTLProvider>
               </AppProvider>
             </ThemeProvider>
           </AppRouterCacheProvider>
