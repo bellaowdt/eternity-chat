@@ -35,9 +35,7 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
           width: collapsed ? miniWidth : drawerWidth,
           boxSizing: 'border-box',
           transition: 'width 0.3s',
-          borderRight: 'none',
-          boxShadow: 'none',
-          bgcolor: '#f7f7f7', // TODO
+          bgcolor: '#ebebeb', // TODO
         },
       }}
     >

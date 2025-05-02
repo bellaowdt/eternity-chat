@@ -1,32 +1,36 @@
 'use client';
 
+import { Box } from '@mui/material';
 import { useState } from 'react';
-import { Box, Container, Typography } from '@mui/material';
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
+import { useAppContext } from '@/hooks/useAppContext';
+import MobileSidebar from './components/MobileSidebar';
 
 export default function Home() {
-  const [collapsed, setCollapsed] = useState(true);
-  const toggleCollapsed = () => setCollapsed(!collapsed);
+  const { isMobile } = useAppContext();
+  const [collapsed, setCollapsed] = useState(false);
+  const toggleDrawer = () => setCollapsed(!collapsed);
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: '#f3f3f3' }}>
-      {/* TODO: change color */}
-      <Topbar toggleCollapsed={toggleCollapsed} />
-      <Sidebar collapsed={collapsed} />
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          mt: 8,
-          transition: 'margin-left 0.3s',
-        }}
-      >
-        <Container>
-          <Typography variant="h6">Bahari</Typography>
-          <Typography variant="caption">Default Workspace</Typography>
-        </Container>
+    <Box sx={{ display: 'flex', height: '100vh', bgcolor: '#f7f7f7' }}>
+      {isMobile ? (
+        <MobileSidebar toggleDrawer={toggleDrawer} collapsed={collapsed} />
+      ) : (
+        <Sidebar collapsed={collapsed} />
+      )}
+      <Box display="felx" flexGrow={1} component="main">
+        <Topbar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
+        <Box
+          display="flex"
+          borderRadius={1}
+          bgcolor="common.white"
+          minHeight={600}
+          px={{ xs: 2, sm: 3 }}
+          mx={{ xs: 1, sm: 0 }}
+        >
+          main area
+        </Box>
       </Box>
     </Box>
   );

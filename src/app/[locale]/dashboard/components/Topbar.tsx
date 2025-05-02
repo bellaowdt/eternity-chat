@@ -1,30 +1,32 @@
-import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import { IconButton, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FC } from 'react';
 
 interface TopbarProps {
   toggleCollapsed: VoidFunction;
+  collapsed: boolean;
 }
 
-const Topbar: FC<TopbarProps> = ({ toggleCollapsed }) => (
-  <AppBar
-    position="fixed"
-    sx={{
-      width: '100%',
-      bgcolor: '#ebebeb', //TODO
-      zIndex: (theme) => theme.zIndex.drawer + 1,
-    }}
-    elevation={0}
-  >
+const Topbar: FC<TopbarProps> = ({ collapsed, toggleCollapsed }) => {
+  const iconBackColorOpen = 'grey.500';
+  const iconBackColor = 'grey.300';
+
+  return (
     <Toolbar>
-      <IconButton edge="start" onClick={toggleCollapsed} sx={{ mr: 2 }}>
+      <IconButton
+        onClick={toggleCollapsed}
+        edge="start"
+        color="secondary"
+        sx={{
+          color: 'text.primary',
+          borderRadius: 0.2,
+          bgcolor: collapsed ? iconBackColorOpen : iconBackColor,
+        }}
+      >
         <MenuIcon />
       </IconButton>
-      <Typography variant="h6" color="common.black">
-        Eternity Chat
-      </Typography>
     </Toolbar>
-  </AppBar>
-);
+  );
+};
 
 export default Topbar;
