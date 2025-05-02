@@ -1,8 +1,7 @@
-import { ToneEnum } from "../common/types";
-import { Basic, Response } from "../types/common";
+import { ToneEnum } from '../common/types';
+import { Basic, Response } from '../types/common';
 
-export interface ICreatePersonality {
-  user_id: string;
+export interface IPersonality {
   name: string;
   gender: string;
   age: number;
@@ -10,7 +9,33 @@ export interface ICreatePersonality {
   personality: string;
   tone: ToneEnum;
 }
+export interface Personality {
+  name: string;
+  details: IPersonality;
+}
+
+export interface UserWithPersonalities {
+  user_id: string;
+  total_personalities: number;
+  personalities: Personality[];
+}
+
+export interface GetPersonalitiesResponse {
+  total_users: number;
+  total_personalities: number;
+  users: UserWithPersonalities[];
+}
+
+export interface ICreatePersonality extends IPersonality {
+  user_id: string;
+}
 
 export interface CreatePersonalityService {
   (args: { params: ICreatePersonality }): Response<Basic>;
+}
+
+export interface ListPersonalitiesService {
+  (args: {
+    params: { user_id?: string | null };
+  }): Response<GetPersonalitiesResponse>;
 }

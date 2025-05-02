@@ -1,19 +1,20 @@
-"use client";
+'use client';
 
-import Title from "@/components/Auth/components/Title";
-import { FormBuilder, Option } from "@/components/Fields";
-import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
-import { generalInformationUpdate } from "@/services/onboarding";
-import { PersonalityTraitsPayload } from "@/services/onboarding/types";
-import { onInvalidSubmit } from "@/utils/form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid, Typography } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { FC } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
-import SkipStep from "./SkipStep";
+import Title from '@/components/Auth/components/Title';
+import { FormBuilder, Option } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
+import { generalInformationUpdate } from '@/services/onboarding';
+import { PersonalityTraitsPayload } from '@/services/onboarding/types';
+import { onInvalidSubmit } from '@/utils/form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box, Grid, Typography } from '@mui/material';
+import { useMutation } from '@tanstack/react-query';
+import { FC } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import SkipStep from './SkipStep';
+import useGetPersonalities from '../../hooks/useGetPersonalities';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;
@@ -21,8 +22,8 @@ interface GeneralInformationProps {
 
 const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
   const labels: Record<keyof PersonalityTraitsPayload, string> = {
-    favoriteActivities: "Favorite Activities",
-    personality: "Personality",
+    favoriteActivities: 'Favorite Activities',
+    personality: 'Personality',
   };
 
   const resolveSchema: yup.ObjectSchema<PersonalityTraitsPayload> = yup.object({
@@ -48,47 +49,50 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
     // await mutateAsync({ payload });
   };
 
+  const { data } = useGetPersonalities({ user_id: null });
+  console.log('data', data);
+
   // TODO: Get from API
   const personalityList: Option[] = [
     {
       id: 1,
-      label: "Caring",
-      value: "Caring",
+      label: 'Caring',
+      value: 'Caring',
     },
     {
       id: 2,
-      label: "Funny",
-      value: "Funny",
+      label: 'Funny',
+      value: 'Funny',
     },
     {
       id: 3,
-      label: "Thoughtful",
-      value: "Thoughtful",
+      label: 'Thoughtful',
+      value: 'Thoughtful',
     },
     {
       id: 4,
-      label: "Adventurous",
-      value: "Adventurous",
+      label: 'Adventurous',
+      value: 'Adventurous',
     },
     {
       id: 5,
-      label: "Creative",
-      value: "Creative",
+      label: 'Creative',
+      value: 'Creative',
     },
     {
       id: 6,
-      label: "Calm",
-      value: "Calm",
+      label: 'Calm',
+      value: 'Calm',
     },
   ];
 
-  const fields: FormBuilderProps["fields"] = {
+  const fields: FormBuilderProps['fields'] = {
     favoriteActivities: {
-      name: "favoriteActivities",
-      label: "Did they have any hobbies or favorite activities?",
-      type: "String",
+      name: 'favoriteActivities',
+      label: 'Did they have any hobbies or favorite activities?',
+      type: 'String',
       props: {
-        placeholder: "Type Here",
+        placeholder: 'Type Here',
       },
       ui: {
         grid: {
@@ -97,7 +101,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
       },
     },
     personalityLabel: {
-      type: "Custom",
+      type: 'Custom',
       component: (
         <Typography variant="body1" pt={3}>
           Which words best describe their personality?
@@ -113,7 +117,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
       acc[item.value] = {
         name: item.value,
         label: item.label,
-        type: "Checkbox",
+        type: 'Checkbox',
         ui: {
           grid: {
             size: { xs: 12 },
@@ -121,7 +125,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
         },
       };
       return acc;
-    }, {} as FormBuilderProps["fields"]),
+    }, {} as FormBuilderProps['fields']),
   };
 
   return (
@@ -135,7 +139,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
       <FormProvider {...methods}>
         <Title
           title="Personality Traits"
-          sx={{ my: 5, justifyContent: "flex-start" }}
+          sx={{ my: 5, justifyContent: 'flex-start' }}
         />
         <Grid
           container

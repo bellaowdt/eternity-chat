@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import Title from "@/components/Auth/components/Title";
-import { FormBuilder, Option } from "@/components/Fields";
-import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
-import { generalInformationUpdate } from "@/services/onboarding";
-import { GeneralInformationPayload } from "@/services/onboarding/types";
-import { onInvalidSubmit } from "@/utils/form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
+import Title from '@/components/Auth/components/Title';
+import { FormBuilder, Option } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
+import { generalInformationUpdate } from '@/services/onboarding';
+import { GeneralInformationPayload } from '@/services/onboarding/types';
+import { onInvalidSubmit } from '@/utils/form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box, Grid } from '@mui/material';
+import { useMutation } from '@tanstack/react-query';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
 const GeneralInformation = () => {
   const labels: Record<keyof GeneralInformationPayload, string> = {
-    name: "Name",
-    relationship: "Relationship",
-    gender: "Gender",
+    name: 'Name',
+    relationship: 'Relationship',
+    gender: 'Gender',
   };
 
   const resolveSchema: yup.ObjectSchema<GeneralInformationPayload> = yup.object(
@@ -29,7 +29,7 @@ const GeneralInformation = () => {
         .required()
         .label(labels.relationship),
       gender: yup.string().nullable().required().label(labels.gender),
-    }
+    },
   );
   const methods = useForm<GeneralInformationPayload>({
     resolver: yupResolver(resolveSchema),
@@ -42,7 +42,7 @@ const GeneralInformation = () => {
   });
 
   const onSubmit: SubmitHandler<GeneralInformationPayload> = async (
-    payload
+    payload,
   ) => {
     await mutateAsync({ payload });
   };
@@ -51,41 +51,41 @@ const GeneralInformation = () => {
   const relationshipList: Option[] = [
     {
       id: 1,
-      label: "Friend",
-      value: "Friend",
+      label: 'Friend',
+      value: 'Friend',
     },
     {
       id: 2,
-      label: "Family",
-      value: "Family",
+      label: 'Family',
+      value: 'Family',
     },
     {
       id: 3,
-      label: "Spouse",
-      value: "Spouse",
+      label: 'Spouse',
+      value: 'Spouse',
     },
   ];
 
   const genderList: Option[] = [
     {
-      id: 1,
-      label: "Female",
-      value: "Female",
+      id: 10,
+      label: 'Female',
+      value: 'Female',
     },
     {
-      id: 2,
-      label: "Male",
-      value: "Male",
+      id: 20,
+      label: 'Male',
+      value: 'Male',
     },
   ];
 
-  const fields: FormBuilderProps["fields"] = {
+  const fields: FormBuilderProps['fields'] = {
     name: {
-      name: "name",
-      label: "What was their name?*",
-      type: "String",
+      name: 'name',
+      label: 'What was their name?*',
+      type: 'String',
       props: {
-        placeholder: "ex. John Doe",
+        placeholder: 'ex. John Doe',
       },
       ui: {
         grid: {
@@ -94,12 +94,12 @@ const GeneralInformation = () => {
       },
     },
     relationship: {
-      name: "relationship",
-      label: "What was your relationship with them?",
-      type: "Selective",
+      name: 'relationship',
+      label: 'What was your relationship with them?',
+      type: 'Selective',
       options: relationshipList || [],
       props: {
-        placeholder: "What was your relationship with them?",
+        placeholder: 'What was your relationship with them?',
       },
       ui: {
         grid: {
@@ -108,12 +108,12 @@ const GeneralInformation = () => {
       },
     },
     gender: {
-      name: "gender",
-      label: "Their Gender (Optional)",
-      type: "Selective",
+      name: 'gender',
+      label: 'Their Gender (Optional)',
+      type: 'Selective',
       options: genderList || [],
       props: {
-        placeholder: "Their Gender (Optional)",
+        placeholder: 'Their Gender (Optional)',
       },
       ui: {
         grid: {
@@ -134,7 +134,7 @@ const GeneralInformation = () => {
       <FormProvider {...methods}>
         <Title
           title="General Information"
-          sx={{ my: 5, justifyContent: "flex-start" }}
+          sx={{ my: 5, justifyContent: 'flex-start' }}
         />
         <Grid
           container
