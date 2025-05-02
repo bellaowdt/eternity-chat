@@ -1,5 +1,4 @@
 import axios from '../../lib/axios';
-
 import { CreatePersonalityService, ListPersonalitiesService } from './types';
 
 const BASE_URL = '/api/v1';

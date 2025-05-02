@@ -15,6 +15,9 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
 import useGetPersonalities from '../../hooks/useGetPersonalities';
+import { createPersonality } from '@/services/personality';
+import { ICreatePersonality } from '@/services/personality/types';
+import { GenderEnum, ToneEnum } from '@/services/common/types';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;
@@ -42,15 +45,30 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
   const { handleSubmit } = methods;
 
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: generalInformationUpdate,
+    mutationFn: createPersonality,
   });
 
   const onSubmit: SubmitHandler<PersonalityTraitsPayload> = async (payload) => {
     // await mutateAsync({ payload });
   };
 
+  // TODO: move to correct place
   const { data } = useGetPersonalities({ user_id: null });
   console.log('data', data);
+
+  const handleCreatePeronlity = async () => {
+    const params: ICreatePersonality = {
+      user_id: 'BQQywmO6uIbp3jC8Fet3iD9cG063',
+      age: 32,
+      name: 'Bella',
+      occupation: 'Developer',
+      tone: ToneEnum.Happy,
+      gender: GenderEnum.Female,
+      personality: 'Good Person',
+    };
+    await mutateAsync({ params });
+  };
+  // End TODO
 
   // TODO: Get from API
   const personalityList: Option[] = [
@@ -149,6 +167,15 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
         >
           <FormBuilder fields={fields} />
           <Grid size={{ xs: 12 }} textAlign="center">
+            <GradientButtonWithLoading
+              isLoading={isPending}
+              onClick={handleCreatePeronlity}
+              variant="contained"
+              color="primary"
+              size="large"
+            >
+              Add Personality
+            </GradientButtonWithLoading>
             <GradientButtonWithLoading
               isLoading={isPending}
               type="submit"

@@ -1,9 +1,9 @@
-import { ToneEnum } from '../common/types';
+import { GenderEnum, ToneEnum } from '../common/types';
 import { Basic, Response } from '../types/common';
 
 export interface IPersonality {
   name: string;
-  gender: string;
+  gender: GenderEnum;
   age: number;
   occupation: string;
   personality: string;

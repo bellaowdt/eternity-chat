@@ -4,7 +4,12 @@ export enum SortOrientationEnum {
 }
 
 export enum ToneEnum {
-  Natural = 0,
-  Happy = 1,
-  Sad = 2,
+  Natural = 'neutral',
+  Happy = 'happy',
+  Sad = 'sad',
+}
+
+export enum GenderEnum {
+  Male = 'Male',
+  Female = 'Female',
 }
