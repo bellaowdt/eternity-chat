@@ -1,3 +1,4 @@
+import { DRAWER_WIDTH } from '@/constants/general';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
@@ -33,14 +34,14 @@ const MobileSidebar: FC<MobileSidebarProps> = ({ collapsed, toggleDrawer }) => {
       onClose={toggleDrawer}
       sx={{
         '& .MuiDrawer-paper': {
-          width: 240,
+          width: DRAWER_WIDTH,
           borderRight: 'none',
           boxShadow: 'none',
           bgcolor: 'white',
         },
       }}
     >
-      <Box sx={{ width: 240 }}>
+      <Box sx={{ width: DRAWER_WIDTH }}>
         <List>
           {menuItems.map(({ text, icon }) => (
             <ListItem disablePadding key={text}>

@@ -7,13 +7,19 @@ import Topbar from './components/Topbar';
 import { useAppContext } from '@/hooks/useAppContext';
 import MobileSidebar from './components/MobileSidebar';
 
-export default function Home() {
+const Home = () => {
   const { isMobile } = useAppContext();
   const [collapsed, setCollapsed] = useState(false);
   const toggleDrawer = () => setCollapsed(!collapsed);
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh', bgcolor: '#f7f7f7' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        height: '100vh',
+        bgcolor: (theme) => theme.palette.background.paper,
+      }}
+    >
       {isMobile ? (
         <MobileSidebar toggleDrawer={toggleDrawer} collapsed={collapsed} />
       ) : (
@@ -25,7 +31,7 @@ export default function Home() {
           display="flex"
           borderRadius={1}
           bgcolor="common.white"
-          minHeight={600}
+          minHeight={600} //TODO
           px={{ xs: 2, sm: 3 }}
           mx={{ xs: 1, sm: 0 }}
         >
@@ -34,4 +40,6 @@ export default function Home() {
       </Box>
     </Box>
   );
-}
+};
+
+export default Home;

@@ -8,8 +8,8 @@ interface TopbarProps {
 }
 
 const Topbar: FC<TopbarProps> = ({ collapsed, toggleCollapsed }) => {
-  const iconBackColorOpen = 'grey.500';
-  const iconBackColor = 'grey.300';
+  const iconBackColorOpen = 'grey.200';
+  const iconBackColor = 'grey.100';
 
   return (
     <Toolbar>

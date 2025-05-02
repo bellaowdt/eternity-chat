@@ -1,20 +1,21 @@
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Avatar,
-  Typography,
-  Box,
-  Divider,
-  ListItemButton,
-} from '@mui/material';
+import Logo from '@/components/common/Logo';
+import { DRAWER_MIN_WIDTH, DRAWER_WIDTH } from '@/constants/general';
+import { DEFAULT_HOME_PAGE_PATH } from '@/constants/routes';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import MailIcon from '@mui/icons-material/Mail';
-import ContactsIcon from '@mui/icons-material/Contacts';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { DRAWER_MIN_WIDTH, DRAWER_WIDTH } from '@/constants/general';
+import {
+  Box,
+  Drawer,
+  Link,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from '@mui/material';
 import { FC } from 'react';
 
 const drawerWidth = DRAWER_WIDTH;
@@ -37,12 +38,26 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
           transition: 'width 0.3s',
           borderRight: 'none',
           boxShadow: 'none',
-          bgcolor: '#f7f7f7', // TODO
+          bgcolor: (theme) => theme.palette.background.paper,
         },
       }}
     >
       <Box sx={{ p: 2, height: '100%' }}>
-        <Box display="flex" flexDirection="column" alignItems="center" mt={7}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          my={3}
+        >
+          <Link href={DEFAULT_HOME_PAGE_PATH}>
+            <Logo />
+          </Link>
+          <Typography variant="subtitle1" color="text.primary">
+            Eternity Chat
+          </Typography>
+        </Box>
+        {/* <Box display="flex" flexDirection="column" alignItems="center" mt={2}>
           <Avatar sx={{ width: 56, height: 56, mb: 1 }} />
           {!collapsed && (
             <>
@@ -52,8 +67,7 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
               </Typography>
             </>
           )}
-        </Box>
-        <Divider />
+        </Box> */}
         <List>
           {[
             { text: 'Dashboard', icon: <DashboardIcon /> },

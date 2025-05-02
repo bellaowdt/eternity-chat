@@ -1,31 +1,31 @@
-"use client";
+'use client';
 
-import { GlobalStylesProps, ThemeOptions, createTheme } from "@mui/material";
-import Link from "next/link";
+import { GlobalStylesProps, ThemeOptions, createTheme } from '@mui/material';
+import Link from 'next/link';
 
-export const globalStyles: GlobalStylesProps["styles"] = () => ({
+export const globalStyles: GlobalStylesProps['styles'] = () => ({
   a: {
-    textDecoration: "none !important",
+    textDecoration: 'none !important',
   },
 });
 
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: "#000",
-      dark: "#0a3f63",
-      light: "#2878ad",
-      contrastText: "#FFF",
+      main: '#9e30e3',
+      dark: '#771be8',
+      light: '#cd40ee',
+      contrastText: '#FFF',
     },
     secondary: {
-      main: "#AE8625",
-      dark: "#EDC967",
-      light: "#F7EF8A",
-      contrastText: "#FFF",
+      main: '#de3860',
+      dark: '#db3560',
+      light: '#ed5b87',
+      contrastText: '#FFF',
     },
     background: {
-      default: "#FFF",
-      paper: "#E1E1E1",
+      default: '#FFF',
+      paper: '#f6f6f6',
     },
   },
   typography: {
@@ -36,54 +36,54 @@ const themeOptions: ThemeOptions = {
     fontWeightBold: 600,
     h1: {
       fontWeight: 600,
-      fontSize: "2.375rem",
+      fontSize: '2.375rem',
       lineHeight: 1.21,
     },
     h2: {
       fontWeight: 600,
-      fontSize: "1.875rem",
+      fontSize: '1.875rem',
       lineHeight: 1.27,
     },
     h3: {
       fontWeight: 600,
-      fontSize: "1.5rem",
+      fontSize: '1.5rem',
       lineHeight: 1.33,
     },
     h4: {
       fontWeight: 600,
-      fontSize: "1.25rem",
+      fontSize: '1.25rem',
       lineHeight: 1.4,
     },
     h5: {
       fontWeight: 600,
-      fontSize: "1rem",
+      fontSize: '1rem',
       lineHeight: 1.5,
     },
     h6: {
       fontWeight: 400,
-      fontSize: "0.875rem",
+      fontSize: '0.875rem',
       lineHeight: 1.57,
     },
     caption: {
       fontWeight: 400,
-      fontSize: "0.75rem",
+      fontSize: '0.75rem',
       lineHeight: 1.66,
     },
     body1: {
-      fontSize: "0.875rem",
+      fontSize: '0.875rem',
       lineHeight: 1.57,
     },
     body2: {
-      fontSize: "0.75rem",
+      fontSize: '0.75rem',
       lineHeight: 1.66,
     },
     subtitle1: {
-      fontSize: "0.875rem",
+      fontSize: '0.875rem',
       fontWeight: 600,
       lineHeight: 1.57,
     },
     subtitle2: {
-      fontSize: "0.75rem",
+      fontSize: '0.75rem',
       fontWeight: 500,
       lineHeight: 1.66,
     },
@@ -91,7 +91,7 @@ const themeOptions: ThemeOptions = {
       lineHeight: 1.66,
     },
     button: {
-      textTransform: "capitalize",
+      textTransform: 'capitalize',
     },
   },
   shape: {
@@ -122,15 +122,15 @@ const themeOptions: ThemeOptions = {
         },
       },
     },
-    // MuiInputBase: { 
-    //   styleOverrides: { 
-    //     root: { height: "2.5rem", } 
-    //   } 
+    // MuiInputBase: {
+    //   styleOverrides: {
+    //     root: { height: "2.5rem", }
+    //   }
     // },
-    // MuiButton: { 
-    //   styleOverrides: { 
-    //     root: { height: "2.5rem", } 
-    //   } 
+    // MuiButton: {
+    //   styleOverrides: {
+    //     root: { height: "2.5rem", }
+    //   }
     // }
   },
   breakpoints: {
@@ -150,7 +150,7 @@ export const defaultTheme = createTheme({
 
 export const persianTheme = createTheme({
   ...themeOptions,
-  direction: "rtl",
+  direction: 'rtl',
   typography: {
     fontFamily: "'iransans'," + defaultTheme.typography.fontFamily,
     ...themeOptions.typography,
