@@ -1,19 +1,18 @@
-"use client";
+'use client';
 
-import Title from "@/components/Auth/components/Title";
-import { FormBuilder } from "@/components/Fields";
-import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import FileUploadForm from "@/components/FileUpload/FileUploadForm";
-import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
-import { AppearancePayload } from "@/services/onboarding/types";
-import { onInvalidSubmit } from "@/utils/form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
-import SkipStep from "./SkipStep";
-import { FC } from "react";
+import Title from '@/components/Auth/components/Title';
+import { FormBuilder } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import FileUploadForm from '@/components/FileUpload/FileUploadForm';
+import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
+import { AppearancePayload } from '@/services/onboarding/types';
+import { onInvalidSubmit } from '@/utils/form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box, Grid } from '@mui/material';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import SkipStep from './SkipStep';
+import { FC } from 'react';
 
 interface AppearanceProsp {
   onSkip: VoidFunction;
@@ -21,8 +20,8 @@ interface AppearanceProsp {
 
 const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
   const labels: Record<keyof AppearancePayload, string> = {
-    description: "description",
-    photo: "photo",
+    description: 'description',
+    photo: 'photo',
   };
 
   const resolveSchema: yup.ObjectSchema<AppearancePayload> = yup.object({
@@ -36,22 +35,22 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
 
   const { handleSubmit } = methods;
 
-  const { mutateAsync, isPending } = useMutation({
-    // mutationFn: AppearanceUpdate,
-  });
+  // const { mutateAsync, isPending } = useMutation({
+  //    mutationFn: AppearanceUpdate,
+  // });
 
-  const onSubmit: SubmitHandler<AppearancePayload> = async (payload) => {
+  const onSubmit: SubmitHandler<AppearancePayload> = async () => {
     // await mutateAsync({ payload });
   };
 
-  const fields: FormBuilderProps["fields"] = {
+  const fields: FormBuilderProps['fields'] = {
     description: {
-      name: "description",
-      label: "What did they look like?",
-      type: "String",
+      name: 'description',
+      label: 'What did they look like?',
+      type: 'String',
       props: {
         placeholder:
-          "E.g., They were tall with short brown hair and often wore glasses. Their smile was warm, and they had a calming presence.",
+          'E.g., They were tall with short brown hair and often wore glasses. Their smile was warm, and they had a calming presence.',
         multiline: true,
         minRows: 8,
       },
@@ -74,7 +73,7 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
       <FormProvider {...methods}>
         <Title
           title="Appearance"
-          sx={{ my: 5, justifyContent: "flex-start" }}
+          sx={{ my: 5, justifyContent: 'flex-start' }}
         />
         <Grid
           container
@@ -95,7 +94,7 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
 
           <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading
-              isLoading={isPending}
+              // isLoading={isPending}
               type="submit"
               fullWidth
               variant="contained"

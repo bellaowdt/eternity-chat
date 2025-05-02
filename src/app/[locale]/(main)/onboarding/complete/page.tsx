@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Box, Button, Stack, Typography } from "@mui/material";
-import Image from "next/image";
-import React from "react";
+import { Box, Button, Stack, Typography } from '@mui/material';
+import Image from 'next/image';
+import React from 'react';
 
 const CompleteAboard = () => {
   return (
@@ -40,7 +40,7 @@ const CompleteAboard = () => {
           <Typography variant="body1" mb={2}>
             Thank you for sharing these cherished details.
             <br />
-            We're setting everything up for you now.
+            We are setting everything up for you now.
           </Typography>
           <Typography variant="body2" mb={2}>
             This might take a few moments.
