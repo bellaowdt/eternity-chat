@@ -25,7 +25,7 @@ const Home = () => {
       ) : (
         <Sidebar collapsed={collapsed} />
       )}
-      <Box display="felx" flexGrow={1} component="main">
+      <Box flexGrow={1} component="main">
         <Topbar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
         <Box
           display="flex"

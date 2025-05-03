@@ -17,6 +17,7 @@ import {
   Typography,
 } from '@mui/material';
 import { FC } from 'react';
+import Account from './Account';
 
 const drawerWidth = DRAWER_WIDTH;
 const miniWidth = DRAWER_MIN_WIDTH;
@@ -57,17 +58,6 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
             Eternity Chat
           </Typography>
         </Box>
-        {/* <Box display="flex" flexDirection="column" alignItems="center" mt={2}>
-          <Avatar sx={{ width: 56, height: 56, mb: 1 }} />
-          {!collapsed && (
-            <>
-              <Typography variant="subtitle1">Bahar Keshavarz</Typography>
-              <Typography variant="caption">
-                bahar.keshavarzc@gmail.com
-              </Typography>
-            </>
-          )}
-        </Box> */}
         <List>
           {[
             { text: 'Dashboard', icon: <DashboardIcon /> },
@@ -97,6 +87,8 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
             </ListItem>
           ))}
         </List>
+
+        <Account />
       </Box>
     </Drawer>
   );

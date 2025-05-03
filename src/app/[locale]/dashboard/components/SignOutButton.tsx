@@ -1,28 +1,26 @@
-import { useMutation } from '@tanstack/react-query';
-import auth from '@/lib/auth';
 import { useTranslations } from 'next-intl';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import { Logout } from '@mui/icons-material';
 
 const SignOutButton = () => {
   const t = useTranslations();
-  const { mutateAsync, isPending } = useMutation({
-    mutationFn: auth.logout,
-  });
+  //   const { mutateAsync, isPending } = useMutation({
+  //     mutationFn: auth.logout,
+  //   });
 
   const handleClickOnSignOut = async () => {
-    await mutateAsync();
+    //   await mutateAsync();
   };
 
   return (
     <ButtonWithLoading
-      isLoading={isPending}
+      //   isLoading={isPending}
       onClick={handleClickOnSignOut}
       variant="outlined"
       color="error"
       startIcon={<Logout />}
     >
-      {t('common:buttons.signOut')}
+      {t('common.buttons.signOut')}
     </ButtonWithLoading>
   );
 };
