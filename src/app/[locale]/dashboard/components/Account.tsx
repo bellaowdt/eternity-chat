@@ -11,11 +11,13 @@ const Account = () => {
         sx={{
           borderRadius: 1,
           p: 4,
+          position: 'relative',
         }}
       >
         <UserDetails />
         <Box position="absolute" right={16} bottom={16}>
           {/* <LanguageSelector /> */}
+          LanguageSelector
         </Box>
       </Box>
       <Stack>

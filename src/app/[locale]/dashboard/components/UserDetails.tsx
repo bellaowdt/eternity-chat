@@ -10,8 +10,8 @@ const UserDetails = () => {
   };
   const isFetching = false;
   return (
-    <Box gap={2} display="flex" flexGrow={1} justifyContent="center">
-      <Avatar alt="" src={data?.avatar} sx={{ width: 32, height: 32, ml: 2 }} />
+    <Stack spacing={1} direction="row" flexGrow={1}>
+      <Avatar alt="" src={data?.avatar} sx={{ width: 32, height: 32 }} />
       <Stack
         sx={{
           '& span': {
@@ -39,7 +39,7 @@ const UserDetails = () => {
           </Typography>
         </CustomSkeleton>
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 

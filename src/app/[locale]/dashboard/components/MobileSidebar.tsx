@@ -1,7 +1,8 @@
 import { DRAWER_WIDTH } from '@/constants/general';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import GroupIcon from '@mui/icons-material/Group';
-import PersonIcon from '@mui/icons-material/Person';
+import MailIcon from '@mui/icons-material/Mail';
+import SettingsIcon from '@mui/icons-material/Settings';
 import {
   Box,
   Drawer,
@@ -10,6 +11,7 @@ import {
   ListItemIcon,
   ListItemText,
   ListItemButton,
+  useTheme,
 } from '@mui/material';
 import { FC, useState } from 'react';
 
@@ -20,11 +22,13 @@ interface MobileSidebarProps {
 
 const MobileSidebar: FC<MobileSidebarProps> = ({ collapsed, toggleDrawer }) => {
   const [active, setActive] = useState('Dashboard');
+  const theme = useTheme();
 
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon /> },
-    { text: 'Admin Requests', icon: <GroupIcon /> },
-    { text: 'My Account', icon: <PersonIcon /> },
+    { text: 'Inbox', icon: <MailIcon /> },
+    { text: 'Contacts', icon: <ContactsIcon /> },
+    { text: 'Settings', icon: <SettingsIcon /> },
   ];
 
   return (
@@ -51,11 +55,14 @@ const MobileSidebar: FC<MobileSidebarProps> = ({ collapsed, toggleDrawer }) => {
                   toggleDrawer();
                 }}
                 sx={{
+                  color: active === text ? 'common.white' : 'common.black',
                   bgcolor:
-                    active === text ? 'rgba(0, 128, 0, 0.1)' : 'transparent',
+                    active === text
+                      ? theme.palette.primary.main
+                      : 'transparent',
                   borderLeft:
                     active === text
-                      ? '4px solid green'
+                      ? `4px solid ${theme.palette.primary.light}`
                       : '4px solid transparent',
                 }}
               >
