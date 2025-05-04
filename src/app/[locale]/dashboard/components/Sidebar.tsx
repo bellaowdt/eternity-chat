@@ -17,7 +17,7 @@ import {
   Typography,
 } from '@mui/material';
 import { FC } from 'react';
-import Account from './Account';
+import Account from './accout/Account';
 
 const drawerWidth = DRAWER_WIDTH;
 const miniWidth = DRAWER_MIN_WIDTH;

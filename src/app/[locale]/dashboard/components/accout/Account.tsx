@@ -1,9 +1,17 @@
 import { Box, Stack } from '@mui/material';
-import SignOutButton from './SignOutButton';
 import LanguageSelector from '@/components/LanguageSelector/LanguageSelector';
 import UserDetails from './UserDetails';
+import { useState } from 'react';
+import LogoutDialog from './LogoutDialog';
+import SignOutButton from './SignOutButton';
 
 const Account = () => {
+  const [logoutDialog, setLogoutDialog] = useState(true);
+
+  const onToggleLogoutDialog = () => {
+    setLogoutDialog((prevState) => !prevState);
+  };
+
   return (
     <Stack spacing={2} pb={2}>
       <Box
@@ -21,6 +29,7 @@ const Account = () => {
         </Box>
       </Box>
       <Stack>
+        <LogoutDialog open={logoutDialog} onClose={onToggleLogoutDialog} />
         <SignOutButton />
       </Stack>
     </Stack>

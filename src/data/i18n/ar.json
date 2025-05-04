@@ -4,24 +4,26 @@
   },
   "common": {
     "buttons": {
-      "return": "بازگشت",
-      "yes": "بله",
-      "no": "خیر",
-      "removeAll": "پاک کردن همه",
-      "select": "انتخاب",
-      "returnHome": " بازگشت به خانه",
-      "filters": "فیلترها",
-      "operation": "عملیات",
-      "refresh": "به روز رسانی",
-      "reset": "پاک کردن",
-      "submitFilters": "اعمال فیلترها",
-      "submit": "ثبت",
-      "detail": "جزئیات",
-      "edit": "ویرایش",
-      "delete": "حذف",
-      "signOut": "Sign Out"
+      "return": "Return",
+      "yes": "Yes",
+      "no": "No",
+      "select": "Select",
+      "returnHome": "Return Home",
+      "refresh": "Refresh",
+      "reset": "Reset",
+      "submit": "Submit",
+      "detail": "Detail",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "logout": "Logout"
     }
   },
+  "messages": {},
   "pages": {
+    "account": {
+      "logoutMsg": "Are you sure you want to log out?",
+      "logoutConfirm": "Yes, Log Me Out"
+    }
   }
 }
