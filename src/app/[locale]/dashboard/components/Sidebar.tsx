@@ -43,7 +43,7 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
         },
       }}
     >
-      <Box sx={{ p: 2, height: '100%' }}>
+      <Box sx={{ p: 2 }}>
         <Box
           display="flex"
           flexDirection="column"
@@ -87,7 +87,6 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
             </ListItem>
           ))}
         </List>
-
         <Account />
       </Box>
     </Drawer>

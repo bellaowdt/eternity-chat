@@ -2,21 +2,24 @@ import { Direction } from '@mui/material';
 import { createNavigation } from 'next-intl/navigation';
 import { routing } from './routing';
 
-export type Locale = 'en' | 'fa';
+export type Locale = 'en' | 'ar';
 export const languages: Record<
   Locale,
   {
     label: string;
     direction: Direction;
+    flag: string,
   }
 > = {
   en: {
     label: 'English',
     direction: 'ltr',
+    flag: ''
   },
-  fa: {
-    label: 'Persian',
+  ar: {
+    label: 'العربیه',
     direction: 'rtl',
+    flag: ''
   },
 };
 

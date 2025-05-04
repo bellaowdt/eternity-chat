@@ -14,9 +14,9 @@ import {
   useTheme,
 } from '@mui/material';
 import { FC, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Transitions from '../Transitions/Transitions';
-import { languages } from '@/configs/languages';
+import { languages } from '@/navigation';
 
 export interface LanguageSelectorProps extends StackProps {
   mobileView?: boolean;
@@ -24,6 +24,8 @@ export interface LanguageSelectorProps extends StackProps {
 
 const LanguageSelector: FC<LanguageSelectorProps> = (props) => {
   const theme = useTheme();
+  const locale = useLocale();
+  console.log('locale', locale);
   const t = useTranslations();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -60,8 +62,8 @@ const LanguageSelector: FC<LanguageSelectorProps> = (props) => {
           <Stack direction="row" spacing={1}>
             {!props.mobileView && (
               <>
-                <span className={`fi fi-${languages[i18n].flag}`}></span>
-                <Typography>{languages[i18n].label}</Typography>
+                <span className={`fi fi-${languages[locale].flag}`}></span>
+                <Typography>{languages[locale].label}</Typography>
               </>
             )}
 
@@ -114,7 +116,7 @@ const LanguageSelector: FC<LanguageSelectorProps> = (props) => {
                     const item = languages[key];
                     return (
                       <ListItemButton
-                        selected={item.symbol === i18n}
+                        selected={item.symbol === locale}
                         key={index}
                         onClick={() => handleChangeLang(key)}
                       >

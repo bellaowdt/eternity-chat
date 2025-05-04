@@ -1,17 +1,15 @@
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { AdapterDateFnsJalali } from '@mui/x-date-pickers/AdapterDateFnsJalali';
 import React from 'react';
-import { useSelector } from 'src/store';
+import { useSelector } from '@/store';
 
 export interface CustomLocalizationProviderProps {
   children: React.ReactNode;
 }
 const CustomLocalizationProvider = ({ children }) => {
-  const i18n = useSelector(state => state.config.i18n);
+  const i18n = useSelector((state) => state.config.i18n);
 
   const adapter = {
-    'fa-IR': AdapterDateFnsJalali as any,
     'en-US': AdapterDateFns,
     'ar-OM': AdapterDateFns,
   };

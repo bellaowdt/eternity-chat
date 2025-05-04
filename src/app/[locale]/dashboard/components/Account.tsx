@@ -5,23 +5,19 @@ import UserDetails from './UserDetails';
 
 const Account = () => {
   return (
-    <Stack spacing={2} height="100%" pb={2}>
+    <Stack spacing={2} pb={2}>
       <Box
         className="radial"
         sx={{
-          borderRadius: 1.5,
-          p: 2,
-          py: 4,
-          position: 'relative',
+          borderRadius: 1,
+          p: 4,
         }}
       >
         <UserDetails />
         <Box position="absolute" right={16} bottom={16}>
           {/* <LanguageSelector /> */}
-          LanguageSelector
         </Box>
       </Box>
-
       <Stack>
         <SignOutButton />
       </Stack>

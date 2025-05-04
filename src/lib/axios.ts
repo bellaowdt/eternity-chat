@@ -24,7 +24,7 @@ _axios.interceptors.request.use(
     // const lang = localStorage.getItem('i18nextLng')
     //   ? localStorage.getItem('i18nextLng')
     //   : 'fa-IR';
-    const lang = 'fa-IR';
+    const lang = 'en-EN';
     if (lang) {
       config.headers['Accept-Language'] = lang;
     }

@@ -40,7 +40,7 @@ export default async function LocaleLayout({
 
   const themes: Record<Locale, ThemeOptions> = {
     en: defaultTheme,
-    fa: persianTheme,
+    ar: persianTheme,
   };
   const { locale } = await params;
 

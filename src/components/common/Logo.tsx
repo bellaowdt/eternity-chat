@@ -7,8 +7,8 @@ const Logo: FC<Partial<ImageProps>> = (props) => {
   return (
     <Image
       draggable={false}
-      width={220}
-      height={80}
+      width={160}
+      height={60}
       alt=""
       src={props?.src ?? DEFAULT_LOGO_PATH}
       {...props}

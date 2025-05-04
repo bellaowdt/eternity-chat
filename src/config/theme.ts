@@ -3,9 +3,27 @@
 import { GlobalStylesProps, ThemeOptions, createTheme } from '@mui/material';
 import Link from 'next/link';
 
-export const globalStyles: GlobalStylesProps['styles'] = () => ({
+export const globalStyles: GlobalStylesProps['styles'] = (theme) => ({
   a: {
     textDecoration: 'none !important',
+  },
+  '.radial': {
+    background: `radial-gradient(
+      96.3% 616.69% at 3.7% 82.29%,
+      ${theme.palette.primary.main} 0%,
+      ${theme.palette.primary.light} 33.75%,
+      ${theme.palette.primary.light} 72.42%,
+      ${theme.palette.primary.main} 100%
+    )`,
+    '&:hover': {
+      background: `radial-gradient(
+        96.3% 616.69% at 3.7% 82.29%,
+        ${theme.palette.primary.main} 0%,
+        ${theme.palette.primary.light} 33.75%,
+        ${theme.palette.primary.light} 72.42%,
+        ${theme.palette.primary.main} 100%
+      )`,
+    },
   },
 });
 
@@ -122,16 +140,6 @@ const themeOptions: ThemeOptions = {
         },
       },
     },
-    // MuiInputBase: {
-    //   styleOverrides: {
-    //     root: { height: "2.5rem", }
-    //   }
-    // },
-    // MuiButton: {
-    //   styleOverrides: {
-    //     root: { height: "2.5rem", }
-    //   }
-    // }
   },
   breakpoints: {
     values: {

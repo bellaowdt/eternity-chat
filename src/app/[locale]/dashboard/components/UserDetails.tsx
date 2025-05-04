@@ -1,24 +1,24 @@
 import CustomSkeleton from '@/components/CustomSkeleton';
-import { Avatar, Stack, Typography } from '@mui/material';
+import { Avatar, Box, Typography, Stack } from '@mui/material';
 
 const UserDetails = () => {
   //const { data, isFetching } = useGetProfile();
   const data = {
     fullName: 'Bahar Keshavarz',
-    avatar: '',
+    avatar: '/assets/images/users/avatar-4.png',
     email: 'bahar.keshavarzc@gmail.com',
   };
   const isFetching = false;
   return (
-    <Stack spacing={1} direction="row" flexGrow={1}>
-      <Avatar alt="profile user" src={data?.avatar} size="sm" />
+    <Box gap={2} display="flex" flexGrow={1} justifyContent="center">
+      <Avatar alt="" src={data?.avatar} sx={{ width: 32, height: 32, ml: 2 }} />
       <Stack
         sx={{
           '& span': {
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
             overflow: 'hidden',
-            maxWidth: 'calc(100% - 32px - 16px)',
+            maxWidth: 'calc(100% - 12px)',
           },
           flexGrow: 1,
         }}
@@ -39,7 +39,7 @@ const UserDetails = () => {
           </Typography>
         </CustomSkeleton>
       </Stack>
-    </Stack>
+    </Box>
   );
 };
 
