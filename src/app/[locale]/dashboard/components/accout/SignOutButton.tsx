@@ -20,7 +20,7 @@ const SignOutButton = () => {
       color="error"
       startIcon={<Logout />}
     >
-      {t('common.buttons.signOut')}
+      {t('common.buttons.logOut')}
     </ButtonWithLoading>
   );
 };

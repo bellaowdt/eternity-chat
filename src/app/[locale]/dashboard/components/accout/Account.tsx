@@ -6,7 +6,7 @@ import LogoutDialog from './LogoutDialog';
 import SignOutButton from './SignOutButton';
 
 const Account = () => {
-  const [logoutDialog, setLogoutDialog] = useState(true);
+  const [logoutDialog, setLogoutDialog] = useState(false);
 
   const onToggleLogoutDialog = () => {
     setLogoutDialog((prevState) => !prevState);

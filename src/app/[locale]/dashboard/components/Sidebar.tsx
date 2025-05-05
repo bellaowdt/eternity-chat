@@ -87,7 +87,7 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
             </ListItem>
           ))}
         </List>
-        <Account />
+        {/* <Account /> */}
       </Box>
     </Drawer>
   );

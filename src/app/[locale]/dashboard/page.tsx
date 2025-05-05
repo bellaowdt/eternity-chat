@@ -1,11 +1,12 @@
 'use client';
 
-import { Box } from '@mui/material';
+import { useAppContext } from '@/hooks/useAppContext';
+import { Box, Container } from '@mui/material';
 import { useState } from 'react';
+import MobileSidebar from './components/MobileSidebar';
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
-import { useAppContext } from '@/hooks/useAppContext';
-import MobileSidebar from './components/MobileSidebar';
+import ChatList from './components/chat/ChatList';
 
 const Home = () => {
   const { isMobile } = useAppContext();
@@ -25,18 +26,11 @@ const Home = () => {
       ) : (
         <Sidebar collapsed={collapsed} />
       )}
-      <Box flexGrow={1} component="main">
+      <Box flexGrow={1} px={{ xs: 2, sm: 3 }} mx={{ xs: 1, sm: 0 }}>
         <Topbar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
-        <Box
-          display="flex"
-          borderRadius={1}
-          bgcolor="common.white"
-          minHeight={600} //TODO
-          px={{ xs: 2, sm: 3 }}
-          mx={{ xs: 1, sm: 0 }}
-        >
-          main area
-        </Box>
+        <Container maxWidth="md">
+          <ChatList />
+        </Container>
       </Box>
     </Box>
   );
