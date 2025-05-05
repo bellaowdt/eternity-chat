@@ -2,6 +2,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import MessageBubble from './MessageBubble';
 import FeedbackCard from './FeedbackCard';
+import ChatInput from './ChatInput';
 
 const mockChatMessages = [
   { id: 1, sender: 'user', message: 'Hi there!', time: '10:00 AM' },
@@ -59,6 +60,7 @@ const ChatList = () => {
       ))}
 
       <FeedbackCard />
+      <ChatInput />
     </Box>
   );
 };
