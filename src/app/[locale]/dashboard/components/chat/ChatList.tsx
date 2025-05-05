@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import MessageBubble from './MessageBubble';
+import FeedbackCard from './FeedbackCard';
 
 const mockChatMessages = [
   { id: 1, sender: 'user', message: 'Hi there!', time: '10:00 AM' },
@@ -56,6 +57,8 @@ const ChatList = () => {
           tailPosition={sender === 'user' ? 'left' : 'right'}
         />
       ))}
+
+      <FeedbackCard />
     </Box>
   );
 };

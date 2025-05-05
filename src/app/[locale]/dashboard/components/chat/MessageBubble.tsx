@@ -1,6 +1,7 @@
 import { useAppContext } from '@/hooks/useAppContext';
 import { Box, Typography } from '@mui/material';
 import { FC } from 'react';
+import IconToolbar from './IconToolbar';
 
 interface MessageBubbleProps {
   message: string;
@@ -21,70 +22,72 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   const isLeft = tailPosition === 'left';
   const isSystem = sender === 'system';
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: isSystem ? 'flex-end' : 'flex-start',
-        alignItems: 'flex-end',
-        marginBottom: 2,
-        width: '100%',
-      }}
-    >
+    <Box>
       <Box
         sx={{
-          position: 'relative',
-          backgroundColor: bubbleColor,
-          borderRadius: isLeft ? '18px 18px 18px 6px' : '18px 18px 6px 18px',
-          paddingY: 1,
-          paddingX: 2,
-          maxWidth: isMobile ? '100%' : '75%',
-          minWidth: '40%',
+          display: 'flex',
+          justifyContent: isSystem ? 'flex-end' : 'flex-start',
+          alignItems: 'flex-end',
+          marginBottom: 2,
         }}
       >
-        {/* SVG Tail */}
         <Box
           sx={{
-            position: 'absolute',
-            bottom: 0,
-            [isLeft ? 'left' : 'right']: -8,
-            width: 12,
-            height: 12,
-            overflow: 'hidden',
-            zIndex: 0,
-          }}
-        >
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d={
-                isLeft
-                  ? 'M0,12 C0,6 6,0 12,0 L12,12 Z'
-                  : 'M12,12 C12,6 6,0 0,0 L0,12 Z'
-              }
-              fill={bubbleColor}
-            />
-          </svg>
-        </Box>
-        <Typography variant="body1" sx={{ position: 'relative', zIndex: 1 }}>
-          {message}
-        </Typography>
-        <Typography
-          variant="caption"
-          sx={{
-            display: 'block',
-            textAlign: 'right',
-            color: '#999',
             position: 'relative',
-            zIndex: 1,
+            backgroundColor: bubbleColor,
+            borderRadius: isLeft ? '18px 18px 18px 6px' : '18px 18px 6px 18px',
+            paddingY: 1,
+            paddingX: 2,
+            maxWidth: isMobile ? '100%' : '75%',
+            minWidth: '40%',
           }}
         >
-          {time}
-        </Typography>
+          {/* SVG Tail */}
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: 0,
+              [isLeft ? 'left' : 'right']: -8,
+              width: 12,
+              height: 12,
+              overflow: 'hidden',
+              zIndex: 0,
+            }}
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d={
+                  isLeft
+                    ? 'M0,12 C0,6 6,0 12,0 L12,12 Z'
+                    : 'M12,12 C12,6 6,0 0,0 L0,12 Z'
+                }
+                fill={bubbleColor}
+              />
+            </svg>
+          </Box>
+          <Typography variant="body1" sx={{ position: 'relative', zIndex: 1 }}>
+            {message}
+          </Typography>
+          <Typography
+            variant="caption"
+            sx={{
+              display: 'block',
+              textAlign: 'right',
+              color: '#999',
+              position: 'relative',
+              zIndex: 1,
+            }}
+          >
+            {time}
+          </Typography>
+        </Box>
       </Box>
+      <IconToolbar />
     </Box>
   );
 };
