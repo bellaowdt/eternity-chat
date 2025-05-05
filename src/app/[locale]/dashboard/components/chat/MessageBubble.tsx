@@ -1,3 +1,4 @@
+import { useAppContext } from '@/hooks/useAppContext';
 import { Box, Typography } from '@mui/material';
 import { FC } from 'react';
 
@@ -16,6 +17,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   tailPosition = 'left',
   sender,
 }) => {
+  const { isMobile } = useAppContext();
   const isLeft = tailPosition === 'left';
   const isSystem = sender === 'system';
   return (
@@ -24,7 +26,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
         display: 'flex',
         justifyContent: isSystem ? 'flex-end' : 'flex-start',
         alignItems: 'flex-end',
-        marginBottom: 1,
+        marginBottom: 2,
         width: '100%',
       }}
     >
@@ -33,9 +35,10 @@ const MessageBubble: FC<MessageBubbleProps> = ({
           position: 'relative',
           backgroundColor: bubbleColor,
           borderRadius: isLeft ? '18px 18px 18px 6px' : '18px 18px 6px 18px',
-          padding: 2,
-          maxWidth: '75%',
-          minWidth: '200px',
+          paddingY: 1,
+          paddingX: 2,
+          maxWidth: isMobile ? '100%' : '75%',
+          minWidth: '40%',
         }}
       >
         {/* SVG Tail */}
@@ -75,8 +78,6 @@ const MessageBubble: FC<MessageBubbleProps> = ({
             display: 'block',
             textAlign: 'right',
             color: '#999',
-            fontSize: '12px',
-            marginTop: '6px',
             position: 'relative',
             zIndex: 1,
           }}
