@@ -31,98 +31,88 @@ const ProfileForm = () => {
   return (
     <FormProvider {...methods}>
       <Box
-        px={2}
-        sx={{
-          borderRadius: 2,
-        }}
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        mb={3}
       >
-        {/* Avatar */}
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          mb={3}
-        >
-          <Box display="flex" alignItems="center" gap={2}>
-            <Avatar
-              src="https://i.pravatar.cc/150?img=1"
-              sx={{ width: 64, height: 64 }}
-            />
-            <Typography color="primary" sx={{ cursor: 'pointer' }}>
-              Edit Image
-            </Typography>
-          </Box>
+        <Box display="flex" alignItems="center" gap={2}>
+          <Avatar
+            src="https://i.pravatar.cc/150?img=1"
+            sx={{ width: 64, height: 64 }}
+          />
+          <Typography color="primary" sx={{ cursor: 'pointer' }}>
+            Edit Image
+          </Typography>
         </Box>
-
-        <Divider />
-
-        <Grid container alignItems="center" py={2}>
-          <Grid size={{ xs: 3 }}>
-            <Typography variant="body1">{labels.name}</Typography>
-          </Grid>
-          <Grid size={{ xs: 9 }}>
-            <CustomTextField
-              label=""
-              name="name"
-              placeholder={labels.name}
-              variant="standard"
-              InputProps={{
-                endAdornment: <EditOutlinedIcon fontSize="small" />,
-              }}
-              sx={{
-                border: 'none',
-                borderBottom: '1px solid',
-                borderRadius: 0,
-                px: 0,
-              }}
-            />
-          </Grid>
+      </Box>
+      <Divider />
+      <Grid container alignItems="center" py={2}>
+        <Grid size={{ xs: 3 }}>
+          <Typography variant="body1">{labels.name}</Typography>
         </Grid>
-        <Divider />
-
-        <Grid container alignItems="center" py={2}>
-          <Grid size={{ xs: 3 }}>
-            <Typography fontWeight={500}>{labels.email}</Typography>
-          </Grid>
-          <Grid size={{ xs: 9 }}>
-            <CustomTextField
-              label=""
-              type="email"
-              name="email"
-              placeholder={labels.email}
-              variant="standard"
-              InputProps={{
-                endAdornment: <EditOutlinedIcon fontSize="small" />,
-              }}
-              sx={{
-                border: 'none',
-                borderBottom: '1px solid',
-                borderRadius: 0,
-                px: 0,
-              }}
-            />
-          </Grid>
+        <Grid size={{ xs: 9 }}>
+          <CustomTextField
+            label=""
+            name="name"
+            placeholder={labels.name}
+            variant="standard"
+            InputProps={{
+              endAdornment: <EditOutlinedIcon fontSize="small" />,
+            }}
+            sx={{
+              border: 'none',
+              borderBottom: '1px solid',
+              borderRadius: 0,
+              px: 0,
+            }}
+          />
         </Grid>
-        <Divider />
+      </Grid>
+      <Divider />
 
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          py={2}
-        >
-          <Typography>Change Password</Typography>
-          <ChevronRightIcon />
-        </Box>
-        <Divider />
+      <Grid container alignItems="center" py={2}>
+        <Grid size={{ xs: 3 }}>
+          <Typography fontWeight={500}>{labels.email}</Typography>
+        </Grid>
+        <Grid size={{ xs: 9 }}>
+          <CustomTextField
+            label=""
+            type="email"
+            name="email"
+            placeholder={labels.email}
+            variant="standard"
+            InputProps={{
+              endAdornment: <EditOutlinedIcon fontSize="small" />,
+            }}
+            sx={{
+              border: 'none',
+              borderBottom: '1px solid',
+              borderRadius: 0,
+              px: 0,
+            }}
+          />
+        </Grid>
+      </Grid>
+      <Divider />
 
-        <Box py={2}>
-          <Button variant="text">{t('common.buttons.logout')}</Button>
-        </Box>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        py={2}
+      >
+        <Typography>Change Password</Typography>
+        <ChevronRightIcon />
+      </Box>
+      <Divider />
 
-        <Box mt={4} display="flex" justifyContent="flex-end">
-          <Button variant="contained">Save Changes</Button>
-        </Box>
+      <Box py={2}>
+        <Button variant="text">{t('common.buttons.logout')}</Button>
+      </Box>
+
+      <Box mt={4} display="flex" justifyContent="flex-end">
+        <Button variant="contained">Save Changes</Button>
       </Box>
     </FormProvider>
   );

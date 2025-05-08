@@ -1,4 +1,4 @@
-export { default as CustomSwitch } from './CustomCheckbox';
+export { default as CustomSwitch } from './CustomSwitch';
 export { default as CustomDateTimePicker } from './CustomDateTimePicker';
 export { default as CustomDatePicker } from './CustomDatePicker';
 export { default as CustomSelect } from './CustomSelect';

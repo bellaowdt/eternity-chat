@@ -23,9 +23,9 @@ const SettingDialog: FC<SettingDialogProps> = ({ ...props }) => {
     <Dialog
       {...props}
       title={t('common.buttons.setting')}
-      // maxWidth="md"
-      // fullWidth
-      sx={{ width: 900, marginX: 'auto' }}
+      maxWidth="md"
+      fullWidth
+      sx={{ marginX: 'auto' }}
       dialogButtons={[]}
     >
       <Box display="flex">
