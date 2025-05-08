@@ -7,11 +7,17 @@ import MobileSidebar from './components/MobileSidebar';
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
 import ChatList from './components/chat/ChatList';
+import SettingDialog from './components/setting/Setting';
 
 const Home = () => {
   const { isMobile } = useAppContext();
   const [collapsed, setCollapsed] = useState(false);
   const toggleDrawer = () => setCollapsed(!collapsed);
+  const [settingDialog, setSettingDialog] = useState(true);
+
+  const onToggleSettingtDialog = () => {
+    setSettingDialog((prevState) => !prevState);
+  };
 
   return (
     <Box
@@ -30,6 +36,10 @@ const Home = () => {
         <Topbar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
         <Container maxWidth="md">
           <ChatList />
+          <SettingDialog
+            open={settingDialog}
+            onClose={onToggleSettingtDialog}
+          />
         </Container>
       </Box>
     </Box>

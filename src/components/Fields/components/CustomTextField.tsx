@@ -1,15 +1,15 @@
-import { Box, TextField, Typography } from "@mui/material";
-import { FC } from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import CustomSkeleton from "../../CustomSkeleton";
-import { DEFAULT_FORBIDDEN_CHARS } from "../constants/defaults";
-import useLocalFormContext from "../hooks/useLocalFormContext";
-import { CustomTextFieldProps } from "../types";
-import ClearButtonAdornment from "./ClearButtonAdornment";
+import { Box, TextField, Typography } from '@mui/material';
+import { FC } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import CustomSkeleton from '../../CustomSkeleton';
+import { DEFAULT_FORBIDDEN_CHARS } from '../constants/defaults';
+import useLocalFormContext from '../hooks/useLocalFormContext';
+import { CustomTextFieldProps } from '../types';
+import ClearButtonAdornment from './ClearButtonAdornment';
 
 const CustomTextField: FC<CustomTextFieldProps> = ({
   fullWidth = true,
-  size = "small",
+  size = 'small',
   ControllerProps = {},
   forbiddenChars = DEFAULT_FORBIDDEN_CHARS,
   label,
@@ -24,7 +24,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
   const { isLoading } = useLocalFormContext();
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (["+", "-"].includes(event.key)) {
+    if (['+', '-'].includes(event.key)) {
       event.preventDefault();
     }
   };
@@ -37,7 +37,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
       render={({ field: { value, onChange } }) => {
         const _onChange = (event) => {
           let isValid = true;
-          if (props.type?.toLowerCase() === "number") {
+          if (props.type?.toLowerCase() === 'number') {
             let _value = event.target.value;
             isValid =
               _value >= (props.limitations?.min || -Infinity) &&
@@ -48,7 +48,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
               _value = +_value;
             }
           } else if (
-            ["password", "text", "string", undefined].includes(props.type)
+            ['password', 'text', 'string', undefined].includes(props.type)
           ) {
             const _value = event.target.value;
             isValid =
@@ -63,7 +63,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
 
         return (
           <CustomSkeleton isLoading={isLoading}>
-            <Box style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {/* Separate label on top */}
               {label && (
                 <Typography
@@ -80,9 +80,9 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                 fullWidth={fullWidth}
                 size={size}
                 onKeyDown={
-                  props.type?.toLowerCase() === "number" ? onKeyDown : undefined
+                  props.type?.toLowerCase() === 'number' ? onKeyDown : undefined
                 }
-                value={value ?? ""}
+                value={value ?? ''}
                 onChange={_onChange}
                 error={!!errors[props.name]}
                 helperText={errors[props.name]?.message?.toString()}
@@ -95,8 +95,8 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                 inputProps={{
                   ...props.inputProps,
                   onAnimationStart: (e) => {
-                    if (e.animationName === "mui-auto-fill") {
-                      setValue(props.name, value || " ");
+                    if (e.animationName === 'mui-auto-fill') {
+                      setValue(props.name, value || ' ');
                     }
                   },
                 }}

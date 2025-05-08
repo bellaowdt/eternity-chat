@@ -109,7 +109,7 @@ export type TextLimitations = Partial<{
   maxLength: number;
 }>;
 export interface CustomTextFieldProps
-  extends Partial<TextFieldProps<'outlined'>> {
+  extends Partial<TextFieldProps<'standard'>> {
   label: string;
   name: string;
   limitations?: TextLimitations & NumberLimitations;

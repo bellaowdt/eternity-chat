@@ -4,8 +4,10 @@ import Title from '@/components/Auth/components/Title';
 import { FormBuilder, Option } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
 import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
-import { generalInformationUpdate } from '@/services/onboarding';
+import { GenderEnum, ToneEnum } from '@/services/common/types';
 import { PersonalityTraitsPayload } from '@/services/onboarding/types';
+import { createPersonality } from '@/services/personality';
+import { ICreatePersonality } from '@/services/personality/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Grid, Typography } from '@mui/material';
@@ -13,11 +15,8 @@ import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import SkipStep from './SkipStep';
 import useGetPersonalities from '../../hooks/useGetPersonalities';
-import { createPersonality } from '@/services/personality';
-import { ICreatePersonality } from '@/services/personality/types';
-import { GenderEnum, ToneEnum } from '@/services/common/types';
+import SkipStep from './SkipStep';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;

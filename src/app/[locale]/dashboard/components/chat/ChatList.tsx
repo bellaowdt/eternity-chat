@@ -54,7 +54,8 @@ const ChatList = () => {
           message={message}
           time={time}
           sender={sender as 'user' | 'system'}
-          bubbleColor={sender === 'user' ? '#f0f0f0' : '#ccc'}
+          bubbleColor={sender === 'user' ? '#f0f0f0' : '#6C6C6C'}
+          bubbleTextColor={sender === 'user' ? 'common.black' : 'common.white'}
           tailPosition={sender === 'user' ? 'left' : 'right'}
         />
       ))}

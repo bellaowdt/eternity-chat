@@ -1,5 +1,4 @@
 import { Box, Stack } from '@mui/material';
-import LanguageSelector from '@/components/LanguageSelector/LanguageSelector';
 import UserDetails from './UserDetails';
 import { useState } from 'react';
 import LogoutDialog from './LogoutDialog';

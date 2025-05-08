@@ -7,6 +7,7 @@ interface MessageBubbleProps {
   message: string;
   time: string;
   bubbleColor?: string;
+  bubbleTextColor?: string;
   tailPosition?: 'left' | 'right';
   sender: 'user' | 'system';
 }
@@ -15,6 +16,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   message,
   time,
   bubbleColor = '#f0f0f0',
+  bubbleTextColor = 'common.black',
   tailPosition = 'left',
   sender,
 }) => {
@@ -35,6 +37,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
           sx={{
             position: 'relative',
             backgroundColor: bubbleColor,
+            color: bubbleTextColor,
             borderRadius: isLeft ? '18px 18px 18px 6px' : '18px 18px 6px 18px',
             paddingY: 1,
             paddingX: 2,

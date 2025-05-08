@@ -8,3 +8,9 @@ export interface SignUpPayload {
   password: string;
   name: string;
 }
+
+export interface IAccountSetting {
+  name: string;
+  email: string;
+  password: string;
+}

@@ -1,8 +1,8 @@
 import { Box, IconButton, Typography, InputBase, Paper } from '@mui/material';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
-import SendIcon from '@mui/icons-material/Send';
 import LinkIcon from '@mui/icons-material/Link';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
+import { SendRounded } from '@mui/icons-material';
 
 const ChatInput = () => {
   return (
@@ -37,7 +37,7 @@ const ChatInput = () => {
               boxShadow: 1,
             }}
           >
-            <SendIcon fontSize="small" />
+            <SendRounded fontSize="small" />
           </Box>
         </IconButton>
         <IconButton>

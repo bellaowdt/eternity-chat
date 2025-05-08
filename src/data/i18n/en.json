@@ -16,7 +16,9 @@
       "edit": "Edit",
       "delete": "Delete",
       "cancel": "Cancel",
-      "logout": "Logout"
+      "logout": "Logout",
+      "setting": "Setting",
+      "saveChanges": "Save Changes"
     }
   },
   "messages": {},
@@ -24,6 +26,14 @@
     "account": {
       "logoutMsg": "Are you sure you want to log out?",
       "logoutConfirm": "Yes, Log Me Out"
+    },
+    "settings": {
+      "menu": {
+        "accountSetting": "Account Settings",
+        "general": "General",
+        "notificationPreference": "Notification Preference",
+        "privacySettings": "Privacy Settings"
+      }
     }
   }
 }
