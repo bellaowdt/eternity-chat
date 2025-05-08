@@ -18,7 +18,19 @@
       "cancel": "Cancel",
       "logout": "Logout",
       "setting": "Settings",
-      "saveChanges": "Save Changes"
+      "saveChanges": "Save Changes",
+      "continue": "Continue",
+      "or": "Or",
+      "googleBtn": "Continue with Google"
+    },
+    "fields": {
+      "name": "Name",
+      "fullName": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "namePlaceholder": "ex. John Doe",
+      "emailPlaceholder": "ex. johndoe@gmail.com"
     }
   },
   "messages": {},
@@ -34,6 +46,14 @@
         "notificationPreference": "Notification Preference",
         "privacySettings": "Privacy Settings"
       }
+    },
+    "signIn": {
+      "welcomeMsg": "Welcome to Eternity Chat",
+      "welcomeSubMsg": "A Space to Reconnect and Remember."
+    },
+    "signUp": {
+      "createAccount": "Create Your Account",
+      "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>."
     }
   }
 }

@@ -12,15 +12,19 @@ import { onInvalidSubmit } from '@//utils/form';
 import * as yup from 'yup';
 import { useRouter } from 'next/navigation';
 import Title from '@/components/Auth/components/Title';
+import { useTranslations } from 'next-intl';
+import { RemoveRedEye } from '@mui/icons-material';
 
 const SignUp = () => {
+  const t = useTranslations();
+
   const router = useRouter();
 
   const labels: Record<keyof SignUpPayload | 'confirmPassword', string> = {
-    email: 'Email',
-    password: 'Password',
-    name: 'Full Name',
-    confirmPassword: 'Confirm Password',
+    email: t('common.fields.email'),
+    password: t('common.fields.password'),
+    name: t('common.fields.fullName'),
+    confirmPassword: t('common.fields.confirmPassword'),
   };
 
   const resolveSchema: yup.ObjectSchema<SignUpPayload> = yup.object({
@@ -70,7 +74,7 @@ const SignUp = () => {
         },
       },
       props: {
-        placeholder: 'ex. John Doe',
+        placeholder: t('common.fields.namePlaceholder'),
         inputProps: {
           autoComplete: 'new-password',
         },
@@ -81,7 +85,7 @@ const SignUp = () => {
       label: labels.email,
       type: 'String',
       props: {
-        placeholder: 'ex. johndoe@gmail.com',
+        placeholder: t('common.fields.emailPlaceholder'),
       },
       ui: {
         grid: {
@@ -96,8 +100,9 @@ const SignUp = () => {
       props: {
         type: 'password',
         placeholder: labels.password,
-        inputProps: {
+        InputProps: {
           autoComplete: 'new-password',
+          endAdornment: <RemoveRedEye fontSize="small" />,
         },
       },
       ui: {
@@ -136,7 +141,7 @@ const SignUp = () => {
     >
       <FormProvider {...methods}>
         <Title
-          title="Create Your Account"
+          title={t('pages.signUp.createAccount')}
           sx={{ my: 1, justifyContent: 'flex-start' }}
         />
         <Grid
@@ -162,14 +167,15 @@ const SignUp = () => {
               disableElevation
               size="large"
             >
-              Continue
+              {t('common.buttons.continue')}
             </ButtonWithLoading>
           </Grid>
           <Grid size={{ xs: 12 }}>
             <Typography>
-              By signing up, you agree to our Terms of Service and Privacy
-              Policy.
-              <Link href="/sign-in">login</Link>
+              {t.rich('pages.signUp.signUpPrivacyPolicyText', {
+                terms: (chunks) => <Link href="/terms">{chunks}</Link>,
+                policy: (chunks) => <Link href="/policy">{chunks}</Link>,
+              })}
             </Typography>
           </Grid>
         </Grid>

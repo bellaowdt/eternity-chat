@@ -1,38 +1,59 @@
 {
   "siteInfo": {
-    "title": "Eternity Chat"
+    "title": "دردشة الأبدية"
   },
   "common": {
     "buttons": {
-      "return": "Return",
-      "yes": "Yes",
-      "no": "No",
-      "select": "Select",
-      "returnHome": "Return Home",
-      "refresh": "Refresh",
-      "reset": "Reset",
-      "submit": "Submit",
-      "detail": "Detail",
-      "edit": "Edit",
-      "delete": "Delete",
-      "cancel": "Cancel",
-      "logout": "Logout",
-      "setting": "Setting"
+      "return": "رجوع",
+      "yes": "نعم",
+      "no": "لا",
+      "select": "اختر",
+      "returnHome": "العودة إلى الصفحة الرئيسية",
+      "refresh": "تحديث",
+      "reset": "إعادة تعيين",
+      "submit": "إرسال",
+      "detail": "تفاصيل",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "logout": "تسجيل الخروج",
+      "setting": "الإعدادات",
+      "saveChanges": "حفظ التغييرات",
+      "continue": "متابعة",
+      "or": "أو",
+      "googleBtn": "المتابعة باستخدام جوجل"
+    },
+    "fields": {
+      "name": "الاسم",
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "namePlaceholder": "مثال: محمد أحمد",
+      "emailPlaceholder": "مثال: example@gmail.com"
     }
   },
   "messages": {},
   "pages": {
     "account": {
-      "logoutMsg": "Are you sure you want to log out?",
-      "logoutConfirm": "Yes, Log Me Out"
+      "logoutMsg": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "logoutConfirm": "نعم، سجل خروجي"
     },
     "settings": {
       "menu": {
-        "accountSetting": "Account Settings",
-        "general": "General",
-        "notificationPreference": "Notification Preference",
-        "privacySettings": "Privacy Settings"
+        "accountSetting": "إعدادات الحساب",
+        "general": "عام",
+        "notificationPreference": "تفضيلات الإشعارات",
+        "privacySettings": "إعدادات الخصوصية"
       }
+    },
+    "signIn": {
+      "welcomeMsg": "مرحبًا بك في دردشة الأبدية",
+      "welcomeSubMsg": "مساحة لإعادة التواصل والتذكر."
+    },
+    "signUp": {
+      "createAccount": "إنشاء حسابك",
+      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة</terms> و <policy>سياسة الخصوصية</policy>."
     }
   }
 }

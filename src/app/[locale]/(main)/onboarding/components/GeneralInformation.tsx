@@ -10,10 +10,12 @@ import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Grid } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 const GeneralInformation = () => {
+  const t = useTranslations();
   const labels: Record<keyof GeneralInformationPayload, string> = {
     name: 'Name',
     relationship: 'Relationship',
@@ -85,7 +87,7 @@ const GeneralInformation = () => {
       label: 'What was their name?*',
       type: 'String',
       props: {
-        placeholder: 'ex. John Doe',
+        placeholder: t('common.fields.namePlaceholder'),
       },
       ui: {
         grid: {

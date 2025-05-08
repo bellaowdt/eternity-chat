@@ -1,28 +1,30 @@
-"use client";
+'use client';
 
-import Title from "@/components/Auth/components/Title";
-import LinearFieldset from "@/components/common/LinearFieldset";
-import { FormBuilder } from "@/components/Fields";
-import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
-import auth from "@/lib/auth";
-import { signIn } from "@/services/iam";
-import { SignInPayload } from "@/services/iam/types";
-import { onInvalidSubmit } from "@/utils/form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Divider, Grid } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
-import GoogleLoginButton from "../components/GoogleLoginButton";
+import Title from '@/components/Auth/components/Title';
+import LinearFieldset from '@/components/common/LinearFieldset';
+import { FormBuilder } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
+import auth from '@/lib/auth';
+import { signIn } from '@/services/iam';
+import { SignInPayload } from '@/services/iam/types';
+import { onInvalidSubmit } from '@/utils/form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box, Divider, Grid } from '@mui/material';
+import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import GoogleLoginButton from '../components/GoogleLoginButton';
+import { useTranslations } from 'next-intl';
 
 const SignIn = () => {
+  const t = useTranslations();
   const router = useRouter();
 
   const labels: Record<keyof SignInPayload, string> = {
-    email: "Email",
-    password: "Password",
+    email: t('common.fields.email'),
+    password: t('common.fields.password'),
   };
 
   const resolveSchema: yup.ObjectSchema<SignInPayload> = yup.object({
@@ -44,15 +46,15 @@ const SignIn = () => {
     const { data, status } = await mutateAsync({ payload });
     if (status === 200) {
       auth.login({ access_token: data.data.token });
-      router.push("");
+      router.push('');
     }
   };
 
-  const fields: FormBuilderProps["fields"] = {
+  const fields: FormBuilderProps['fields'] = {
     email: {
-      name: "email",
+      name: 'email',
       label: labels.email,
-      type: "String",
+      type: 'String',
       props: {
         placeholder: labels.email,
       },
@@ -63,11 +65,11 @@ const SignIn = () => {
       },
     },
     password: {
-      name: "password",
+      name: 'password',
       label: labels.password,
-      type: "String",
+      type: 'String',
       props: {
-        type: "password",
+        type: 'password',
       },
       ui: {
         grid: {
@@ -89,9 +91,9 @@ const SignIn = () => {
     >
       <FormProvider {...methods}>
         <Title
-          title="Welcome to Eternity Chat"
-          subTitle="A Space to Reconnect and Remember."
-          sx={{ my: 5, textAlign: "center" }}
+          title={t('pages.signIn.welcomeMsg')}
+          subTitle={t('pages.signIn.welcomeSubMsg')}
+          sx={{ my: 5, textAlign: 'center' }}
         />
         <Grid
           container
@@ -110,7 +112,7 @@ const SignIn = () => {
               color="primary"
               size="large"
             >
-              Continue
+              {t('common.buttons.continue')}
             </GradientButtonWithLoading>
           </Grid>
 
@@ -126,7 +128,7 @@ const SignIn = () => {
               justifyContent="center"
             >
               <Grid size={{ xs: 12 }}>
-                <LinearFieldset title="Or" />
+                <LinearFieldset title={t('common.buttons.or')} />
               </Grid>
               <Grid size={{ xs: 12 }}>
                 <GoogleLoginButton />
