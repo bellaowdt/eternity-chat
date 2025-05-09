@@ -13,7 +13,7 @@ const Home = () => {
   const { isMobile } = useAppContext();
   const [collapsed, setCollapsed] = useState(false);
   const toggleDrawer = () => setCollapsed(!collapsed);
-  const [settingDialog, setSettingDialog] = useState(true);
+  const [settingDialog, setSettingDialog] = useState(false);
 
   const onToggleSettingtDialog = () => {
     setSettingDialog((prevState) => !prevState);
