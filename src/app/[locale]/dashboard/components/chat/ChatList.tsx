@@ -24,25 +24,6 @@ const mockChatMessages = [
     message: 'Can you tell me what error you’re seeing?',
     time: '10:03 AM',
   },
-  {
-    id: 5,
-    sender: 'user',
-    message: 'It says "Invalid credentials".',
-    time: '10:04 AM',
-  },
-  {
-    id: 6,
-    sender: 'system',
-    message: 'Try resetting your password.',
-    time: '10:05 AM',
-  },
-  { id: 7, sender: 'user', message: 'Okay, I’ll try that.', time: '10:06 AM' },
-  {
-    id: 8,
-    sender: 'system',
-    message: 'Let me know if it works.',
-    time: '10:07 AM',
-  },
 ];
 
 const ChatList = () => {
