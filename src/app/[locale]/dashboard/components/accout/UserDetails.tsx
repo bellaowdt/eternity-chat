@@ -1,44 +1,40 @@
 import CustomSkeleton from '@/components/CustomSkeleton';
 import { Avatar, Typography, Stack } from '@mui/material';
+import { FC } from 'react';
 
-const UserDetails = () => {
-  //const { data, isFetching } = useGetProfile();
+interface UserDetailsProps {
+  collapsed: boolean;
+}
+
+const UserDetails: FC<UserDetailsProps> = ({ collapsed }) => {
+  const avatarSize = collapsed ? 35 : 70;
   const data = {
-    fullName: 'Bahar Keshavarz',
-    avatar: '/assets/images/users/avatar-4.png',
+    fullName: 'Linda Peterson',
+    avatar: '/assets/images/users/linda.jpg',
     email: 'bahar.keshavarzc@gmail.com',
   };
   const isFetching = false;
   return (
-    <Stack spacing={1} direction="row" flexGrow={1}>
-      <Avatar alt="" src={data?.avatar} sx={{ width: 32, height: 32 }} />
-      <Stack
-        sx={{
-          '& span': {
-            whiteSpace: 'nowrap',
-            textOverflow: 'ellipsis',
-            overflow: 'hidden',
-            maxWidth: 'calc(100% - 12px)',
-          },
-          flexGrow: 1,
-        }}
-      >
-        <CustomSkeleton isLoading={isFetching}>
-          <Typography variant="caption" fontWeight={600}>
-            {data?.fullName}
-          </Typography>
-        </CustomSkeleton>
-        <CustomSkeleton isLoading={isFetching}>
-          <Typography
-            variant="caption"
-            sx={{
-              color: 'text.secondary',
-            }}
-          >
-            {data?.email}
-          </Typography>
-        </CustomSkeleton>
-      </Stack>
+    <Stack
+      p={3}
+      spacing={1}
+      display="flex"
+      alignItems={collapsed ? 'center' : 'flex-start'}
+    >
+      <Avatar
+        alt=""
+        src={data?.avatar}
+        sx={{ width: avatarSize, height: avatarSize }}
+      />
+      <CustomSkeleton isLoading={isFetching}>
+        <Typography
+          variant={collapsed ? 'caption' : 'body1'}
+          textAlign="center"
+          fontWeight={600}
+        >
+          {data?.fullName}
+        </Typography>
+      </CustomSkeleton>
     </Stack>
   );
 };

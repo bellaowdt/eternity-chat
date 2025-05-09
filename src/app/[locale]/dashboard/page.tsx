@@ -3,8 +3,8 @@
 import { useAppContext } from '@/hooks/useAppContext';
 import { Box, Container } from '@mui/material';
 import { useState } from 'react';
-import MobileSidebar from './components/MobileSidebar';
-import Sidebar from './components/Sidebar';
+import MobileSidebar from './components/sidebar/MobileSidebar';
+import Sidebar from './components/sidebar/Sidebar';
 import Topbar from './components/Topbar';
 import ChatList from './components/chat/components/ChatList';
 import ChatInput from './components/chat/components/ChatInput';

@@ -10,6 +10,14 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
   const t = useTranslations();
   const onClose = () => props.onClose?.({}, 'backdropClick');
 
+  //   const { mutateAsync, isPending } = useMutation({
+  //     mutationFn: auth.logout,
+  //   });
+
+  const handleClickOnSignOut = async () => {
+    //   await mutateAsync();
+  };
+
   return (
     <Dialog
       {...props}
@@ -30,6 +38,7 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
           children: t('pages.account.logoutConfirm'),
           variant: 'contained',
           color: 'primary',
+          onClick: handleClickOnSignOut,
         },
       ]}
     >

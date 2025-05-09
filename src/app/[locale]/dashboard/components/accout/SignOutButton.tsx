@@ -1,26 +1,23 @@
 import { useTranslations } from 'next-intl';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import { Logout } from '@mui/icons-material';
+import { FC } from 'react';
 
-const SignOutButton = () => {
+interface SignOutButtonProps {
+  onClick: VoidFunction;
+}
+
+const SignOutButton: FC<SignOutButtonProps> = ({ onClick }) => {
   const t = useTranslations();
-  //   const { mutateAsync, isPending } = useMutation({
-  //     mutationFn: auth.logout,
-  //   });
-
-  const handleClickOnSignOut = async () => {
-    //   await mutateAsync();
-  };
-
   return (
     <ButtonWithLoading
-      //   isLoading={isPending}
-      onClick={handleClickOnSignOut}
-      variant="outlined"
+      onClick={onClick}
+      variant="text"
       color="error"
+      fullWidth
       startIcon={<Logout />}
     >
-      {t('common.buttons.logOut')}
+      {t('common.buttons.logout')}
     </ButtonWithLoading>
   );
 };
