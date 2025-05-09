@@ -9,7 +9,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import TuneIcon from '@mui/icons-material/Tune';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const IconToolbar: React.FC = () => {
+const ChatIconToolbar: React.FC = () => {
   return (
     <Stack direction="row" alignItems="center">
       <IconButton aria-label="sound">
@@ -34,4 +34,4 @@ const IconToolbar: React.FC = () => {
   );
 };
 
-export default IconToolbar;
+export default ChatIconToolbar;

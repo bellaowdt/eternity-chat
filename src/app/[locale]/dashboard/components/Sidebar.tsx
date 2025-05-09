@@ -1,9 +1,9 @@
 import Logo from '@/components/common/Logo';
 import { DRAWER_MIN_WIDTH, DRAWER_WIDTH } from '@/constants/general';
 import { DEFAULT_HOME_PAGE_PATH } from '@/constants/routes';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import MailIcon from '@mui/icons-material/Mail';
+import { Notifications } from '@mui/icons-material';
+import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 import {
   Box,
@@ -16,8 +16,9 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
+import { useTranslations } from 'next-intl';
 import { FC } from 'react';
-import Account from './accout/Account';
+// import Account from './accout/Account';
 
 const drawerWidth = DRAWER_WIDTH;
 const miniWidth = DRAWER_MIN_WIDTH;
@@ -27,6 +28,19 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
+  const t = useTranslations();
+  const menus = [
+    { text: t('common.sidebar.menu.notification'), icon: <Notifications /> },
+    { text: t('common.sidebar.menu.settings'), icon: <SettingsIcon /> },
+    {
+      text: t('common.sidebar.menu.helpCenter'),
+      icon: <ContactSupportOutlinedIcon />,
+    },
+    {
+      text: t('common.sidebar.menu.PrivacyPolicy'),
+      icon: <LockOutlinedIcon />,
+    },
+  ];
   return (
     <Drawer
       variant="permanent"
@@ -43,28 +57,23 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
         },
       }}
     >
-      <Box sx={{ p: 2 }}>
+      <Box sx={{}}>
         <Box
           display="flex"
+          alignItems="flex-start"
           flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
           my={3}
+          px={3}
         >
           <Link href={DEFAULT_HOME_PAGE_PATH}>
             <Logo />
           </Link>
           <Typography variant="subtitle1" color="text.primary">
-            Eternity Chat
+            {t('siteInfo.title')}
           </Typography>
         </Box>
         <List>
-          {[
-            { text: 'Dashboard', icon: <DashboardIcon /> },
-            { text: 'Inbox', icon: <MailIcon /> },
-            { text: 'Contacts', icon: <ContactsIcon /> },
-            { text: 'Settings', icon: <SettingsIcon /> },
-          ].map(({ text, icon }) => (
+          {menus.map(({ text, icon }) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{

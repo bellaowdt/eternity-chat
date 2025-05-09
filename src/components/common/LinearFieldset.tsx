@@ -1,9 +1,9 @@
-import { Box, Typography } from "@mui/material";
-import { styled, SxProps } from "@mui/system";
-import { FC, ReactNode } from "react";
+import { Box, Typography } from '@mui/material';
+import { styled, SxProps } from '@mui/system';
+import { FC, ReactNode } from 'react';
 
 const Line = styled(Box)(({ theme }) => ({
-  height: "1px",
+  height: '1px',
   backgroundColor: theme.palette.grey[300],
   flexGrow: 1,
 }));
@@ -18,8 +18,8 @@ interface LinearFieldsetProps {
 }
 const LinearFieldset: FC<LinearFieldsetProps> = ({
   title,
-  lineColor = "grey.700",
-  titleSize = "1.2rem",
+  lineColor = 'grey.700',
+  titleSize = '1.2rem',
   borderWidth = 0,
   borderRadius = 2,
   sx = {},

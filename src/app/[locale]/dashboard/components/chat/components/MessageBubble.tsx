@@ -1,15 +1,21 @@
 import { useAppContext } from '@/hooks/useAppContext';
 import { Box, Typography } from '@mui/material';
 import { FC } from 'react';
-import IconToolbar from './IconToolbar';
+import ChatIconToolbar from './ChatIconToolbar';
+import {
+  ChatCardDirectionEnum,
+  ChatMessageTypeEnum,
+  ChatUserTypeEnum,
+} from '@/services/chat/types';
 
 interface MessageBubbleProps {
   message: string;
   time: string;
   bubbleColor?: string;
   bubbleTextColor?: string;
-  tailPosition?: 'left' | 'right';
-  sender: 'user' | 'system';
+  tailPosition?: ChatCardDirectionEnum;
+  sender: ChatUserTypeEnum;
+  type?: ChatMessageTypeEnum;
 }
 
 const MessageBubble: FC<MessageBubbleProps> = ({
@@ -17,12 +23,13 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   time,
   bubbleColor = '#f0f0f0',
   bubbleTextColor = 'common.black',
-  tailPosition = 'left',
+  tailPosition = ChatCardDirectionEnum.LEFT,
   sender,
+  type = ChatMessageTypeEnum.CURRENT,
 }) => {
   const { isMobile } = useAppContext();
-  const isLeft = tailPosition === 'left';
-  const isSystem = sender === 'system';
+  const isLeft = tailPosition === ChatCardDirectionEnum.LEFT;
+  const isSystem = sender === ChatUserTypeEnum.SYSTEM;
   return (
     <Box>
       <Box
@@ -90,7 +97,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
           </Typography>
         </Box>
       </Box>
-      <IconToolbar />
+      {type === 'current' && <ChatIconToolbar />}
     </Box>
   );
 };

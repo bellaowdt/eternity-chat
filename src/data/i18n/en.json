@@ -36,6 +36,14 @@
       "emailPlaceholder": "ex. johndoe@gmail.com",
       "darkTheme": "Dark Theme",
       "editImage": "Edit Image"
+    },
+    "sidebar": {
+      "menu": {
+        "notification": "Notifications",
+        "settings": "Settings",
+        "helpCenter": "Help Center",
+        "PrivacyPolicy": "Privacy Policy"
+      }
     }
   },
   "messages": {},
