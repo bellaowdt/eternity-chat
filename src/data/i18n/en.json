@@ -50,6 +50,11 @@
         "general": "General",
         "notificationPreference": "Notification Preference",
         "privacySettings": "Privacy Settings"
+      },
+      "notifications": {
+        "email": "Email Notifications",
+        "inApp": "in-App Notifications",
+        "push": "Push Notifications"
       }
     },
     "signIn": {

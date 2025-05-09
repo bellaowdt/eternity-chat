@@ -36,6 +36,7 @@ const Dialog: FC<DialogProps> = ({ title, ...props }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          fontWeight: '600',
         }}
       >
         {title}
