@@ -1,4 +1,5 @@
 import { CustomTextField } from '@/components/Fields';
+import { DEFAULt_AVATAR_IMAGE } from '@/constants/general';
 import { IAccountSetting } from '@/services/iam/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -12,9 +13,9 @@ const ProfileForm = () => {
   const t = useTranslations();
 
   const labels: Record<keyof IAccountSetting, string> = {
-    name: 'Name',
-    email: 'Email',
-    password: 'Password',
+    name: t('common.fields.name'),
+    email: t('common.fields.email'),
+    password: t('common.fields.password'),
   };
 
   const resolveSchema: yup.ObjectSchema<IAccountSetting> = yup.object({
@@ -37,12 +38,9 @@ const ProfileForm = () => {
         mb={3}
       >
         <Box display="flex" alignItems="center" gap={2}>
-          <Avatar
-            src="https://i.pravatar.cc/150?img=1"
-            sx={{ width: 64, height: 64 }}
-          />
+          <Avatar src={DEFAULt_AVATAR_IMAGE} sx={{ width: 64, height: 64 }} />
           <Typography color="primary" sx={{ cursor: 'pointer' }}>
-            Edit Image
+            {t('common.fields.editImage')}
           </Typography>
         </Box>
       </Box>
@@ -102,7 +100,7 @@ const ProfileForm = () => {
         justifyContent="space-between"
         py={2}
       >
-        <Typography>Change Password</Typography>
+        <Typography>{t('common.buttons.changePassword')}</Typography>
         <ChevronRightIcon />
       </Box>
       <Divider />
@@ -112,7 +110,7 @@ const ProfileForm = () => {
       </Box>
 
       <Box mt={4} display="flex" justifyContent="flex-end">
-        <Button variant="contained">Save Changes</Button>
+        <Button variant="contained"> {t('common.buttons.saveChanges')}</Button>
       </Box>
     </FormProvider>
   );

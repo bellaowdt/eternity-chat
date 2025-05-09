@@ -21,16 +21,21 @@
       "saveChanges": "حفظ التغييرات",
       "continue": "متابعة",
       "or": "أو",
-      "googleBtn": "المتابعة باستخدام جوجل"
+      "googleBtn": "المتابعة باستخدام جوجل",
+      "changePassword": "تغيير كلمة المرور",
+      "deleteAllChats": "حذف جميع المحادثات"
     },
     "fields": {
       "name": "الاسم",
       "fullName": "الاسم الكامل",
       "email": "البريد الإلكتروني",
       "password": "كلمة المرور",
+      "language": "اللغة",
       "confirmPassword": "تأكيد كلمة المرور",
       "namePlaceholder": "مثال: محمد أحمد",
-      "emailPlaceholder": "مثال: example@gmail.com"
+      "emailPlaceholder": "مثال: example@gmail.com",
+      "darkTheme": "الوضع الداكن",
+      "editImage": "تعديل الصورة"
     }
   },
   "messages": {},

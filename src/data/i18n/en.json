@@ -21,16 +21,21 @@
       "saveChanges": "Save Changes",
       "continue": "Continue",
       "or": "Or",
-      "googleBtn": "Continue with Google"
+      "googleBtn": "Continue with Google",
+      "changePassword": "Change Password",
+      "deleteAllChats": "Delete All Chats"
     },
     "fields": {
       "name": "Name",
       "fullName": "Full Name",
       "email": "Email",
       "password": "Password",
+      "language": "Language",
       "confirmPassword": "Confirm Password",
       "namePlaceholder": "ex. John Doe",
-      "emailPlaceholder": "ex. johndoe@gmail.com"
+      "emailPlaceholder": "ex. johndoe@gmail.com",
+      "darkTheme": "Dark Theme",
+      "editImage": "Edit Image"
     }
   },
   "messages": {},

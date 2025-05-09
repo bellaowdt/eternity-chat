@@ -1,5 +1,5 @@
 import CustomSkeleton from '@/components/CustomSkeleton';
-import { Avatar, Box, Typography, Stack } from '@mui/material';
+import { Avatar, Typography, Stack } from '@mui/material';
 
 const UserDetails = () => {
   //const { data, isFetching } = useGetProfile();

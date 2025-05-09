@@ -12,14 +12,14 @@ const GeneralSetting = () => {
   const langs = useLanguages();
 
   const labels: Record<keyof IGeneralSetting, string> = {
-    themeType: 'Dark Theme',
-    language: 'Language',
-    isDeleteChats: 'Delete All Chats',
+    themeType: t('common.fields.darkTheme'),
+    language: t('common.fields.language'),
+    isDeleteChats: t('common.buttons.deleteAllChats'),
   };
 
   const resolveSchema: yup.ObjectSchema<IGeneralSetting> = yup.object({
     themeType: yup.string().nullable().required().label(labels.themeType),
-    language: yup.string().nullable().required().label(labels.email),
+    language: yup.string().nullable().required().label(labels.language),
     isDeleteChats: yup
       .string()
       .nullable()
@@ -59,13 +59,13 @@ const GeneralSetting = () => {
           <Typography variant="body1">{labels.isDeleteChats}</Typography>
         </Grid>
         <Grid size={{ xs: 7 }} textAlign="right">
-          <Button>Delete</Button>
+          <Button>{t('common.buttons.delete')}</Button>
         </Grid>
       </Grid>
       <Divider />
 
       <Box mt={4} display="flex" justifyContent="flex-end">
-        <Button variant="contained">Save Changes</Button>
+        <Button variant="contained">{t('common.buttons.saveChanges')}</Button>
       </Box>
     </FormProvider>
   );
