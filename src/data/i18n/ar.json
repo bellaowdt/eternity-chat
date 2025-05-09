@@ -4,7 +4,7 @@
   },
   "common": {
     "buttons": {
-      "return": "رجوع",
+      "return": "عودة",
       "yes": "نعم",
       "no": "لا",
       "select": "اختر",
@@ -19,9 +19,9 @@
       "logout": "تسجيل الخروج",
       "setting": "الإعدادات",
       "saveChanges": "حفظ التغييرات",
-      "continue": "متابعة",
+      "continue": "استمرار",
       "or": "أو",
-      "googleBtn": "المتابعة باستخدام جوجل",
+      "googleBtn": "الاستمرار باستخدام Google",
       "changePassword": "تغيير كلمة المرور",
       "deleteAllChats": "حذف جميع المحادثات"
     },
@@ -32,8 +32,8 @@
       "password": "كلمة المرور",
       "language": "اللغة",
       "confirmPassword": "تأكيد كلمة المرور",
-      "namePlaceholder": "مثال: محمد أحمد",
-      "emailPlaceholder": "مثال: example@gmail.com",
+      "namePlaceholder": "مثال: جون دو",
+      "emailPlaceholder": "مثال: johndoe@gmail.com",
       "darkTheme": "الوضع الداكن",
       "editImage": "تعديل الصورة"
     }
@@ -50,6 +50,15 @@
         "general": "عام",
         "notificationPreference": "تفضيلات الإشعارات",
         "privacySettings": "إعدادات الخصوصية"
+      },
+      "notifications": {
+        "email": "إشعارات البريد الإلكتروني",
+        "inApp": "إشعارات داخل التطبيق",
+        "push": "إشعارات الدفع"
+      },
+      "privacy": {
+        "twoFactorAuthentication": "المصادقة الثنائية",
+        "sessionManagemnet": "إدارة الجلسات"
       }
     },
     "signIn": {
@@ -57,8 +66,8 @@
       "welcomeSubMsg": "مساحة لإعادة التواصل والتذكر."
     },
     "signUp": {
-      "createAccount": "إنشاء حسابك",
-      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة</terms> و <policy>سياسة الخصوصية</policy>."
+      "createAccount": "أنشئ حسابك",
+      "signUpPrivacyPolicyText": "من خلال التسجيل، فإنك توافق على <terms>شروط الخدمة</terms> و<policy>سياسة الخصوصية</policy> الخاصة بنا."
     }
   }
 }

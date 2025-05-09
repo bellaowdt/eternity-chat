@@ -55,6 +55,10 @@
         "email": "Email Notifications",
         "inApp": "in-App Notifications",
         "push": "Push Notifications"
+      },
+      "privacy": {
+        "twoFactorAuthentication": "Two-Factor Authentication",
+        "sessionManagemnet": "Session Managemnet"
       }
     },
     "signIn": {
