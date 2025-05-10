@@ -1,10 +1,9 @@
 import { DRAWER_MIN_WIDTH, DRAWER_WIDTH } from '@/constants/general';
 import { Box, Drawer } from '@mui/material';
-import { FC, useState } from 'react';
-import LogoutDialog from '../accout/LogoutDialog';
+import { FC } from 'react';
+import SignOutButton from '../accout/SignOutButton';
 import UserDetails from '../accout/UserDetails';
 import SidebarMenus from './SidebarMenus';
-import SignOutButton from '../accout/SignOutButton';
 
 const drawerWidth = DRAWER_WIDTH;
 const miniWidth = DRAWER_MIN_WIDTH;
@@ -14,12 +13,6 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
-  const [logoutDialog, setLogoutDialog] = useState(false);
-
-  const onToggleLogoutDialog = () => {
-    setLogoutDialog((prevState) => !prevState);
-  };
-
   return (
     <Drawer
       variant="permanent"
@@ -49,9 +42,8 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
           <UserDetails collapsed={collapsed} />
           <SidebarMenus collapsed={collapsed} />
         </Box>
-        <SignOutButton onClick={onToggleLogoutDialog} />
+        <SignOutButton />
       </Box>
-      <LogoutDialog open={logoutDialog} onClose={onToggleLogoutDialog} />
     </Drawer>
   );
 };
