@@ -12,7 +12,7 @@ const Topbar: FC<TopbarProps> = ({ collapsed, toggleCollapsed }) => {
   const iconBackColor = 'grey.100';
 
   return (
-    <Toolbar>
+    <Toolbar sx={{ bgcolor: (theme) => theme.palette.background.paper }}>
       <IconButton
         onClick={toggleCollapsed}
         edge="start"

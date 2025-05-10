@@ -11,7 +11,8 @@ import {
   ListItemText,
 } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import SettingDialog from '../setting/Setting';
 
 interface SidebarMenusProps {
   collapsed: boolean;
@@ -19,6 +20,12 @@ interface SidebarMenusProps {
 
 const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const t = useTranslations();
+
+  const [settingDialog, setSettingDialog] = useState(false);
+  const onToggleSettingDialog = () => {
+    setSettingDialog((prevState) => !prevState);
+  };
+
   const menus = [
     { text: t('common.sidebar.menu.notification'), icon: <Notifications /> },
     { text: t('common.sidebar.menu.settings'), icon: <SettingsIcon /> },
@@ -32,33 +39,37 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
     },
   ];
   return (
-    <List>
-      {menus.map(({ text, icon }) => (
-        <>
-          <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: collapsed ? 'center' : 'flex-start',
-                px: collapsed ? 1 : 2.5,
-              }}
-            >
-              <ListItemIcon
+    <>
+      <List>
+        {menus.map(({ text, icon }) => (
+          <>
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: collapsed ? 0 : 2,
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: collapsed ? 'center' : 'flex-start',
+                  px: collapsed ? 1 : 2.5,
                 }}
+                onClick={onToggleSettingDialog}
               >
-                {icon}
-              </ListItemIcon>
-              {!collapsed && <ListItemText primary={text} />}
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-        </>
-      ))}
-    </List>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: collapsed ? 0 : 2,
+                    justifyContent: 'center',
+                  }}
+                >
+                  {icon}
+                </ListItemIcon>
+                {!collapsed && <ListItemText primary={text} />}
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+          </>
+        ))}
+      </List>
+      <SettingDialog open={settingDialog} onClose={onToggleSettingDialog} />
+    </>
   );
 };
 

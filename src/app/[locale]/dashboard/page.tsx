@@ -8,25 +8,18 @@ import Sidebar from './components/sidebar/Sidebar';
 import Topbar from './components/Topbar';
 import ChatList from './components/chat/components/ChatList';
 import ChatInput from './components/chat/components/ChatInput';
-// import SettingDialog from './components/setting/Setting';
+import ChatDrawer from './components/chat/components/ChatDrawer';
 
 const Home = () => {
   const { isMobile } = useAppContext();
   const [collapsed, setCollapsed] = useState(false);
   const toggleDrawer = () => setCollapsed(!collapsed);
-  // const [settingDialog, setSettingDialog] = useState(true);
-
-  // const onToggleSettingtDialog = () => {
-  //   setSettingDialog((prevState) => !prevState);
-  // };
-
   return (
     <Box
       sx={{
         display: 'flex',
         height: '100vh',
         overflow: 'scroll',
-        bgcolor: (theme) => theme.palette.background.paper,
       }}
     >
       {isMobile ? (
@@ -34,16 +27,15 @@ const Home = () => {
       ) : (
         <Sidebar collapsed={collapsed} />
       )}
-      <Box flexGrow={1} px={{ xs: 2, sm: 3 }} mx={{ xs: 1, sm: 0 }}>
+      <Box flexGrow={1}>
         <Topbar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
-        <Container maxWidth="md">
-          <ChatList />
-          {/* <SettingDialog
-            open={settingDialog}
-            onClose={onToggleSettingtDialog}
-          /> */}
-          <ChatInput />
-        </Container>
+        <Box display="flex" height="100%">
+          <ChatDrawer />
+          <Container maxWidth="md">
+            <ChatList />
+            <ChatInput />
+          </Container>
+        </Box>
       </Box>
     </Box>
   );
