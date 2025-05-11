@@ -21,7 +21,7 @@
       "saveChanges": "حفظ التغييرات",
       "continue": "استمرار",
       "or": "أو",
-      "googleBtn": "الاستمرار باستخدام Google",
+      "googleBtn": "المتابعة عبر جوجل",
       "changePassword": "تغيير كلمة المرور",
       "deleteAllChats": "حذف جميع المحادثات"
     },
@@ -36,13 +36,23 @@
       "emailPlaceholder": "مثال: johndoe@gmail.com",
       "darkTheme": "الوضع الداكن",
       "editImage": "تعديل الصورة"
+    },
+    "sidebar": {
+      "menu": {
+        "notification": "الإشعارات",
+        "settings": "الإعدادات",
+        "helpCenter": "مركز المساعدة",
+        "PrivacyPolicy": "سياسة الخصوصية"
+      }
     }
   },
-  "messages": {},
+  "messages": {
+    "noRowFound": "لا توجد بيانات للعرض!"
+  },
   "pages": {
     "account": {
       "logoutMsg": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
-      "logoutConfirm": "نعم، سجل خروجي"
+      "logoutConfirm": "نعم، سجّل خروجي"
     },
     "settings": {
       "menu": {
@@ -54,10 +64,10 @@
       "notifications": {
         "email": "إشعارات البريد الإلكتروني",
         "inApp": "إشعارات داخل التطبيق",
-        "push": "إشعارات الدفع"
+        "push": "إشعارات فورية"
       },
       "privacy": {
-        "twoFactorAuthentication": "المصادقة الثنائية",
+        "twoFactorAuthentication": "التحقق بخطوتين",
         "sessionManagemnet": "إدارة الجلسات"
       }
     },
@@ -67,7 +77,10 @@
     },
     "signUp": {
       "createAccount": "أنشئ حسابك",
-      "signUpPrivacyPolicyText": "من خلال التسجيل، فإنك توافق على <terms>شروط الخدمة</terms> و<policy>سياسة الخصوصية</policy> الخاصة بنا."
+      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة </terms> و<policy>سياسة الخصوصية</policy> الخاصة بنا."
+    },
+    "chat": {
+      "accuracyMsg": "الذكاء الاصطناعي لا يمكنه تكرار أحبائك بالكامل، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى."
     }
   }
 }
