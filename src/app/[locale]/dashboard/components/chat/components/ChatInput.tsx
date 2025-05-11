@@ -3,19 +3,27 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import LinkIcon from '@mui/icons-material/Link';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import { SendRounded } from '@mui/icons-material';
+import { useTranslations } from 'next-intl';
 
 const ChatInput = () => {
+  const t = useTranslations();
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" mt={4}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      minHeight={180}
+    >
       <Paper
         variant="outlined"
         sx={{
           display: 'flex',
           alignItems: 'center',
-          width: '80%',
           borderRadius: '40px',
           backgroundColor: '#e0e0e0',
           padding: '4px 16px',
+          width: '100%',
         }}
       >
         <IconButton>
@@ -45,8 +53,7 @@ const ChatInput = () => {
         </IconButton>
       </Paper>
       <Typography variant="body2" mt={2} color="text.secondary">
-        The AI can’t fully replicate your loved one, but it uses their data to
-        create meaningful conversations.
+        {t('pages.chat.accuracyMsg')}
       </Typography>
     </Box>
   );

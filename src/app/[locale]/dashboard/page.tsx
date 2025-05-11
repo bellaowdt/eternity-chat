@@ -19,7 +19,6 @@ const Home = () => {
       sx={{
         display: 'flex',
         height: '100vh',
-        overflow: 'scroll',
       }}
     >
       {isMobile ? (
@@ -27,13 +26,36 @@ const Home = () => {
       ) : (
         <Sidebar collapsed={collapsed} />
       )}
-      <Box flexGrow={1}>
+      <Box
+        flexGrow={1}
+        sx={{
+          overflow: 'hidden',
+        }}
+      >
         <Topbar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
-        <Box display="flex" height="100%">
+        <Box display="flex" height="100%" sx={{ position: 'relative' }}>
           <ChatDrawer />
-          <Container maxWidth="md">
-            <ChatList />
-            <ChatInput />
+          <Container
+            maxWidth="md"
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              height: '100%',
+              overflow: 'hidden',
+            }}
+          >
+            <Box sx={{ flexGrow: 1, overflowY: 'auto' }}>
+              <ChatList />
+            </Box>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              p={2}
+              m={2}
+            >
+              <ChatInput />
+            </Box>
           </Container>
         </Box>
       </Box>

@@ -2,8 +2,23 @@
 
 import { GlobalStylesProps, ThemeOptions, createTheme } from '@mui/material';
 import Link from 'next/link';
+import { grey } from '@mui/material/colors';
 
 export const globalStyles: GlobalStylesProps['styles'] = (theme) => ({
+  '*::-webkit-scrollbar-track': {
+    backgroundColor: grey[200],
+  },
+  '*::-webkit-scrollbar': {
+    width: 8,
+    backgroundColor: '#F5F5F5',
+  },
+  '*::-webkit-scrollbar-thumb': {
+    backgroundColor: grey[500],
+    borderRadius: 12,
+  },
+  'audio::-webkit-media-controls-enclosure': {
+    borderRadius: 12,
+  },
   a: {
     textDecoration: 'none !important',
   },
