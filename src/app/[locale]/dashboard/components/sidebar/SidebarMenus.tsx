@@ -13,60 +13,90 @@ import {
 import { useTranslations } from 'next-intl';
 import { FC, useState } from 'react';
 import SettingDialog from '../setting/Setting';
+import {
+  DEFAULT_HELP_CENTER_PATH,
+  DEFAULT_POLICY_PRIVACY_PATH,
+} from '@/constants/routes';
+import Link from 'next/link';
 
 interface SidebarMenusProps {
   collapsed: boolean;
 }
 
+interface ISideBarMenu {
+  text: string;
+  icon: React.ReactElement;
+  callFunc?: VoidFunction;
+  linkUrl?: string;
+}
+
 const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const t = useTranslations();
-
   const [settingDialog, setSettingDialog] = useState(false);
+
   const onToggleSettingDialog = () => {
     setSettingDialog((prevState) => !prevState);
   };
 
-  const menus = [
-    { text: t('common.sidebar.menu.notification'), icon: <Notifications /> },
-    { text: t('common.sidebar.menu.settings'), icon: <SettingsIcon /> },
+  const menus: ISideBarMenu[] = [
+    {
+      text: t('common.sidebar.menu.notification'),
+      icon: <Notifications />,
+    },
+    {
+      text: t('common.sidebar.menu.settings'),
+      icon: <SettingsIcon />,
+      callFunc: onToggleSettingDialog,
+    },
     {
       text: t('common.sidebar.menu.helpCenter'),
       icon: <ContactSupportOutlinedIcon />,
+      linkUrl: DEFAULT_HELP_CENTER_PATH,
     },
     {
       text: t('common.sidebar.menu.PrivacyPolicy'),
       icon: <LockOutlinedIcon />,
+      linkUrl: DEFAULT_POLICY_PRIVACY_PATH,
     },
   ];
+
   return (
     <>
       <List>
-        {menus.map(({ text, icon }) => (
-          <>
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
+        {menus.map(({ text, icon, callFunc, linkUrl }, index) => {
+          const buttonContent = (
+            <ListItemButton
+              onClick={callFunc}
+              component={linkUrl ? Link : 'button'}
+              href={linkUrl}
+              sx={{
+                minHeight: 48,
+                justifyContent: collapsed ? 'center' : 'flex-start',
+                px: collapsed ? 1 : 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: collapsed ? 'center' : 'flex-start',
-                  px: collapsed ? 1 : 2.5,
+                  minWidth: 0,
+                  mr: collapsed ? 0 : 2,
+                  justifyContent: 'center',
                 }}
-                onClick={onToggleSettingDialog}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: collapsed ? 0 : 2,
-                    justifyContent: 'center',
-                  }}
-                >
-                  {icon}
-                </ListItemIcon>
-                {!collapsed && <ListItemText primary={text} />}
-              </ListItemButton>
-            </ListItem>
-            <Divider />
-          </>
-        ))}
+                {icon}
+              </ListItemIcon>
+              {!collapsed && <ListItemText primary={text} />}
+            </ListItemButton>
+          );
+
+          return (
+            <div key={text}>
+              <ListItem disablePadding sx={{ display: 'block' }}>
+                {buttonContent}
+              </ListItem>
+              {index < menus.length - 1 && <Divider />}
+            </div>
+          );
+        })}
       </List>
       <SettingDialog open={settingDialog} onClose={onToggleSettingDialog} />
     </>
