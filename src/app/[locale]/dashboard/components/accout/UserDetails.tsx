@@ -24,7 +24,12 @@ const UserDetails: FC<UserDetailsProps> = ({ collapsed }) => {
       <Avatar
         alt=""
         src={data?.avatar}
-        sx={{ width: avatarSize, height: avatarSize }}
+        slotProps={{
+          img: {
+            width: avatarSize,
+            height: avatarSize,
+          },
+        }}
       />
       <CustomSkeleton isLoading={isFetching}>
         <Typography
