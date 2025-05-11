@@ -116,7 +116,12 @@ const MessageBubble: FC<MessageBubbleProps> = ({
               zIndex: 1,
             }}
           >
-            {time}
+            {new Date(time).toLocaleDateString('en-US', {
+              day: '2-digit',
+              month: 'short',
+              hour: 'numeric',
+              minute: '2-digit',
+            })}
           </Typography>
         </Box>
       </Box>

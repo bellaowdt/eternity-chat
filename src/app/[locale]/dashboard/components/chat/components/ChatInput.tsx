@@ -4,9 +4,63 @@ import LinkIcon from '@mui/icons-material/Link';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import { SendRounded } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
+import { FC, useState } from 'react';
+import useDebounce from '../hooks/useDebounce';
+import { useMutation } from '@tanstack/react-query';
+import { chat } from '@/services/chat';
+import {
+  SAMPLE_CHAT_USER_ID,
+  SAMPLE_CHAT_USER_PERSONALITY,
+} from '@/constants/general';
+import { IChatHistoryResponse } from '@/services/chat/types';
 
-const ChatInput = () => {
+interface ChatInputProps {
+  onNewChat: (message: IChatHistoryResponse) => void;
+}
+
+const ChatInput: FC<ChatInputProps> = ({ onNewChat }) => {
   const t = useTranslations();
+  const [message, setMessage] = useState('');
+  const debouncedMessage = useDebounce(message, 500);
+
+  const { mutateAsync, isPending } = useMutation({
+    mutationFn: chat,
+  });
+
+  const handleSendMessage = async () => {
+    const trimmed = debouncedMessage.trim();
+    if (!trimmed || isPending) return;
+
+    try {
+      const { data } = await mutateAsync({
+        payload: {
+          user_id: SAMPLE_CHAT_USER_ID,
+          personality_name: SAMPLE_CHAT_USER_PERSONALITY,
+          message: trimmed,
+        },
+      });
+
+      onNewChat({
+        message: trimmed,
+        response: data?.response,
+        personality_name: SAMPLE_CHAT_USER_PERSONALITY,
+        timestamp: new Date(),
+        has_context: false,
+      });
+
+      setMessage('');
+    } catch (err) {
+      console.error('Failed to send message', err);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
   return (
     <Box
       display="flex"
@@ -29,11 +83,18 @@ const ChatInput = () => {
         <IconButton>
           <LinkIcon />
         </IconButton>
-        <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Type a message..." />
+        <InputBase
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          onKeyPress={handleKeyPress}
+          sx={{ ml: 1, flex: 1 }}
+          placeholder={`${t('pages.chat.typeMsg')}...`}
+          multiline
+        />
         <IconButton>
           <InsertEmoticonIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={handleSendMessage} disabled={isPending}>
           <Box
             sx={{
               backgroundColor: 'common.white',

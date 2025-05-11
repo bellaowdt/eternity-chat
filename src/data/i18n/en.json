@@ -80,7 +80,8 @@
       "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>."
     },
     "chat": {
-      "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations."
+      "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
+      "typeMsg": "Type a message"
     }
   }
 }

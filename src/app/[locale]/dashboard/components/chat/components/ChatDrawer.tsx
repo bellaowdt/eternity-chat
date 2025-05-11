@@ -24,7 +24,7 @@ const ChatDrawer = () => {
   return (
     <Box
       width={80}
-      px={1}
+      p={1}
       display="flex"
       flexDirection="column"
       justifyContent="space-between"
