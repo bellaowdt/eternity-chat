@@ -1,37 +1,84 @@
-import { Box, IconButton, Typography, InputBase, Paper } from '@mui/material';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
-import LinkIcon from '@mui/icons-material/Link';
-import GraphicEqIcon from '@mui/icons-material/GraphicEq';
-import { SendRounded } from '@mui/icons-material';
-import { useTranslations } from 'next-intl';
-import { FC, useState } from 'react';
-import useDebounce from '../hooks/useDebounce';
-import { useMutation } from '@tanstack/react-query';
-import { chat } from '@/services/chat';
+import { IconButtonWithLoading } from '@/components/IconButtonWithLoading';
 import {
   SAMPLE_CHAT_USER_ID,
   SAMPLE_CHAT_USER_PERSONALITY,
 } from '@/constants/general';
-import { IChatHistoryResponse } from '@/services/chat/types';
+import { chat } from '@/services/chat';
+import { IChatHistoryItem } from '@/services/chat/types';
+import { SendRounded } from '@mui/icons-material';
+import GraphicEqIcon from '@mui/icons-material/GraphicEq';
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import LinkIcon from '@mui/icons-material/Link';
+import { Box, IconButton, InputBase, Paper, Typography } from '@mui/material';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
+import { FC, useRef, useState } from 'react';
+import { GET_CHAT_HISTORY_KEY } from '../../../page';
 
-interface ChatInputProps {
-  onNewChat: (message: IChatHistoryResponse) => void;
+interface MessagePayload {
+  message: string;
+  traceId: string;
+  queryKey: [string, string];
 }
 
-const ChatInput: FC<ChatInputProps> = ({ onNewChat }) => {
+const ChatInput: FC = () => {
   const t = useTranslations();
   const [message, setMessage] = useState('');
-  const debouncedMessage = useDebounce(message, 500);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: chat,
   });
 
-  const handleSendMessage = async () => {
-    const trimmed = debouncedMessage.trim();
+  const queryClient = useQueryClient();
+
+  const createMessagePayload = (message: string): MessagePayload => ({
+    message: message.trim(),
+    traceId: Date.now().toString(),
+    queryKey: [GET_CHAT_HISTORY_KEY, SAMPLE_CHAT_USER_ID],
+  });
+
+  const addMessageToHistory = (payload: MessagePayload) => {
+    const newMessage: IChatHistoryItem = {
+      traceId: payload.traceId,
+      message: payload.message,
+      response: null,
+      personality_name: SAMPLE_CHAT_USER_PERSONALITY,
+      timestamp: new Date().toISOString(),
+      has_context: false,
+      isLoading: true,
+    };
+
+    queryClient.setQueryData(
+      payload.queryKey,
+      (previous: IChatHistoryItem[]) => [...(previous || []), newMessage],
+    );
+  };
+
+  const updateMessageInHistory = (
+    payload: MessagePayload,
+    updates: Partial<IChatHistoryItem>,
+  ) => {
+    queryClient.setQueryData(
+      payload.queryKey,
+      (previous: IChatHistoryItem[]) =>
+        previous?.map((item) =>
+          item.traceId === payload.traceId ? { ...item, ...updates } : item,
+        ) || [],
+    );
+  };
+
+  const sendMessage = async () => {
+    const trimmed = message.trim();
     if (!trimmed || isPending) return;
 
+    const payload = createMessagePayload(trimmed);
+
     try {
+      setMessage('');
+      addMessageToHistory(payload);
+      inputRef.current?.focus();
+
       const { data } = await mutateAsync({
         payload: {
           user_id: SAMPLE_CHAT_USER_ID,
@@ -40,24 +87,29 @@ const ChatInput: FC<ChatInputProps> = ({ onNewChat }) => {
         },
       });
 
-      onNewChat({
-        message: trimmed,
+      updateMessageInHistory(payload, {
         response: data?.response,
-        personality_name: SAMPLE_CHAT_USER_PERSONALITY,
-        timestamp: new Date(),
-        has_context: false,
+        isLoading: false,
       });
-
-      setMessage('');
-    } catch (err) {
-      console.error('Failed to send message', err);
+    } catch {
+      updateMessageInHistory(payload, {
+        response: 'Failed to get response',
+        isLoading: false,
+        isError: true,
+      });
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    sendMessage();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage();
+      sendMessage();
     }
   };
 
@@ -70,6 +122,8 @@ const ChatInput: FC<ChatInputProps> = ({ onNewChat }) => {
       minHeight={180}
     >
       <Paper
+        component="form"
+        onSubmit={onSubmit}
         variant="outlined"
         sx={{
           display: 'flex',
@@ -84,31 +138,34 @@ const ChatInput: FC<ChatInputProps> = ({ onNewChat }) => {
           <LinkIcon />
         </IconButton>
         <InputBase
+          inputRef={inputRef}
+          autoFocus
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
           sx={{ ml: 1, flex: 1 }}
           placeholder={`${t('pages.chat.typeMsg')}...`}
           multiline
+          rows={1}
         />
         <IconButton>
           <InsertEmoticonIcon />
         </IconButton>
-        <IconButton onClick={handleSendMessage} disabled={isPending}>
-          <Box
-            sx={{
-              backgroundColor: 'common.white',
-              borderRadius: '50%',
-              padding: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: 1,
-            }}
-          >
-            <SendRounded fontSize="small" />
-          </Box>
-        </IconButton>
+        <IconButtonWithLoading
+          type="submit"
+          disabled={!message.trim() || isPending}
+          sx={{
+            backgroundColor: 'common.white',
+            borderRadius: '50%',
+            padding: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: 1,
+          }}
+        >
+          <SendRounded fontSize="small" />
+        </IconButtonWithLoading>
         <IconButton>
           <GraphicEqIcon />
         </IconButton>

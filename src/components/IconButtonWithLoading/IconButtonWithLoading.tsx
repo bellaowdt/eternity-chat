@@ -8,20 +8,22 @@ export interface IconButtonWithLoadingProps extends IconButtonProps {
 const IconButtonWithLoading: FC<IconButtonWithLoadingProps> = ({
   isLoading,
   outlined,
+  sx,
   ...props
 }) => {
   return (
     <IconButton
       {...props}
       disabled={isLoading || props.disabled}
-      sx={
-        outlined
+      sx={{
+        ...sx,
+        ...(outlined
           ? {
               borderColor: 'inherit',
               border: '1px solid',
             }
-          : null
-      }
+          : {}),
+      }}
     >
       {isLoading ? (
         <CircularProgress color="inherit" size={16} />

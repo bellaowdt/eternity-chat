@@ -22,7 +22,7 @@ export interface ISentiment {
   tone: ToneEnum;
 }
 
-export interface ChatPaylod {
+export interface ChatPayload {
   user_id: string;
   personality_name: string;
   message: string;
@@ -33,12 +33,15 @@ export interface IChatHistoryParams {
   personality_name: string;
 }
 
-export interface IChatHistoryResponse {
+export interface IChatHistoryItem {
   message: string;
-  response: string;
+  response: string | null;
   personality_name: string;
   timestamp: string;
   has_context: boolean;
+  traceId?: string;
+  isLoading?: boolean;
+  isError?: boolean;
 }
 
 export interface ChatResponse {
@@ -47,9 +50,11 @@ export interface ChatResponse {
 }
 
 export interface ChatService {
-  ({ payload }: { payload: ChatPaylod }): Response<ChatResponse>;
+  ({ payload }: { payload: ChatPayload }): Response<ChatResponse>;
 }
 
-export interface ChatHistoyService {
-  (args: { params: IChatHistoryParams; user_id: number | string }): Response;
+export interface GetChatHistoryService {
+  (args: { params: IChatHistoryParams; userId: number | string }): Response<
+    IChatHistoryItem[]
+  >;
 }

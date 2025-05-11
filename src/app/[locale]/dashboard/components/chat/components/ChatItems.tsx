@@ -2,24 +2,23 @@ import {
   ChatCardDirectionEnum,
   ChatMessageTypeEnum,
   ChatUserTypeEnum,
-  IChatHistoryResponse,
+  IChatHistoryItem,
 } from '@/services/chat/types';
 import { Box } from '@mui/material';
-// import FeedbackCard from './FeedbackCard';
+import { FC, Fragment } from 'react';
 import MessageBubble from './MessageBubble';
-import { FC } from 'react';
 
-interface ChatListProps {
-  chatMessages: IChatHistoryResponse[];
+interface ChatItemsProps {
+  items: IChatHistoryItem[];
 }
 
-const ChatList: FC<ChatListProps> = ({ chatMessages }) => {
+const ChatItems: FC<ChatItemsProps> = ({ items }) => {
   return (
     <Box p={2}>
-      {chatMessages?.map((chat: IChatHistoryResponse, index: number) => {
-        const { message, response, timestamp } = chat;
+      {items.map((item, index) => {
+        const { message, response, timestamp, isLoading, isError } = item;
         return (
-          <>
+          <Fragment key={timestamp}>
             <MessageBubble
               key={index}
               message={message}
@@ -29,7 +28,9 @@ const ChatList: FC<ChatListProps> = ({ chatMessages }) => {
               bubbleTextColor="common.black"
               tailPosition={ChatCardDirectionEnum.LEFT}
               type={ChatMessageTypeEnum.HISTORY}
+              isError={isError}
             />
+
             <MessageBubble
               key={++index}
               message={response}
@@ -39,8 +40,10 @@ const ChatList: FC<ChatListProps> = ({ chatMessages }) => {
               bubbleTextColor="common.white"
               tailPosition={ChatCardDirectionEnum.RIGHT}
               type={ChatMessageTypeEnum.HISTORY}
+              isLoading={isLoading}
+              isError={isError}
             />
-          </>
+          </Fragment>
         );
       })}
 
@@ -49,4 +52,4 @@ const ChatList: FC<ChatListProps> = ({ chatMessages }) => {
   );
 };
 
-export default ChatList;
+export default ChatItems;

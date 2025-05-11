@@ -1,4 +1,3 @@
-// material-ui
 import { Box, Collapse, Fade, Grow, Slide, Zoom } from '@mui/material';
 import {
   CSSProperties,
@@ -8,8 +7,6 @@ import {
   Ref,
 } from 'react';
 
-// ==============================|| TRANSITIONS ||============================== //
-
 interface Props {
   children?: ReactElement;
   position?: string;
@@ -17,7 +14,7 @@ interface Props {
   in?: boolean;
   type?: string;
   direction?: 'up' | 'right' | 'left' | 'down';
-  [others: string]: any;
+  [others: string]: unknown;
 }
 
 const Transitions = forwardRef(
@@ -25,7 +22,6 @@ const Transitions = forwardRef(
     {
       children,
       position = 'top-left',
-      sx,
       type = 'grow',
       direction = 'up',
       ...others
@@ -116,5 +112,7 @@ const Transitions = forwardRef(
     );
   },
 );
+
+Transitions.displayName = 'Transitions';
 
 export default Transitions;

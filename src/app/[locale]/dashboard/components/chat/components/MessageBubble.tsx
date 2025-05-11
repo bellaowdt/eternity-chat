@@ -1,23 +1,26 @@
 import { useAppContext } from '@/hooks/useAppContext';
-import { Box, Typography } from '@mui/material';
-import { FC } from 'react';
-import ChatIconToolbar from './ChatIconToolbar';
+import { languages, Locale } from '@/navigation';
 import {
   ChatCardDirectionEnum,
   ChatMessageTypeEnum,
   ChatUserTypeEnum,
 } from '@/services/chat/types';
-import { languages } from '@/navigation';
-import { Locale, useLocale } from 'next-intl';
+import { ErrorOutlineOutlined } from '@mui/icons-material';
+import { Box, Collapse, Skeleton, Typography } from '@mui/material';
+import { useLocale } from 'next-intl';
+import { FC, memo } from 'react';
+import ChatIconToolbar from './ChatIconToolbar';
 
 interface MessageBubbleProps {
-  message: string;
+  message: string | null;
   time: string;
   bubbleColor?: string;
   bubbleTextColor?: string;
   tailPosition?: ChatCardDirectionEnum;
   sender: ChatUserTypeEnum;
   type?: ChatMessageTypeEnum;
+  isLoading?: boolean;
+  isError?: boolean;
 }
 
 const MessageBubble: FC<MessageBubbleProps> = ({
@@ -28,12 +31,14 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   tailPosition = ChatCardDirectionEnum.LEFT,
   sender,
   type = ChatMessageTypeEnum.CURRENT,
+  isLoading,
+  isError,
 }) => {
   const { isMobile } = useAppContext();
   const isLeft = tailPosition === ChatCardDirectionEnum.LEFT;
   const isSystem = sender === ChatUserTypeEnum.SYSTEM;
 
-  const locale: Locale = useLocale();
+  const locale = useLocale();
   const direction = languages[locale as Locale]?.direction ?? 'ltr';
 
   let tailPos = '';
@@ -59,6 +64,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
       ? 'M12,12 C12,6 6,0 0,0 L0,12 Z' // Tail for left-side
       : 'M0,12 C0,6 6,0 12,0 L12,12 Z'; // Tail for right-side
   }
+  console.log('Hello');
 
   return (
     <Box>
@@ -103,19 +109,58 @@ const MessageBubble: FC<MessageBubbleProps> = ({
               <path d={tailPos} fill={bubbleColor} />
             </svg>
           </Box>
-          <Typography variant="body1" sx={{ position: 'relative', zIndex: 1 }}>
-            {message}
-          </Typography>
+
+          <Collapse
+            in={isLoading}
+            timeout={300}
+            easing={{
+              enter: 'cubic-bezier(0.4, 0, 0.2, 1)',
+              exit: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
+            <Skeleton
+              variant="text"
+              sx={{
+                bgcolor: 'grey.400',
+              }}
+              width={'100%'}
+              height={22}
+            />
+          </Collapse>
+
+          <Collapse
+            in={!isLoading}
+            timeout={300}
+            easing={{
+              enter: 'cubic-bezier(0.4, 0, 0.2, 1)',
+              exit: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
+            <Typography variant="body1">{message}</Typography>
+          </Collapse>
+
           <Typography
             variant="caption"
             sx={{
-              display: 'block',
               textAlign: 'right',
               color: '#999',
               position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              gap: 1,
               zIndex: 1,
             }}
           >
+            {isError && (
+              <ErrorOutlineOutlined
+                color="error"
+                fontSize="small"
+                sx={{
+                  fontSize: '1rem',
+                }}
+              />
+            )}
             {new Date(time).toLocaleDateString('en-US', {
               day: '2-digit',
               month: 'short',
@@ -130,4 +175,4 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   );
 };
 
-export default MessageBubble;
+export default memo(MessageBubble);

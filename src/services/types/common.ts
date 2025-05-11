@@ -1,13 +1,13 @@
-import { AxiosResponse } from "axios";
+import { AxiosResponse } from 'axios';
 
-export type Response<T = any> = Promise<AxiosResponse<T>>;
+export type Response<T = unknown> = Promise<AxiosResponse<T>>;
 
-export interface Basic<T = any> {
+export interface Basic<T = unknown> {
   data: T;
   success: boolean;
 }
 
-export interface List<T = any> {
+export interface List<T = unknown> {
   result: T[];
   page_size: number;
   total_items: number;

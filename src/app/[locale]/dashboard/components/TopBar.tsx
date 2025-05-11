@@ -2,12 +2,12 @@ import { IconButton, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FC } from 'react';
 
-interface TopbarProps {
+interface TopBarProps {
   toggleCollapsed: VoidFunction;
   collapsed: boolean;
 }
 
-const Topbar: FC<TopbarProps> = ({ collapsed, toggleCollapsed }) => {
+const TopBar: FC<TopBarProps> = ({ collapsed, toggleCollapsed }) => {
   const iconBackColorOpen = 'grey.200';
   const iconBackColor = 'grey.100';
 
@@ -29,4 +29,4 @@ const Topbar: FC<TopbarProps> = ({ collapsed, toggleCollapsed }) => {
   );
 };
 
-export default Topbar;
+export default TopBar;
