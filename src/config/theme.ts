@@ -7,6 +7,10 @@ export const globalStyles: GlobalStylesProps['styles'] = (theme) => ({
   a: {
     textDecoration: 'none !important',
   },
+  '.MuiSvgIcon-root': {
+    width: '1em',
+    height: '1em',
+  },
   '.radial': {
     background: `radial-gradient(
       96.3% 616.69% at 3.7% 82.29%,

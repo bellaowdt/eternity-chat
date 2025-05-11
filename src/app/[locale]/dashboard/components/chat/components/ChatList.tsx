@@ -12,9 +12,10 @@ import { Box } from '@mui/material';
 import useGetUserChatsHistory from '../hooks/useGetUserChatsHistory';
 // import FeedbackCard from './FeedbackCard';
 import MessageBubble from './MessageBubble';
+import MessageBubbleSkeleton from './MessageBubbleSkeleton';
 
 const ChatList = () => {
-  const { data: chatHistoryList } = useGetUserChatsHistory({
+  const { data: chatHistoryList, isPending } = useGetUserChatsHistory({
     user_id: SAMPLE_CHAT_USER_ID,
     params: {
       user_id: SAMPLE_CHAT_USER_ID,
@@ -26,6 +27,19 @@ const ChatList = () => {
 
   return (
     <Box p={2}>
+      {isPending && (
+        <>
+          {new Array(4).fill(1).map((_i, index) => {
+            return (
+              <MessageBubbleSkeleton
+                key={index.toString()}
+                isLeft={index % 2 ? false : true}
+              />
+            );
+          })}
+        </>
+      )}
+
       {chatHistoryList?.data?.map(
         (chat: IChatHistoryResponse, index: number) => {
           const { message, response, timestamp } = chat;
@@ -41,7 +55,6 @@ const ChatList = () => {
                 tailPosition={ChatCardDirectionEnum.LEFT}
                 type={ChatMessageTypeEnum.HISTORY}
               />
-
               <MessageBubble
                 key={++index}
                 message={response}

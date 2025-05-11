@@ -46,7 +46,9 @@
       }
     }
   },
-  "messages": {},
+  "messages": {
+    "noRowFound": "There is no row to display!"
+  },
   "pages": {
     "account": {
       "logoutMsg": "Are you sure you want to log out?",
