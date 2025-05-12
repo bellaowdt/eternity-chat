@@ -10,7 +10,6 @@ import MobileSidebar from './components/sidebar/MobileSidebar';
 import Sidebar from './components/sidebar/Sidebar';
 import TopBar from './components/TopBar';
 
-export const GET_CHAT_HISTORY_KEY = 'GET_USER_CHAT_HISTORY';
 const Home = () => {
   const { isMobile } = useAppContext();
   const [collapsed, setCollapsed] = useState(false);

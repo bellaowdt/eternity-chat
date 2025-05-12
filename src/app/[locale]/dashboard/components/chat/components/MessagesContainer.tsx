@@ -1,4 +1,5 @@
 import {
+  GET_CHAT_HISTORY_QUERY_KEY,
   SAMPLE_CHAT_USER_ID,
   SAMPLE_CHAT_USER_PERSONALITY,
 } from '@/constants/general';
@@ -6,7 +7,6 @@ import { getChatHistory } from '@/services/chat';
 import { Box } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
-import { GET_CHAT_HISTORY_KEY } from '../../../page';
 import ChatItems from './ChatItems';
 import MessageBubbleSkeleton from './MessageBubbleSkeleton';
 
@@ -15,7 +15,7 @@ const MessagesContainer = () => {
 
   const { data, isFetching } = useQuery({
     enabled: !!SAMPLE_CHAT_USER_ID,
-    queryKey: [GET_CHAT_HISTORY_KEY, SAMPLE_CHAT_USER_ID],
+    queryKey: [GET_CHAT_HISTORY_QUERY_KEY, SAMPLE_CHAT_USER_ID],
     queryFn: async () => {
       const { data } = await getChatHistory({
         userId: SAMPLE_CHAT_USER_ID,

@@ -1,5 +1,6 @@
 import { IconButtonWithLoading } from '@/components/IconButtonWithLoading';
 import {
+  GET_CHAT_HISTORY_QUERY_KEY,
   SAMPLE_CHAT_USER_ID,
   SAMPLE_CHAT_USER_PERSONALITY,
 } from '@/constants/general';
@@ -13,7 +14,6 @@ import { Box, IconButton, InputBase, Paper, Typography } from '@mui/material';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { FC, useRef, useState } from 'react';
-import { GET_CHAT_HISTORY_KEY } from '../../../page';
 
 interface MessagePayload {
   message: string;
@@ -35,7 +35,7 @@ const ChatInput: FC = () => {
   const createMessagePayload = (message: string): MessagePayload => ({
     message: message.trim(),
     traceId: Date.now().toString(),
-    queryKey: [GET_CHAT_HISTORY_KEY, SAMPLE_CHAT_USER_ID],
+    queryKey: [GET_CHAT_HISTORY_QUERY_KEY, SAMPLE_CHAT_USER_ID],
   });
 
   const addMessageToHistory = (payload: MessagePayload) => {
