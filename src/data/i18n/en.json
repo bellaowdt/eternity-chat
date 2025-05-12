@@ -81,7 +81,8 @@
     },
     "chat": {
       "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
-      "typeMsg": "Type a message"
+      "typeMsg": "Type a message",
+      "getChatResponseError": "Failed to get response. Try again!"
     }
   }
 }

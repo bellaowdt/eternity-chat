@@ -93,7 +93,7 @@ const ChatInput: FC = () => {
       });
     } catch {
       updateMessageInHistory(payload, {
-        response: 'Failed to get response',
+        response: t('pages.chat.getChatResponseError'),
         isLoading: false,
         isError: true,
       });
