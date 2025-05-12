@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import Title from "@/components/Auth/components/Title";
-import { FormBuilder } from "@/components/Fields";
-import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
-import { MemoriesPayload } from "@/services/onboarding/types";
-import { onInvalidSubmit } from "@/utils/form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
-import SkipStep from "./SkipStep";
-import { FC } from "react";
-import { useRouter } from "next/navigation";
-import { DEFAULT_ONBOARDING_COMPLETE_PATH } from "@/constants/routes";
+import Title from '@/components/common/Title';
+import { FormBuilder } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
+import { MemoriesPayload } from '@/services/onboarding/types';
+import { onInvalidSubmit } from '@/utils/form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box, Grid } from '@mui/material';
+import { useMutation } from '@tanstack/react-query';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import SkipStep from './SkipStep';
+import { FC } from 'react';
+import { useRouter } from 'next/navigation';
+import { DEFAULT_ONBOARDING_COMPLETE_PATH } from '@/constants/routes';
 
 interface MemoriesProps {
   onSkip: VoidFunction;
@@ -23,8 +23,8 @@ interface MemoriesProps {
 const Memories: FC<MemoriesProps> = ({ onSkip }) => {
   const router = useRouter();
   const labels: Record<keyof MemoriesPayload, string> = {
-    description: "description",
-    receiveReminderDate: "receiveReminderDate",
+    description: 'description',
+    receiveReminderDate: 'receiveReminderDate',
   };
 
   const resolveSchema: yup.ObjectSchema<MemoriesPayload> = yup.object({
@@ -50,13 +50,13 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
     router.push(DEFAULT_ONBOARDING_COMPLETE_PATH);
   };
 
-  const fields: FormBuilderProps["fields"] = {
+  const fields: FormBuilderProps['fields'] = {
     description: {
-      name: "description",
-      label: "What is your most cherished memory with them?",
-      type: "String",
+      name: 'description',
+      label: 'What is your most cherished memory with them?',
+      type: 'String',
       props: {
-        placeholder: "Type a short description",
+        placeholder: 'Type a short description',
         multiline: true,
         minRows: 8,
       },
@@ -88,7 +88,7 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
       p={4}
     >
       <FormProvider {...methods}>
-        <Title title="Memories" sx={{ my: 5, justifyContent: "flex-start" }} />
+        <Title title="Memories" sx={{ my: 5, justifyContent: 'flex-start' }} />
         <Grid
           container
           spacing={2}

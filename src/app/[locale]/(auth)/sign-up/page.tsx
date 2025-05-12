@@ -11,7 +11,7 @@ import { SignUpPayload } from '@/services/iam/types';
 import { onInvalidSubmit } from '@//utils/form';
 import * as yup from 'yup';
 import { useRouter } from 'next/navigation';
-import Title from '@/components/Auth/components/Title';
+import Title from '@/components/common/Title';
 import { useTranslations } from 'next-intl';
 import { RemoveRedEye } from '@mui/icons-material';
 

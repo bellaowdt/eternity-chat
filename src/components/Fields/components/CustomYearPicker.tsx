@@ -1,6 +1,6 @@
 import { DatePicker } from '@mui/x-date-pickers';
 import { Controller, useFormContext } from 'react-hook-form';
-import CustomSkeleton from '../../CustomSkeleton';
+import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
 
 const CustomYearPicker = ({ name, size, label }) => {
@@ -24,7 +24,7 @@ const CustomYearPicker = ({ name, size, label }) => {
               value={_value}
               label={label}
               name={field.name}
-              onChange={value => {
+              onChange={(value) => {
                 field.onChange(value?.getFullYear?.() || 0);
               }}
               views={['year']}

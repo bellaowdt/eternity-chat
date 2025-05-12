@@ -1,10 +1,10 @@
 'use client';
 
-import Title from '@/components/Auth/components/Title';
+import Title from '@/components/common/Title';
+import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
 import LinearFieldset from '@/components/common/LinearFieldset';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
-import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
 import auth from '@/lib/auth';
 import { signIn } from '@/services/iam';
 import { SignInPayload } from '@/services/iam/types';
@@ -12,11 +12,11 @@ import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Divider, Grid } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import GoogleLoginButton from '../components/GoogleLoginButton';
-import { useTranslations } from 'next-intl';
 
 const SignIn = () => {
   const t = useTranslations();
@@ -32,7 +32,7 @@ const SignIn = () => {
     password: yup.string().nullable().required().label(labels.password),
   });
 
-  const methods = useForm<Partial<SignInPayload>>({
+  const methods = useForm<SignInPayload>({
     resolver: yupResolver(resolveSchema),
   });
 

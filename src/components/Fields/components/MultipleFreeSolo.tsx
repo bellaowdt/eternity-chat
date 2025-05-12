@@ -4,11 +4,11 @@ import { Autocomplete, Chip, IconButton, TextField } from '@mui/material';
 import { digitsArToEn, digitsFaToEn } from '@persian-tools/persian-tools';
 import { FC, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { isAllNumbers } from '@/utils/form';
-import useLocalFormContext from './hooks/useLocalFormContext';
-import { MultipleFreeSoloProps } from './types';
+import { isAllNumbers } from '../utils';
+import useLocalFormContext from '../hooks/useLocalFormContext';
+import { MultipleFreeSoloProps } from '../types';
 import { PlusOneOutlined } from '@mui/icons-material';
-import CustomSkeleton from '../CustomSkeleton';
+import CustomSkeleton from '../../common/CustomSkeleton';
 
 const MultipleFreeSolo: FC<MultipleFreeSoloProps> = ({
   name,

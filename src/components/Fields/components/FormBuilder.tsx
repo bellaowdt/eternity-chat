@@ -1,18 +1,18 @@
-import { Grid } from "@mui/material";
-import { FC } from "react";
+import { Grid } from '@mui/material';
+import { FC } from 'react';
 
-import MultipleFreeSolo from "../MultipleFreeSolo";
-import CurrencyTextField from "./CurrencyTextField";
-import CustomAutoComplete from "./CustomAutoComplete";
-import CustomSwitch from "./CustomSwitch";
-import CustomTextarea from "./CustomTextarea";
-import ServerSideCustomAutoComplete from "./ServerSideCustomAutoComplete";
-import CustomRadioButtons from "./CustomRadioButtons";
-import { Labels } from "../types";
-import CustomCheckbox from "./CustomCheckbox";
-import CustomTextField from "./CustomTextField";
-import CustomDatePicker from "./CustomDatePicker";
-import CustomSelect from "./CustomSelect";
+import MultipleFreeSolo from './MultipleFreeSolo';
+import CurrencyTextField from './CurrencyTextField';
+import CustomAutoComplete from './CustomAutoComplete';
+import CustomSwitch from './CustomSwitch';
+import CustomTextarea from './CustomTextarea';
+import ServerSideCustomAutoComplete from './ServerSideCustomAutoComplete';
+import CustomRadioButtons from './CustomRadioButtons';
+import { Labels } from '../types';
+import CustomCheckbox from './CustomCheckbox';
+import CustomTextField from './CustomTextField';
+import CustomDatePicker from './CustomDatePicker';
+import CustomSelect from './CustomSelect';
 export interface FormBuilderProps {
   fields: Labels<string>;
 }
@@ -23,36 +23,36 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
         const { ui, ...common } = fields[key];
 
         switch (common.type) {
-          case "Custom":
+          case 'Custom':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 {common.component}
               </Grid>
             );
 
-          case "RadioButtons":
+          case 'RadioButtons':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomRadioButtons {...common} />
               </Grid>
             );
-          case "Switch":
+          case 'Switch':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomSwitch {...common} />
               </Grid>
             );
 
-          case "Checkbox":
+          case 'Checkbox':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomCheckbox {...common} />
               </Grid>
             );
 
-          case "String":
+          case 'String':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomTextField
                   size="small"
                   fullWidth
@@ -61,9 +61,9 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
                 />
               </Grid>
             );
-          case "Textarea":
+          case 'Textarea':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomTextarea
                   {...common?.props}
                   size="small"
@@ -72,9 +72,9 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
                 />
               </Grid>
             );
-          case "Number":
+          case 'Number':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomTextField
                   type="number"
                   size="small"
@@ -84,15 +84,15 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
                 />
               </Grid>
             );
-          case "Currency":
+          case 'Currency':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CurrencyTextField fullWidth {...common} />
               </Grid>
             );
-          case "Date":
+          case 'Date':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomDatePicker
                   fullWidth
                   {...common}
@@ -103,9 +103,9 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
                 />
               </Grid>
             );
-          case "Selective":
+          case 'Selective':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomSelect
                   size="small"
                   fullWidth
@@ -114,9 +114,9 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
                 />
               </Grid>
             );
-          case "ServerSideSelective":
+          case 'ServerSideSelective':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <ServerSideCustomAutoComplete
                   fullWidth
                   size="small"
@@ -126,15 +126,15 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
                 />
               </Grid>
             );
-          case "FreeSoloSelective":
+          case 'FreeSoloSelective':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <MultipleFreeSolo size="small" {...common} {...common.props} />
               </Grid>
             );
-          case "SearchableSelective":
+          case 'SearchableSelective':
             return (
-              <Grid key={common?.name} {...ui.grid}>
+              <Grid key={key} {...ui?.grid}>
                 <CustomAutoComplete fullWidth size="small" {...common} />
               </Grid>
             );

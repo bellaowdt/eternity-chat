@@ -1,7 +1,7 @@
 import { Autocomplete, TextField } from '@mui/material';
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import CustomSkeleton from '../../CustomSkeleton';
+import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CustomAutoCompleteProps, Option } from '../types';
 
@@ -35,24 +35,24 @@ const CustomMultipleAutoComplete: FC<
             size={size}
             onChange={(event, value) => {
               const _value =
-                value?.map(item => {
+                value?.map((item) => {
                   return item.value;
                 }) ?? [];
               onChange(_value);
 
               if (resetFieldsOnChange?.length) {
-                resetFieldsOnChange.forEach(key => {
+                resetFieldsOnChange.forEach((key) => {
                   setValue(key, null);
                 });
               }
             }}
             value={
               value
-                ? (options?.filter(item => value.includes(item.id)) ?? [])
+                ? options?.filter((item) => value.includes(item.id)) ?? []
                 : []
             }
             options={options}
-            renderInput={params => (
+            renderInput={(params) => (
               <TextField
                 {...params}
                 label={label}

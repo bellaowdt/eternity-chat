@@ -1,7 +1,7 @@
 import { Box, TextField, Typography } from '@mui/material';
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import CustomSkeleton from '../../CustomSkeleton';
+import CustomSkeleton from '../../common/CustomSkeleton';
 import { DEFAULT_FORBIDDEN_CHARS } from '../constants/defaults';
 import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CustomTextFieldProps } from '../types';

@@ -1,22 +1,19 @@
-"use client";
+'use client';
 
-import Title from "@/components/Auth/components/Title";
-import { FormBuilder } from "@/components/Fields";
-import { FormBuilderProps } from "@/components/Fields/components/FormBuilder";
-import FileUploadForm from "@/components/FileUpload/FileUploadForm";
-import GradientButtonWithLoading from "@/components/GradientButtonWithLoading";
-import {
-  AppearancePayload,
-  CommunicationPayload,
-} from "@/services/onboarding/types";
-import { onInvalidSubmit } from "@/utils/form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { FC } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
-import SkipStep from "./SkipStep";
+import Title from '@/components/common/Title';
+import { FormBuilder } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import FileUploadForm from '@/components/common/FileUploadForm';
+import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
+import { CommunicationPayload } from '@/services/onboarding/types';
+import { onInvalidSubmit } from '@/utils/form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box, Grid } from '@mui/material';
+import { useMutation } from '@tanstack/react-query';
+import { FC } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import SkipStep from './SkipStep';
 
 interface CommunicationStyleProps {
   onSkip: VoidFunction;
@@ -24,40 +21,40 @@ interface CommunicationStyleProps {
 
 const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
   const labels: Record<keyof CommunicationPayload, string> = {
-    description: "description",
-    saying: "saying",
-    lovedVoice: "Loved Voice",
-    textVoice: "Text Voice",
+    description: 'description',
+    saying: 'saying',
+    lovedVoice: 'Loved Voice',
+    textVoice: 'Text Voice',
   };
 
   const resolveSchema: yup.ObjectSchema<CommunicationPayload> = yup.object({
-    description: yup.string().nullable().required().label(labels.description),
-    saying: yup.string().nullable().required().label(labels.saying),
-    lovedVoice: yup.string().nullable().label(labels.lovedVoice),
-    textVoice: yup.string().nullable().label(labels.textVoice),
+    description: yup.string().required().label(labels.description),
+    saying: yup.string().required().label(labels.saying),
+    lovedVoice: yup.string().label(labels.lovedVoice),
+    textVoice: yup.string().label(labels.textVoice),
   });
 
-  const methods = useForm<AppearancePayload>({
+  const methods = useForm<CommunicationPayload>({
     resolver: yupResolver(resolveSchema),
   });
 
   const { handleSubmit } = methods;
-  const { mutateAsync, isPending } = useMutation({
+  const { isPending } = useMutation({
     // mutationFn: AppearanceUpdate,
   });
 
-  const onSubmit: SubmitHandler<AppearancePayload> = async (payload) => {
+  const onSubmit: SubmitHandler<CommunicationPayload> = async () => {
     //   await mutateAsync({ payload });
   };
 
-  const fields: FormBuilderProps["fields"] = {
+  const fields: FormBuilderProps['fields'] = {
     description: {
-      name: "description",
-      label: "How would you describe their way of talking?",
-      type: "String",
+      name: 'description',
+      label: 'How would you describe their way of talking?',
+      type: 'String',
       props: {
         placeholder:
-          "E.g., They spoke with a warm and friendly tone, often using kind words and gentle humor. Their messages were thoughtful and supportive.",
+          'E.g., They spoke with a warm and friendly tone, often using kind words and gentle humor. Their messages were thoughtful and supportive.',
         multiline: true,
         minRows: 8,
       },
@@ -68,9 +65,9 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
       },
     },
     photo: {
-      name: "saying",
-      label: "Is there a particular phrase or saying they used often?",
-      type: "String",
+      name: 'saying',
+      label: 'Is there a particular phrase or saying they used often?',
+      type: 'String',
       props: {
         placeholder: "E.g., 'Keep smiling!",
       },
@@ -93,7 +90,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
       <FormProvider {...methods}>
         <Title
           title="Communication Style"
-          sx={{ my: 5, justifyContent: "flex-start" }}
+          sx={{ my: 5, justifyContent: 'flex-start' }}
         />
         <Grid
           container

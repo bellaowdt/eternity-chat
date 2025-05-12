@@ -1,10 +1,10 @@
 'use client';
 
-import Title from '@/components/Auth/components/Title';
+import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
-import FileUploadForm from '@/components/FileUpload/FileUploadForm';
-import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
+import FileUploadForm from '@/components/common/FileUploadForm';
+import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
 import { AppearancePayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';

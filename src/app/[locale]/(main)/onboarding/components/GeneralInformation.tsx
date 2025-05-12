@@ -1,9 +1,9 @@
 'use client';
 
-import Title from '@/components/Auth/components/Title';
+import Title from '@/components/common/Title';
 import { FormBuilder, Option } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
-import GradientButtonWithLoading from '@/components/GradientButtonWithLoading';
+import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
 import { generalInformationUpdate } from '@/services/onboarding';
 import { GeneralInformationPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';

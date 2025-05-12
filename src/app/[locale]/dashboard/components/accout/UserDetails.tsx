@@ -1,4 +1,4 @@
-import CustomSkeleton from '@/components/CustomSkeleton';
+import CustomSkeleton from '@/components/common/CustomSkeleton';
 import { Avatar, Typography, Stack } from '@mui/material';
 import { FC } from 'react';
 

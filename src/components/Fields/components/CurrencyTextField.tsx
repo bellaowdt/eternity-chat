@@ -1,12 +1,12 @@
 import { InputAdornment, TextField, TextFieldProps } from '@mui/material';
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import CustomSkeleton from '../../CustomSkeleton';
+import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CurrencyTextFieldProps, NumberLimitations } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
 
-const toLocaleString = value => {
+const toLocaleString = (value) => {
   if ([undefined, null].includes(value)) {
     return '';
   }
@@ -55,7 +55,7 @@ const CurrencyTextField: FC<CurrencyTextFieldProps> = ({
               size={size}
               multiline
               value={_value}
-              onChange={e => {
+              onChange={(e) => {
                 const _value = extractNumbers(e.target.value);
 
                 if (_value === null) {

@@ -1,5 +1,5 @@
 import { styled } from '@mui/material';
-import { ButtonWithLoading } from './ButtonWithLoading';
+import { ButtonWithLoading } from '../ButtonWithLoading';
 
 const GradientButton = styled(ButtonWithLoading)(({ theme }) => ({
   background: `linear-gradient(180deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   FormControl,
@@ -6,19 +6,19 @@ import {
   MenuItem,
   Select,
   Typography,
-} from "@mui/material";
-import { SelectInputProps } from "@mui/material/Select/SelectInput";
-import { FC } from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import CustomSkeleton from "../../CustomSkeleton";
-import useLocalFormContext from "../hooks/useLocalFormContext";
-import { CustomSelectProps, Option } from "../types";
-import ClearButtonAdornment from "./ClearButtonAdornment";
+} from '@mui/material';
+import { SelectInputProps } from '@mui/material/Select/SelectInput';
+import { FC } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import CustomSkeleton from '../../common/CustomSkeleton';
+import useLocalFormContext from '../hooks/useLocalFormContext';
+import { CustomSelectProps, Option } from '../types';
+import ClearButtonAdornment from './ClearButtonAdornment';
 
 const CustomSelect: FC<CustomSelectProps> = ({
   options = [],
-  name = "",
-  size = "small",
+  name = '',
+  size = 'small',
   label,
   labelFormatter,
   resetFieldsOnChange = [],
@@ -36,20 +36,20 @@ const CustomSelect: FC<CustomSelectProps> = ({
       name={name}
       control={control}
       render={({ field }) => {
-        let normalizedValue: number | number[] | "" = "";
+        let normalizedValue: number | number[] | '' = '';
         if (Array.isArray(field.value)) {
           normalizedValue = field.value.map((item: any) =>
-            typeof item === "object" ? item.id : item
+            typeof item === 'object' ? item.id : item,
           );
-        } else if (typeof field.value === "object" && field.value?.id) {
+        } else if (typeof field.value === 'object' && field.value?.id) {
           normalizedValue = field.value.id;
-        } else if (typeof field.value === "number") {
+        } else if (typeof field.value === 'number') {
           normalizedValue = field.value;
         } else {
-          normalizedValue = field.value ?? "";
+          normalizedValue = field.value ?? '';
         }
 
-        const handleChange: SelectInputProps<Option>["onChange"] = (event) => {
+        const handleChange: SelectInputProps<Option>['onChange'] = (event) => {
           props?.onChange?.(event);
           field.onChange(event);
 
