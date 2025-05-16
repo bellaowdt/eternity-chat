@@ -4,13 +4,13 @@
   },
   "common": {
     "buttons": {
-      "return": "عودة",
+      "return": "رجوع",
       "yes": "نعم",
       "no": "لا",
-      "select": "اختر",
+      "select": "اختيار",
       "returnHome": "العودة إلى الصفحة الرئيسية",
       "refresh": "تحديث",
-      "reset": "إعادة تعيين",
+      "reset": "إعادة ضبط",
       "submit": "إرسال",
       "detail": "تفاصيل",
       "edit": "تعديل",
@@ -19,9 +19,9 @@
       "logout": "تسجيل الخروج",
       "setting": "الإعدادات",
       "saveChanges": "حفظ التغييرات",
-      "continue": "استمرار",
+      "continue": "متابعة",
       "or": "أو",
-      "googleBtn": "المتابعة عبر جوجل",
+      "googleBtn": "المتابعة باستخدام Google",
       "changePassword": "تغيير كلمة المرور",
       "deleteAllChats": "حذف جميع المحادثات"
     },
@@ -32,27 +32,40 @@
       "password": "كلمة المرور",
       "language": "اللغة",
       "confirmPassword": "تأكيد كلمة المرور",
-      "namePlaceholder": "مثال: جون دو",
-      "emailPlaceholder": "مثال: johndoe@gmail.com",
+      "namePlaceholder": "مثال: محمد علي",
+      "emailPlaceholder": "مثال: mohamed@example.com",
       "darkTheme": "الوضع الداكن",
-      "editImage": "تعديل الصورة"
+      "editImage": "تعديل الصورة",
+      "female": "أنثى",
+      "male": "ذكر",
+      "age": "العمر",
+      "occupation": "المهنة",
+      "tone": "النبرة",
+      "gender": "الجنس",
+      "personality": "الشخصية",
+      "tones": {
+        "happy": "سعيد",
+        "sad": "حزين",
+        "natural": "طبيعي"
+      }
     },
     "sidebar": {
       "menu": {
         "notification": "الإشعارات",
         "settings": "الإعدادات",
         "helpCenter": "مركز المساعدة",
-        "PrivacyPolicy": "سياسة الخصوصية"
+        "privacyPolicy": "سياسة الخصوصية"
       }
     }
   },
   "messages": {
-    "noRowFound": "لا توجد بيانات للعرض!"
+    "noRowFound": "لا توجد بيانات لعرضها!",
+    "personalityCreatedSuccessfully": "تم إنشاء الشخصية بنجاح!"
   },
   "pages": {
     "account": {
       "logoutMsg": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
-      "logoutConfirm": "نعم، سجّل خروجي"
+      "logoutConfirm": "نعم، سجلني خروج"
     },
     "settings": {
       "menu": {
@@ -64,11 +77,11 @@
       "notifications": {
         "email": "إشعارات البريد الإلكتروني",
         "inApp": "إشعارات داخل التطبيق",
-        "push": "إشعارات فورية"
+        "push": "إشعارات الدفع"
       },
       "privacy": {
         "twoFactorAuthentication": "التحقق بخطوتين",
-        "sessionManagemnet": "إدارة الجلسات"
+        "sessionManagement": "إدارة الجلسات"
       }
     },
     "signIn": {
@@ -77,10 +90,14 @@
     },
     "signUp": {
       "createAccount": "أنشئ حسابك",
-      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة </terms> و<policy>سياسة الخصوصية</policy> الخاصة بنا."
+      "signUpPrivacyPolicyText": "من خلال التسجيل، فإنك توافق على <terms>شروط الخدمة</terms> و <policy>سياسة الخصوصية</policy> الخاصة بنا."
     },
     "chat": {
-      "accuracyMsg": "الذكاء الاصطناعي لا يمكنه تكرار أحبائك بالكامل، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى."
-    }
+      "accuracyMsg": "الذكاء الاصطناعي لا يمكنه تقليد أحبائك بالكامل، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى.",
+      "typeMsg": "اكتب رسالة",
+      "getChatResponseError": "فشل في الحصول على رد. حاول مرة أخرى!",
+      "addPersonality": "إضافة شخصية جديدة"
+    },
+    "personality": {}
   }
 }

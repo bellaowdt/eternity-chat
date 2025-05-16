@@ -5,9 +5,11 @@ interface GetPersonalitiesProps {
   user_id?: string | null;
 }
 
+export const PERSONALITIES_LIST_KEY = 'GET_USER_PERSONALITIES_LIST';
+
 const useGetPersonalities = ({ user_id }: GetPersonalitiesProps) => {
   const query = useQuery({
-    queryKey: ['GET_PERSONALITIES_LIST', user_id],
+    queryKey: [PERSONALITIES_LIST_KEY, user_id],
     queryFn: async () => {
       const { data } = await getListPersonalities({
         params: { user_id },

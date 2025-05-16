@@ -1,22 +1,18 @@
 'use client';
 
-import Title from '@/components/common/Title';
-import { FormBuilder, Option } from '@/components/Fields';
-import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
 import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
-import { GenderEnum, ToneEnum } from '@/services/common/types';
+import Title from '@/components/common/Title';
+import { FormBuilder } from '@/components/Fields';
+import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
 import { PersonalityTraitsPayload } from '@/services/onboarding/types';
-import { createPersonality } from '@/services/personality';
-import { ICreatePersonality } from '@/services/personality/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Grid, Typography } from '@mui/material';
-import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import useGetPersonalities from '../../hooks/useGetPersonalities';
 import SkipStep from './SkipStep';
+import { PersonalityList } from '@/constants/general';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;
@@ -43,65 +39,10 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
 
   const { handleSubmit } = methods;
 
-  const { mutateAsync, isPending } = useMutation({
-    mutationFn: createPersonality,
-  });
-
   const onSubmit: SubmitHandler<PersonalityTraitsPayload> = async (payload) => {
+    console.log(payload);
     // await mutateAsync({ payload });
   };
-
-  // TODO: move to correct place
-  const { data } = useGetPersonalities({ user_id: null });
-  console.log('data', data);
-
-  const handleCreatePeronlity = async () => {
-    const params: ICreatePersonality = {
-      user_id: 'BQQywmO6uIbp3jC8Fet3iD9cG063',
-      age: 32,
-      name: 'Bella',
-      occupation: 'Developer',
-      tone: ToneEnum.Happy,
-      gender: GenderEnum.Female,
-      personality: 'Good Person',
-    };
-    await mutateAsync({ params });
-  };
-  // End TODO
-
-  // TODO: Get from API
-  const personalityList: Option[] = [
-    {
-      id: 1,
-      label: 'Caring',
-      value: 'Caring',
-    },
-    {
-      id: 2,
-      label: 'Funny',
-      value: 'Funny',
-    },
-    {
-      id: 3,
-      label: 'Thoughtful',
-      value: 'Thoughtful',
-    },
-    {
-      id: 4,
-      label: 'Adventurous',
-      value: 'Adventurous',
-    },
-    {
-      id: 5,
-      label: 'Creative',
-      value: 'Creative',
-    },
-    {
-      id: 6,
-      label: 'Calm',
-      value: 'Calm',
-    },
-  ];
 
   const fields: FormBuilderProps['fields'] = {
     favoriteActivities: {
@@ -130,8 +71,8 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
         },
       },
     },
-    ...personalityList.reduce((acc, item) => {
-      acc[item.value] = {
+    ...PersonalityList.reduce((acc, item) => {
+      acc[item?.value] = {
         name: item.value,
         label: item.label,
         type: 'Checkbox',
@@ -167,16 +108,6 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
           <FormBuilder fields={fields} />
           <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading
-              isLoading={isPending}
-              onClick={handleCreatePeronlity}
-              variant="contained"
-              color="primary"
-              size="large"
-            >
-              Add Personality
-            </GradientButtonWithLoading>
-            <GradientButtonWithLoading
-              isLoading={isPending}
               type="submit"
               fullWidth
               variant="contained"

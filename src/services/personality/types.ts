@@ -9,25 +9,19 @@ export interface IPersonality {
   personality: string;
   tone: ToneEnum;
 }
+
+export interface ICreatePersonality extends IPersonality {
+  user_id: string;
+}
 export interface Personality {
   name: string;
   details: IPersonality;
 }
 
-export interface UserWithPersonalities {
+export interface GetersonalitiesResponse {
   user_id: string;
   total_personalities: number;
   personalities: Personality[];
-}
-
-// export interface GetPersonalitiesResponse {
-//   user_id: string;
-//   total_personalities: number;
-//   personalities: UserWithPersonalities[];
-// }
-
-export interface ICreatePersonality extends IPersonality {
-  user_id: string;
 }
 
 export interface CreatePersonalityService {
@@ -37,5 +31,5 @@ export interface CreatePersonalityService {
 export interface ListPersonalitiesService {
   (args: {
     params: { user_id?: string | null };
-  }): Response<UserWithPersonalities>;
+  }): Response<GetersonalitiesResponse>;
 }

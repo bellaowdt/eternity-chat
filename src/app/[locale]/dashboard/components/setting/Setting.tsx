@@ -7,6 +7,7 @@ import TabPanel from '@/components/TabPanel/TabPanel';
 import { useSettingMenus } from './hooks/useSettingMenus';
 
 export type SettingDialogProps = DialogProps;
+
 const SettingDialog: FC<SettingDialogProps> = ({ ...props }) => {
   const t = useTranslations();
   const menus = useSettingMenus();

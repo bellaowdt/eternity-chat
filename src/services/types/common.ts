@@ -4,5 +4,4 @@ export type Response<T = unknown> = Promise<AxiosResponse<T>>;
 
 export interface Basic<T = unknown> {
   data: T;
-  success: boolean;
 }

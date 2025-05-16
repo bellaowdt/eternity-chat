@@ -5,7 +5,6 @@ import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoa
 import LinearFieldset from '@/components/common/LinearFieldset';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
-import auth from '@/lib/auth';
 import { signIn } from '@/services/iam';
 import { SignInPayload } from '@/services/iam/types';
 import { onInvalidSubmit } from '@/utils/form';
@@ -13,14 +12,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Divider, Grid } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 
 const SignIn = () => {
   const t = useTranslations();
-  const router = useRouter();
 
   const labels: Record<keyof SignInPayload, string> = {
     email: t('common.fields.email'),
@@ -43,11 +40,7 @@ const SignIn = () => {
   });
 
   const onSubmit: SubmitHandler<SignInPayload> = async (payload) => {
-    const { data, status } = await mutateAsync({ payload });
-    if (status === 200) {
-      auth.login({ access_token: data.data.token });
-      router.push('');
-    }
+    await mutateAsync({ payload });
   };
 
   const fields: FormBuilderProps['fields'] = {

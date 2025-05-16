@@ -37,7 +37,17 @@
       "darkTheme": "Dark Theme",
       "editImage": "Edit Image",
       "female": "Female",
-      "male": "Male"
+      "male": "Male",
+      "age": "Age",
+      "occupation": "Occupation",
+      "tone": "Tone",
+      "gender": "Gender",
+      "personality": "Personality",
+      "tons": {
+        "happy": "Happy",
+        "sad": "Sad",
+        "natural": "Natural"
+      }
     },
     "sidebar": {
       "menu": {
@@ -49,7 +59,8 @@
     }
   },
   "messages": {
-    "noRowFound": "There is no row to display!"
+    "noRowFound": "There is no row to display!",
+    "personalityCreatedSuccessfully": "Your prsonality was created successfully!"
   },
   "pages": {
     "account": {
@@ -84,7 +95,9 @@
     "chat": {
       "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
       "typeMsg": "Type a message",
-      "getChatResponseError": "Failed to get response. Try again!"
-    }
+      "getChatResponseError": "Failed to get response. Try again!",
+      "addPersonality": "Add a New Personality"
+    },
+    "personality": {}
   }
 }
