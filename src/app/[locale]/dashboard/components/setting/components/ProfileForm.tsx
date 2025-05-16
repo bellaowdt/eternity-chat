@@ -1,5 +1,5 @@
 import { CustomTextField } from '@/components/Fields';
-import { DEFAULt_AVATAR_IMAGE } from '@/constants/general';
+import { DEFAULt_MALE_AVATAR_IMAGE } from '@/constants/general';
 import { IAccountSetting } from '@/services/iam/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -38,7 +38,10 @@ const ProfileForm = () => {
         mb={3}
       >
         <Box display="flex" alignItems="center" gap={2}>
-          <Avatar src={DEFAULt_AVATAR_IMAGE} sx={{ width: 64, height: 64 }} />
+          <Avatar
+            src={DEFAULt_MALE_AVATAR_IMAGE}
+            sx={{ width: 64, height: 64 }}
+          />
           <Typography color="primary" sx={{ cursor: 'pointer' }}>
             {t('common.fields.editImage')}
           </Typography>

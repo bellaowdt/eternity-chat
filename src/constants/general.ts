@@ -1,7 +1,8 @@
 export const DEFAULt_NO_IMAGE = '/assets/images/placeholders/no-image.jpg';
 export const HOME_CHAT_EXPERIENCE = '/assets/images/home/home-chat.png';
 export const GOOGLE_ICON = '/assets/images/google.png';
-export const DEFAULt_AVATAR_IMAGE = '/assets/images/users/avatar-2.png';
+export const DEFAULt_MALE_AVATAR_IMAGE = '/assets/images/users/avatar-1.png';
+export const DEFAULt_FEMALE_AVATAR_IMAGE = '/assets/images/users/avatar-7.png';
 export const DRAWER_WIDTH = 200;
 export const DRAWER_MIN_WIDTH = 0;
 export const SAMPLE_CHAT_USER_ID = 'BQQywmO6uIbp3jC8Fet3iD9cG063';

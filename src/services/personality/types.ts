@@ -20,11 +20,11 @@ export interface UserWithPersonalities {
   personalities: Personality[];
 }
 
-export interface GetPersonalitiesResponse {
-  total_users: number;
-  total_personalities: number;
-  users: UserWithPersonalities[];
-}
+// export interface GetPersonalitiesResponse {
+//   user_id: string;
+//   total_personalities: number;
+//   personalities: UserWithPersonalities[];
+// }
 
 export interface ICreatePersonality extends IPersonality {
   user_id: string;
@@ -37,5 +37,5 @@ export interface CreatePersonalityService {
 export interface ListPersonalitiesService {
   (args: {
     params: { user_id?: string | null };
-  }): Response<GetPersonalitiesResponse>;
+  }): Response<UserWithPersonalities>;
 }

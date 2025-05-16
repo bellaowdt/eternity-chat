@@ -35,7 +35,9 @@
       "namePlaceholder": "ex. John Doe",
       "emailPlaceholder": "ex. johndoe@gmail.com",
       "darkTheme": "Dark Theme",
-      "editImage": "Edit Image"
+      "editImage": "Edit Image",
+      "female": "Female",
+      "male": "Male"
     },
     "sidebar": {
       "menu": {

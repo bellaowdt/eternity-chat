@@ -16,7 +16,6 @@ const useGetPersonalities = ({ user_id }: GetPersonalitiesProps) => {
     },
     gcTime: 0,
     staleTime: 0,
-    placeholderData: [],
     refetchOnMount: true,
   });
 

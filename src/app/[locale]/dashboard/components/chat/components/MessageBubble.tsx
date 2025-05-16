@@ -64,8 +64,6 @@ const MessageBubble: FC<MessageBubbleProps> = ({
       ? 'M12,12 C12,6 6,0 0,0 L0,12 Z' // Tail for left-side
       : 'M0,12 C0,6 6,0 12,0 L12,12 Z'; // Tail for right-side
   }
-  console.log('Hello');
-
   return (
     <Box>
       <Box
