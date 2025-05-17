@@ -30,9 +30,10 @@ const CustomRadioButtons: FC<CustomRadioButtonsProps> = ({
               aria-labelledby={id}
               name={field.name}
             >
-              {options.map(option => {
+              {options.map((option, index) => {
                 return (
                   <FormControlLabel
+                    key={index}
                     value={option.value}
                     control={<Radio />}
                     label={option.label}

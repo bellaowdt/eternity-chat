@@ -1,29 +1,29 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Box, Button, Typography, Link, Container } from "@mui/material";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import Image from "next/image";
-import { DEFAULT_SIGNIN_PATH } from "@/constants/routes";
+import { useState } from 'react';
+import { Box, Button, Typography, Link, Container } from '@mui/material';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import Image from 'next/image';
+import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
 
 const steps = [
   {
-    title: "Reconnect Beyond Time",
+    title: 'Reconnect Beyond Time',
     description:
-      "Discover a compassionate way to relive memories and share heartfelt moments with your loved ones through advanced AI simulation.",
-    image: "",
+      'Discover a compassionate way to relive memories and share heartfelt moments with your loved ones through advanced AI simulation.',
+    image: '',
   },
   {
-    title: "AI-Driven Conversations",
+    title: 'AI-Driven Conversations',
     description:
-      "Eternity Chat uses cutting-edge AI to simulate meaningful interactions. Recreate cherished memories and keep the bond alive.",
-    image: "",
+      'Eternity Chat uses cutting-edge AI to simulate meaningful interactions. Recreate cherished memories and keep the bond alive.',
+    image: '',
   },
   {
-    title: "Designed for Healing",
+    title: 'Designed for Healing',
     description:
-      "Eternity Chat is crafted with care to support your emotional journey. Connect in a way that soothes and uplifts your spirit.",
-    image: "",
+      'Eternity Chat is crafted with care to support your emotional journey. Connect in a way that soothes and uplifts your spirit.',
+    image: '',
   },
 ];
 
@@ -60,7 +60,7 @@ export default function ReconnectSlider() {
       >
         <Box
           display="flex"
-          flexDirection={{ xs: "column-reverse", sm: "row" }}
+          flexDirection={{ xs: 'column-reverse', sm: 'row' }}
           alignItems="center"
           justifyContent="center"
           width="100%"
@@ -71,10 +71,10 @@ export default function ReconnectSlider() {
             flex={1}
             display="flex"
             flexDirection="column"
-            height={{ xs: "auto", md: "500px" }}
+            height={{ xs: 'auto', md: '500px' }}
             width="100%"
             justifyContent="space-between"
-            alignItems={{ xs: "center", md: "flex-start" }}
+            alignItems={{ xs: 'center', md: 'flex-start' }}
           >
             {/* Dots */}
             <Box mb={2} display="flex" gap={1}>
@@ -84,11 +84,11 @@ export default function ReconnectSlider() {
                   sx={{
                     width: 8,
                     height: 8,
-                    borderRadius: "50%",
-                    bgcolor: index === activeStep ? "primary.main" : "grey.400",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    transform: index === activeStep ? "scale(1.4)" : "scale(1)",
+                    borderRadius: '50%',
+                    bgcolor: index === activeStep ? 'primary.main' : 'grey.400',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    transform: index === activeStep ? 'scale(1.4)' : 'scale(1)',
                   }}
                   onClick={() => handleDotClick(index)}
                 />
@@ -101,9 +101,9 @@ export default function ReconnectSlider() {
               flexDirection="column"
               flexGrow={1}
               justifyContent="center"
-              alignItems={{ xs: "center", md: "flex-start" }}
+              alignItems={{ xs: 'center', md: 'flex-start' }}
               maxWidth={400}
-              textAlign={{ xs: "center", md: "left" }}
+              textAlign={{ xs: 'center', md: 'left' }}
             >
               <Typography variant="h4" fontWeight="bold" mb={2}>
                 {steps[activeStep].title}
@@ -129,20 +129,20 @@ export default function ReconnectSlider() {
                   variant="contained"
                   onClick={handleNext}
                   sx={{
-                    borderRadius: "50%",
-                    width: "48px",
-                    height: "48px",
+                    borderRadius: '50%',
+                    width: '48px',
+                    height: '48px',
                     padding: 0,
                     minWidth: 0,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
                   <KeyboardArrowRight />
                 </Button>
                 {activeStep === steps.length - 1 ? (
-                  <Link href={DEFAULT_SIGNIN_PATH}>Let's Begin</Link>
+                  <Link href={DEFAULT_SIGNIN_PATH}>Let&apos;s Begin</Link>
                 ) : (
                   <Typography variant="body1">Next</Typography>
                 )}
@@ -157,9 +157,9 @@ export default function ReconnectSlider() {
                 sx={{
                   opacity: activeStep === steps.length - 1 ? 0.5 : 1,
                   pointerEvents:
-                    activeStep === steps.length - 1 ? "none" : "auto",
+                    activeStep === steps.length - 1 ? 'none' : 'auto',
                   cursor:
-                    activeStep === steps.length - 1 ? "not-allowed" : "pointer",
+                    activeStep === steps.length - 1 ? 'not-allowed' : 'pointer',
                 }}
               >
                 Skip
@@ -178,7 +178,7 @@ export default function ReconnectSlider() {
             <Box
               width="100%"
               maxWidth="400px"
-              height={{ xs: "300px", md: "500px" }}
+              height={{ xs: '300px', md: '500px' }}
               bgcolor="#e0e0e0"
               borderRadius={2}
               position="relative"

@@ -1,14 +1,14 @@
-import {
-  GET_CHAT_HISTORY_QUERY_KEY,
-  SAMPLE_CHAT_USER_ID,
-  SAMPLE_CHAT_USER_PERSONALITY,
-} from '@/constants/general';
 import { getChatHistory } from '@/services/chat';
 import { Box } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 import ChatItems from './ChatItems';
 import MessageBubbleSkeleton from './MessageBubbleSkeleton';
+import {
+  GET_CHAT_HISTORY_QUERY_KEY,
+  SAMPLE_CHAT_USER_ID,
+  SAMPLE_CHAT_USER_PERSONALITY,
+} from '@/constants/query-keys';
 
 const MessagesContainer = () => {
   const chatEndRef = useRef<HTMLDivElement | null>(null);

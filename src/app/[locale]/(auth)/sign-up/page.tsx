@@ -2,7 +2,6 @@
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Grid, Link, Typography, Box } from '@mui/material';
-import { useMutation } from '@tanstack/react-query';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import { FormBuilder } from '@/components/Fields';
@@ -10,15 +9,12 @@ import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
 import { SignUpPayload } from '@/services/iam/types';
 import { onInvalidSubmit } from '@//utils/form';
 import * as yup from 'yup';
-import { useRouter } from 'next/navigation';
 import Title from '@/components/common/Title';
 import { useTranslations } from 'next-intl';
 import { RemoveRedEye } from '@mui/icons-material';
 
 const SignUp = () => {
   const t = useTranslations();
-
-  const router = useRouter();
 
   const labels: Record<keyof SignUpPayload | 'confirmPassword', string> = {
     email: t('common.fields.email'),
@@ -50,17 +46,17 @@ const SignUp = () => {
 
   console.log('errors>>>', errors);
 
-  const { mutateAsync, isPending } = useMutation({
-    //  mutationFn: sendCode,
-  });
+  // const { mutateAsync, isPending } = useMutation({
+  //   mutationFn: sendCode,
+  // });
 
-  const onSubmit: SubmitHandler<SignUpPayload> = async (payload) => {
-    await mutateAsync({
-      payload: {
-        email: payload.email,
-      },
-    });
-    router.push('', { state: payload });
+  const onSubmit: SubmitHandler<SignUpPayload> = async () => {
+    // await mutateAsync({
+    //   payload: {
+    //     email: payload.email,
+    //   },
+    // });
+    // router.push('', { state: payload });
   };
 
   const fields: FormBuilderProps['fields'] = {
@@ -159,7 +155,7 @@ const SignUp = () => {
 
           <Grid size={{ xs: 12 }}>
             <ButtonWithLoading
-              isLoading={isPending}
+              // isLoading={isPending}
               type="submit"
               fullWidth
               variant="contained"

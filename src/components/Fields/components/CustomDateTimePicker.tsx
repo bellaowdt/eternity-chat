@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
 import { CustomDateTimePickerProps } from '../types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomDateTimePicker: FC<CustomDateTimePickerProps<any>> = ({
   name,
   label,
@@ -17,7 +18,7 @@ const CustomDateTimePicker: FC<CustomDateTimePickerProps<any>> = ({
     formState: { errors },
   } = useController({ name, control });
 
-  const handleChange = date => {
+  const handleChange = (date: string) => {
     let value = date;
     if (valueFormatter) {
       value = valueFormatter(value);
@@ -38,7 +39,7 @@ const CustomDateTimePicker: FC<CustomDateTimePickerProps<any>> = ({
         textField: () => ({
           helperText: errors[name]?.message?.toString(),
           error: !!errors[name],
-          fullWidth: true,
+          fullWidth,
           variant,
           size: 'small',
         }),

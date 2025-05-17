@@ -27,7 +27,8 @@ const ProfileForm = () => {
   const methods = useForm<Partial<IAccountSetting>>({
     resolver: yupResolver(resolveSchema),
   });
-  const { handleSubmit, control } = methods;
+  const { control } = methods;
+  console.log(control);
 
   return (
     <FormProvider {...methods}>

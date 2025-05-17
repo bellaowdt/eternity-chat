@@ -234,6 +234,7 @@ export type IFieldTypes =
     }
   | {
       type: 'Selective';
+      props?: Partial<CustomTextFieldProps>;
       options: Option[];
     }
   | {

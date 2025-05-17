@@ -12,7 +12,6 @@ const CustomMultipleAutoComplete: FC<
   name,
   size,
   label,
-  labelFormatter,
   resetFieldsOnChange = [],
   ...props
 }) => {

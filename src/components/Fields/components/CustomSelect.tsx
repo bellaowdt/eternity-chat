@@ -5,14 +5,14 @@ import {
   FormHelperText,
   MenuItem,
   Select,
+  SelectChangeEvent,
   Typography,
 } from '@mui/material';
-import { SelectInputProps } from '@mui/material/Select/SelectInput';
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
-import { CustomSelectProps, Option } from '../types';
+import { CustomSelectProps } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
 
 const CustomSelect: FC<CustomSelectProps> = ({
@@ -38,6 +38,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
       render={({ field }) => {
         let normalizedValue: number | number[] | '' = '';
         if (Array.isArray(field.value)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           normalizedValue = field.value.map((item: any) =>
             typeof item === 'object' ? item.id : item,
           );
@@ -49,8 +50,10 @@ const CustomSelect: FC<CustomSelectProps> = ({
           normalizedValue = field.value ?? '';
         }
 
-        const handleChange: SelectInputProps<Option>['onChange'] = (event) => {
-          props?.onChange?.(event);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const handleChange = (event: SelectChangeEvent<any>) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          props?.onChange?.(event as any);
           field.onChange(event);
 
           resetFieldsOnChange.forEach((key) => {

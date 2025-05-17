@@ -21,6 +21,7 @@ const RollbackSwitch: FC<RollbackSwitchProps> = ({
       setChecked(checked);
       await onChange(_event, checked);
     } catch (error) {
+      console.log(error);
       setChecked(value);
     }
   };

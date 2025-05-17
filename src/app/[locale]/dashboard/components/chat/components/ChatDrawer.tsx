@@ -1,11 +1,11 @@
 import useGenderList from '@/app/[locale]/(main)/hooks/useGenderList';
 import useGetPersonalities from '@/app/[locale]/(main)/hooks/useGetPersonalities';
-import { SAMPLE_CHAT_USER_ID } from '@/constants/general';
 import { GenderEnum } from '@/services/common/types';
 import { Avatar, Box, Stack, Tooltip, Typography } from '@mui/material';
 import { useState } from 'react';
 import AddPersonalityDialog from './AddPersonalityDialog';
 import AvatarSkeleton from './AvatarSkeleton';
+import { SAMPLE_CHAT_USER_ID } from '@/constants/query-keys';
 
 const ChatDrawer = () => {
   const [addPersonalityDialog, setAddPersonalityDialog] = useState(false);

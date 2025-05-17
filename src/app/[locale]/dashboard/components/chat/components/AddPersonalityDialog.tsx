@@ -1,5 +1,4 @@
 import useGenderList from '@/app/[locale]/(main)/hooks/useGenderList';
-import { PERSONALITIES_LIST_KEY } from '@/app/[locale]/(main)/hooks/useGetPersonalities';
 import useToneList from '@/app/[locale]/(main)/hooks/useToneList';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import { Dialog } from '@/components/Dialog';
@@ -8,7 +7,11 @@ import { Option } from '@/components/Fields';
 import FormBuilder, {
   FormBuilderProps,
 } from '@/components/Fields/components/FormBuilder';
-import { PersonalityList, SAMPLE_CHAT_USER_ID } from '@/constants/general';
+import { PersonalityList } from '@/constants/general';
+import {
+  GET_USER_PERSONALITIES_LIST_KEY,
+  SAMPLE_CHAT_USER_ID,
+} from '@/constants/query-keys';
 import { queryClient } from '@/providers/TanstackProvider';
 import { createPersonality } from '@/services/personality';
 import { ICreatePersonality } from '@/services/personality/types';
@@ -72,7 +75,7 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
     mutationFn: createPersonality,
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [PERSONALITIES_LIST_KEY, SAMPLE_CHAT_USER_ID],
+        queryKey: [GET_USER_PERSONALITIES_LIST_KEY, SAMPLE_CHAT_USER_ID],
       });
     },
   });

@@ -19,13 +19,13 @@ export interface AppearancePayload {
 export interface CommunicationPayload {
   description: string;
   saying: string;
-  lovedVoice: string;
-  textVoice: string;
+  lovedVoice?: string | null;
+  textVoice?: string | null;
 }
 
 export interface MemoriesPayload {
-  description: string;
-  receiveReminderDate: string;
+  description: string | null;
+  receiveReminderDate: string | null;
 }
 
 export interface GeneralInformationUpdateService {

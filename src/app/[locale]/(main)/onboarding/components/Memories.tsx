@@ -8,7 +8,6 @@ import { MemoriesPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Grid } from '@mui/material';
-import { useMutation } from '@tanstack/react-query';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
@@ -27,7 +26,7 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
     receiveReminderDate: 'receiveReminderDate',
   };
 
-  const resolveSchema: yup.ObjectSchema<MemoriesPayload> = yup.object({
+  const resolveSchema: yup.ObjectSchema<Partial<MemoriesPayload>> = yup.object({
     description: yup.string().nullable().required().label(labels.description),
     receiveReminderDate: yup
       .string()
@@ -35,17 +34,17 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
       .label(labels.receiveReminderDate),
   });
 
-  const methods = useForm<MemoriesPayload>({
+  const methods = useForm<Partial<MemoriesPayload>>({
     resolver: yupResolver(resolveSchema),
   });
 
   const { handleSubmit } = methods;
 
-  const { mutateAsync, isPending } = useMutation({
-    // mutationFn: MemoriesUpdate,
-  });
+  // const { mutateAsync, isPending } = useMutation({
+  //   mutationFn: MemoriesUpdate,
+  // });
 
-  const onSubmit: SubmitHandler<MemoriesPayload> = async (payload) => {
+  const onSubmit: SubmitHandler<Partial<MemoriesPayload>> = async () => {
     // await mutateAsync({ payload });
     router.push(DEFAULT_ONBOARDING_COMPLETE_PATH);
   };
@@ -99,7 +98,7 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
 
           <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading
-              isLoading={isPending}
+              // isLoading={isPending}
               type="submit"
               fullWidth
               variant="contained"

@@ -1,16 +1,16 @@
-import { DatePicker } from "@mui/x-date-pickers";
-import { FC } from "react";
-import { useController, useFormContext } from "react-hook-form";
-import { ICustomDatePicker } from "../types";
-import ClearButtonAdornment from "./ClearButtonAdornment";
+import { DatePicker } from '@mui/x-date-pickers';
+import { FC } from 'react';
+import { useController, useFormContext } from 'react-hook-form';
+import { ICustomDatePicker } from '../types';
+import ClearButtonAdornment from './ClearButtonAdornment';
 
-const CustomDatePicker: FC<ICustomDatePicker["props"]> = ({
+const CustomDatePicker: FC<ICustomDatePicker['props']> = ({
   name,
   label,
-  fullWidth = true,
-  variant = "outlined",
+  // fullWidth = true,
+  variant = 'outlined',
   valueFormatter,
-  format = "yyyy/MM/dd",
+  format = 'yyyy/MM/dd',
   ...props
 }) => {
   const { control } = useFormContext();
@@ -33,7 +33,7 @@ const CustomDatePicker: FC<ICustomDatePicker["props"]> = ({
       format={format}
       {...props}
       label={label}
-      value={(field.value as unknown as never) || ""}
+      value={(field.value as unknown as never) || ''}
       onChange={handleChange}
       onSelectedSectionsChange={() => {}}
       closeOnSelect={true}
@@ -43,7 +43,7 @@ const CustomDatePicker: FC<ICustomDatePicker["props"]> = ({
           error: !!errors[name],
           fullWidth: true,
           variant,
-          size: "small",
+          size: 'small',
           InputProps: {
             startAdornment: (
               <>

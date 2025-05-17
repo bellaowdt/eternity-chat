@@ -6,10 +6,10 @@ import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CustomTextFieldProps } from '../types';
 
 const CustomTextarea: FC<CustomTextFieldProps> = ({
-  limitations,
-  size = 'small',
-  fullWidth = true,
-  variant = 'outlined',
+  // limitations,
+  // size = 'small',
+  // fullWidth = true,
+  // variant = 'outlined',
   name,
   ...props
 }) => {

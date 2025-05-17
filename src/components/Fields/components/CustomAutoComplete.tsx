@@ -12,7 +12,6 @@ const CustomAutoComplete: FC<
   name,
   size,
   label,
-  labelFormatter,
   resetFieldsOnChange = [],
   ...props
 }) => {

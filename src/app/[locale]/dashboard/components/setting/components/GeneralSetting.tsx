@@ -30,7 +30,8 @@ const GeneralSetting = () => {
   const methods = useForm<Partial<IGeneralSetting>>({
     resolver: yupResolver(resolveSchema),
   });
-  const { handleSubmit, control } = methods;
+  const { control } = methods;
+  console.log(control);
 
   return (
     <FormProvider {...methods}>

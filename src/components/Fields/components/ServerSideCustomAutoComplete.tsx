@@ -17,8 +17,6 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
   name,
   size,
   label,
-  labelFormatter,
-  resetFieldsOnChange = [],
   disabledOnChange = false,
   ...props
 }) => {
@@ -40,7 +38,7 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
     if (open && options.length === 0) {
       mutateAsync(null);
     }
-  }, [open, options.length]);
+  }, [mutateAsync, open, options.length]);
 
   const handleChangeInput = debounce(async (event) => {
     const searchText = event.target.value;
@@ -62,6 +60,7 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
         }) => {
           const selectedOption = (options.find(
             (item) => item.value === value,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ) || '') as any;
 
           return (
@@ -75,8 +74,9 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
               }}
               size={size}
               value={selectedOption}
-              onChange={(event, value) => onChange(value.value)}
+              onChange={(event, value) => onChange(value?.value)}
               isOptionEqualToValue={(option, value) =>
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (option.value as any) === value
               }
               getOptionLabel={(option) => option.label?.toString?.() || ''}

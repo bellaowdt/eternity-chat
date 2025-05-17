@@ -10,7 +10,7 @@ import MobileSidebar from './components/sidebar/MobileSidebar';
 import Sidebar from './components/sidebar/Sidebar';
 import TopBar from './components/TopBar';
 
-const Home = () => {
+const ChatPage = () => {
   const { isMobile } = useAppContext();
   const [collapsed, setCollapsed] = useState(false);
   const toggleDrawer = () => setCollapsed(!collapsed);
@@ -33,7 +33,6 @@ const Home = () => {
 
         <Box display="flex" flex={1} minHeight={0} position="relative">
           <ChatDrawer />
-
           <Container
             maxWidth="md"
             sx={{
@@ -44,7 +43,6 @@ const Home = () => {
             }}
           >
             <MessagesContainer />
-
             <Box
               display="flex"
               flexDirection="column"
@@ -61,4 +59,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ChatPage;

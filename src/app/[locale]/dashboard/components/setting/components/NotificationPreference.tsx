@@ -37,7 +37,7 @@ const NotificationPreference = () => {
               <RollbackSwitch
                 size="small"
                 value={false}
-                onChange={(value) => onChange(item.key, true)}
+                onChange={() => onChange(item.key, true)}
               />
             </Grid>
           </Grid>

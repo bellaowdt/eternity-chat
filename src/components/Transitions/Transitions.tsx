@@ -10,10 +10,10 @@ import {
 import { forwardRef } from 'react';
 
 export interface TransitionsProps extends SlideProps {
-  position?;
-  type?;
+  position?: string;
+  type?: string;
 }
-const Transitions = forwardRef<any, TransitionsProps>((props, ref) => {
+const Transitions = forwardRef<string, TransitionsProps>((props, ref) => {
   const {
     children,
     position = 'top-left',

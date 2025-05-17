@@ -30,7 +30,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
       .nullable()
       .required()
       .label(labels.favoriteActivities),
-    personality: yup.string().nullable().required().label(labels.personality),
+    personality: yup.array().nullable().required().label(labels.personality),
   });
 
   const methods = useForm<PersonalityTraitsPayload>({
@@ -72,9 +72,9 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
       },
     },
     ...PersonalityList.reduce((acc, item) => {
-      acc[item?.value] = {
-        name: item.value,
-        label: item.label,
+      acc[item?.value as string | number] = {
+        name: item.value as string,
+        label: item.label as string,
         type: 'Checkbox',
         ui: {
           grid: {

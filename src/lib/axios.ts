@@ -1,9 +1,5 @@
 import axios from 'axios';
-
 import { toast } from 'react-toastify';
-import { LoginByRefreshTokenService } from '@/services/account/types';
-import auth from './auth';
-import { loginByRefreshToken } from '@/services/account';
 
 const publicPaths = ['/api/v1/account/login'];
 export const config = {
@@ -29,7 +25,7 @@ _axios.interceptors.request.use(
       config.headers['Accept-Language'] = lang;
     }
     if (!publicPaths.includes(config.url as string)) {
-      config.headers.Authorization = `Bearer ${auth.accessToken}`;
+     // config.headers.Authorization = `Bearer ${auth.accessToken}`;
     }
     return config;
   },
@@ -38,16 +34,16 @@ _axios.interceptors.request.use(
   },
 );
 
-function isUnauthorizedError(error: any) {
-  const {
-    response: { status, data },
-  } = error;
+// function isUnauthorizedError(error: any) {
+//   const {
+//     response: { status, data },
+//   } = error;
 
-  return status === 401 || !data.data;
-}
+//   return status === 401 || !data.data;
+// }
 
-let refreshingFunc: ReturnType<LoginByRefreshTokenService> | undefined =
-  undefined;
+// let refreshingFunc: ReturnType<LoginByRefreshTokenService> | undefined =
+//   undefined;
 
 _axios.interceptors.response.use(
   (next) => {
@@ -59,44 +55,45 @@ _axios.interceptors.response.use(
   },
   async (error) => {
     const status = error?.response?.status;
-    const expectedErrors = status >= 400 && status <= 500;
+    // const expectedErrors = status >= 400 && status <= 500;
 
     if (status === 401) {
-      try {
-        if (!auth.refreshToken) {
-          throw Error('Refresh token is not exist!');
-        }
+     // try {
+        // if (!auth.refreshToken) {
+        //   throw Error('Refresh token is not exist!');
+        // }
 
-        if (!refreshingFunc) {
-          refreshingFunc = loginByRefreshToken({
-            payload: { refreshToken: auth.refreshToken },
-          });
-        }
-        const response = await refreshingFunc;
+        // if (!refreshingFunc) {
+        //   refreshingFunc = loginByRefreshToken({
+        //     payload: { refreshToken: auth.refreshToken },
+        //   });
+        // }
+     //   const response = await refreshingFunc;
 
-        if (!response.data.succeed) {
-          throw Error('Refresh token is not valid!');
-        }
-        try {
-          auth.login(response.data.value);
-          return await axios.request(error.config);
-        } catch (innerError) {
-          if (isUnauthorizedError(innerError)) {
-            throw innerError;
-          }
-        }
-      } catch (err) {
-        await auth.logout();
-      } finally {
-        refreshingFunc = undefined;
-      }
-    } else if (expectedErrors) {
-      const message = error.response.data?.message;
-      !!message && toast.error(message);
-    }
+      //   if (!response.data.succeed) {
+      //     throw Error('Refresh token is not valid!');
+      //   }
+      //   try {
+      //     auth.login(response.data.value);
+      //     return await axios.request(error.config);
+      //   } catch (innerError) {
+      //     if (isUnauthorizedError(innerError)) {
+      //       throw innerError;
+      //     }
+      //   }
+      // } catch (err) {
+      //   await auth.logout();
+      // } finally {
+      //   refreshingFunc = undefined;
+      // }
+    // } else if (expectedErrors) {
+    //   const message = error.response.data?.message;
+    //   !!message && toast.error(message);
+    // }
 
-    return Promise.reject(error);
-  },
+  //  return Promise.reject(error);
+  }
+}
 );
 
 export default _axios;

@@ -1,12 +1,13 @@
-import { InputAdornment, TextField, TextFieldProps } from '@mui/material';
+import { InputAdornment, TextField } from '@mui/material';
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
-import { CurrencyTextFieldProps, NumberLimitations } from '../types';
+import { CurrencyTextFieldProps } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
 
-const toLocaleString = (value) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const toLocaleString = (value: any) => {
   if ([undefined, null].includes(value)) {
     return '';
   }
@@ -34,7 +35,7 @@ const CurrencyTextField: FC<CurrencyTextFieldProps> = ({
   limitations,
   size = 'small',
   fullWidth = true,
-  variant = 'outlined',
+  // variant = 'outlined',
   currencyLabel,
   ...props
 }) => {
@@ -44,7 +45,7 @@ const CurrencyTextField: FC<CurrencyTextFieldProps> = ({
   return (
     <Controller
       control={control}
-      name={props.name}
+      name={props?.name || ''}
       render={({ field: { onChange, value }, formState: { errors } }) => {
         const _value = toLocaleString(value);
         return (
@@ -69,8 +70,8 @@ const CurrencyTextField: FC<CurrencyTextFieldProps> = ({
                   }
                 }
               }}
-              error={!!errors[props.name]}
-              helperText={errors[props.name]?.['message']?.toString()}
+              error={!!errors[props?.name || '']}
+              helperText={errors[props?.name || '']?.['message']?.toString()}
               InputProps={{
                 endAdornment: (
                   <>

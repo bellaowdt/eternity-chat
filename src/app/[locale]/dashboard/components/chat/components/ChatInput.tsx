@@ -3,7 +3,7 @@ import {
   GET_CHAT_HISTORY_QUERY_KEY,
   SAMPLE_CHAT_USER_ID,
   SAMPLE_CHAT_USER_PERSONALITY,
-} from '@/constants/general';
+} from '@/constants/query-keys';
 import { chat } from '@/services/chat';
 import { IChatHistoryItem } from '@/services/chat/types';
 import { SendRounded } from '@mui/icons-material';

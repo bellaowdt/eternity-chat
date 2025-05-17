@@ -21,7 +21,7 @@ const PrivacySettings = () => {
           <RollbackSwitch
             size="small"
             value={false}
-            onChange={(value) => onChange('twoFactorAuthentication', true)}
+            onChange={() => onChange('twoFactorAuthentication', true)}
           />
         </Grid>
       </Grid>

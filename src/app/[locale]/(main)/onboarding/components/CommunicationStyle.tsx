@@ -28,8 +28,8 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
   };
 
   const resolveSchema: yup.ObjectSchema<CommunicationPayload> = yup.object({
-    description: yup.string().required().label(labels.description),
-    saying: yup.string().required().label(labels.saying),
+    description: yup.string().nullable().required().label(labels.description),
+    saying: yup.string().nullable().required().label(labels.saying),
     lovedVoice: yup.string().label(labels.lovedVoice),
     textVoice: yup.string().label(labels.textVoice),
   });
