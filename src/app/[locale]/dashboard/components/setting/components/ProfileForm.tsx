@@ -24,7 +24,7 @@ const ProfileForm = () => {
     password: yup.string().nullable().required().label(labels.password),
   });
 
-  const methods = useForm<Partial<IAccountSetting>>({
+  const methods = useForm<IAccountSetting>({
     resolver: yupResolver(resolveSchema),
   });
   const { control } = methods;

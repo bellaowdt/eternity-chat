@@ -13,6 +13,7 @@ import {
   SAMPLE_CHAT_USER_ID,
 } from '@/constants/query-keys';
 import { queryClient } from '@/providers/TanstackProvider';
+import { GenderEnum, ToneEnum } from '@/services/common/types';
 import { createPersonality } from '@/services/personality';
 import { ICreatePersonality } from '@/services/personality/types';
 import { onInvalidSubmit } from '@/utils/form';
@@ -25,6 +26,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 export type AddPersonalityDialogProps = DialogProps;
+type ICreatePersonalityPayload = Omit<ICreatePersonality, 'user_id'>;
 
 const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
   const t = useTranslations();
@@ -46,7 +48,7 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
     } as Option;
   });
 
-  const labels: Record<keyof Omit<ICreatePersonality, 'user_id'>, string> = {
+  const labels: Record<keyof ICreatePersonalityPayload, string> = {
     age: t('common.fields.age'),
     name: t('common.fields.name'),
     occupation: t('common.fields.occupation'),
@@ -55,17 +57,28 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
     personality: t('common.fields.personality'),
   };
 
-  const resolveSchema: yup.ObjectSchema<Omit<ICreatePersonality, 'user_id'>> =
-    yup.object({
-      age: yup.string().nullable().required().label(labels.age),
+  const resolveSchema: yup.ObjectSchema<ICreatePersonalityPayload> = yup.object(
+    {
+      age: yup.number().nullable().required().label(labels.age),
       name: yup.string().nullable().required().label(labels.name),
       occupation: yup.string().nullable().required().label(labels.occupation),
-      gender: yup.string().nullable().required().label(labels.gender),
-      tone: yup.string().nullable().required().label(labels.tone),
+      gender: yup
+        .mixed<GenderEnum>()
+        .oneOf(Object.values(GenderEnum))
+        .nullable()
+        .required()
+        .label(labels.gender),
+      tone: yup
+        .mixed<ToneEnum>()
+        .oneOf(Object.values(ToneEnum))
+        .nullable()
+        .required()
+        .label(labels.tone),
       personality: yup.string().nullable().required().label(labels.personality),
-    });
+    },
+  );
 
-  const methods = useForm<Omit<ICreatePersonality, 'user_id'>>({
+  const methods = useForm<ICreatePersonalityPayload>({
     resolver: yupResolver(resolveSchema),
   });
 
@@ -80,7 +93,9 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
     },
   });
 
-  const onSubmit: SubmitHandler<ICreatePersonality> = async (payload) => {
+  const onSubmit: SubmitHandler<ICreatePersonalityPayload> = async (
+    payload,
+  ) => {
     const newPayload = {
       ...payload,
       user_id: SAMPLE_CHAT_USER_ID,

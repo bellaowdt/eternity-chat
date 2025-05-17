@@ -18,7 +18,7 @@ const CustomDateTimePicker: FC<CustomDateTimePickerProps<any>> = ({
     formState: { errors },
   } = useController({ name, control });
 
-  const handleChange = (date: string) => {
+  const handleChange = (date: unknown) => {
     let value = date;
     if (valueFormatter) {
       value = valueFormatter(value);

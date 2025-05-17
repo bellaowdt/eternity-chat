@@ -100,7 +100,7 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
                   label={label}
                   error={!!errors[name]}
                   helperText={errors[name]?.message?.toString()}
-                  onChange={!disabledOnChange && handleChangeInput}
+                  onChange={!disabledOnChange ? handleChangeInput : undefined}
                   InputProps={{
                     ...params.InputProps,
                     endAdornment: (

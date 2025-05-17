@@ -35,7 +35,8 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
       control={control}
       {...ControllerProps}
       render={({ field: { value, onChange } }) => {
-        const _onChange = (event) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const _onChange = (event: any) => {
           let isValid = true;
           if (props.type?.toLowerCase() === 'number') {
             let _value = event.target.value;

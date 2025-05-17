@@ -1,8 +1,9 @@
-import { Checkbox, FormControlLabel } from "@mui/material";
-import { FC } from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import { CustomSwitchProps } from "../types";
+import { Checkbox, FormControlLabel } from '@mui/material';
+import { FC } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import { CustomSwitchProps } from '../types';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CustomCheckbox: FC<CustomSwitchProps> = ({ label, name, ...props }) => {
   const { control } = useFormContext();
   return (
@@ -14,10 +15,10 @@ const CustomCheckbox: FC<CustomSwitchProps> = ({ label, name, ...props }) => {
         return (
           <FormControlLabel
             value={value}
-            checked={value}
+            checked={!!field.value}
             defaultChecked={value}
             onChange={field.onChange}
-            control={<Checkbox {...props} />}
+            control={<Checkbox />} /* {...props} */
             label={label}
           />
         );

@@ -42,7 +42,7 @@ const CustomAutoComplete: FC<
               options.find((item) => item.id === value) ?? {
                 label: '',
                 id: 0,
-                value: null,
+                value: '',
               }
             }
             options={options}

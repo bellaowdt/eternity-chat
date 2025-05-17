@@ -86,7 +86,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
                   normalizedValue ? (
                     <ClearButtonAdornment
                       onChange={field.onChange}
-                      sx={{ mr: 1.5 }}
+                      sx={{ marginRight: 1.5 }}
                     />
                   ) : undefined
                 }

@@ -1,7 +1,16 @@
 import { Close } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
+import { IconButton, SxProps } from '@mui/material';
+import { FC } from 'react';
 
-const ClearButtonAdornment = ({ onChange, sx = {} }) => {
+interface ClearButtonAdornmentProps {
+  onChange: (val: unknown) => void;
+  sx?: SxProps;
+}
+
+const ClearButtonAdornment: FC<ClearButtonAdornmentProps> = ({
+  onChange,
+  sx = {},
+}) => {
   const onClear = () => {
     onChange(null);
   };
