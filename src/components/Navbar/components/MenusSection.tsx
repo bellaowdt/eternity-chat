@@ -9,7 +9,6 @@ import {
 } from '@/constants/routes';
 import { Stack, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import Link from 'next/link';
 
 const MenusSection = () => {
   const theme = useTheme();
@@ -36,7 +35,7 @@ const MenusSection = () => {
     >
       {pagesMenu?.map((page) => (
         <CustomButton
-          // component={Link}  //TODO
+          // component={Link}
           href={page.href}
           key={page.label}
           sx={{

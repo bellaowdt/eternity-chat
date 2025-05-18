@@ -46,9 +46,6 @@ const Navbar = () => {
         }}
       >
         <Box display={{ xs: 'none', md: 'flex' }} width="100%">
-          {/* <Link href={DEFAULT_HOME_PAGE_PATH}>
-            <Logo />
-          </Link> */}
           <MenusSection />
           <Box display="flex" justifyContent="center" alignItems="center">
             <CustomButton variant="contained" size="medium">
