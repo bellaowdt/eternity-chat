@@ -19,7 +19,6 @@ const CustomDatePicker: FC<ICustomDatePicker['props']> = ({
     formState: { errors },
   } = useController({ name, control });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (date: any) => {
     let value = date;
     if (valueFormatter) {

@@ -3,8 +3,7 @@ import { FC } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
 import { CustomDateTimePickerProps } from '../types';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const CustomDateTimePicker: FC<CustomDateTimePickerProps<any>> = ({
+const CustomDateTimePicker: FC<CustomDateTimePickerProps<Date>> = ({
   name,
   label,
   fullWidth = true,

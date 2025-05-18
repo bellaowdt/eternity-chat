@@ -1,5 +1,5 @@
 import { Box, TextField, Typography } from '@mui/material';
-import { FC } from 'react';
+import { AnimationEvent, FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import CustomSkeleton from '../../common/CustomSkeleton';
 import { DEFAULT_FORBIDDEN_CHARS } from '../constants/defaults';
@@ -35,10 +35,10 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
       control={control}
       {...ControllerProps}
       render={({ field: { value, onChange } }) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const _onChange = (event: any) => {
           let isValid = true;
-          if (props.type?.toLowerCase() === 'number') {
+          const type = props.type?.toLowerCase();
+          if (type === 'number') {
             let _value = event.target.value;
             isValid =
               _value >= (props.limitations?.min || -Infinity) &&
@@ -48,9 +48,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
             if (isValid) {
               _value = +_value;
             }
-          } else if (
-            ['password', 'text', 'string', undefined].includes(props.type)
-          ) {
+          } else if (['password', 'text', 'string', undefined].includes(type)) {
             const _value = event.target.value;
             isValid =
               _value.length <= (props.limitations?.maxLength || Infinity) &&
@@ -65,7 +63,6 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
         return (
           <CustomSkeleton isLoading={isLoading}>
             <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {/* Separate label on top */}
               {label && (
                 <Typography
                   variant="body2"
@@ -75,7 +72,6 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                 </Typography>
               )}
 
-              {/* TextField itself */}
               <TextField
                 {...props}
                 fullWidth={fullWidth}
@@ -87,29 +83,31 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                 onChange={_onChange}
                 error={!!errors[props.name]}
                 helperText={errors[props.name]?.message?.toString()}
-                FormHelperTextProps={{
-                  sx: {
-                    m: 0,
-                    mt: 1,
+                slotProps={{
+                  input: {
+                    endAdornment: (
+                      <>
+                        {!props.disabled && value && (
+                          <ClearButtonAdornment onChange={onChange} />
+                        )}
+                        {props.InputProps?.endAdornment}
+                      </>
+                    ),
                   },
-                }}
-                inputProps={{
-                  ...props.inputProps,
-                  onAnimationStart: (e) => {
-                    if (e.animationName === 'mui-auto-fill') {
-                      setValue(props.name, value || ' ');
-                    }
+                  htmlInput: {
+                    ...props.slotProps?.htmlInput,
+                    onAnimationStart: (e: AnimationEvent) => {
+                      if (e.animationName === 'mui-auto-fill') {
+                        setValue(props.name, value || ' ');
+                      }
+                    },
                   },
-                }}
-                InputProps={{
-                  endAdornment: (
-                    <>
-                      {!props.disabled && value && (
-                        <ClearButtonAdornment onChange={onChange} />
-                      )}
-                      {props.InputProps?.endAdornment}
-                    </>
-                  ),
+                  formHelperText: {
+                    sx: {
+                      m: 0,
+                      mt: 1,
+                    },
+                  },
                 }}
               />
             </Box>

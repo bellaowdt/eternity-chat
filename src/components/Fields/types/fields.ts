@@ -2,7 +2,10 @@ import {
   AutocompleteProps,
   ButtonProps,
   GridProps,
+  OutlinedInputProps,
+  OutlinedSelectProps,
   OutlinedTextFieldProps,
+  SelectProps,
   SwitchProps,
   TextFieldProps,
 } from '@mui/material';
@@ -12,7 +15,7 @@ import {
   PickerValidDate,
 } from '@mui/x-date-pickers';
 import { ReactNode } from 'react';
-import { ControllerProps } from 'react-hook-form';
+import { ControllerProps, UseFormRegister } from 'react-hook-form';
 import { FileUploadProps } from 'react-material-file-upload';
 
 export interface Option {
@@ -27,24 +30,24 @@ export interface ButtonWithLoadingProps extends ButtonProps {
   buttonType?: 'Reset';
 }
 
-export interface CustomDateTimePickerProps<TDate extends PickerValidDate>
-  extends DateTimePickerProps<TDate> {
+export interface CustomDateTimePickerProps<TDate extends PickerValidDate = Date>
+  extends DateTimePickerProps {   // DateTimePickerProps<TDate>
   name: string;
   label: string;
   fullWidth?: boolean;
   variant?: TextFieldProps['variant'];
-  valueFormatter?: (value) => never;
+  valueFormatter?: (value: any) => never;
 }
 
-export interface CustomDatePickerProps<TDate extends PickerValidDate>
-  extends DatePickerProps<TDate> {
+export interface CustomDatePickerProps<TDate extends PickerValidDate= Date>
+  extends DatePickerProps {   // DateTimePickerProps<TDate>
   name: string;
   label: string;
   fullWidth?: boolean;
   variant?: TextFieldProps['variant'];
-  valueFormatter?: (value) => never;
+  valueFormatter?: (value: any) => never;
 }
-export interface CustomSelectProps extends OutlinedTextFieldProps {
+export interface CustomSelectProps extends OutlinedInputProps {
   resetFieldsOnChange?: string[];
   options: Option[];
   labelFormatter?: (option: Option) => ReactNode;
@@ -255,7 +258,7 @@ export type Labels<Keys extends string> = Record<
 >;
 
 export interface TextAreaProps {
-  register?: never;
+  register?: UseFormRegister<any>;
   rows: number;
   name: string;
   label: string;

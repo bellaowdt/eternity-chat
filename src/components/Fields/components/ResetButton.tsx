@@ -8,15 +8,22 @@ const ResetButton: FC<ButtonProps> = ({ children, ...props }) => {
 
   const confirm = useConfirm();
 
-  const onClick = () => {
+  // const onClick = () => {
+  //   confirm().then(() => {
+  //     reset({});
+  //     props?.onClick?.(null);
+  //   });
+  // };
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     confirm().then(() => {
       reset({});
-      props?.onClick?.(null);
+      props?.onClick?.(event);
     });
   };
 
   return (
-    <Button {...props} onClick={onClick}>
+    <Button {...props} onClick={handleClick}>
       {children}
     </Button>
   );

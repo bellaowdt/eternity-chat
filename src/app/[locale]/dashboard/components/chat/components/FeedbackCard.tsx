@@ -58,7 +58,7 @@ const FeedbackCard: React.FC = () => {
       </Typography>
 
       <Stack direction="row" flexWrap="wrap" gap={1} mb={2}>
-        {reasons.map((reason) => (
+        {reasons?.map((reason) => (
           <Chip
             key={reason}
             label={reason}

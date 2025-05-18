@@ -1,10 +1,9 @@
-"use client";
-
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { AdapterDateFnsJalali } from "@mui/x-date-pickers/AdapterDateFnsJalali";
-import React, { FC, PropsWithChildren } from "react";
-import { Locale } from "@/navigation";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { AdapterDateFnsJalali } from '@mui/x-date-pickers/AdapterDateFnsJalali';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { LocalizationProviderProps } from '@mui/x-date-pickers/LocalizationProvider';
+import React, { FC, PropsWithChildren } from 'react';
+import { Locale } from '@/navigation';
 
 export interface CustomLocalizationProviderProps {
   locale: Locale;
@@ -13,13 +12,16 @@ export interface CustomLocalizationProviderProps {
 const CustomLocalizationProvider: FC<
   PropsWithChildren<CustomLocalizationProviderProps>
 > = ({ children, locale }) => {
-  const adapter = {
-    fa: AdapterDateFnsJalali,
+  const adapterMap: Record<
+    Locale,
+    LocalizationProviderProps<any>['dateAdapter']
+  > = {
+    ar: AdapterDateFnsJalali,
     en: AdapterDateFns,
   };
 
   return (
-    <LocalizationProvider dateAdapter={adapter[locale]}>
+    <LocalizationProvider dateAdapter={adapterMap[locale]}>
       {children}
     </LocalizationProvider>
   );

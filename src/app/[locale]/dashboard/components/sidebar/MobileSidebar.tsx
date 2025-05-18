@@ -47,7 +47,7 @@ const MobileSidebar: FC<MobileSidebarProps> = ({ collapsed, toggleDrawer }) => {
     >
       <Box sx={{ width: DRAWER_WIDTH }}>
         <List>
-          {menuItems.map(({ text, icon }) => (
+          {menuItems?.map(({ text, icon }) => (
             <ListItem disablePadding key={text}>
               <ListItemButton
                 onClick={() => {

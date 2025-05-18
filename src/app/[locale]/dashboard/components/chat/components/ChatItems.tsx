@@ -15,7 +15,7 @@ interface ChatItemsProps {
 const ChatItems: FC<ChatItemsProps> = ({ items }) => {
   return (
     <Box p={2}>
-      {items.map((item, index) => {
+      {items?.map((item, index) => {
         const { message, response, timestamp, isLoading, isError } = item;
         return (
           <Fragment key={timestamp}>

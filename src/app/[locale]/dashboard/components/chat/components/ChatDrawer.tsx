@@ -19,7 +19,7 @@ const ChatDrawer = () => {
   });
   const genderMapper = useGenderList();
 
-  const users = data?.personalities.map((personality) => ({
+  const users = data?.personalities?.map((personality) => ({
     title: personality.name,
     icon: genderMapper[personality.details.gender || GenderEnum.Male].icon,
   }));

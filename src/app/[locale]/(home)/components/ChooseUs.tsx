@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import { Box, Grid, Typography } from "@mui/material";
-import ChooseCard from "./ChooseCard";
+import { Box, Grid, Typography } from '@mui/material';
+import ChooseCard from './ChooseCard';
 
 const chooseUsList = [
   {
-    title: "AI-Powered Conversations",
+    title: 'AI-Powered Conversations',
     description:
-      "Simulated conversations that feel real, using data you provide",
+      'Simulated conversations that feel real, using data you provide',
   },
   {
-    title: "Privacy First",
-    description: "Your data is securely encrypted and always in your control",
+    title: 'Privacy First',
+    description: 'Your data is securely encrypted and always in your control',
   },
   {
-    title: "Customizable Interactions",
-    description: "Adjust tone and sensitivity to suit your preferences",
+    title: 'Customizable Interactions',
+    description: 'Adjust tone and sensitivity to suit your preferences',
   },
   {
-    title: "Compassionate Design",
-    description: "Crafted to support emotional well-being and healing",
+    title: 'Compassionate Design',
+    description: 'Crafted to support emotional well-being and healing',
   },
 ];
 
@@ -43,7 +43,7 @@ const ChooseUs = () => {
         py={8}
       >
         <Grid container>
-          {chooseUsList.map((cardItem) => (
+          {chooseUsList?.map((cardItem) => (
             <Grid key={cardItem.title} size={{ xs: 12, sm: 3 }}>
               <ChooseCard card={cardItem} />
             </Grid>

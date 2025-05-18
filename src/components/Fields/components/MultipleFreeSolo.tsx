@@ -63,7 +63,7 @@ const MultipleFreeSolo: FC<MultipleFreeSoloProps> = ({
               }}
               options={[] as string[]}
               renderTags={(value, getTagProps) => {
-                return value.map((option, index: number) => {
+                return value?.map((option, index: number) => {
                   const { key, ...tagProps } = getTagProps({ index });
                   return (
                     <Chip

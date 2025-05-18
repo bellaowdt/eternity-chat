@@ -78,7 +78,7 @@ export default function ReconnectSlider() {
           >
             {/* Dots */}
             <Box mb={2} display="flex" gap={1}>
-              {steps.map((_, index) => (
+              {steps?.map((_, index) => (
                 <Box
                   key={index}
                   sx={{

@@ -13,7 +13,7 @@ const TextAreaField: FC<TextAreaProps> = ({
     <TextField
       fullWidth
       sx={{ mt: 1 }}
-      {...register(name)}
+      {...(register ? register(name) : {})}
       label={label}
       multiline
       rows={rows}

@@ -19,7 +19,7 @@ const RollbackSwitch: FC<RollbackSwitchProps> = ({
   const _onChange: SwitchProps['onChange'] = async (_event, checked) => {
     try {
       setChecked(checked);
-      await onChange(_event, checked);
+      // await onChange(_event, checked);  //TODO
     } catch (error) {
       console.log(error);
       setChecked(value);

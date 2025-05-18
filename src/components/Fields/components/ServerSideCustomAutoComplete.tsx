@@ -7,7 +7,7 @@ import {
   debounce,
   TextField,
 } from '@mui/material';
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
@@ -27,12 +27,12 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
   const [options, setOptions] = useState<readonly Option[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const mutateAsync = async (searchText: string | null) => {
+  const mutateAsync = useCallback(async (searchText: string | null) => {
     setIsLoading(true);
     const options = await props.queryFn(searchText);
     setOptions([...options]);
     setIsLoading(false);
-  };
+  }, []);
 
   useEffect(() => {
     if (open && options.length === 0) {
@@ -60,7 +60,6 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
         }) => {
           const selectedOption = (options.find(
             (item) => item.value === value,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ) || '') as any;
 
           return (
@@ -76,7 +75,6 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
               value={selectedOption}
               onChange={(event, value) => onChange(value?.value)}
               isOptionEqualToValue={(option, value) =>
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (option.value as any) === value
               }
               getOptionLabel={(option) => option.label?.toString?.() || ''}

@@ -2,8 +2,15 @@ import { DatePicker } from '@mui/x-date-pickers';
 import { Controller, useFormContext } from 'react-hook-form';
 import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
+import { FC } from 'react';
 
-const CustomYearPicker = ({ name, size, label }) => {
+interface CustomYearPickerProps {
+  name: string;
+  size?: 'small' | 'medium';
+  label: string;
+}
+
+const CustomYearPicker: FC<CustomYearPickerProps> = ({ name, size, label }) => {
   const { control } = useFormContext();
 
   const { isLoading } = useLocalFormContext();

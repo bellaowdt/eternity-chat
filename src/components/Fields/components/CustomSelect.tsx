@@ -3,10 +3,10 @@
 import {
   FormControl,
   FormHelperText,
-  MenuItem,
   Select,
   SelectChangeEvent,
   Typography,
+  MenuItem,
 } from '@mui/material';
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
@@ -38,8 +38,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
       render={({ field }) => {
         let normalizedValue: number | number[] | '' = '';
         if (Array.isArray(field.value)) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          normalizedValue = field.value.map((item: any) =>
+          normalizedValue = field?.value?.map((item: any) =>
             typeof item === 'object' ? item.id : item,
           );
         } else if (typeof field.value === 'object' && field.value?.id) {
@@ -50,9 +49,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
           normalizedValue = field.value ?? '';
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const handleChange = (event: SelectChangeEvent<any>) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           props?.onChange?.(event as any);
           field.onChange(event);
 
@@ -76,11 +73,11 @@ const CustomSelect: FC<CustomSelectProps> = ({
                   {label}
                 </Typography>
               )}
-
               <Select
                 {...props}
                 id={`${name}-select`}
                 value={normalizedValue}
+                variant="outlined"
                 onChange={handleChange}
                 endAdornment={
                   normalizedValue ? (
@@ -91,8 +88,8 @@ const CustomSelect: FC<CustomSelectProps> = ({
                   ) : undefined
                 }
               >
-                {options.map((option) => (
-                  <MenuItem key={option.id} value={option.value}>
+                {options?.map((option) => (
+                  <MenuItem key={option.id} value={option.value as string}>
                     {labelFormatter ? labelFormatter(option) : option.label}
                   </MenuItem>
                 ))}

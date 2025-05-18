@@ -6,7 +6,6 @@ import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CurrencyTextFieldProps } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const toLocaleString = (value: any) => {
   if ([undefined, null].includes(value)) {
     return '';
@@ -35,7 +34,6 @@ const CurrencyTextField: FC<CurrencyTextFieldProps> = ({
   limitations,
   size = 'small',
   fullWidth = true,
-  // variant = 'outlined',
   currencyLabel,
   ...props
 }) => {

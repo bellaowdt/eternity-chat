@@ -19,7 +19,7 @@ export interface FormBuilderProps {
 const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
   return (
     <>
-      {Object.keys(fields).map((key) => {
+      {Object.keys(fields)?.map((key) => {
         const { ui, ...common } = fields[key];
 
         switch (common.type) {

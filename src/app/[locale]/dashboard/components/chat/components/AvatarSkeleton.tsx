@@ -8,7 +8,7 @@ interface AvatarSkeletonProps {
 const AvatarSkeleton: FC<AvatarSkeletonProps> = ({ count = 3 }) => {
   return (
     <>
-      {Array.from({ length: count }).map((_, index) => (
+      {Array.from({ length: count })?.map((_, index) => (
         <Skeleton
           key={index}
           variant="circular"

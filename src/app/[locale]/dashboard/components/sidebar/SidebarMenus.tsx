@@ -63,7 +63,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   return (
     <>
       <List>
-        {menus.map(({ text, icon, callFunc, linkUrl }, index) => {
+        {menus?.map(({ text, icon, callFunc, linkUrl }, index) => {
           const buttonContent = (
             <ListItemButton
               onClick={callFunc}

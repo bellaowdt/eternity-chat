@@ -27,7 +27,7 @@ const NotificationPreference = () => {
 
   return (
     <>
-      {items.map((item) => (
+      {items?.map((item) => (
         <>
           <Grid container py={1.5} key={item.key}>
             <Grid size={{ xs: 6 }}>

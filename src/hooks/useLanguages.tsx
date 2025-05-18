@@ -4,7 +4,7 @@ import { Option } from '@/components/Fields';
 
 export const useLanguages = () => {
   const langs: Option[] = useMemo(() => {
-    return Object.entries(languages).map(([code, value]) => ({
+    return Object.entries(languages)?.map(([code, value]) => ({
       id: code,
       label: value.label,
       value: value.label,
