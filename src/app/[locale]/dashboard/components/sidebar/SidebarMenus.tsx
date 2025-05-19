@@ -12,12 +12,12 @@ import {
 } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { FC, useState } from 'react';
-import SettingDialog from '../setting/Setting';
 import {
   DEFAULT_HELP_CENTER_PATH,
   DEFAULT_POLICY_PRIVACY_PATH,
 } from '@/constants/routes';
 import Link from 'next/link';
+import SettingDialog from '../setting/Setting';
 
 interface SidebarMenusProps {
   collapsed: boolean;

@@ -3,12 +3,12 @@
 import { useAppContext } from '@/hooks/useAppContext';
 import { Box, Container, Stack } from '@mui/material';
 import { useState } from 'react';
-import ChatDrawer from './components/chat/components/ChatDrawer';
-import ChatInput from './components/chat/components/ChatInput';
-import MessagesContainer from './components/chat/components/MessagesContainer';
-import MobileSidebar from './components/sidebar/MobileSidebar';
-import Sidebar from './components/sidebar/Sidebar';
-import TopBar from './components/TopBar';
+import Sidebar from '../../components/sidebar/Sidebar';
+import MessagesContainer from './components/MessagesContainer';
+import MobileSidebar from '../../components/sidebar/MobileSidebar';
+import ChatDrawer from './components/ChatDrawer';
+import ChatInput from './components/ChatInput';
+import TopBar from '../../components/TopBar';
 
 const ChatPage = () => {
   const { isMobile } = useAppContext();
