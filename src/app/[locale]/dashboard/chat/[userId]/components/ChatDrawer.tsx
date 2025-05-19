@@ -6,6 +6,7 @@ import { useState } from 'react';
 import AddPersonalityDialog from './AddPersonalityDialog';
 import AvatarSkeleton from './AvatarSkeleton';
 import { SAMPLE_CHAT_USER_ID } from '@/constants/query-keys';
+import { MINI_DRAWER_WIDTH } from '@/constants/general';
 
 const ChatDrawer = () => {
   const [addPersonalityDialog, setAddPersonalityDialog] = useState(false);
@@ -27,7 +28,7 @@ const ChatDrawer = () => {
   return (
     <>
       <Box
-        width={80}
+        width={MINI_DRAWER_WIDTH}
         p={1}
         display="flex"
         flexDirection="column"
