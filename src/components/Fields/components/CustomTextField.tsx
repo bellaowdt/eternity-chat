@@ -35,11 +35,11 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
       control={control}
       {...ControllerProps}
       render={({ field: { value, onChange } }) => {
-        const _onChange = (event: any) => {
+        const _onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           let isValid = true;
           const type = props.type?.toLowerCase();
           if (type === 'number') {
-            let _value = event.target.value;
+            let _value = +event.target.value;
             isValid =
               _value >= (props.limitations?.min || -Infinity) &&
               _value <= (props.limitations?.max || Infinity) &&

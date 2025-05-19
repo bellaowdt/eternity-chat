@@ -17,7 +17,7 @@ const CustomCheckbox: FC<CustomSwitchProps> = ({ label, name, ...props }) => {
             checked={!!field.value}
             defaultChecked={value}
             onChange={field.onChange}
-            control={<Checkbox />} /* {...props} */
+            control={<Checkbox {...props} />}
             label={label}
           />
         );

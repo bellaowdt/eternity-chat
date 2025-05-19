@@ -75,7 +75,7 @@ const ServerSideCustomAutoComplete: FC<ServerSideCustomAutoCompleteProps> = ({
               value={selectedOption}
               onChange={(event, value) => onChange(value?.value)}
               isOptionEqualToValue={(option, value) =>
-                (option.value as any) === value
+                option.value.toString() === value.toString()
               }
               getOptionLabel={(option) => option.label?.toString?.() || ''}
               options={options}

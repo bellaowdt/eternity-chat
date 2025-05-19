@@ -106,12 +106,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ fields }) => {
           case 'Selective':
             return (
               <Grid key={key} {...ui?.grid}>
-                <CustomSelect
-                  size="small"
-                  fullWidth
-                  variant="outlined"
-                  {...common}
-                />
+                <CustomSelect size="small" fullWidth {...common} />
               </Grid>
             );
           case 'ServerSideSelective':

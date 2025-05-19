@@ -6,6 +6,7 @@ import {
   OutlinedSelectProps,
   OutlinedTextFieldProps,
   SelectProps,
+  SwitchOwnerState,
   SwitchProps,
   TextFieldProps,
 } from '@mui/material';
@@ -137,7 +138,7 @@ export interface JalaliDatePickerProps {
   limitations?: DateLimitations;
 }
 
-export interface CustomSwitchProps extends SwitchProps {
+export interface CustomSwitchProps extends SwitchOwnerState {
   label: ReactNode;
   name: string;
 }

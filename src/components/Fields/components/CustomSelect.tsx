@@ -38,7 +38,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
       render={({ field }) => {
         let normalizedValue: number | number[] | '' = '';
         if (Array.isArray(field.value)) {
-          normalizedValue = field?.value?.map((item: any) =>
+          normalizedValue = field?.value?.map((item) =>
             typeof item === 'object' ? item.id : item,
           );
         } else if (typeof field.value === 'object' && field.value?.id) {
@@ -77,7 +77,6 @@ const CustomSelect: FC<CustomSelectProps> = ({
                 {...props}
                 id={`${name}-select`}
                 value={normalizedValue}
-                variant="outlined"
                 onChange={handleChange}
                 endAdornment={
                   normalizedValue ? (

@@ -16,7 +16,6 @@ const CustomLocalizationProvider: FC<
 > = ({ children, locale }) => {
   const adapterMap: Record<
     Locale,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     LocalizationProviderProps<any>['dateAdapter']
   > = {
     ar: AdapterDateFnsJalali,

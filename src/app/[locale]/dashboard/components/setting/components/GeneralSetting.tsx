@@ -55,7 +55,7 @@ const GeneralSetting = () => {
           <Typography fontWeight={500}>{labels.language}</Typography>
         </Grid>
         <Grid size={{ xs: 8 }} textAlign="right" sx={{ px: 2 }}>
-          <CustomSelect options={langs} variant="outlined" />
+          <CustomSelect options={langs} />
         </Grid>
       </Grid>
       <Divider />

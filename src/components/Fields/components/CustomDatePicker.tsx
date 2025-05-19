@@ -7,7 +7,6 @@ import ClearButtonAdornment from './ClearButtonAdornment';
 const CustomDatePicker: FC<ICustomDatePicker['props']> = ({
   name,
   label,
-  // fullWidth = true,
   variant = 'outlined',
   valueFormatter,
   format = 'yyyy/MM/dd',
