@@ -1,3 +1,5 @@
+'use client';
+
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { AdapterDateFnsJalali } from '@mui/x-date-pickers/AdapterDateFnsJalali';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -14,6 +16,7 @@ const CustomLocalizationProvider: FC<
 > = ({ children, locale }) => {
   const adapterMap: Record<
     Locale,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     LocalizationProviderProps<any>['dateAdapter']
   > = {
     ar: AdapterDateFnsJalali,
