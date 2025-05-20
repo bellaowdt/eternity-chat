@@ -1,15 +1,19 @@
+import { useState } from 'react';
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 const NotificationBar = () => {
+  const [visible, setVisible] = useState(true);
+
+  if (!visible) return null;
+
   return (
     <Box
       sx={{
         backgroundColor: '#303030',
-        color: 'white',
+        color: 'common.white',
         px: { xs: 2, sm: 4, md: 8 },
         py: 2,
-        flex: 1,
       }}
     >
       <Stack
@@ -32,14 +36,14 @@ const NotificationBar = () => {
           </Typography>
         </Stack>
 
-        {/* Right Section - Button + Close Icon always in a row */}
+        {/* Right Section - Always row */}
         <Stack
           direction="row"
           spacing={1.5}
           alignItems="center"
+          justifyContent="flex-end"
           sx={{
             width: { xs: '100%', sm: 'auto' },
-            justifyContent: { xs: 'flex-end', sm: 'flex-start' },
             mt: { xs: 1, sm: 0 },
           }}
         >
@@ -51,11 +55,16 @@ const NotificationBar = () => {
               borderRadius: 5,
               textTransform: 'none',
               whiteSpace: 'nowrap',
+              flexShrink: 0,
             }}
           >
             Upgrade your Plan
           </Button>
-          <IconButton sx={{ color: 'white' }} aria-label="Close notification">
+          <IconButton
+            onClick={() => setVisible(false)}
+            sx={{ color: 'white', flexShrink: 0 }}
+            aria-label="Close notification"
+          >
             <CloseIcon fontSize="small" />
           </IconButton>
         </Stack>

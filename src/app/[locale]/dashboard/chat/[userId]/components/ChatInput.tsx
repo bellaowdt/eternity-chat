@@ -119,7 +119,6 @@ const ChatInput: FC = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      minHeight={180}
     >
       <Paper
         component="form"
@@ -170,7 +169,7 @@ const ChatInput: FC = () => {
           <GraphicEqIcon />
         </IconButton>
       </Paper>
-      <Typography variant="body2" mt={2} color="text.secondary">
+      <Typography variant="body2" my={2} color="text.secondary">
         {t('pages.chat.accuracyMsg')}
       </Typography>
     </Box>

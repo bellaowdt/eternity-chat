@@ -29,11 +29,11 @@ const ChatPage = () => {
         <Sidebar collapsed={collapsed} />
       )}
 
-      <Stack height="100%" width="100%" minHeight={0} flex={1}>
+      <Stack minHeight={0} flex={1}>
         <TopBar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
         <Box display="flex" flex={1} minHeight={0} position="relative">
           <ChatDrawer />
-          <Box flex={1}>
+          <Box flex={1} display="flex" flexDirection="column">
             <NotificationBar />
             <Container
               maxWidth="md"
@@ -45,15 +45,7 @@ const ChatPage = () => {
               }}
             >
               <MessagesContainer />
-              <Box
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                p={2}
-                m={2}
-              >
-                <ChatInput />
-              </Box>
+              <ChatInput />
             </Container>
           </Box>
         </Box>
