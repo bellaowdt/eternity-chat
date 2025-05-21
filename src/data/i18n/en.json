@@ -23,7 +23,8 @@
       "or": "Or",
       "googleBtn": "Continue with Google",
       "changePassword": "Change Password",
-      "deleteAllChats": "Delete All Chats"
+      "deleteAllChats": "Delete All Chats",
+      "helpCenter": "Help Center"
     },
     "fields": {
       "name": "Name",
@@ -54,13 +55,13 @@
         "notification": "Notifications",
         "settings": "Settings",
         "helpCenter": "Help Center",
-        "PrivacyPolicy": "Privacy Policy"
+        "privacyPolicy": "Privacy Policy"
       }
     }
   },
   "messages": {
     "noRowFound": "There is no row to display!",
-    "personalityCreatedSuccessfully": "Your prsonality was created successfully!"
+    "personalityCreatedSuccessfully": "Your personality was created successfully!"
   },
   "pages": {
     "account": {
@@ -76,12 +77,12 @@
       },
       "notifications": {
         "email": "Email Notifications",
-        "inApp": "in-App Notifications",
+        "inApp": "In-App Notifications",
         "push": "Push Notifications"
       },
       "privacy": {
         "twoFactorAuthentication": "Two-Factor Authentication",
-        "sessionManagemnet": "Session Managemnet"
+        "sessionManagement": "Session Management"
       }
     },
     "signIn": {
@@ -98,6 +99,11 @@
       "getChatResponseError": "Failed to get response. Try again!",
       "addPersonality": "Add a New Personality"
     },
-    "personality": {}
+    "helpCenter": {
+      "menu": {
+        "faq": "FAQ",
+        "contactSupport": "Contact Support"
+      }
+    }
   }
 }

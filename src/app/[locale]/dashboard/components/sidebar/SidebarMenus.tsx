@@ -17,7 +17,8 @@ import {
   DEFAULT_POLICY_PRIVACY_PATH,
 } from '@/constants/routes';
 import Link from 'next/link';
-import SettingDialog from '../setting/Setting';
+import SettingDialog from '../setting/SettingDialog';
+import HelpCenterDialog from '../help-center/HelpCenterDialog';
 
 interface SidebarMenusProps {
   collapsed: boolean;
@@ -33,9 +34,14 @@ interface ISideBarMenu {
 const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const t = useTranslations();
   const [settingDialog, setSettingDialog] = useState(false);
+  const [helpCenterDialog, setHelpCenterDialog] = useState(false);
 
   const onToggleSettingDialog = () => {
     setSettingDialog((prevState) => !prevState);
+  };
+
+  const onToggleHelpCenterDialog = () => {
+    setHelpCenterDialog((prevState) => !prevState);
   };
 
   const menus: ISideBarMenu[] = [
@@ -51,12 +57,12 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
     {
       text: t('common.sidebar.menu.helpCenter'),
       icon: <ContactSupportOutlinedIcon />,
-      linkUrl: DEFAULT_HELP_CENTER_PATH,
+      callFunc: onToggleHelpCenterDialog,
     },
     {
       text: t('common.sidebar.menu.PrivacyPolicy'),
       icon: <LockOutlinedIcon />,
-      linkUrl: DEFAULT_POLICY_PRIVACY_PATH,
+      callFunc: onToggleHelpCenterDialog,
     },
   ];
 
@@ -99,6 +105,10 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
         })}
       </List>
       <SettingDialog open={settingDialog} onClose={onToggleSettingDialog} />
+      <HelpCenterDialog
+        open={helpCenterDialog}
+        onClose={onToggleHelpCenterDialog}
+      />
     </>
   );
 };
