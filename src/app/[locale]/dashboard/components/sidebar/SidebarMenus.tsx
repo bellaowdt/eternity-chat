@@ -60,7 +60,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
       callFunc: onToggleHelpCenterDialog,
     },
     {
-      text: t('common.sidebar.menu.PrivacyPolicy'),
+      text: t('common.sidebar.menu.privacyPolicy'),
       icon: <LockOutlinedIcon />,
       callFunc: onToggleHelpCenterDialog,
     },
