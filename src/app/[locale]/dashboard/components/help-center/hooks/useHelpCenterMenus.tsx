@@ -11,7 +11,7 @@ export const useHelpCenterMenus = () => {
       component: <FaqList />,
     },
     {
-      label: t('pages.helpCenter.menu.contactSupport'),
+      label: t('pages.helpCenter.menu.contactSupport.title'),
       component: <ContactSupport />,
     },
   ];

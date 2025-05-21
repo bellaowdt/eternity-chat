@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs } from '@mui/material';
+import { Box, Tab, Tabs, Typography } from '@mui/material';
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
 import { useTranslations } from 'next-intl';
@@ -6,6 +6,7 @@ import { FC, SyntheticEvent, useState } from 'react';
 import TabPanel from '@/components/TabPanel/TabPanel';
 import { useHelpCenterMenus } from './hooks/useHelpCenterMenus';
 import { DIALOG_SIDEBAR_WIDTH } from '@/constants/general';
+import { Search } from '@mui/icons-material';
 
 export type HelpCenterDialogProps = DialogProps;
 
@@ -13,7 +14,7 @@ const HelpCenterDialog: FC<HelpCenterDialogProps> = ({ ...props }) => {
   const t = useTranslations();
   const menus = useHelpCenterMenus();
 
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
   const handleChange = (
     event: SyntheticEvent<Element, Event>,
     newValue: number,
@@ -31,7 +32,13 @@ const HelpCenterDialog: FC<HelpCenterDialogProps> = ({ ...props }) => {
       dialogButtons={[]}
     >
       <Box display="flex">
-        <Box sx={{ width: DIALOG_SIDEBAR_WIDTH, mr: 3 }}>
+        <Box sx={{ width: DIALOG_SIDEBAR_WIDTH, mr: 1 }}>
+          <Box display="flex" alignItems="center" mb={2} px={1.5}>
+            <Search fontSize="small" />
+            <Typography variant="body1">
+              {t('pages.helpCenter.menu.generalMsg')}
+            </Typography>
+          </Box>
           <Tabs
             value={value}
             orientation="vertical"
@@ -39,10 +46,8 @@ const HelpCenterDialog: FC<HelpCenterDialogProps> = ({ ...props }) => {
             aria-label="settings tabs"
             sx={{
               '& .MuiTab-root': {
-                justifyContent: 'center',
                 textTransform: 'none',
                 alignItems: 'flex-start',
-                padding: 1,
                 borderRadius: 0.3,
                 marginBottom: 1,
                 color: 'text.primary',
@@ -59,11 +64,13 @@ const HelpCenterDialog: FC<HelpCenterDialogProps> = ({ ...props }) => {
           </Tabs>
         </Box>
         <Box sx={{ flex: 1 }}>
-          {menus.map((menu, index) => (
-            <TabPanel key={index} value={value} index={index}>
-              {menu.component}
-            </TabPanel>
-          ))}
+          {menus.map((menu, index) =>
+            menu.component ? (
+              <TabPanel key={index} value={value} index={index}>
+                {menu.component}
+              </TabPanel>
+            ) : null,
+          )}
         </Box>
       </Box>
     </Dialog>

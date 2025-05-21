@@ -101,8 +101,14 @@
     },
     "helpCenter": {
       "menu": {
+        "generalMsg": "How can we help you?",
         "faq": "FAQ",
-        "contactSupport": "Contact Support"
+        "contactSupport": {
+          "title": "Contact Support",
+          "liveChat": "Live Chat",
+          "sendEmail": "Send Us an Email",
+          "requestCallback": "Request a Callback"
+        }
       }
     }
   }
