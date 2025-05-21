@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { FC, SyntheticEvent, useState } from 'react';
 import TabPanel from '@/components/TabPanel/TabPanel';
 import { useHelpCenterMenus } from './hooks/useHelpCenterMenus';
+import { DIALOG_SIDEBAR_WIDTH } from '@/constants/general';
 
 export type HelpCenterDialogProps = DialogProps;
 
@@ -30,7 +31,7 @@ const HelpCenterDialog: FC<HelpCenterDialogProps> = ({ ...props }) => {
       dialogButtons={[]}
     >
       <Box display="flex">
-        <Box sx={{ width: 180, mr: 3 }}>
+        <Box sx={{ width: DIALOG_SIDEBAR_WIDTH, mr: 3 }}>
           <Tabs
             value={value}
             orientation="vertical"

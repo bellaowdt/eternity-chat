@@ -20,15 +20,17 @@ export interface DialogProps extends MuiDialogProps {
 const Dialog: FC<DialogProps> = ({ title, ...props }) => {
   return (
     <MuiDialog
-      TransitionComponent={DialogTransition}
+      sx={{
+        borderRadius: 0.7,
+        width: 600,
+        ...props?.sx,
+      }}
+      slots={{
+        transition: DialogTransition,
+      }}
       {...props}
-      PaperProps={{
-        ...props?.PaperProps,
-        sx: {
-          borderRadius: 0.7,
-          width: 500,
-          ...props?.PaperProps?.sx,
-        },
+      slotProps={{
+        ...props?.slotProps,
       }}
     >
       <DialogTitle
