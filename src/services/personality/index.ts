@@ -19,5 +19,9 @@ export const updatePersonality: UpdatePersonalityService = ({
   params,
   payload,
 }) => {
-  return axios.put(`${BASE_URL}/modify-personality`, payload, { params });
+  return axios.put(
+    `${BASE_URL}/modify-personality/${params.user_id}/${params.personality_name}`,
+    payload,
+    { params },
+  );
 };

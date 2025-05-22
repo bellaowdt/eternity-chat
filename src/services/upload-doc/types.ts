@@ -21,3 +21,11 @@ export interface UploadDocumentService {
 export interface ListDocumentService {
   (args: { params: IDocumentParams }): Response;
 }
+
+interface IDeleteDocumentParams extends IDocumentParams {
+  document_name: string;
+}
+
+export interface DeleteDocumentService {
+  (args: { params: IDeleteDocumentParams }): Response;
+}

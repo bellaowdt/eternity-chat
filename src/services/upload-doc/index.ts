@@ -1,5 +1,9 @@
 import axios from '../../lib/axios';
-import { ListDocumentService, UploadDocumentService } from './types';
+import {
+  DeleteDocumentService,
+  ListDocumentService,
+  UploadDocumentService,
+} from './types';
 
 const BASE_URL = '/api/v1';
 
@@ -18,5 +22,11 @@ export const listDocumentsat: ListDocumentService = ({ params }) => {
   return axios.get(
     `${BASE_URL}/documents/${params.user_id}/${params.personality_name}`,
     { params },
+  );
+};
+
+export const deleteDocument: DeleteDocumentService = ({ params }) => {
+  return axios.delete(
+    `${BASE_URL}/documents/${params.user_id}/${params.personality_name}/${params.document_name}`,
   );
 };
