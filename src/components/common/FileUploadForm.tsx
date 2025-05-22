@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { Box, Typography } from '@mui/material';
@@ -42,72 +41,93 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
         name={name}
         control={control}
         defaultValue={undefined}
-        render={({ field }) => (
-          <Box
-            component="label"
-            htmlFor={`upload-${name}`}
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              border: '1px solid #ccc',
-              borderRadius: '50px',
-              overflow: 'hidden',
-              width: '100%',
-              cursor: 'pointer',
-              mb: 1,
-            }}
-          >
+        render={({ field }) => {
+          const handleChange = (e: any) => {
+            const file = e.target.files[0];
+            if (file) {
+              setFileName(file.name);
+              const url = URL.createObjectURL(file);
+              setFilePreview(url);
+            } else {
+              setFileName('No file chosen');
+              setFilePreview(null);
+            }
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+              const base64String = reader.result as string;
+              field.onChange(base64String.split(',')[1]);
+            };
+          };
+          return (
             <Box
+              component="label"
+              htmlFor={`upload-${name}`}
               sx={{
-                backgroundColor: '#5a5a5a',
-                color: '#fff',
-                padding: '10px 20px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {chooseFileText}
-            </Box>
-            <Box
-              sx={{
-                padding: '10px 20px',
-                backgroundColor: '#f9f9f9',
-                flexGrow: 1,
+                display: 'flex',
+                alignItems: 'center',
+                border: '1px solid #ccc',
+                borderRadius: '50px',
                 overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
+                width: '100%',
+                cursor: 'pointer',
+                mb: 1,
               }}
             >
-              {fileName}
+              <Box
+                sx={{
+                  backgroundColor: '#5a5a5a',
+                  color: '#fff',
+                  padding: '10px 20px',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {chooseFileText}
+              </Box>
+              <Box
+                sx={{
+                  padding: '10px 20px',
+                  backgroundColor: '#f9f9f9',
+                  flexGrow: 1,
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {fileName}
+              </Box>
+              <input
+                name={name}
+                type="file"
+                id={`upload-${name}`}
+                accept={acceptedFormat}
+                hidden
+                aria-label={label}
+                onChange={handleChange}
+
+                // onChange={(e) => {
+                //   const file = e.target.files?.[0];
+                //   field.onChange(e.target.files);
+                //   if (file) {
+                //     setFileName(file.name);
+                //     const url = URL.createObjectURL(file);
+                //     setFilePreview(url);
+                //   } else {
+                //     setFileName('No file chosen');
+                //     setFilePreview(null);
+                //   }
+                // }}
+              />
             </Box>
-            <input
-              name={name}
-              type="file"
-              id={`upload-${name}`}
-              accept={acceptedFormat}
-              hidden
-              aria-label={label}
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                field.onChange(e.target.files);
-                if (file) {
-                  setFileName(file.name);
-                  const url = URL.createObjectURL(file);
-                  setFilePreview(url);
-                } else {
-                  setFileName('No file chosen');
-                  setFilePreview(null);
-                }
-              }}
-            />
-          </Box>
-        )}
+          );
+        }}
       />
 
       <Typography variant="body2" color="textSecondary" my={2}>
         {acceptedFormatText}
       </Typography>
 
-      {filePreview && (
+      {/* {filePreview && (
         <Box
           mt={2}
           p={1}
@@ -131,7 +151,7 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
             }}
           />
         </Box>
-      )}
+      )} */}
     </Box>
   );
 };

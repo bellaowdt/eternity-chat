@@ -102,6 +102,7 @@
       "typeMsg": "Type a message",
       "getChatResponseError": "Failed to get response. Try again!",
       "addPersonality": "Add a New Personality",
+      "uploadDocument": "Please Upload Data",
       "toolbarIcons": {
         "copy": "Copy",
         "readAloud": "Read aloud",

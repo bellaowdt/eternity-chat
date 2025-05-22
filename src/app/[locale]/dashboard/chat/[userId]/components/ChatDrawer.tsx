@@ -1,20 +1,14 @@
 import useGenderList from '@/app/[locale]/(main)/hooks/useGenderList';
 import useGetPersonalities from '@/app/[locale]/(main)/hooks/useGetPersonalities';
-import { GenderEnum } from '@/services/common/types';
-import { Avatar, Box, Stack, Tooltip, Typography } from '@mui/material';
-import { useState } from 'react';
-import AddPersonalityDialog from './AddPersonalityDialog';
-import AvatarSkeleton from './AvatarSkeleton';
-import { SAMPLE_CHAT_USER_ID } from '@/constants/query-keys';
 import { MINI_DRAWER_WIDTH } from '@/constants/general';
+import { SAMPLE_CHAT_USER_ID } from '@/constants/query-keys';
+import { GenderEnum } from '@/services/common/types';
+import { Avatar, Box, Stack, Tooltip } from '@mui/material';
+import AvatarSkeleton from './AvatarSkeleton';
+import UploadDocumentButton from './UploadDocumentButton';
+import AddPersonalityButton from './AddPersonalityButton';
 
 const ChatDrawer = () => {
-  const [addPersonalityDialog, setAddPersonalityDialog] = useState(false);
-
-  const onToggleAddDialog = () => {
-    setAddPersonalityDialog((prevState) => !prevState);
-  };
-
   const { data, isFetching } = useGetPersonalities({
     user_id: SAMPLE_CHAT_USER_ID,
   });
@@ -55,27 +49,12 @@ const ChatDrawer = () => {
             </>
           )}
         </Stack>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          borderRadius="100%"
-          width={60}
-          height={60}
-          bgcolor="common.black"
-          sx={{ cursor: 'pointer' }}
-          onClick={onToggleAddDialog}
-        >
-          <Typography fontSize={24} color="common.white">
-            +
-          </Typography>
-        </Box>
-      </Box>
 
-      <AddPersonalityDialog
-        open={addPersonalityDialog}
-        onClose={onToggleAddDialog}
-      />
+        <Stack spacing={1}>
+          <AddPersonalityButton />
+          <UploadDocumentButton />
+        </Stack>
+      </Box>
     </>
   );
 };

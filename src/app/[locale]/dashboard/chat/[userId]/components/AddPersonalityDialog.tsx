@@ -204,7 +204,6 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
               <ButtonWithLoading
                 isLoading={isPending}
                 type="submit"
-                fullWidth
                 variant="contained"
                 color="primary"
                 disableElevation
