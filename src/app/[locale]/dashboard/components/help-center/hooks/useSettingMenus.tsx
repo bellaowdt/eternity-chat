@@ -1,8 +1,8 @@
 import { useTranslations } from 'next-intl';
-import GeneralSetting from '../components/GeneralSetting';
-import NotificationPreference from '../components/NotificationPreference';
-import PrivacySettings from '../components/PrivacySettings';
-import ProfileForm from '../components/ProfileForm';
+import ProfileForm from '../../setting/components/ProfileForm';
+import GeneralSetting from '../../setting/components/GeneralSetting';
+import NotificationPreference from '../../setting/components/NotificationPreference';
+import PrivacySettings from '../../setting/components/PrivacySettings';
 
 export const useSettingMenus = () => {
   const t = useTranslations();

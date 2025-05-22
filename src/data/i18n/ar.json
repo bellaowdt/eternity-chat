@@ -19,7 +19,7 @@
       "logout": "تسجيل الخروج",
       "setting": "الإعدادات",
       "saveChanges": "حفظ التغييرات",
-      "continue": "استمرار",
+      "continue": "متابعة",
       "or": "أو",
       "googleBtn": "المتابعة باستخدام جوجل",
       "changePassword": "تغيير كلمة المرور",
@@ -33,8 +33,8 @@
       "password": "كلمة المرور",
       "language": "اللغة",
       "confirmPassword": "تأكيد كلمة المرور",
-      "namePlaceholder": "مثال: محمد أحمد",
-      "emailPlaceholder": "مثال: mohamed@gmail.com",
+      "namePlaceholder": "مثال: جون دو",
+      "emailPlaceholder": "مثال: johndoe@gmail.com",
       "darkTheme": "الوضع الداكن",
       "editImage": "تعديل الصورة",
       "female": "أنثى",
@@ -60,13 +60,17 @@
     }
   },
   "messages": {
-    "noRowFound": "لا توجد بيانات للعرض!",
-    "personalityCreatedSuccessfully": "تم إنشاء الشخصية بنجاح!"
+    "noRowFound": "لا توجد بيانات لعرضها!",
+    "personalityCreatedSuccessfully": "تم إنشاء الشخصية بنجاح!",
+    "toast": {
+      "defaultError": "حدث خطأ!",
+      "copied": "تم النسخ!"
+    }
   },
   "pages": {
     "account": {
       "logoutMsg": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
-      "logoutConfirm": "نعم، قم بتسجيل الخروج"
+      "logoutConfirm": "نعم، سجل خروجي"
     },
     "settings": {
       "menu": {
@@ -78,7 +82,7 @@
       "notifications": {
         "email": "إشعارات البريد الإلكتروني",
         "inApp": "إشعارات داخل التطبيق",
-        "push": "إشعارات فورية"
+        "push": "إشعارات الدفع"
       },
       "privacy": {
         "twoFactorAuthentication": "التحقق بخطوتين",
@@ -86,23 +90,38 @@
       }
     },
     "signIn": {
-      "welcomeMsg": "مرحبًا بك في دردشة الأبدية",
-      "welcomeSubMsg": "مساحة لإعادة التواصل والتذكر."
+      "welcomeMsg": "مرحباً بك في دردشة الأبدية",
+      "welcomeSubMsg": "مساحة لإعادة الاتصال والتذكر."
     },
     "signUp": {
       "createAccount": "أنشئ حسابك",
-      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة</terms> و<policy>سياسة الخصوصية</policy> الخاصة بنا."
+      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة </terms> و <policy>سياسة الخصوصية</policy> الخاصة بنا."
     },
     "chat": {
-      "accuracyMsg": "الذكاء الاصطناعي لا يمكنه تقليد من تحب بدقة تامة، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى.",
+      "accuracyMsg": "لا يمكن للذكاء الاصطناعي تكرار أحبائك بالكامل، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى.",
       "typeMsg": "اكتب رسالة",
       "getChatResponseError": "فشل في الحصول على الرد. حاول مرة أخرى!",
-      "addPersonality": "أضف شخصية جديدة"
+      "addPersonality": "أضف شخصية جديدة",
+      "toolbarIcons": {
+        "copy": "نسخ",
+        "readAloud": "قراءة بصوت عالٍ",
+        "goodResponse": "رد جيد",
+        "badResponse": "رد سيء"
+      },
+      "feedback": {
+        "feedbackAgain": "أرسل ملاحظات مرة أخرى"
+      }
     },
     "helpCenter": {
       "menu": {
+        "generalMsg": "كيف يمكننا مساعدتك؟",
         "faq": "الأسئلة الشائعة",
-        "contactSupport": "الاتصال بالدعم"
+        "contactSupport": {
+          "title": "اتصل بالدعم",
+          "liveChat": "دردشة مباشرة",
+          "sendEmail": "أرسل لنا بريدًا إلكترونيًا",
+          "requestCallback": "طلب معاودة الاتصال"
+        }
       }
     }
   }
