@@ -42,6 +42,7 @@ export interface IChatHistoryItem {
   traceId?: string;
   isLoading?: boolean;
   isError?: boolean;
+  type?: ChatMessageTypeEnum;
 }
 
 export interface ChatResponse {

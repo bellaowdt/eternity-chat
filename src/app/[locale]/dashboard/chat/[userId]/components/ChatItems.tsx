@@ -7,6 +7,7 @@ import {
 import { Box } from '@mui/material';
 import { FC, Fragment } from 'react';
 import MessageBubble from './MessageBubble';
+import FeedbackCard from './FeedbackCard';
 
 interface ChatItemsProps {
   items: IChatHistoryItem[];
@@ -16,7 +17,7 @@ const ChatItems: FC<ChatItemsProps> = ({ items }) => {
   return (
     <Box p={2}>
       {items?.map((item, index) => {
-        const { message, response, timestamp, isLoading, isError } = item;
+        const { message, response, timestamp, isLoading, isError, type } = item;
         return (
           <Fragment key={timestamp}>
             <MessageBubble
@@ -27,7 +28,6 @@ const ChatItems: FC<ChatItemsProps> = ({ items }) => {
               bubbleColor="#f0f0f0"
               bubbleTextColor="common.black"
               tailPosition={ChatCardDirectionEnum.LEFT}
-              type={ChatMessageTypeEnum.HISTORY}
               isError={isError}
             />
 
@@ -39,7 +39,7 @@ const ChatItems: FC<ChatItemsProps> = ({ items }) => {
               bubbleColor="#6C6C6C"
               bubbleTextColor="common.white"
               tailPosition={ChatCardDirectionEnum.RIGHT}
-              type={ChatMessageTypeEnum.HISTORY}
+              type={type}
               isLoading={isLoading}
               isError={isError}
             />

@@ -30,7 +30,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   bubbleTextColor = 'common.black',
   tailPosition = ChatCardDirectionEnum.LEFT,
   sender,
-  type = ChatMessageTypeEnum.CURRENT,
+  type = ChatMessageTypeEnum.HISTORY,
   isLoading,
   isError,
 }) => {
@@ -168,7 +168,16 @@ const MessageBubble: FC<MessageBubbleProps> = ({
           </Typography>
         </Box>
       </Box>
-      {type === 'current' && <ChatIconToolbar />}
+      {isSystem && type === ChatMessageTypeEnum.CURRENT && (
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: isSystem ? 'flex-end' : 'flex-start',
+          }}
+        >
+          <ChatIconToolbar value={message || ''} />
+        </Box>
+      )}
     </Box>
   );
 };

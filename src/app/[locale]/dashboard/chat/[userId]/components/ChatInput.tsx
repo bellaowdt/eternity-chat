@@ -5,7 +5,7 @@ import {
   SAMPLE_CHAT_USER_PERSONALITY,
 } from '@/constants/query-keys';
 import { chat } from '@/services/chat';
-import { IChatHistoryItem } from '@/services/chat/types';
+import { ChatMessageTypeEnum, IChatHistoryItem } from '@/services/chat/types';
 import { SendRounded } from '@mui/icons-material';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
@@ -55,6 +55,27 @@ const ChatInput: FC = () => {
     );
   };
 
+  const convertAllMessagesToHistroy = () => {
+    queryClient.setQueryData<IChatHistoryItem[]>(
+      [GET_CHAT_HISTORY_QUERY_KEY, SAMPLE_CHAT_USER_ID],
+      (previous) => {
+        if (!previous || previous.length === 0) return previous;
+
+        const updated = [...previous];
+        const lastItem = updated[updated.length - 2];
+
+        if (lastItem.type === ChatMessageTypeEnum.CURRENT) {
+          updated[updated.length - 2] = {
+            ...lastItem,
+            type: ChatMessageTypeEnum.HISTORY,
+          };
+        }
+
+        return updated;
+      },
+    );
+  };
+
   const updateMessageInHistory = (
     payload: MessagePayload,
     updates: Partial<IChatHistoryItem>,
@@ -77,6 +98,7 @@ const ChatInput: FC = () => {
     try {
       setMessage('');
       addMessageToHistory(payload);
+      convertAllMessagesToHistroy();
       inputRef.current?.focus();
 
       const { data } = await mutateAsync({
@@ -90,6 +112,7 @@ const ChatInput: FC = () => {
       updateMessageInHistory(payload, {
         response: data?.response,
         isLoading: false,
+        type: ChatMessageTypeEnum.CURRENT,
       });
     } catch {
       updateMessageInHistory(payload, {

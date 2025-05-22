@@ -61,7 +61,11 @@
   },
   "messages": {
     "noRowFound": "There is no row to display!",
-    "personalityCreatedSuccessfully": "Your personality was created successfully!"
+    "personalityCreatedSuccessfully": "Your personality was created successfully!",
+    "toast": {
+      "defaultError": "Encountered an error!",
+      "copied": "Copied!"
+    }
   },
   "pages": {
     "account": {
@@ -97,7 +101,13 @@
       "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
       "typeMsg": "Type a message",
       "getChatResponseError": "Failed to get response. Try again!",
-      "addPersonality": "Add a New Personality"
+      "addPersonality": "Add a New Personality",
+      "toolbarIcons": {
+        "copy": "Copy",
+        "readAloud": "Read aloud",
+        "goodResponse": "Good response",
+        "badResponse": "Bad response"
+      }
     },
     "helpCenter": {
       "menu": {
