@@ -186,7 +186,7 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
     <Dialog
       {...props}
       title={t('pages.chat.addPersonality')}
-      maxWidth="md"
+      maxWidth="sm"
       fullWidth
       sx={{ marginX: 'auto' }}
       dialogButtons={[]}

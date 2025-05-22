@@ -25,7 +25,7 @@ const SettingDialog: FC<SettingDialogProps> = ({ ...props }) => {
     <Dialog
       {...props}
       title={t('common.buttons.setting')}
-      maxWidth="md"
+      maxWidth="sm"
       fullWidth
       sx={{ marginX: 'auto' }}
       dialogButtons={[]}

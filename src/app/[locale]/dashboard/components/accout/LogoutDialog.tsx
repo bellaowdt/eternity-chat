@@ -22,6 +22,8 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
     <Dialog
       {...props}
       title={t('common.buttons.logout')}
+      maxWidth="sm"
+      sx={{ marginX: 'auto', width: '600' }}
       dialogButtons={[
         {
           id: 'cancel',

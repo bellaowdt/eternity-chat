@@ -22,7 +22,6 @@ const Dialog: FC<DialogProps> = ({ title, ...props }) => {
     <MuiDialog
       sx={{
         borderRadius: 0.7,
-        width: 600,
         ...props?.sx,
       }}
       slots={{

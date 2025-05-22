@@ -26,7 +26,7 @@ const HelpCenterDialog: FC<HelpCenterDialogProps> = ({ ...props }) => {
     <Dialog
       {...props}
       title={t('common.buttons.helpCenter')}
-      maxWidth="md"
+      maxWidth="sm"
       fullWidth
       sx={{ marginX: 'auto' }}
       dialogButtons={[]}
