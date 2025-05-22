@@ -6,7 +6,6 @@ interface GetPersonalitiesProps {
   user_id?: string | null;
 }
 
-
 const useGetPersonalities = ({ user_id }: GetPersonalitiesProps) => {
   const query = useQuery({
     queryKey: [GET_USER_PERSONALITIES_LIST_KEY, user_id],

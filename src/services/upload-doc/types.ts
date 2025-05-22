@@ -1,7 +1,8 @@
+import { IChatHistoryParams, IChatHistoryItem } from '../chat/types';
 import { GetersonalitiesResponse } from '../personality/types';
 import { Response } from '../types/common';
 
-export interface IUploadDocumentParams {
+export interface IDocumentParams {
   user_id: string;
   personality_name: string;
 }
@@ -12,7 +13,11 @@ export interface IUploadDocumentPayload {
 
 export interface UploadDocumentService {
   (args: {
-    params: IUploadDocumentParams;
+    params: IDocumentParams;
     payload: IUploadDocumentPayload;
   }): Response<GetersonalitiesResponse>;
+}
+
+export interface ListDocumentService {
+  (args: { params: IDocumentParams }): Response;
 }

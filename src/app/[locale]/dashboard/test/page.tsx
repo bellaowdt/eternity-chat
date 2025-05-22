@@ -1,8 +1,19 @@
-import React from 'react';
-import ChatIconToolbar from '../chat/[userId]/components/ChatIconToolbar';
+'use client';
 
-const page = () => {
-  return <ChatIconToolbar />;
+import React from 'react';
+import useListDocuments from '../components/documents/hooks/useListDocuments';
+import {
+  SAMPLE_CHAT_USER_ID,
+  SAMPLE_CHAT_USER_PERSONALITY,
+} from '@/constants/query-keys';
+
+const TestPage = () => {
+  const { data } = useListDocuments({
+    user_id: SAMPLE_CHAT_USER_ID,
+    personality_name: SAMPLE_CHAT_USER_PERSONALITY,
+  });
+  console.log(data);
+  return <></>;
 };
 
-export default page;
+export default TestPage;
