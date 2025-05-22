@@ -50,6 +50,11 @@ export interface ChatResponse {
   sentiment: ISentiment[];
 }
 
+export interface IFeedback {
+  reasons: string[];
+  message?: string;
+}
+
 export interface ChatService {
   ({ payload }: { payload: ChatPayload }): Response<ChatResponse>;
 }

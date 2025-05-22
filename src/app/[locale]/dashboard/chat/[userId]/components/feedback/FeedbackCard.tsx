@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   Typography,
   Chip,
@@ -11,6 +11,8 @@ import {
   Paper,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { IFeedback } from '@/services/chat/types';
+import { useTranslations } from 'next-intl';
 
 const reasons = [
   'Don’t like the style',
@@ -22,7 +24,13 @@ const reasons = [
   'Other',
 ];
 
-const FeedbackCard: React.FC = () => {
+interface FeedbackCardProps {
+  onClose: VoidFunction;
+  onSubmitFeedback: (data: IFeedback) => void;
+}
+
+const FeedbackCard: FC<FeedbackCardProps> = ({ onClose, onSubmitFeedback }) => {
+  const t = useTranslations();
   const [selected, setSelected] = useState<string[]>([]);
   const [comments, setComments] = useState('');
 
@@ -35,7 +43,10 @@ const FeedbackCard: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log({ selected, comments });
+    onSubmitFeedback({
+      reasons: [],
+      message: '',
+    });
   };
 
   return (
@@ -49,7 +60,10 @@ const FeedbackCard: React.FC = () => {
         bgcolor: 'common.white',
       }}
     >
-      <IconButton sx={{ position: 'absolute', top: 8, right: 8 }}>
+      <IconButton
+        sx={{ position: 'absolute', top: 8, right: 8 }}
+        onClick={onClose}
+      >
         <CloseIcon />
       </IconButton>
 
@@ -81,7 +95,7 @@ const FeedbackCard: React.FC = () => {
       />
 
       <Button variant="contained" onClick={handleSubmit}>
-        Submit
+        {t('common.buttons.submit')}
       </Button>
     </Paper>
   );

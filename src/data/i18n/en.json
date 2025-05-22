@@ -107,6 +107,9 @@
         "readAloud": "Read aloud",
         "goodResponse": "Good response",
         "badResponse": "Bad response"
+      },
+      "feedback": {
+        "feedbackAgain": "Give Feedback Again"
       }
     },
     "helpCenter": {

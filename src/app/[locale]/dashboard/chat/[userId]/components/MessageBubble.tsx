@@ -9,6 +9,7 @@ import { ErrorOutlineOutlined } from '@mui/icons-material';
 import { Box, Collapse, Skeleton, Typography } from '@mui/material';
 import { useLocale } from 'next-intl';
 import { FC, memo } from 'react';
+import FeedbackWrapper from './feedback/FeedbackWrapper ';
 import ChatIconToolbar from './ChatIconToolbar';
 
 interface MessageBubbleProps {
@@ -172,10 +173,12 @@ const MessageBubble: FC<MessageBubbleProps> = ({
         <Box
           sx={{
             display: 'flex',
-            justifyContent: isSystem ? 'flex-end' : 'flex-start',
+            flexDirection: 'column',
+            alignItems: 'flex-end',
           }}
         >
           <ChatIconToolbar value={message || ''} />
+          <FeedbackWrapper />
         </Box>
       )}
     </Box>

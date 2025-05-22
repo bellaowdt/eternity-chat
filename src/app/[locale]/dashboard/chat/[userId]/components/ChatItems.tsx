@@ -7,7 +7,7 @@ import {
 import { Box } from '@mui/material';
 import { FC, Fragment } from 'react';
 import MessageBubble from './MessageBubble';
-import FeedbackCard from './FeedbackCard';
+import FeedbackCard from './feedback/FeedbackCard';
 
 interface ChatItemsProps {
   items: IChatHistoryItem[];
