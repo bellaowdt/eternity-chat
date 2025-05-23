@@ -28,13 +28,12 @@ const UploadDocumentDialog: FC<UploadDocumentDialogProps> = ({ ...props }) => {
   const onSubmit = async (payload: any) => {
     const newPayload = {
       user_id: SAMPLE_CHAT_USER_ID,
-      personality_name: SAMPLE_CHAT_USER_PERSONALITY,
+      personality_name: SAMPLE_CHAT_USER_PERSONALITY.toLowerCase(),
     };
 
     const formData = new FormData();
 
     Array.from(payload.files).forEach((file) => {
-      formData.append('files', file as any);
       formData.append('files', file as any);
     });
 
