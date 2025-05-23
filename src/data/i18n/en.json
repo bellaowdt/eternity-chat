@@ -100,7 +100,7 @@
     "chat": {
       "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
       "typeMsg": "Type a message",
-      "getChatResponseError": "Failed to get response. Try again!",
+      "getChatResponseError": "Sorry! Something went wrong at my side.",
       "addPersonality": "Add a New Personality",
       "uploadDocument": "Please Upload Data",
       "toolbarIcons": {

@@ -10,9 +10,9 @@ import {
 const TestPage = () => {
   const { data } = useListDocuments({
     user_id: SAMPLE_CHAT_USER_ID,
-    personality_name: SAMPLE_CHAT_USER_PERSONALITY,
+    personality_name: SAMPLE_CHAT_USER_PERSONALITY.toLowerCase(),
   });
-  console.log(data);
+  console.log(data?.documents);
   return <></>;
 };
 

@@ -7,7 +7,11 @@ export interface IDocumentParams {
   personality_name: string;
 }
 
-export interface IUploadDocumentPayload {
+export interface IListDocumentPayload extends IDocumentParams {
+  documents: [{ name: string }];
+}
+
+export interface IDocumentListResponse {
   files: string[];
 }
 
@@ -19,7 +23,7 @@ export interface UploadDocumentService {
 }
 
 export interface ListDocumentService {
-  (args: { params: IDocumentParams }): Response;
+  (args: { params: IDocumentParams }): Response<IListDocumentPayload>;
 }
 
 interface IDeleteDocumentParams extends IDocumentParams {

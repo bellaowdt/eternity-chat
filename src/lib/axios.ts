@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const publicPaths = ['/api/v1/account/login'];
 export const config = {
   baseURL: process.env.NEXT_PUBLIC_API_URL || 'api',
   timeout: 3000 * 10,
@@ -16,16 +15,9 @@ const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   function (config) {
-    // TODO: add token to header
-    // const lang = localStorage.getItem('i18nextLng')
-    //   ? localStorage.getItem('i18nextLng')
-    //   : 'fa-IR';
     const lang = 'en-EN';
     if (lang) {
       config.headers['Accept-Language'] = lang;
-    }
-    if (!publicPaths.includes(config.url as string)) {
-     // config.headers.Authorization = `Bearer ${auth.accessToken}`;
     }
     return config;
   },
@@ -58,18 +50,16 @@ _axios.interceptors.response.use(
     // const expectedErrors = status >= 400 && status <= 500;
 
     if (status === 401) {
-     // try {
-        // if (!auth.refreshToken) {
-        //   throw Error('Refresh token is not exist!');
-        // }
-
-        // if (!refreshingFunc) {
-        //   refreshingFunc = loginByRefreshToken({
-        //     payload: { refreshToken: auth.refreshToken },
-        //   });
-        // }
-     //   const response = await refreshingFunc;
-
+      // try {
+      // if (!auth.refreshToken) {
+      //   throw Error('Refresh token is not exist!');
+      // }
+      // if (!refreshingFunc) {
+      //   refreshingFunc = loginByRefreshToken({
+      //     payload: { refreshToken: auth.refreshToken },
+      //   });
+      // }
+      //   const response = await refreshingFunc;
       //   if (!response.data.succeed) {
       //     throw Error('Refresh token is not valid!');
       //   }
@@ -86,14 +76,13 @@ _axios.interceptors.response.use(
       // } finally {
       //   refreshingFunc = undefined;
       // }
-    // } else if (expectedErrors) {
-    //   const message = error.response.data?.message;
-    //   !!message && toast.error(message);
-    // }
-
-  //  return Promise.reject(error);
-  }
-}
+      // } else if (expectedErrors) {
+      //   const message = error.response.data?.message;
+      //   !!message && toast.error(message);
+      // }
+      //  return Promise.reject(error);
+    }
+  },
 );
 
 export default _axios;

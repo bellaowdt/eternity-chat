@@ -55,6 +55,24 @@ export interface IFeedback {
   message?: string;
 }
 
+export interface AvatarSetting {
+  model_id?: string;
+  voice_settings?: {
+    stability?: number;
+    similarity_boost?: number;
+    style?: number;
+    use_speaker_boost?: boolean;
+  };
+  generation_config?: {
+    emotion?: ToneEnum;
+    emotion_level?: number;
+  };
+}
+
+export interface IChatTextToVoicePayload extends AvatarSetting {
+  text: string;
+}
+
 export interface ChatService {
   ({ payload }: { payload: ChatPayload }): Response<ChatResponse>;
 }
@@ -63,4 +81,8 @@ export interface GetChatHistoryService {
   (args: { params: IChatHistoryParams; userId: number | string }): Response<
     IChatHistoryItem[]
   >;
+}
+
+export interface ChatTextToVoiceService {
+  ({ payload }: { payload: IChatTextToVoicePayload }): Response;
 }
