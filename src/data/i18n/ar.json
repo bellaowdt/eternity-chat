@@ -1,126 +1,131 @@
 {
   "siteInfo": {
-    "title": "دردشة الأبدية"
+    "title": "Eternity Chat"
   },
   "common": {
     "buttons": {
-      "return": "عودة",
-      "yes": "نعم",
-      "no": "لا",
-      "select": "اختر",
-      "returnHome": "العودة إلى الصفحة الرئيسية",
-      "refresh": "تحديث",
-      "reset": "إعادة تعيين",
-      "submit": "إرسال",
-      "detail": "تفاصيل",
-      "edit": "تعديل",
-      "delete": "حذف",
-      "cancel": "إلغاء",
-      "logout": "تسجيل الخروج",
-      "setting": "الإعدادات",
-      "saveChanges": "حفظ التغييرات",
-      "continue": "متابعة",
-      "or": "أو",
-      "googleBtn": "المتابعة باستخدام جوجل",
-      "changePassword": "تغيير كلمة المرور",
-      "deleteAllChats": "حذف جميع المحادثات",
-      "helpCenter": "مركز المساعدة"
+      "return": "Return",
+      "yes": "Yes",
+      "no": "No",
+      "select": "Select",
+      "returnHome": "Return Home",
+      "refresh": "Refresh",
+      "reset": "Reset",
+      "submit": "Submit",
+      "detail": "Detail",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "logout": "Logout",
+      "setting": "Settings",
+      "saveChanges": "Save Changes",
+      "continue": "Continue",
+      "or": "Or",
+      "googleBtn": "Continue with Google",
+      "changePassword": "Change Password",
+      "deleteAllChats": "Delete All Chats",
+      "helpCenter": "Help Center"
     },
     "fields": {
-      "name": "الاسم",
-      "fullName": "الاسم الكامل",
-      "email": "البريد الإلكتروني",
-      "password": "كلمة المرور",
-      "language": "اللغة",
-      "confirmPassword": "تأكيد كلمة المرور",
-      "namePlaceholder": "مثال: جون دو",
-      "emailPlaceholder": "مثال: johndoe@gmail.com",
-      "darkTheme": "الوضع الداكن",
-      "editImage": "تعديل الصورة",
-      "female": "أنثى",
-      "male": "ذكر",
-      "age": "العمر",
-      "occupation": "الوظيفة",
-      "tone": "النبرة",
-      "gender": "الجنس",
-      "personality": "الشخصية",
+      "name": "Name",
+      "fullName": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "language": "Language",
+      "confirmPassword": "Confirm Password",
+      "namePlaceholder": "ex. John Doe",
+      "emailPlaceholder": "ex. johndoe@gmail.com",
+      "darkTheme": "Dark Theme",
+      "editImage": "Edit Image",
+      "female": "Female",
+      "male": "Male",
+      "age": "Age",
+      "occupation": "Occupation",
+      "tone": "Tone",
+      "gender": "Gender",
+      "personality": "Personality",
       "tons": {
-        "happy": "سعيد",
-        "sad": "حزين",
-        "natural": "طبيعي"
+        "happy": "Happy",
+        "sad": "Sad",
+        "natural": "Natural"
       }
     },
     "sidebar": {
       "menu": {
-        "notification": "الإشعارات",
-        "settings": "الإعدادات",
-        "helpCenter": "مركز المساعدة",
-        "privacyPolicy": "سياسة الخصوصية"
+        "notification": "Notifications",
+        "settings": "Settings",
+        "helpCenter": "Help Center",
+        "privacyPolicy": "Privacy Policy"
       }
     }
   },
   "messages": {
-    "noRowFound": "لا توجد بيانات لعرضها!",
-    "personalityCreatedSuccessfully": "تم إنشاء الشخصية بنجاح!",
+    "noRowFound": "There is no row to display!",
+    "personalityCreatedSuccessfully": "Your personality was created successfully!",
+    "somethingWentWrong": "Sorry! Something went wrong!",
     "toast": {
-      "defaultError": "حدث خطأ!",
-      "copied": "تم النسخ!"
+      "defaultError": "Encountered an error!",
+      "copied": "Copied!"
     }
   },
   "pages": {
     "account": {
-      "logoutMsg": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
-      "logoutConfirm": "نعم، سجل خروجي"
+      "logoutMsg": "Are you sure you want to log out?",
+      "logoutConfirm": "Yes, Log Me Out"
     },
     "settings": {
       "menu": {
-        "accountSetting": "إعدادات الحساب",
-        "general": "عام",
-        "notificationPreference": "تفضيلات الإشعارات",
-        "privacySettings": "إعدادات الخصوصية"
+        "accountSetting": "Account Settings",
+        "general": "General",
+        "notificationPreference": "Notification Preference",
+        "privacySettings": "Privacy Settings"
       },
       "notifications": {
-        "email": "إشعارات البريد الإلكتروني",
-        "inApp": "إشعارات داخل التطبيق",
-        "push": "إشعارات الدفع"
+        "email": "Email Notifications",
+        "inApp": "In-App Notifications",
+        "push": "Push Notifications"
       },
       "privacy": {
-        "twoFactorAuthentication": "التحقق بخطوتين",
-        "sessionManagement": "إدارة الجلسات"
+        "twoFactorAuthentication": "Two-Factor Authentication",
+        "sessionManagement": "Session Management"
       }
     },
     "signIn": {
-      "welcomeMsg": "مرحباً بك في دردشة الأبدية",
-      "welcomeSubMsg": "مساحة لإعادة الاتصال والتذكر."
+      "welcomeMsg": "Welcome to Eternity Chat",
+      "welcomeSubMsg": "A Space to Reconnect and Remember."
     },
     "signUp": {
-      "createAccount": "أنشئ حسابك",
-      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة </terms> و <policy>سياسة الخصوصية</policy> الخاصة بنا."
+      "createAccount": "Create Your Account",
+      "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>."
     },
     "chat": {
-      "accuracyMsg": "لا يمكن للذكاء الاصطناعي تكرار أحبائك بالكامل، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى.",
-      "typeMsg": "اكتب رسالة",
-      "getChatResponseError": "فشل في الحصول على الرد. حاول مرة أخرى!",
-      "addPersonality": "أضف شخصية جديدة",
+      "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
+      "typeMsg": "Type a message",
+      "getChatResponseError": "Sorry! Something went wrong at my side.",
+      "addPersonality": "Add a New Personality",
+      "uploadDocument": "Please Upload Data.",
       "toolbarIcons": {
-        "copy": "نسخ",
-        "readAloud": "قراءة بصوت عالٍ",
-        "goodResponse": "رد جيد",
-        "badResponse": "رد سيء"
+        "copy": "Copy",
+        "readAloud": "Read aloud",
+        "goodResponse": "Good response",
+        "badResponse": "Bad response"
       },
       "feedback": {
-        "feedbackAgain": "أرسل ملاحظات مرة أخرى"
+        "feedbackAgain": "Give Feedback Again"
+      },
+      "documents": {
+        "documentList": "Your Document list:"
       }
     },
     "helpCenter": {
       "menu": {
-        "generalMsg": "كيف يمكننا مساعدتك؟",
-        "faq": "الأسئلة الشائعة",
+        "generalMsg": "How can we help you?",
+        "faq": "FAQ",
         "contactSupport": {
-          "title": "اتصل بالدعم",
-          "liveChat": "دردشة مباشرة",
-          "sendEmail": "أرسل لنا بريدًا إلكترونيًا",
-          "requestCallback": "طلب معاودة الاتصال"
+          "title": "Contact Support",
+          "liveChat": "Live Chat",
+          "sendEmail": "Send Us an Email",
+          "requestCallback": "Request a Callback"
         }
       }
     }
