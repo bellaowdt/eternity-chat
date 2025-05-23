@@ -14,7 +14,7 @@ export const uploadDocumentsat: UploadDocumentService = ({
   return axios.post(
     `${BASE_URL}/upload-documents/${params.user_id}/${params.personality_name}`,
     payload,
-    { params },
+    { params, headers: { 'Content-Type': 'multipart/form-data' } },
   );
 };
 

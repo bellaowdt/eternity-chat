@@ -31,10 +31,17 @@ const UploadDocumentDialog: FC<UploadDocumentDialogProps> = ({ ...props }) => {
       personality_name: SAMPLE_CHAT_USER_PERSONALITY,
     };
 
+    const formData = new FormData();
+
+    Array.from(payload.files).forEach((file) => {
+      formData.append('files', file as any);
+      formData.append('files', file as any);
+    });
+
     try {
       const { data, status } = await mutateAsync({
         params: newPayload,
-        payload: { files: payload.files },
+        payload: formData,
       });
       if (status === 200) {
         props.onClose?.({}, 'backdropClick');

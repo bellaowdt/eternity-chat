@@ -43,21 +43,22 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
         defaultValue={undefined}
         render={({ field }) => {
           const handleChange = (e: any) => {
-            const file = e.target.files[0];
-            if (file) {
-              setFileName(file.name);
-              const url = URL.createObjectURL(file);
-              setFilePreview(url);
-            } else {
-              setFileName('No file chosen');
-              setFilePreview(null);
-            }
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function () {
-              const base64String = reader.result as string;
-              field.onChange(base64String.split(',')[1]);
-            };
+            const files = e.target.files;
+            // if (file) {
+            //   setFileName(file.name);
+            //   const url = URL.createObjectURL(file);
+            //   setFilePreview(url);
+            // } else {
+            //   setFileName('No file chosen');
+            //   setFilePreview(null);
+            // }
+            // const reader = new FileReader();
+            // reader.readAsDataURL(file);
+            // reader.onload = function () {
+            //   const base64String = reader.result as string;
+            //   field.onChange(base64String.split(',')[1]);
+            // };
+            field.onChange(files);
           };
           return (
             <Box
@@ -97,14 +98,14 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
                 {fileName}
               </Box>
               <input
-                name={name}
+                name={field.name}
                 type="file"
-                id={`upload-${name}`}
+                id={`upload-${field.name}`}
                 accept={acceptedFormat}
                 hidden
                 aria-label={label}
                 onChange={handleChange}
-
+                multiple={true}
                 // onChange={(e) => {
                 //   const file = e.target.files?.[0];
                 //   field.onChange(e.target.files);

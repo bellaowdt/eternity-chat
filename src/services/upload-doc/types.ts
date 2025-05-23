@@ -14,7 +14,7 @@ export interface IUploadDocumentPayload {
 export interface UploadDocumentService {
   (args: {
     params: IDocumentParams;
-    payload: IUploadDocumentPayload;
+    payload: FormData;
   }): Response<GetersonalitiesResponse>;
 }
 
