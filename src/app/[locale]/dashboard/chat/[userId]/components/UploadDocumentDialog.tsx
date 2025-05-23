@@ -8,11 +8,12 @@ import {
 } from '@/constants/query-keys';
 import { uploadDocumentsat } from '@/services/upload-doc';
 import { onInvalidSubmit } from '@/utils/form';
-import { Box, Grid } from '@mui/material';
+import { Box, Divider, Grid } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import DocumentList from './DocumentList';
 
 export type UploadDocumentDialogProps = DialogProps;
 
@@ -66,6 +67,10 @@ const UploadDocumentDialog: FC<UploadDocumentDialogProps> = ({ ...props }) => {
           onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
         >
           <Grid size={{ xs: 12 }}>
+            <DocumentList />
+            <Divider />
+          </Grid>
+          <Grid size={{ xs: 12 }} mt={3}>
             <FileUploadForm
               name="files"
               label="Do you have a file you'd like to share?"
@@ -73,7 +78,6 @@ const UploadDocumentDialog: FC<UploadDocumentDialogProps> = ({ ...props }) => {
               acceptedFormatText="Supported formats: PDF"
             />
           </Grid>
-
           <Grid size={{ xs: 12 }}>
             <Box display="flex" justifyContent="flex-end">
               <ButtonWithLoading

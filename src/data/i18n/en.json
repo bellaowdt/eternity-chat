@@ -62,6 +62,7 @@
   "messages": {
     "noRowFound": "There is no row to display!",
     "personalityCreatedSuccessfully": "Your personality was created successfully!",
+    "somethingWentWrong": "Sorry! Something went wrong!",
     "toast": {
       "defaultError": "Encountered an error!",
       "copied": "Copied!"
@@ -102,7 +103,7 @@
       "typeMsg": "Type a message",
       "getChatResponseError": "Sorry! Something went wrong at my side.",
       "addPersonality": "Add a New Personality",
-      "uploadDocument": "Please Upload Data",
+      "uploadDocument": "Please Upload Data.",
       "toolbarIcons": {
         "copy": "Copy",
         "readAloud": "Read aloud",
@@ -111,6 +112,9 @@
       },
       "feedback": {
         "feedbackAgain": "Give Feedback Again"
+      },
+      "documents": {
+        "documentList": "Your Document list:"
       }
     },
     "helpCenter": {

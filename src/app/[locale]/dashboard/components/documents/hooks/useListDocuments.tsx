@@ -10,6 +10,7 @@ const useListDocuments = ({ user_id, personality_name }: IDocumentParams) => {
       const { data } = await listDocumentsat({
         params: { user_id, personality_name },
       });
+
       return data;
     },
     gcTime: 0,

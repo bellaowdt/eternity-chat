@@ -27,7 +27,7 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
 
   return (
     <Box width="100%">
-      <Typography variant="h6" mb={1}>
+      <Typography variant="h5" mb={1}>
         {label}
       </Typography>
 
@@ -44,20 +44,6 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
         render={({ field }) => {
           const handleChange = (e: any) => {
             const files = e.target.files;
-            // if (file) {
-            //   setFileName(file.name);
-            //   const url = URL.createObjectURL(file);
-            //   setFilePreview(url);
-            // } else {
-            //   setFileName('No file chosen');
-            //   setFilePreview(null);
-            // }
-            // const reader = new FileReader();
-            // reader.readAsDataURL(file);
-            // reader.onload = function () {
-            //   const base64String = reader.result as string;
-            //   field.onChange(base64String.split(',')[1]);
-            // };
             field.onChange(files);
           };
           return (
@@ -106,18 +92,6 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
                 aria-label={label}
                 onChange={handleChange}
                 multiple={true}
-                // onChange={(e) => {
-                //   const file = e.target.files?.[0];
-                //   field.onChange(e.target.files);
-                //   if (file) {
-                //     setFileName(file.name);
-                //     const url = URL.createObjectURL(file);
-                //     setFilePreview(url);
-                //   } else {
-                //     setFileName('No file chosen');
-                //     setFilePreview(null);
-                //   }
-                // }}
               />
             </Box>
           );
