@@ -1,81 +1,41 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Box, Grid, Typography } from '@mui/material';
+import { useTranslations } from 'next-intl';
 import PlanCard from './components/PlanCard';
+import { plans, planFeatures } from './components/PaymentPlansData';
 
 const PaymentPlans = () => {
-  const planCards = [
-    {
-      price: '$0',
-      duration: '',
-      title: 'Free Trial - 7 Days',
-      planType: '(Text Chat Only)',
-      subTilte: 'Want a deeper connection? Unlock the full experience.',
-      features: [
-        {
-          icon: '💬',
-          text: 'Real-time text chat with your AI loved one',
-        },
-        {
-          icon: '🚫',
-          text: 'No credit card required',
-        },
-        {
-          icon: '⏳',
-          text: '7-day access',
-        },
-      ],
-      moreDetails: "A gentle first step to see what it's like.",
-      buttonTilte: 'Start Free Trial',
-    },
-    {
-      price: '$50',
-      duration: '/month',
-      title: 'Premium',
-      planType: '(Voice & More)',
-      subTilte: 'Want a deeper connection? Unlock the full experience.',
-      features: [
-        {
-          icon: '🎙️',
-          text: 'Voice calls with your loved one’s AI',
-        },
-        {
-          icon: '🧠',
-          text: 'Advanced emotional recall + memory simulation',
-        },
-        {
-          icon: '✍️',
-          text: 'Custom tone and personality controls',
-        },
-        {
-          icon: '🛠️',
-          text: 'Priority customer support',
-        },
-        {
-          icon: '✅',
-          text: 'Everything included in Free Trial',
-        },
-      ],
-
-      moreDetails: 'Feel the presence. Hear their voice. Stay connected.',
-      buttonTilte: 'Upgrade to Premium',
-    },
-  ];
+  const t = useTranslations();
+  const planCards = plans.map((plan) => ({
+    price: t(`pages.paymentPlans.plans.${plan}.price`),
+    duration: t(`pages.paymentPlans.plans.${plan}.duration`),
+    title: t(`pages.paymentPlans.plans.${plan}.title`),
+    planType: t(`pages.paymentPlans.plans.${plan}.planType`),
+    subTilte: t(`pages.paymentPlans.plans.${plan}.subTilte`),
+    features: planFeatures[plan].map(({ icon, text }) => ({
+      icon,
+      text: t(text),
+    })),
+    moreDetails: t(`pages.paymentPlans.plans.${plan}.moreDetails`),
+    buttonTilte: t(`pages.paymentPlans.plans.${plan}.buttonTilte`),
+  }));
 
   return (
     <Box py={8}>
       <Grid container spacing={2}>
-        <Grid size={{ xs: 12, sm: 4 }} p={3}>
-          <Typography variant="h2">
-            Choose how you <br />
-            want to begin
-          </Typography>
+        <Grid size={{ xs: 12, sm: 3 }} p={3}>
+          <Typography
+            variant="h2"
+            dangerouslySetInnerHTML={{
+              __html: t('pages.paymentPlans.comment.title'),
+            }}
+          />
+
           <Typography variant="h6" mt={2}>
-            You've just completed setup. Now it’s time to begin your journey.
+            {t('pages.paymentPlans.comment.description1')}
           </Typography>
-          <Typography variant="h6" py={2}>
-            Whether you want to start gently with text conversations, or you're
-            ready for a more immersive experience with voice and deeper memories
-            — we have the right path for you.
+
+          <Typography variant="h6" mt={4}>
+            {t('pages.paymentPlans.comment.description2')}
           </Typography>
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>

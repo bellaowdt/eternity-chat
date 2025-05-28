@@ -128,6 +128,45 @@
           "requestCallback": "Request a Callback"
         }
       }
+    },
+    "paymentPlans": {
+      "comment": {
+        "title": "Choose how you <br/> want to begin",
+        "description1": "You've just completed setup. Now it’s time to begin your journey.",
+        "description2": " Whether you want to start gently with text conversations, or you're ready for a more immersive experience with voice and deeper memories — we have the right path for you."
+      },
+      "plans": {
+        "free": {
+          "price": "$0",
+          "duration": "",
+          "title": "Free Trial - 7 Days",
+          "planType": "(Text Chat Only)",
+          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "features": {
+            "f1": "Real-time text chat with your AI loved one",
+            "f2": "No credit card required",
+            "f3": "7-day access"
+          },
+          "moreDetails": "A gentle first step to see what it's like.",
+          "buttonTilte": "Start Free Trial"
+        },
+        "premium": {
+          "price": "$50",
+          "duration": "/month",
+          "title": "Premium",
+          "planType": "(Voice & More)",
+          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "features": {
+            "f1": "Voice calls with your loved one’s AI",
+            "f2": "Advanced emotional recall + memory simulation",
+            "f3": "Custom tone and personality controls",
+            "f4": "Priority customer support",
+            "f5": "Everything included in Free Trial"
+          },
+          "moreDetails": "Feel the presence. Hear their voice. Stay connected.",
+          "buttonTilte": "Upgrade to Premium"
+        }
+      }
     }
   }
 }

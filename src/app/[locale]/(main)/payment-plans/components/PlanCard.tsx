@@ -11,11 +11,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import { FC } from 'react';
-
-interface featureItem {
-  icon: string;
-  text: string;
-}
+import { FeatureItem } from './PaymentPlansData';
 
 interface IPlanCard {
   card: {
@@ -24,7 +20,7 @@ interface IPlanCard {
     title: string;
     planType: string;
     subTilte: string;
-    features: featureItem[];
+    features?: FeatureItem[];
     moreDetails: string;
     buttonTilte: string;
   };
@@ -72,12 +68,15 @@ const PlanCard: FC<IPlanCard> = ({ card }) => {
         </Typography>
 
         <List dense>
-          {features.map((feature, index) => (
-            <ListItem key={index} disableGutters>
-              <ListItemIcon sx={{ minWidth: 36 }}>{feature.icon}</ListItemIcon>
-              <ListItemText primary={feature.text} />
-            </ListItem>
-          ))}
+          {features &&
+            features?.map((feature, index) => (
+              <ListItem key={index} disableGutters>
+                <ListItemIcon sx={{ minWidth: 36 }}>
+                  {feature.icon}
+                </ListItemIcon>
+                <ListItemText primary={feature.text} />
+              </ListItem>
+            ))}
         </List>
 
         <Typography variant="button" color="text.secondary" mt={2}>
