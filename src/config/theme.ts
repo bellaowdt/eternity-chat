@@ -66,6 +66,7 @@ const themeOptions: ThemeOptions = {
     },
   },
   typography: {
+    fontFamily: "'manrope', sans-serif",
     htmlFontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
@@ -148,8 +149,32 @@ const themeOptions: ThemeOptions = {
     MuiCssBaseline: {
       styleOverrides: `
             @font-face {
-             font-family: 'iransans';
-              src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('truetype');
+               font-family: 'manrope';
+               src: url('/assets/fonts/manrope/Manrope-Light.ttf') format('truetype');
+               font-weight: 300;
+               font-display: swap;
+            },
+            @font-face {
+               font-family: 'manrope';
+               src: url('/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
+               font-weight: 400;
+               font-display: swap;
+            },
+             @font-face {
+               font-family: 'manrope';
+               src: url('/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
+               font-weight: 500;
+               font-display: swap;
+            },
+             @font-face {
+               font-family: 'manrope';
+               src: url('/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+               font-weight: 700;
+               font-display: swap;
+            },
+            @font-face {
+               font-family: 'iransans';
+               src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('truetype');
              }`,
     },
     MuiSkeleton: {
@@ -163,9 +188,9 @@ const themeOptions: ThemeOptions = {
   breakpoints: {
     values: {
       xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1366,
+      sm: 768,
+      md: 1024,
+      lg: 1266,
       xl: 1536,
     },
   },
@@ -179,7 +204,8 @@ export const persianTheme = createTheme({
   ...themeOptions,
   direction: 'rtl',
   typography: {
-    fontFamily: "'iransans'," + defaultTheme.typography.fontFamily,
+    // fontFamily: "'iransans'," + defaultTheme.typography.fontFamily,
+    fontFamily: 'iransans, noto-Arabic',
     ...themeOptions.typography,
   },
 });
