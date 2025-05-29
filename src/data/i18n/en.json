@@ -166,6 +166,11 @@
           "moreDetails": "Feel the presence. Hear their voice. Stay connected.",
           "buttonTilte": "Upgrade to Premium"
         }
+      },
+      "freeTrial": {
+        "welcome": "Welcome to Your Free Trial!",
+        "description": "You now have access to text-based conversations with your AI companion — crafted from memories, moments, and the bond you shared.",
+        "beginButton": "Begin Chat"
       }
     }
   }

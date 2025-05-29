@@ -1,170 +1,170 @@
 {
   "siteInfo": {
-    "title": "Eternity Chat"
+    "title": "دردشة الأبدية"
   },
   "common": {
     "buttons": {
-      "return": "Return",
-      "yes": "Yes",
-      "no": "No",
-      "select": "Select",
-      "returnHome": "Return Home",
-      "refresh": "Refresh",
-      "reset": "Reset",
-      "submit": "Submit",
-      "detail": "Detail",
-      "edit": "Edit",
-      "delete": "Delete",
-      "cancel": "Cancel",
-      "logout": "Logout",
-      "setting": "Settings",
-      "saveChanges": "Save Changes",
-      "continue": "Continue",
-      "or": "Or",
-      "googleBtn": "Continue with Google",
-      "changePassword": "Change Password",
-      "deleteAllChats": "Delete All Chats",
-      "helpCenter": "Help Center"
+      "return": "عودة",
+      "yes": "نعم",
+      "no": "لا",
+      "select": "اختيار",
+      "returnHome": "العودة إلى الرئيسية",
+      "refresh": "تحديث",
+      "reset": "إعادة تعيين",
+      "submit": "إرسال",
+      "detail": "تفاصيل",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "logout": "تسجيل الخروج",
+      "setting": "الإعدادات",
+      "saveChanges": "حفظ التغييرات",
+      "continue": "استمرار",
+      "or": "أو",
+      "googleBtn": "المتابعة مع جوجل",
+      "changePassword": "تغيير كلمة المرور",
+      "deleteAllChats": "حذف كل المحادثات",
+      "helpCenter": "مركز المساعدة"
     },
     "fields": {
-      "name": "Name",
-      "fullName": "Full Name",
-      "email": "Email",
-      "password": "Password",
-      "language": "Language",
-      "confirmPassword": "Confirm Password",
-      "namePlaceholder": "ex. John Doe",
-      "emailPlaceholder": "ex. johndoe@gmail.com",
-      "darkTheme": "Dark Theme",
-      "editImage": "Edit Image",
-      "female": "Female",
-      "male": "Male",
-      "age": "Age",
-      "occupation": "Occupation",
-      "tone": "Tone",
-      "gender": "Gender",
-      "personality": "Personality",
+      "name": "الاسم",
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "language": "اللغة",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "namePlaceholder": "مثال: محمد أحمد",
+      "emailPlaceholder": "مثال: mohamed@example.com",
+      "darkTheme": "الوضع الداكن",
+      "editImage": "تعديل الصورة",
+      "female": "أنثى",
+      "male": "ذكر",
+      "age": "العمر",
+      "occupation": "المهنة",
+      "tone": "النغمة",
+      "gender": "الجنس",
+      "personality": "الشخصية",
       "tons": {
-        "happy": "Happy",
-        "sad": "Sad",
-        "natural": "Natural"
+        "happy": "سعيد",
+        "sad": "حزين",
+        "natural": "طبيعي"
       }
     },
     "sidebar": {
       "menu": {
-        "notification": "Notifications",
-        "settings": "Settings",
-        "helpCenter": "Help Center",
-        "privacyPolicy": "Privacy Policy"
+        "notification": "الإشعارات",
+        "settings": "الإعدادات",
+        "helpCenter": "مركز المساعدة",
+        "privacyPolicy": "سياسة الخصوصية"
       }
     }
   },
   "messages": {
-    "noRowFound": "There is no row to display!",
-    "personalityCreatedSuccessfully": "Your personality was created successfully!",
-    "somethingWentWrong": "Sorry! Something went wrong!",
+    "noRowFound": "لا توجد بيانات للعرض!",
+    "personalityCreatedSuccessfully": "تم إنشاء شخصيتك بنجاح!",
+    "somethingWentWrong": "عذراً! حدث خطأ ما!",
     "toast": {
-      "defaultError": "Encountered an error!",
-      "copied": "Copied!"
+      "defaultError": "حدث خطأ!",
+      "copied": "تم النسخ!"
     }
   },
   "pages": {
     "account": {
-      "logoutMsg": "Are you sure you want to log out?",
-      "logoutConfirm": "Yes, Log Me Out"
+      "logoutMsg": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "logoutConfirm": "نعم، تسجيل الخروج"
     },
     "settings": {
       "menu": {
-        "accountSetting": "Account Settings",
-        "general": "General",
-        "notificationPreference": "Notification Preference",
-        "privacySettings": "Privacy Settings"
+        "accountSetting": "إعدادات الحساب",
+        "general": "عام",
+        "notificationPreference": "تفضيلات الإشعارات",
+        "privacySettings": "إعدادات الخصوصية"
       },
       "notifications": {
-        "email": "Email Notifications",
-        "inApp": "In-App Notifications",
-        "push": "Push Notifications"
+        "email": "إشعارات البريد الإلكتروني",
+        "inApp": "إشعارات التطبيق",
+        "push": "إشعارات الدفع"
       },
       "privacy": {
-        "twoFactorAuthentication": "Two-Factor Authentication",
-        "sessionManagement": "Session Management"
+        "twoFactorAuthentication": "التحقق بخطوتين",
+        "sessionManagement": "إدارة الجلسات"
       }
     },
     "signIn": {
-      "welcomeMsg": "Welcome to Eternity Chat",
-      "welcomeSubMsg": "A Space to Reconnect and Remember."
+      "welcomeMsg": "مرحباً بك في دردشة الأبدية",
+      "welcomeSubMsg": "مساحة لإعادة الاتصال والتذكر."
     },
     "signUp": {
-      "createAccount": "Create Your Account",
-      "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>."
+      "createAccount": "أنشئ حسابك",
+      "signUpPrivacyPolicyText": "بالتسجيل، فإنك توافق على <terms>شروط الخدمة</terms> و <policy>سياسة الخصوصية</policy>."
     },
     "chat": {
-      "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
-      "typeMsg": "Type a message",
-      "getChatResponseError": "Sorry! Something went wrong at my side.",
-      "addPersonality": "Add a New Personality",
-      "uploadDocument": "Please Upload Data.",
+      "accuracyMsg": "لا يمكن للذكاء الاصطناعي أن يحاكي أحبائك تمامًا، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى.",
+      "typeMsg": "اكتب رسالة",
+      "getChatResponseError": "عذراً! حدث خطأ في خدمتي.",
+      "addPersonality": "أضف شخصية جديدة",
+      "uploadDocument": "يرجى تحميل البيانات.",
       "toolbarIcons": {
-        "copy": "Copy",
-        "readAloud": "Read aloud",
-        "goodResponse": "Good response",
-        "badResponse": "Bad response"
+        "copy": "نسخ",
+        "readAloud": "قراءة بصوت عالٍ",
+        "goodResponse": "رد جيد",
+        "badResponse": "رد سيء"
       },
       "feedback": {
-        "feedbackAgain": "Give Feedback Again"
+        "feedbackAgain": "أرسل ملاحظات مرة أخرى"
       },
       "documents": {
-        "documentList": "Your Document list:"
+        "documentList": "قائمة مستنداتك:"
       }
     },
     "helpCenter": {
       "menu": {
-        "generalMsg": "How can we help you?",
-        "faq": "FAQ",
+        "generalMsg": "كيف يمكننا مساعدتك؟",
+        "faq": "الأسئلة الشائعة",
         "contactSupport": {
-          "title": "Contact Support",
-          "liveChat": "Live Chat",
-          "sendEmail": "Send Us an Email",
-          "requestCallback": "Request a Callback"
+          "title": "اتصل بالدعم",
+          "liveChat": "الدردشة المباشرة",
+          "sendEmail": "أرسل لنا بريدًا إلكترونيًا",
+          "requestCallback": "طلب معاودة الاتصال"
         }
       }
     },
     "paymentPlans": {
       "comment": {
-        "title": "Choose how you <br/> want to begin",
-        "description1": "You've just completed setup. Now it’s time to begin your journey.",
-        "description2": " Whether you want to start gently with text conversations, or you're ready for a more immersive experience with voice and deeper memories — we have the right path for you."
+        "title": "اختر كيف <br/> تريد البدء",
+        "description1": "لقد أكملت الإعداد للتو. حان الوقت لبدء رحلتك.",
+        "description2": "سواء كنت ترغب في البدء بلطف عبر المحادثات النصية، أو كنت مستعدًا لتجربة أكثر غمرًا بالصوت والذكريات الأعمق — لدينا الطريق المناسب لك."
       },
       "plans": {
         "free": {
-          "price": "$0",
+          "price": "0$",
           "duration": "",
-          "title": "Free Trial - 7 Days",
-          "planType": "(Text Chat Only)",
-          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "title": "تجربة مجانية - 7 أيام",
+          "planType": "(محادثة نصية فقط)",
+          "subTilte": "هل تريد اتصالًا أعمق؟ افتح التجربة الكاملة.",
           "features": {
-            "f1": "Real-time text chat with your AI loved one",
-            "f2": "No credit card required",
-            "f3": "7-day access"
+            "f1": "محادثة نصية في الوقت الحقيقي مع ذكاء حبيبتك الاصطناعي",
+            "f2": "لا حاجة لبطاقة ائتمان",
+            "f3": "وصول لمدة 7 أيام"
           },
-          "moreDetails": "A gentle first step to see what it's like.",
-          "buttonTilte": "Start Free Trial"
+          "moreDetails": "خطوة أولى لطيفة لرؤية كيف تكون التجربة.",
+          "buttonTilte": "ابدأ التجربة المجانية"
         },
         "premium": {
-          "price": "$50",
-          "duration": "/month",
-          "title": "Premium",
-          "planType": "(Voice & More)",
-          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "price": "50$",
+          "duration": "/شهر",
+          "title": "البريميوم",
+          "planType": "(الصوت والمزيد)",
+          "subTilte": "هل تريد اتصالًا أعمق؟ افتح التجربة الكاملة.",
           "features": {
-            "f1": "Voice calls with your loved one’s AI",
-            "f2": "Advanced emotional recall + memory simulation",
-            "f3": "Custom tone and personality controls",
-            "f4": "Priority customer support",
-            "f5": "Everything included in Free Trial"
+            "f1": "مكالمات صوتية مع ذكاء حبيبك الاصطناعي",
+            "f2": "استرجاع عاطفي متقدم + محاكاة الذاكرة",
+            "f3": "تحكم مخصص في النغمة والشخصية",
+            "f4": "دعم فني بأولوية",
+            "f5": "يشمل كل ما في التجربة المجانية"
           },
-          "moreDetails": "Feel the presence. Hear their voice. Stay connected.",
-          "buttonTilte": "ارتقا به پریمیوم"
+          "moreDetails": "اشعر بالحضور. اسمع صوتهم. ابق على اتصال.",
+          "buttonTilte": "قم بالترقية إلى البريميوم"
         }
       }
     }

@@ -24,9 +24,10 @@ interface IPlanCard {
     moreDetails: string;
     buttonTilte: string;
   };
+  onClick?: VoidFunction;
 }
 
-const PlanCard: FC<IPlanCard> = ({ card }) => {
+const PlanCard: FC<IPlanCard> = ({ card, onClick }) => {
   const {
     price,
     title,
@@ -87,6 +88,7 @@ const PlanCard: FC<IPlanCard> = ({ card }) => {
           fullWidth
           variant="contained"
           size="large"
+          onClick={() => onClick?.()}
           sx={{
             mt: 3,
             borderRadius: 10,

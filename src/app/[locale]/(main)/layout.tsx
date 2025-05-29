@@ -2,13 +2,13 @@
 
 import { Navbar } from '@/components/Navbar';
 import { Container } from '@mui/material';
-import { FC, PropsWithChildren, ReactNode } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <Container maxWidth="lg">{children}</Container>
+      <Container maxWidth="xl">{children}</Container>
     </>
   );
 };

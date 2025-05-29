@@ -9,4 +9,4 @@ export const DEFAULT_ONBOARDING_STEPS_PATH = '/onboarding/steps';
 export const DEFAULT_ONBOARDING_COMPLETE_PATH = '/onboarding/complete';
 export const DEFAULT_POLICY_PRIVACY_PATH = '/policy-privacy';
 export const DEFAULT_HELP_CENTER_PATH = '/help-center';
-
+export const DEFAULT_PLAYMENT_PLANS_PATH = '/payment-plans';

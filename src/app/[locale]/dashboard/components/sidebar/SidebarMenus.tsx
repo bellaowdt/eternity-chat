@@ -11,14 +11,10 @@ import {
   ListItemText,
 } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import { FC, useState } from 'react';
-import {
-  DEFAULT_HELP_CENTER_PATH,
-  DEFAULT_POLICY_PRIVACY_PATH,
-} from '@/constants/routes';
 import Link from 'next/link';
-import SettingDialog from '../setting/SettingDialog';
+import { FC, useState } from 'react';
 import HelpCenterDialog from '../help-center/HelpCenterDialog';
+import SettingDialog from '../setting/SettingDialog';
 
 interface SidebarMenusProps {
   collapsed: boolean;
