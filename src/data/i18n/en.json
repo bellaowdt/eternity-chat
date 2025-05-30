@@ -48,7 +48,16 @@
         "happy": "Happy",
         "sad": "Sad",
         "natural": "Natural"
-      }
+      },
+      "cardholderName": "Cardholder Name",
+      "cardNumber": "Card Number",
+      "cvv": "CVV",
+      "expirationDate": "Expiration Date",
+      "address": "Street Adress",
+      "country": "Country",
+      "province": "State/Province",
+      "city": "City",
+      "postalCode": "Postal Code"
     },
     "sidebar": {
       "menu": {
@@ -186,6 +195,13 @@
         },
         "helpTitle": "Need help?",
         "helpDescription": "If you have questions, <support>contact support </support>or read our <faq>FAQ</faq>"
+      },
+      "payment": {
+        "premiumPlan": "Premium Plan",
+        "premiumPlanNoteTitle": "Money-Back Guarantee Reminder:",
+        "premiumPlanNoteDescription1": "Remember, if you're not completely satisfied, we offer a money-back guarantee on your first month's subscription fee.",
+        "premiumPlanNoteDescription2": "By starting your subscription, you agree to be charged $5 per client per month. You can cancel anytime from your account settings.",
+        "button": "Upgrade to Permium"
       }
     }
   }

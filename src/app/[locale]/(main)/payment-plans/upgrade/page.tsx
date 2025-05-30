@@ -2,7 +2,7 @@
 
 import PremiumPlanDetails from '../components/PremiumPlanDetails';
 import PremiumPlanForm from '../components/PremiumPlanForm';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
 const UpgradeToPremium = () => {
   return (
