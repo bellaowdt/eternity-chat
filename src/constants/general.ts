@@ -9,6 +9,7 @@ export const DRAWER_WIDTH = 200;
 export const DRAWER_MIN_WIDTH = 0;
 export const MINI_DRAWER_WIDTH = 80;
 export const DIALOG_SIDEBAR_WIDTH = 200;
+export const NAVBAR_HEIGHT = 80;
 
 export const PersonalityList: Option[] = [
   {

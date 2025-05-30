@@ -1,13 +1,13 @@
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
-export type HelpCenterDialogProps = DialogProps;
+export type FreeTrialDialogProps = DialogProps;
 
-const FreeTrialModal: FC<HelpCenterDialogProps> = ({ ...props }) => {
+const FreeTrialDialog: FC<FreeTrialDialogProps> = ({ ...props }) => {
   const t = useTranslations();
   return (
     <Dialog
@@ -21,7 +21,6 @@ const FreeTrialModal: FC<HelpCenterDialogProps> = ({ ...props }) => {
       <Stack spacing={3} alignItems="center" px={2} textAlign="center">
         <TaskAltIcon sx={{ fontSize: 160 }} />
         <Typography variant="h3">
-          {' '}
           {t('pages.paymentPlans.freeTrial.welcome')}
         </Typography>
         <Typography variant="body1">
@@ -35,4 +34,4 @@ const FreeTrialModal: FC<HelpCenterDialogProps> = ({ ...props }) => {
   );
 };
 
-export default FreeTrialModal;
+export default FreeTrialDialog;

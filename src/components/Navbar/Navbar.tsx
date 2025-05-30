@@ -14,6 +14,7 @@ import Logo from '../common/Logo';
 import MenusSection from './components/MenusSection';
 import { DEFAULT_HOME_PAGE_PATH } from '@/constants/routes';
 import { CustomButton } from '../common/CustomStyle';
+import { NAVBAR_HEIGHT } from '@/constants/general';
 
 const Navbar = () => {
   const theme = useTheme();
@@ -29,7 +30,7 @@ const Navbar = () => {
       position="sticky"
       sx={{
         p: 0,
-        height: 80,
+        height: NAVBAR_HEIGHT,
         backgroundColor: theme.palette.common.black,
         top: 0,
         zIndex: theme.zIndex.drawer,

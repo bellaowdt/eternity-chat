@@ -171,6 +171,21 @@
         "welcome": "Welcome to Your Free Trial!",
         "description": "You now have access to text-based conversations with your AI companion — crafted from memories, moments, and the bond you shared.",
         "beginButton": "Begin Chat"
+      },
+      "premiumUpgrade": {
+        "title": "Upgrade to Premium",
+        "planDetailTitle": "Experience the full power of AI memory and presence",
+        "planDetails": "What’s Included in Premium:",
+        "features": {
+          "f1": "Voice Calls – Hear your loved one’s voice again",
+          "f2": "Deep Memory Recall – Simulate shared stories and emotional moments",
+          "f3": "Custom Personality Tuning – Adjust tone, mood, and conversation style",
+          "f4": "Unlimited Text Chat",
+          "f5": "Priority Support",
+          "f6": "7-Day Free Trial — You won’t be charged today"
+        },
+        "helpTitle": "Need help?",
+        "helpDescription": "If you have questions, <support>contact support </support>or read our <faq>FAQ</faq>"
       }
     }
   }
