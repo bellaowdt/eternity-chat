@@ -15,6 +15,7 @@ import MenusSection from './components/MenusSection';
 import { DEFAULT_HOME_PAGE_PATH } from '@/constants/routes';
 import { CustomButton } from '../common/CustomStyle';
 import { NAVBAR_HEIGHT } from '@/constants/general';
+import LanguageSelector from '../LanguageSelector/LocaleSwitcher';
 
 const Navbar = () => {
   const theme = useTheme();
@@ -52,6 +53,7 @@ const Navbar = () => {
             <CustomButton variant="contained" size="medium">
               Let’s Start
             </CustomButton>
+            <LanguageSelector />
           </Box>
         </Box>
 
