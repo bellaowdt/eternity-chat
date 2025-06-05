@@ -61,8 +61,8 @@ const themeOptions: ThemeOptions = {
       contrastText: '#FFF',
     },
     background: {
-      default: '#FFF',
-      paper: '#f6f6f6',
+      default: '#FFFAF3',
+      paper: '#FFF',
     },
   },
   typography: {
@@ -102,13 +102,12 @@ const themeOptions: ThemeOptions = {
       lineHeight: 1.57,
     },
     body2: {
-      fontSize: '1rem', //16px
+      fontSize: '1.25rem', //20px
       lineHeight: 1.66,
     },
     subtitle1: {
-      fontSize: '0.875rem', //14px
+      fontSize: '1rem', //16px
       lineHeight: 1.57,
-      fontWeight: 700,
     },
     subtitle2: {
       fontSize: '0.875rem', //14px
@@ -129,6 +128,12 @@ const themeOptions: ThemeOptions = {
     borderRadius: 24,
   },
   components: {
+    MuiListItem: {
+      defaultProps: {
+        disableGutters: true,
+        disablePadding: true,
+      },
+    },
     MuiLink: {
       defaultProps: {
         component: Link,

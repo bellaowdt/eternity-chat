@@ -22,10 +22,15 @@ const PremiumPlanDetails = () => {
 
   return (
     <>
-      <Box display="flex" height={`calc(100vh - ${NAVBAR_HEIGHT}px)`} p={8}>
+      <Box
+        display="flex"
+        height={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
+        py={8}
+        px={20}
+      >
         <Stack spacing={2}>
           <Link href={DEFAULT_PLAYMENT_PLANS_PATH}>
-            <Box display="flex" alignItems="center" gap={1} mb={4}>
+            <Box display="flex" alignItems="center" gap={1} mb={2}>
               <ArrowBack fontSize="medium" />
               <Typography variant="h5" sx={{ color: '#3D3D3D' }}>
                 {t('common.buttons.back')}
@@ -35,16 +40,16 @@ const PremiumPlanDetails = () => {
           <Typography variant="h1" fontWeight={700}>
             {t('pages.paymentPlans.premiumUpgrade.title')}
           </Typography>
-          <Typography variant="h4" fontWeight={400} mt={4}>
+          <Typography variant="h4" fontWeight={400} mt={2}>
             {t('pages.paymentPlans.premiumUpgrade.planDetailTitle')}
           </Typography>
 
           <Box pt={4}>
-            <Typography variant="h4">
+            <Typography variant="subtitle1">
               {t('pages.paymentPlans.premiumUpgrade.planDetails')}
             </Typography>
 
-            <List dense>
+            <List>
               {featureKeys.map((key) => (
                 <ListItem key={key} disableGutters>
                   <ListItemIcon sx={{ minWidth: 16 }}>
@@ -56,7 +61,12 @@ const PremiumPlanDetails = () => {
                     primary={t(
                       `pages.paymentPlans.premiumUpgrade.features.${key}`,
                     )}
-                    sx={{ fontWeight: 400, fontSize: '1.25rem' }}
+                    slotProps={{
+                      primary: {
+                        variant: 'subtitle1',
+                        fontWeight: 400,
+                      },
+                    }}
                   />
                 </ListItem>
               ))}
@@ -67,7 +77,7 @@ const PremiumPlanDetails = () => {
             {t('pages.paymentPlans.premiumUpgrade.helpTitle')}
           </Typography>
 
-          <Typography variant="body1">
+          <Typography variant="subtitle1">
             {t.rich('pages.paymentPlans.premiumUpgrade.helpDescription', {
               support: (chunks) => <Link href="/support">{chunks}</Link>,
               faq: (chunks) => <Link href="/faq">{chunks}</Link>,

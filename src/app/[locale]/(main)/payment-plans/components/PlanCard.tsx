@@ -9,6 +9,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Box,
 } from '@mui/material';
 import { FC } from 'react';
 import { FeatureItem, plans } from './PaymentPlansData';
@@ -45,10 +46,10 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
         borderRadius: 1,
         padding: 3,
         mx: 'auto',
-        backgroundColor: '#F2F2F2',
+        backgroundColor: '#fff',
       }}
     >
-      <CardContent>
+      <CardContent sx={{ minHeight: 420, position: 'relative' }}>
         <Typography fontSize="48px" fontWeight="700">
           {price}
           {duration && (
@@ -70,11 +71,7 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
           </Typography>
         </Typography>
 
-        <Typography variant="subtitle1" color="text.secondary" mb={2}>
-          {subTilte}
-        </Typography>
-
-        <List dense>
+        <List>
           {features &&
             features?.map((feature, index) => (
               <ListItem key={index} disableGutters>
@@ -83,7 +80,12 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
                 </ListItemIcon>
                 <ListItemText
                   primary={feature.text}
-                  sx={{ typography: 'subtitle2', fontWeight: 400 }}
+                  slotProps={{
+                    primary: {
+                      variant: 'subtitle1',
+                      fontWeight: 400,
+                    },
+                  }}
                 />
               </ListItem>
             ))}
@@ -93,29 +95,31 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
           {moreDetails}
         </Typography>
 
-        <Button
-          fullWidth
-          variant={planFormat === plans[0] ? 'outlined' : 'contained'}
-          size="large"
-          onClick={() => onClick?.()}
-          sx={{
-            mt: 3,
-            borderRadius: 10,
-            fontWeight: 700,
-            textTransform: 'none',
-            color: planFormat === plans[0] ? '#000' : '#fff',
-            borderColor:
-              planFormat === plans[0]
-                ? '#979DA5'
-                : (theme) => theme.palette.primary.main,
-            backgroundColor:
-              planFormat === plans[0]
-                ? '#fff'
-                : (theme) => theme.palette.primary.main,
-          }}
-        >
-          {buttonTilte}
-        </Button>
+        <Box position="absolute" bottom={0} right={0} width="100%">
+          <Button
+            fullWidth
+            variant={planFormat === plans[0] ? 'outlined' : 'contained'}
+            size="large"
+            onClick={() => onClick?.()}
+            sx={{
+              mt: 3,
+              borderRadius: 10,
+              fontWeight: 700,
+              textTransform: 'none',
+              color: planFormat === plans[0] ? '#000' : '#fff',
+              borderColor:
+                planFormat === plans[0]
+                  ? '#979DA5'
+                  : (theme) => theme.palette.primary.main,
+              backgroundColor:
+                planFormat === plans[0]
+                  ? '#fff'
+                  : (theme) => theme.palette.primary.main,
+            }}
+          >
+            {buttonTilte}
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   );

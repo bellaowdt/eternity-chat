@@ -8,10 +8,13 @@ import { useState } from 'react';
 import FreeTrialDialog from './components/FreeTrialDialog';
 import { useRouter } from 'next/navigation';
 import { DEFAULT_PLAYMENT_PLANS_UPGRADE_PATH } from '@/constants/routes';
+import { NAVBAR_HEIGHT } from '@/constants/general';
+import { useAppContext } from '@/hooks/useAppContext';
 
 const PaymentPlans = () => {
   const t = useTranslations();
   const router = useRouter();
+  const { isMobile } = useAppContext();
 
   const [freePlanDialog, setFreePlanDialog] = useState(false);
 
@@ -39,23 +42,37 @@ const PaymentPlans = () => {
 
   return (
     <>
-      <Box p={8}>
-        <Grid container spacing={2} gap={2}>
+      <Box
+        p={8}
+        display="flex"
+        width="100%"
+        alignItems="center"
+        justifyContent="center"
+        height={isMobile ? '100%' : `calc(100vh - ${NAVBAR_HEIGHT}px)`}
+      >
+        <Grid container spacing={isMobile ? 4 : 2} gap={2}>
           <Grid size={{ xs: 12, sm: 5 }}>
-            <Box px={8}>
+            <Box
+              px={isMobile ? 1 : 10}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              height="100%"
+              width="100%"
+            >
               <Typography
-                variant="h1"
+                variant="h2"
                 fontWeight={700}
                 dangerouslySetInnerHTML={{
                   __html: t('pages.paymentPlans.comment.title'),
                 }}
               />
 
-              <Typography variant="body1" mt={2}>
+              <Typography variant="body2" mt={4}>
                 {t('pages.paymentPlans.comment.description1')}
               </Typography>
 
-              <Typography variant="body1" mt={4}>
+              <Typography variant="body2" mt={4}>
                 {t('pages.paymentPlans.comment.description2')}
               </Typography>
             </Box>

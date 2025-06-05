@@ -1,9 +1,8 @@
 'use client';
 
-import { ArrowBack } from '@mui/icons-material';
+import { Grid } from '@mui/material';
 import PremiumPlanDetails from '../components/PremiumPlanDetails';
 import PremiumPlanForm from '../components/PremiumPlanForm';
-import { Box, Grid, Typography } from '@mui/material';
 
 const UpgradeToPremium = () => {
   return (
