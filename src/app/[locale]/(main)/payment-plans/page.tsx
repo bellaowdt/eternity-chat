@@ -60,10 +60,10 @@ const PaymentPlans = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid size={{ xs: 12, sm: 4 }}>
+          <Grid size={{ xs: 12, sm: 3 }}>
             <PlanCard card={planCards[0]} onClick={onToggleFreeTrialDialog} />
           </Grid>
-          <Grid size={{ xs: 12, sm: 4 }}>
+          <Grid size={{ xs: 12, sm: 5 }}>
             <PlanCard card={planCards[1]} onClick={onUpgradePlan} />
           </Grid>
         </Grid>

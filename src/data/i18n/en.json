@@ -140,7 +140,7 @@
     },
     "paymentPlans": {
       "comment": {
-        "title": "Choose how you <br/> want to begin",
+        "title": "Choose how to begin",
         "description1": "You've just completed setup. Now it’s time to begin your journey.",
         "description2": " Whether you want to start gently with text conversations, or you're ready for a more immersive experience with voice and deeper memories — we have the right path for you."
       },
@@ -201,7 +201,7 @@
         "premiumPlanNoteTitle": "Money-Back Guarantee Reminder:",
         "premiumPlanNoteDescription1": "Remember, if you're not completely satisfied, we offer a money-back guarantee on your first month's subscription fee.",
         "premiumPlanNoteDescription2": "By starting your subscription, you agree to be charged $5 per client per month. You can cancel anytime from your account settings.",
-        "button": "Upgrade to Permium"
+        "button": "Upgrade to Premium"
       }
     }
   }

@@ -1,207 +1,207 @@
 {
   "siteInfo": {
-    "title": "Eternity Chat"
+    "title": "دردشة الأبدية"
   },
   "common": {
     "buttons": {
-      "return": "Return",
-      "yes": "Yes",
-      "no": "No",
-      "select": "Select",
-      "returnHome": "Return Home",
-      "refresh": "Refresh",
-      "reset": "Reset",
-      "submit": "Submit",
-      "detail": "Detail",
-      "edit": "Edit",
-      "delete": "Delete",
-      "cancel": "Cancel",
-      "logout": "Logout",
-      "setting": "Settings",
-      "saveChanges": "Save Changes",
-      "continue": "Continue",
-      "or": "Or",
-      "googleBtn": "Continue with Google",
-      "changePassword": "Change Password",
-      "deleteAllChats": "Delete All Chats",
-      "helpCenter": "Help Center"
+      "return": "عودة",
+      "yes": "نعم",
+      "no": "لا",
+      "select": "اختر",
+      "returnHome": "العودة إلى الصفحة الرئيسية",
+      "refresh": "تحديث",
+      "reset": "إعادة تعيين",
+      "submit": "إرسال",
+      "detail": "تفاصيل",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "logout": "تسجيل الخروج",
+      "setting": "الإعدادات",
+      "saveChanges": "حفظ التغييرات",
+      "continue": "متابعة",
+      "or": "أو",
+      "googleBtn": "المتابعة باستخدام Google",
+      "changePassword": "تغيير كلمة المرور",
+      "deleteAllChats": "حذف جميع المحادثات",
+      "helpCenter": "مركز المساعدة"
     },
     "fields": {
-      "name": "Name",
-      "fullName": "Full Name",
-      "email": "Email",
-      "password": "Password",
-      "language": "Language",
-      "confirmPassword": "Confirm Password",
-      "namePlaceholder": "ex. John Doe",
-      "emailPlaceholder": "ex. johndoe@gmail.com",
-      "darkTheme": "Dark Theme",
-      "editImage": "Edit Image",
-      "female": "Female",
-      "male": "Male",
-      "age": "Age",
-      "occupation": "Occupation",
-      "tone": "Tone",
-      "gender": "Gender",
-      "personality": "Personality",
+      "name": "الاسم",
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "language": "اللغة",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "namePlaceholder": "مثال: محمد أحمد",
+      "emailPlaceholder": "مثال: mohamed@gmail.com",
+      "darkTheme": "الوضع الداكن",
+      "editImage": "تعديل الصورة",
+      "female": "أنثى",
+      "male": "ذكر",
+      "age": "العمر",
+      "occupation": "الوظيفة",
+      "tone": "النبرة",
+      "gender": "الجنس",
+      "personality": "الشخصية",
       "tons": {
-        "happy": "Happy",
-        "sad": "Sad",
-        "natural": "Natural"
+        "happy": "سعيد",
+        "sad": "حزين",
+        "natural": "طبيعي"
       },
-      "cardholderName": "Cardholder Name",
-      "cardNumber": "Card Number",
-      "cvv": "CVV",
-      "expirationDate": "Expiration Date",
-      "address": "Street Adress",
-      "country": "Country",
-      "province": "State/Province",
-      "city": "City",
-      "postalCode": "Postal Code"
+      "cardholderName": "اسم صاحب البطاقة",
+      "cardNumber": "رقم البطاقة",
+      "cvv": "رمز التحقق (CVV)",
+      "expirationDate": "تاريخ الانتهاء",
+      "address": "عنوان الشارع",
+      "country": "الدولة",
+      "province": "الولاية / المحافظة",
+      "city": "المدينة",
+      "postalCode": "الرمز البريدي"
     },
     "sidebar": {
       "menu": {
-        "notification": "Notifications",
-        "settings": "Settings",
-        "helpCenter": "Help Center",
-        "privacyPolicy": "Privacy Policy"
+        "notification": "الإشعارات",
+        "settings": "الإعدادات",
+        "helpCenter": "مركز المساعدة",
+        "privacyPolicy": "سياسة الخصوصية"
       }
     }
   },
   "messages": {
-    "noRowFound": "There is no row to display!",
-    "personalityCreatedSuccessfully": "Your personality was created successfully!",
-    "somethingWentWrong": "Sorry! Something went wrong!",
+    "noRowFound": "لا توجد بيانات للعرض!",
+    "personalityCreatedSuccessfully": "تم إنشاء الشخصية بنجاح!",
+    "somethingWentWrong": "عذرًا! حدث خطأ ما!",
     "toast": {
-      "defaultError": "Encountered an error!",
-      "copied": "Copied!"
+      "defaultError": "حدث خطأ!",
+      "copied": "تم النسخ!"
     }
   },
   "pages": {
     "account": {
-      "logoutMsg": "Are you sure you want to log out?",
-      "logoutConfirm": "Yes, Log Me Out"
+      "logoutMsg": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "logoutConfirm": "نعم، تسجيل الخروج"
     },
     "settings": {
       "menu": {
-        "accountSetting": "Account Settings",
-        "general": "General",
-        "notificationPreference": "Notification Preference",
-        "privacySettings": "Privacy Settings"
+        "accountSetting": "إعدادات الحساب",
+        "general": "عام",
+        "notificationPreference": "تفضيلات الإشعارات",
+        "privacySettings": "إعدادات الخصوصية"
       },
       "notifications": {
-        "email": "Email Notifications",
-        "inApp": "In-App Notifications",
-        "push": "Push Notifications"
+        "email": "إشعارات البريد الإلكتروني",
+        "inApp": "الإشعارات داخل التطبيق",
+        "push": "الإشعارات الفورية"
       },
       "privacy": {
-        "twoFactorAuthentication": "Two-Factor Authentication",
-        "sessionManagement": "Session Management"
+        "twoFactorAuthentication": "المصادقة الثنائية",
+        "sessionManagement": "إدارة الجلسات"
       }
     },
     "signIn": {
-      "welcomeMsg": "Welcome to Eternity Chat",
-      "welcomeSubMsg": "A Space to Reconnect and Remember."
+      "welcomeMsg": "مرحبًا بك في دردشة الأبدية",
+      "welcomeSubMsg": "مساحة لإعادة الاتصال والتذكر."
     },
     "signUp": {
-      "createAccount": "Create Your Account",
-      "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>."
+      "createAccount": "أنشئ حسابك",
+      "signUpPrivacyPolicyText": "بتسجيلك، فإنك توافق على <terms>شروط الخدمة </terms> و<policy>سياسة الخصوصية</policy> الخاصة بنا."
     },
     "chat": {
-      "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
-      "typeMsg": "Type a message",
-      "getChatResponseError": "Sorry! Something went wrong at my side.",
-      "addPersonality": "Add a New Personality",
-      "uploadDocument": "Please Upload Data.",
+      "accuracyMsg": "لا يمكن للذكاء الاصطناعي محاكاة أحبائك بالكامل، لكنه يستخدم بياناتهم لإنشاء محادثات ذات معنى.",
+      "typeMsg": "اكتب رسالة",
+      "getChatResponseError": "عذرًا! حدث خطأ من جهتي.",
+      "addPersonality": "إضافة شخصية جديدة",
+      "uploadDocument": "يرجى تحميل البيانات.",
       "toolbarIcons": {
-        "copy": "Copy",
-        "readAloud": "Read aloud",
-        "goodResponse": "Good response",
-        "badResponse": "Bad response"
+        "copy": "نسخ",
+        "readAloud": "القراءة بصوت عالٍ",
+        "goodResponse": "رد جيد",
+        "badResponse": "رد غير جيد"
       },
       "feedback": {
-        "feedbackAgain": "Give Feedback Again"
+        "feedbackAgain": "أعطِ ملاحظات مرة أخرى"
       },
       "documents": {
-        "documentList": "Your Document list:"
+        "documentList": "قائمة مستنداتك:"
       }
     },
     "helpCenter": {
       "menu": {
-        "generalMsg": "How can we help you?",
-        "faq": "FAQ",
+        "generalMsg": "كيف يمكننا مساعدتك؟",
+        "faq": "الأسئلة الشائعة",
         "contactSupport": {
-          "title": "Contact Support",
-          "liveChat": "Live Chat",
-          "sendEmail": "Send Us an Email",
-          "requestCallback": "Request a Callback"
+          "title": "اتصل بالدعم",
+          "liveChat": "الدردشة المباشرة",
+          "sendEmail": "أرسل لنا بريدًا إلكترونيًا",
+          "requestCallback": "طلب مكالمة"
         }
       }
     },
     "paymentPlans": {
       "comment": {
-        "title": "Choose how you <br/> want to begin",
-        "description1": "You've just completed setup. Now it’s time to begin your journey.",
-        "description2": " Whether you want to start gently with text conversations, or you're ready for a more immersive experience with voice and deeper memories — we have the right path for you."
+        "title": "اختر كيف <br/> تريد أن تبدأ",
+        "description1": "لقد أكملت الإعداد. حان الوقت الآن لبدء رحلتك.",
+        "description2": "سواء أردت البدء بلطف بمحادثات نصية، أو كنت مستعدًا لتجربة أعمق بالصوت والذكريات — لدينا الخيار المناسب لك."
       },
       "plans": {
         "free": {
           "price": "$0",
           "duration": "",
-          "title": "Free Trial - 7 Days",
-          "planType": "(Text Chat Only)",
-          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "title": "تجربة مجانية - 7 أيام",
+          "planType": "(محادثة نصية فقط)",
+          "subTilte": "هل تريد اتصالاً أعمق؟ افتح التجربة الكاملة.",
           "features": {
-            "f1": "Real-time text chat with your AI loved one",
-            "f2": "No credit card required",
-            "f3": "7-day access"
+            "f1": "محادثة نصية في الوقت الحقيقي مع ذكاء أحبائك الاصطناعي",
+            "f2": "لا حاجة لبطاقة ائتمان",
+            "f3": "وصول لمدة 7 أيام"
           },
-          "moreDetails": "A gentle first step to see what it's like.",
-          "buttonTilte": "Start Free Trial"
+          "moreDetails": "خطوة أولى لطيفة لتجربة ما ينتظرك.",
+          "buttonTilte": "ابدأ التجربة المجانية"
         },
         "premium": {
           "price": "$50",
-          "duration": "/month",
-          "title": "Premium",
-          "planType": "(Voice & More)",
-          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "duration": "/شهريًا",
+          "title": "الاشتراك المميز",
+          "planType": "(صوت وأكثر)",
+          "subTilte": "هل تريد اتصالاً أعمق؟ افتح التجربة الكاملة.",
           "features": {
-            "f1": "Voice calls with your loved one’s AI",
-            "f2": "Advanced emotional recall + memory simulation",
-            "f3": "Custom tone and personality controls",
-            "f4": "Priority customer support",
-            "f5": "Everything included in Free Trial"
+            "f1": "مكالمات صوتية مع ذكاء أحبائك الاصطناعي",
+            "f2": "استرجاع عاطفي متقدم + محاكاة للذاكرة",
+            "f3": "تحكم مخصص في النبرة والشخصية",
+            "f4": "دعم عملاء أولوية",
+            "f5": "كل ما هو مشمول في التجربة المجانية"
           },
-          "moreDetails": "Feel the presence. Hear their voice. Stay connected.",
-          "buttonTilte": "Upgrade to Premium"
+          "moreDetails": "اشعر بوجودهم. اسمع صوتهم. ابقَ على اتصال.",
+          "buttonTilte": "الترقية إلى الباقة المميزة"
         }
       },
       "freeTrial": {
-        "welcome": "Welcome to Your Free Trial!",
-        "description": "You now have access to text-based conversations with your AI companion — crafted from memories, moments, and the bond you shared.",
-        "beginButton": "Begin Chat"
+        "welcome": "مرحبًا بك في تجربتك المجانية!",
+        "description": "لديك الآن إمكانية الوصول إلى محادثات نصية مع رفيقك الاصطناعي — المصمم من الذكريات واللحظات والرابط الذي جمعكما.",
+        "beginButton": "ابدأ المحادثة"
       },
-      "premiumUpgrade": {
-        "title": "Upgrade to Premium",
-        "planDetailTitle": "Experience the full power of AI memory and presence",
-        "planDetails": "What’s Included in Premium:",
+      "PremiumUpgrade": {
+        "title": "الترقية إلى الباقة المميزة",
+        "planDetailTitle": "اختبر القوة الكاملة لذاكرة وحضور الذكاء الاصطناعي",
+        "planDetails": "ما هو متضمن في الاشتراك المميز:",
         "features": {
-          "f1": "Voice Calls – Hear your loved one’s voice again",
-          "f2": "Deep Memory Recall – Simulate shared stories and emotional moments",
-          "f3": "Custom Personality Tuning – Adjust tone, mood, and conversation style",
-          "f4": "Unlimited Text Chat",
-          "f5": "Priority Support",
-          "f6": "7-Day Free Trial — You won’t be charged today"
+          "f1": "مكالمات صوتية – استمع إلى صوت أحبائك مرة أخرى",
+          "f2": "استرجاع ذاكرة عميقة – محاكاة للقصص واللحظات العاطفية المشتركة",
+          "f3": "تعديل مخصص للشخصية – اضبط النبرة والمزاج وأسلوب الحديث",
+          "f4": "محادثة نصية غير محدودة",
+          "f5": "دعم أولوية",
+          "f6": "تجربة مجانية لمدة 7 أيام — لن يتم خصم أي رسوم اليوم"
         },
-        "helpTitle": "Need help?",
-        "helpDescription": "If you have questions, <support>contact support </support>or read our <faq>FAQ</faq>"
+        "helpTitle": "هل تحتاج إلى مساعدة؟",
+        "helpDescription": "إذا كان لديك أسئلة، <support>اتصل بالدعم </support>أو اقرأ <faq>الأسئلة الشائعة</faq>"
       },
       "payment": {
-        "premiumPlan": "Premium Plan",
-        "premiumPlanNoteTitle": "Money-Back Guarantee Reminder:",
-        "premiumPlanNoteDescription1": "Remember, if you're not completely satisfied, we offer a money-back guarantee on your first month's subscription fee.",
-        "premiumPlanNoteDescription2": "By starting your subscription, you agree to be charged $5 per client per month. You can cancel anytime from your account settings.",
-        "button": "Upgrade to Permium"
+        "PremiumPlan": "الاشتراك المميز",
+        "PremiumPlanNoteTitle": "تذكير بضمان استرداد الأموال:",
+        "PremiumPlanNoteDescription1": "تذكر، إذا لم تكن راضيًا تمامًا، فإننا نقدم ضمانًا لاسترداد المبلغ المدفوع في أول شهر اشتراك.",
+        "PremiumPlanNoteDescription2": "بمجرد بدء الاشتراك، سيتم خصم 5 دولارات لكل مستخدم شهريًا. يمكنك الإلغاء في أي وقت من إعدادات حسابك.",
+        "button": "الترقية إلى الباقة المميزة"
       }
     }
   }

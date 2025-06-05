@@ -129,7 +129,7 @@ const themeOptions: ThemeOptions = {
       lineHeight: 1.66,
     },
     button: {
-      textTransform: 'capitalize',
+      textTransform: 'none',
     },
   },
   shape: {
