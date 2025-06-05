@@ -3,11 +3,8 @@ import {
   ButtonProps,
   GridProps,
   OutlinedInputProps,
-  OutlinedSelectProps,
   OutlinedTextFieldProps,
-  SelectProps,
   SwitchOwnerState,
-  SwitchProps,
   TextFieldProps,
 } from '@mui/material';
 import {
@@ -32,7 +29,8 @@ export interface ButtonWithLoadingProps extends ButtonProps {
 }
 
 export interface CustomDateTimePickerProps<TDate extends PickerValidDate = Date>
-  extends DateTimePickerProps {   // DateTimePickerProps<TDate>
+  extends DateTimePickerProps {
+  // DateTimePickerProps<TDate>
   name: string;
   label: string;
   fullWidth?: boolean;
@@ -40,8 +38,9 @@ export interface CustomDateTimePickerProps<TDate extends PickerValidDate = Date>
   valueFormatter?: (value: any) => never;
 }
 
-export interface CustomDatePickerProps<TDate extends PickerValidDate= Date>
-  extends DatePickerProps {   // DateTimePickerProps<TDate>
+export interface CustomDatePickerProps<TDate extends PickerValidDate = Date>
+  extends DatePickerProps {
+  // DateTimePickerProps<TDate>
   name: string;
   label: string;
   fullWidth?: boolean;

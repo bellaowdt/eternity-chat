@@ -204,7 +204,7 @@ const PremiumPlanForm = () => {
       justifyContent="center"
       alignItems="center"
       height={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
-      px={6}
+      p={8}
     >
       <FormProvider {...methods}>
         <Grid

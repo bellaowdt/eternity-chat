@@ -24,7 +24,8 @@
       "googleBtn": "Continue with Google",
       "changePassword": "Change Password",
       "deleteAllChats": "Delete All Chats",
-      "helpCenter": "Help Center"
+      "helpCenter": "Help Center",
+      "back": "Back"
     },
     "fields": {
       "name": "Name",

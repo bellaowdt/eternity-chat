@@ -66,7 +66,7 @@ const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: "'manrope', sans-serif",
+    fontFamily: 'sfproDisplay, sans-serif',
     htmlFontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
@@ -98,7 +98,7 @@ const themeOptions: ThemeOptions = {
       lineHeight: 1.57,
     },
     body1: {
-      fontSize: '1.25rem', //20px
+      fontSize: '0.875rem', //14px
       lineHeight: 1.57,
     },
     body2: {
@@ -163,6 +163,12 @@ const themeOptions: ThemeOptions = {
                font-family: 'manrope';
                src: url('/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
                font-weight: 700;
+               font-display: swap;
+            },
+             @font-face {
+               font-family: 'sfproDisplay';
+               src: url('/assets/fonts/sfproDisplay/SFPro_Font_License.rtf') format('truetype');
+               font-weight: 300;
                font-display: swap;
             },
             @font-face {
