@@ -11,9 +11,10 @@ import {
   ListItemText,
 } from '@mui/material';
 import { FC } from 'react';
-import { FeatureItem } from './PaymentPlansData';
+import { FeatureItem, plans } from './PaymentPlansData';
 
 interface IPlanCard {
+  planFormat: string;
   card: {
     price: string;
     duration: string;
@@ -27,7 +28,7 @@ interface IPlanCard {
   onClick?: VoidFunction;
 }
 
-const PlanCard: FC<IPlanCard> = ({ card, onClick }) => {
+const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
   const {
     price,
     title,
@@ -48,18 +49,23 @@ const PlanCard: FC<IPlanCard> = ({ card, onClick }) => {
       }}
     >
       <CardContent>
-        <Typography variant="h1" fontWeight="bold">
+        <Typography fontSize="48px" fontWeight="700">
           {price}
           {duration && (
-            <Typography variant="subtitle1" component="span" color="#8D8D8D">
+            <Typography
+              variant="body2"
+              fontWeight="700"
+              component="span"
+              color="#8D8D8D"
+            >
               {duration}
             </Typography>
           )}
         </Typography>
 
-        <Typography variant="h4" mt={3} mb={1}>
+        <Typography variant="h3" mt={3} mb={1}>
           {title}
-          <Typography variant="subtitle1" component="span">
+          <Typography variant="h5" component="span">
             {planType}
           </Typography>
         </Typography>
@@ -75,7 +81,10 @@ const PlanCard: FC<IPlanCard> = ({ card, onClick }) => {
                 <ListItemIcon sx={{ minWidth: 36 }}>
                   {feature.icon}
                 </ListItemIcon>
-                <ListItemText primary={feature.text} />
+                <ListItemText
+                  primary={feature.text}
+                  sx={{ typography: 'subtitle2', fontWeight: 400 }}
+                />
               </ListItem>
             ))}
         </List>
@@ -86,17 +95,23 @@ const PlanCard: FC<IPlanCard> = ({ card, onClick }) => {
 
         <Button
           fullWidth
-          variant="contained"
+          variant={planFormat === plans[0] ? 'outlined' : 'contained'}
           size="large"
           onClick={() => onClick?.()}
           sx={{
             mt: 3,
             borderRadius: 10,
-            backgroundColor: 'black',
-            color: 'white',
-            '&:hover': {
-              backgroundColor: '#333',
-            },
+            fontWeight: 700,
+            textTransform: 'none',
+            color: planFormat === plans[0] ? '#000' : '#fff',
+            borderColor:
+              planFormat === plans[0]
+                ? '#979DA5'
+                : (theme) => theme.palette.primary.main,
+            backgroundColor:
+              planFormat === plans[0]
+                ? '#fff'
+                : (theme) => theme.palette.primary.main,
           }}
         >
           {buttonTilte}

@@ -12,6 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 const PremiumPlanDetails = () => {
   const t = useTranslations();
@@ -60,7 +61,10 @@ const PremiumPlanDetails = () => {
         </Typography>
 
         <Typography variant="body1">
-          {t('pages.paymentPlans.premiumUpgrade.helpDescription')}
+          {t.rich('pages.paymentPlans.premiumUpgrade.helpDescription', {
+            support: (chunks) => <Link href="/support">{chunks}</Link>,
+            faq: (chunks) => <Link href="/faq">{chunks}</Link>,
+          })}
         </Typography>
       </Stack>
     </Box>

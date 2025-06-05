@@ -39,32 +39,40 @@ const PaymentPlans = () => {
 
   return (
     <>
-      <Box py={8}>
-        <Grid container spacing={2}>
-          <Grid size={{ xs: 12, sm: 3 }}>
-            <Box p={4}>
+      <Box p={8}>
+        <Grid container spacing={2} gap={2}>
+          <Grid size={{ xs: 12, sm: 5 }}>
+            <Box px={8}>
               <Typography
-                variant="h2"
+                variant="h1"
                 fontWeight={700}
                 dangerouslySetInnerHTML={{
                   __html: t('pages.paymentPlans.comment.title'),
                 }}
               />
 
-              <Typography variant="h6" mt={2}>
+              <Typography variant="body1" mt={2}>
                 {t('pages.paymentPlans.comment.description1')}
               </Typography>
 
-              <Typography variant="h6" mt={4}>
+              <Typography variant="body1" mt={4}>
                 {t('pages.paymentPlans.comment.description2')}
               </Typography>
             </Box>
           </Grid>
           <Grid size={{ xs: 12, sm: 3 }}>
-            <PlanCard card={planCards[0]} onClick={onToggleFreeTrialDialog} />
+            <PlanCard
+              card={planCards[0]}
+              onClick={onToggleFreeTrialDialog}
+              planFormat={plans[0]}
+            />
           </Grid>
-          <Grid size={{ xs: 12, sm: 5 }}>
-            <PlanCard card={planCards[1]} onClick={onUpgradePlan} />
+          <Grid size={{ xs: 12, sm: 4 }}>
+            <PlanCard
+              card={planCards[1]}
+              onClick={onUpgradePlan}
+              planFormat={plans[1]}
+            />
           </Grid>
         </Grid>
       </Box>

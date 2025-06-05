@@ -49,9 +49,9 @@ export const globalStyles: GlobalStylesProps['styles'] = (theme) => ({
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: '#9e30e3',
-      dark: '#771be8',
-      light: '#cd40ee',
+      main: '#039375',
+      light: '#36b89f',
+      dark: '#02664f',
       contrastText: '#FFF',
     },
     secondary: {
@@ -73,56 +73,49 @@ const themeOptions: ThemeOptions = {
     fontWeightMedium: 500,
     fontWeightBold: 600,
     h1: {
-      fontWeight: 600,
-      fontSize: '2.375rem',
-      lineHeight: 1.21,
+      fontSize: '2.5rem', //40px
     },
     h2: {
-      fontWeight: 600,
-      fontSize: '1.875rem',
+      fontSize: '1.875rem', //30px
       lineHeight: 1.27,
     },
     h3: {
-      fontWeight: 600,
-      fontSize: '1.5rem',
+      fontSize: '1.5rem', //24px
       lineHeight: 1.33,
+      fontWeight: 700,
     },
     h4: {
-      fontWeight: 600,
-      fontSize: '1.25rem',
+      fontSize: '1.25rem', //20px
       lineHeight: 1.4,
     },
     h5: {
-      fontWeight: 600,
-      fontSize: '1rem',
+      fontSize: '1rem', //16px
       lineHeight: 1.5,
+      fontWeight: 700,
     },
     h6: {
-      fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '0.875rem', //14px
       lineHeight: 1.57,
     },
-    caption: {
-      fontWeight: 400,
-      fontSize: '0.75rem',
-      lineHeight: 1.66,
-    },
     body1: {
-      fontSize: '0.875rem',
+      fontSize: '1.25rem', //20px
       lineHeight: 1.57,
     },
     body2: {
-      fontSize: '0.75rem',
+      fontSize: '1rem', //16px
       lineHeight: 1.66,
     },
     subtitle1: {
-      fontSize: '0.875rem',
-      fontWeight: 600,
+      fontSize: '0.875rem', //14px
       lineHeight: 1.57,
+      fontWeight: 700,
     },
     subtitle2: {
-      fontSize: '0.75rem',
-      fontWeight: 500,
+      fontSize: '0.875rem', //14px
+      lineHeight: 1.66,
+    },
+    caption: {
+      fontSize: '0.75rem', //12px
       lineHeight: 1.66,
     },
     overline: {
