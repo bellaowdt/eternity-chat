@@ -132,12 +132,19 @@ const SignUp = () => {
       display="flex"
       flexDirection="column"
       width="100%"
+      alignItems="center"
       justifyContent="center"
       minHeight="100vh"
-      p={4}
+      overflow="hidden"
     >
       <FormProvider {...methods}>
-        <Box bgcolor="common.white" maxWidth={500} p={4} borderRadius={0.5}>
+        <Box
+          bgcolor="common.white"
+          width="100%"
+          maxWidth={500}
+          p={4}
+          borderRadius={0.5}
+        >
           <Title
             title={t('pages.signUp.createAccount')}
             sx={{ my: 1, justifyContent: 'flex-start' }}

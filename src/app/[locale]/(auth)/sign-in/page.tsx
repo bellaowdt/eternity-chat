@@ -85,7 +85,7 @@ const SignIn = () => {
       alignItems="center"
       justifyContent="center"
       minHeight="100vh"
-      p={4}
+      overflow="hidden"
     >
       <FormProvider {...methods}>
         <Title
