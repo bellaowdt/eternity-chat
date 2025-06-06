@@ -19,7 +19,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 import RegisterTypography from '../components/RegisterTypography';
-import router from 'next/router';
+
 const SignIn = () => {
   const t = useTranslations();
   const router = useRouter();
