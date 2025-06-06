@@ -10,6 +10,7 @@ import ChatDrawer from './components/ChatDrawer';
 import ChatInput from './components/ChatInput';
 import TopBar from '../../components/TopBar';
 import NotificationBar from '../../components/NotificationBar';
+import { red } from '@mui/material/colors';
 
 const ChatPage = () => {
   const { isMobile } = useAppContext();
@@ -29,7 +30,7 @@ const ChatPage = () => {
         <Sidebar collapsed={collapsed} />
       )}
 
-      <Stack minHeight={0} flex={1}>
+      <Stack minHeight={0} flex={1} bgcolor="#F7F7F7">
         <TopBar collapsed={collapsed} toggleCollapsed={toggleDrawer} />
         <Box display="flex" flex={1} minHeight={0} position="relative">
           <ChatDrawer />

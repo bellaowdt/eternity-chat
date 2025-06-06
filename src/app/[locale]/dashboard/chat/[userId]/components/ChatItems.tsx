@@ -1,10 +1,9 @@
 import {
   ChatCardDirectionEnum,
-  ChatMessageTypeEnum,
   ChatUserTypeEnum,
   IChatHistoryItem,
 } from '@/services/chat/types';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { FC, Fragment } from 'react';
 import MessageBubble from './MessageBubble';
 import FeedbackCard from './feedback/FeedbackCard';
@@ -14,6 +13,7 @@ interface ChatItemsProps {
 }
 
 const ChatItems: FC<ChatItemsProps> = ({ items }) => {
+  const theme = useTheme();
   return (
     <Box p={2}>
       {items?.map((item, index) => {
@@ -25,7 +25,7 @@ const ChatItems: FC<ChatItemsProps> = ({ items }) => {
               message={message}
               time={timestamp}
               sender={ChatUserTypeEnum.USER}
-              bubbleColor="#f0f0f0"
+              bubbleColor={theme.palette.common.white}
               bubbleTextColor="common.black"
               tailPosition={ChatCardDirectionEnum.LEFT}
               isError={isError}
@@ -36,7 +36,7 @@ const ChatItems: FC<ChatItemsProps> = ({ items }) => {
               message={response}
               time={timestamp}
               sender={ChatUserTypeEnum.SYSTEM}
-              bubbleColor="#6C6C6C"
+              bubbleColor={theme.palette.primary.main}
               bubbleTextColor="common.white"
               tailPosition={ChatCardDirectionEnum.RIGHT}
               type={type}

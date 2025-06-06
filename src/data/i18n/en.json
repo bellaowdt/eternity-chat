@@ -126,6 +126,11 @@
       },
       "documents": {
         "documentList": "Your Document list:"
+      },
+      "notification": {
+        "title": "🔔 Free Trial: 6 days remaining",
+        "description": "You’re using the free version with text chat only. Upgrade anytime to unlock voice, memory recall, and more.",
+        "upgradeButton": "Upgrade your Plan"
       }
     },
     "helpCenter": {

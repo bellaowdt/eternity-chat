@@ -14,7 +14,9 @@ const AppBarComponent = () => {
           src="/path-to-profile.jpg"
           sx={{ marginRight: 1 }}
         />
-        <Typography variant="subtitle1">John Doe</Typography>
+        <Typography variant="subtitle1" fontWeight="bold">
+          John Doe
+        </Typography>
       </Box>
 
       <Box>

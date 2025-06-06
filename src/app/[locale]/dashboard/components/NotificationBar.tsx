@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { useTranslations } from 'next-intl';
 
 const NotificationBar = () => {
+  const t = useTranslations();
   const [visible, setVisible] = useState(true);
-
   if (!visible) return null;
 
   return (
     <Box
       sx={{
-        backgroundColor: '#303030',
+        backgroundColor: (theme) => theme.palette.secondary.light,
         color: 'common.white',
         px: { xs: 2, sm: 4, md: 8 },
         py: 2,
@@ -24,15 +25,15 @@ const NotificationBar = () => {
       >
         {/* Left Section */}
         <Stack spacing={1}>
-          <Typography fontWeight="bold">
-            🔔 Free Trial: 6 days remaining
-          </Typography>
           <Typography
-            variant="body2"
-            sx={{ color: 'rgba(255, 255, 255, 0.75)' }}
+            variant="subtitle1"
+            fontWeight="bold"
+            sx={{ color: '#485D71' }}
           >
-            You’re using the free version with text chat only. Upgrade anytime
-            to unlock voice, memory recall, and more.
+            {t('pages.chat.notification.title')}
+          </Typography>
+          <Typography variant="subtitle2" sx={{ color: '#485D71' }}>
+            {t('pages.chat.notification.description')}
           </Typography>
         </Stack>
 
@@ -50,19 +51,22 @@ const NotificationBar = () => {
           <Button
             variant="contained"
             color="primary"
-            size="small"
+            size="large"
             sx={{
               borderRadius: 5,
               textTransform: 'none',
               whiteSpace: 'nowrap',
               flexShrink: 0,
+              bgcolor: 'common.white',
+              color: '#485D71',
+              fontWeight: 'bold',
             }}
           >
-            Upgrade your Plan
+            {t('pages.chat.notification.upgradeButton')}
           </Button>
           <IconButton
             onClick={() => setVisible(false)}
-            sx={{ color: 'white', flexShrink: 0 }}
+            sx={{ color: '#485D71', flexShrink: 0 }}
             aria-label="Close notification"
           >
             <CloseIcon fontSize="small" />
