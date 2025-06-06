@@ -51,6 +51,7 @@
         "natural": "Natural"
       },
       "cardholderName": "Cardholder Name",
+      "cardholderNameLable": "First & last name",
       "cardNumber": "Card Number",
       "cvv": "CVV",
       "expirationDate": "Expiration Date",

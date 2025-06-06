@@ -7,11 +7,13 @@ import {
   GET_USER_PERSONALITIES_LIST_KEY,
   SAMPLE_CHAT_USER_ID,
 } from '@/constants/query-keys';
+import { useCountries } from '@/hooks/useCountries';
 import { queryClient } from '@/providers/TanstackProvider';
 import { permiumPlanRegister } from '@/services/payment';
 import { IPremimunPlanPay } from '@/services/payment/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
@@ -23,6 +25,7 @@ type IPremimunPlanPayPayload = IPremimunPlanPay;
 
 const PremiumPlanForm = () => {
   const t = useTranslations();
+  const countriesList = useCountries();
 
   const labels: Record<keyof IPremimunPlanPayPayload, string> = {
     cardholderName: t('common.fields.cardholderName'),
@@ -84,7 +87,7 @@ const PremiumPlanForm = () => {
       label: labels.cardholderName,
       type: 'String',
       props: {
-        placeholder: labels.cardholderName,
+        placeholder: t('common.fields.cardholderNameLable'),
       },
       ui: {
         grid: {
@@ -97,7 +100,7 @@ const PremiumPlanForm = () => {
       label: labels.cardNumber,
       type: 'String',
       props: {
-        placeholder: labels.cardNumber,
+        placeholder: 'xxxx-xxxx-xxxx-xxxx',
       },
       ui: {
         grid: {
@@ -110,7 +113,7 @@ const PremiumPlanForm = () => {
       label: labels.cvv,
       type: 'String',
       props: {
-        placeholder: labels.cvv,
+        placeholder: 'xxxx',
       },
       ui: {
         grid: {
@@ -123,7 +126,7 @@ const PremiumPlanForm = () => {
       label: labels.expirationDate,
       type: 'String',
       props: {
-        placeholder: labels.expirationDate,
+        placeholder: 'xxxx',
       },
       ui: {
         grid: {
@@ -147,7 +150,8 @@ const PremiumPlanForm = () => {
     country: {
       name: 'country',
       label: labels.country,
-      type: 'String',
+      type: 'Selective',
+      options: countriesList,
       props: {
         placeholder: labels.country,
       },
@@ -188,7 +192,7 @@ const PremiumPlanForm = () => {
       label: labels.postalCode,
       type: 'String',
       props: {
-        placeholder: labels.postalCode,
+        placeholder: 'xxxx',
       },
       ui: {
         grid: {
@@ -220,19 +224,31 @@ const PremiumPlanForm = () => {
 
           <Grid size={{ xs: 12 }}>
             <Stack spacing={2} mt={4}>
-              <Typography variant="h5">
+              <Typography variant="subtitle1" fontWeight="bold">
                 {t('pages.paymentPlans.payment.premiumPlanNoteTitle')}
               </Typography>
-              <Typography>
-                {t('pages.paymentPlans.payment.premiumPlanNoteDescription1')}
-              </Typography>
-              <Typography>
-                {t('pages.paymentPlans.payment.premiumPlanNoteDescription2')}
-              </Typography>
+
+              <Box display="flex" alignItems="flex-start" gap={1}>
+                <FiberManualRecordIcon
+                  sx={{ color: 'black', mt: '8px', fontSize: 8, flexShrink: 0 }}
+                />
+                <Typography variant="subtitle1" sx={{ p: 0 }}>
+                  {t('pages.paymentPlans.payment.premiumPlanNoteDescription1')}
+                </Typography>
+              </Box>
+
+              <Box display="flex" alignItems="flex-start" gap={1}>
+                <FiberManualRecordIcon
+                  sx={{ color: 'black', mt: '8px', fontSize: 8, flexShrink: 0 }}
+                />
+                <Typography variant="subtitle1">
+                  {t('pages.paymentPlans.payment.premiumPlanNoteDescription2')}
+                </Typography>
+              </Box>
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12 }} mt={4}>
             <ButtonWithLoading
               isLoading={isPending}
               fullWidth

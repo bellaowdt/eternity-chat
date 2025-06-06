@@ -7,6 +7,7 @@ import {
   SelectChangeEvent,
   Typography,
   MenuItem,
+  Box,
 } from '@mui/material';
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
@@ -61,44 +62,39 @@ const CustomSelect: FC<CustomSelectProps> = ({
         return (
           <CustomSkeleton isLoading={isLoading}>
             <FormControl fullWidth error={!!errors[name]} size={size}>
-              {/* SEPARATE LABEL */}
-              {label && (
-                <Typography
-                  variant="body2"
-                  fontWeight="500"
-                  mb={0.5}
-                  ml={0.5}
-                  color="text.primary"
+              <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {label && (
+                  <Typography variant="subtitle2" fontWeight="bold">
+                    {label}
+                  </Typography>
+                )}
+                <Select
+                  {...props}
+                  id={`${name}-select`}
+                  value={normalizedValue}
+                  onChange={handleChange}
+                  endAdornment={
+                    normalizedValue ? (
+                      <ClearButtonAdornment
+                        onChange={field.onChange}
+                        // sx={{ marginRight: 1.5 }}
+                      />
+                    ) : undefined
+                  }
                 >
-                  {label}
-                </Typography>
-              )}
-              <Select
-                {...props}
-                id={`${name}-select`}
-                value={normalizedValue}
-                onChange={handleChange}
-                endAdornment={
-                  normalizedValue ? (
-                    <ClearButtonAdornment
-                      onChange={field.onChange}
-                      sx={{ marginRight: 1.5 }}
-                    />
-                  ) : undefined
-                }
-              >
-                {options?.map((option) => (
-                  <MenuItem key={option.id} value={option.value as string}>
-                    {labelFormatter ? labelFormatter(option) : option.label}
-                  </MenuItem>
-                ))}
-              </Select>
+                  {options?.map((option) => (
+                    <MenuItem key={option.id} value={option.value as string}>
+                      {labelFormatter ? labelFormatter(option) : option.label}
+                    </MenuItem>
+                  ))}
+                </Select>
 
-              {errors[name]?.message && (
-                <FormHelperText>
-                  {errors[name]?.message?.toString()}
-                </FormHelperText>
-              )}
+                {errors[name]?.message && (
+                  <FormHelperText>
+                    {errors[name]?.message?.toString()}
+                  </FormHelperText>
+                )}
+              </Box>
             </FormControl>
           </CustomSkeleton>
         );

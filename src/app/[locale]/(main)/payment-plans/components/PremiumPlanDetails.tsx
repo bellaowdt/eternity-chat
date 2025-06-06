@@ -24,7 +24,7 @@ const PremiumPlanDetails = () => {
     <>
       <Box
         display="flex"
-        height={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
+        minHeight={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
         py={8}
         px={20}
       >
@@ -37,7 +37,7 @@ const PremiumPlanDetails = () => {
               </Typography>
             </Box>
           </Link>
-          <Typography variant="h1" fontWeight={700}>
+          <Typography variant="h1" fontWeight="bold">
             {t('pages.paymentPlans.premiumUpgrade.title')}
           </Typography>
           <Typography variant="h4" fontWeight={400} mt={2}>
@@ -45,25 +45,44 @@ const PremiumPlanDetails = () => {
           </Typography>
 
           <Box pt={4}>
-            <Typography variant="subtitle1">
+            <Typography variant="body2">
               {t('pages.paymentPlans.premiumUpgrade.planDetails')}
             </Typography>
 
             <List>
               {featureKeys.map((key) => (
-                <ListItem key={key} disableGutters>
+                <ListItem
+                  key={key}
+                  disableGutters
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                  }}
+                >
                   <ListItemIcon sx={{ minWidth: 16 }}>
                     <FiberManualRecordIcon
-                      sx={{ color: 'black', fontSize: 8 }}
+                      sx={{
+                        color: 'black',
+                        fontSize: 8,
+                        flexShrink: 0,
+                        mt: '14px', // aligns the icon vertically with the text
+                      }}
                     />
                   </ListItemIcon>
                   <ListItemText
-                    primary={t(
-                      `pages.paymentPlans.premiumUpgrade.features.${key}`,
-                    )}
+                    primary={
+                      <Typography
+                        variant="body2"
+                        fontWeight={400}
+                        lineHeight={1.5}
+                        m={0}
+                      >
+                        {t(`pages.paymentPlans.premiumUpgrade.features.${key}`)}
+                      </Typography>
+                    }
                     slotProps={{
                       primary: {
-                        variant: 'subtitle1',
+                        variant: 'body2',
                         fontWeight: 400,
                       },
                     }}
@@ -73,11 +92,11 @@ const PremiumPlanDetails = () => {
             </List>
           </Box>
 
-          <Typography variant="h4" fontWeight="700">
+          <Typography variant="h4" fontWeight="bold" pt={4}>
             {t('pages.paymentPlans.premiumUpgrade.helpTitle')}
           </Typography>
 
-          <Typography variant="subtitle1">
+          <Typography variant="body2">
             {t.rich('pages.paymentPlans.premiumUpgrade.helpDescription', {
               support: (chunks) => <Link href="/support">{chunks}</Link>,
               faq: (chunks) => <Link href="/faq">{chunks}</Link>,

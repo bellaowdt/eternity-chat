@@ -63,7 +63,11 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
         return (
           <CustomSkeleton isLoading={isLoading}>
             <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {label && <Typography variant="subtitle1">{label}</Typography>}
+              {label && (
+                <Typography variant="subtitle2" fontWeight="bold">
+                  {label}
+                </Typography>
+              )}
 
               <TextField
                 {...props}

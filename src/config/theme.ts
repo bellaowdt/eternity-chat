@@ -55,9 +55,9 @@ const themeOptions: ThemeOptions = {
       contrastText: '#FFF',
     },
     secondary: {
-      main: '#de3860',
-      dark: '#db3560',
-      light: '#ed5b87',
+      main: '#017FED',
+      dark: '#3D68B5',
+      light: '#A2CBF3',
       contrastText: '#FFF',
     },
     background: {
@@ -71,7 +71,7 @@ const themeOptions: ThemeOptions = {
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 600,
+    fontWeightBold: 700,
     h1: {
       fontSize: '2.5rem', //40px
     },
@@ -134,11 +134,11 @@ const themeOptions: ThemeOptions = {
         disablePadding: true,
       },
     },
-    MuiLink: {
-      defaultProps: {
-        component: Link,
-      },
-    },
+    // MuiLink: {
+    //   defaultProps: {
+    //     component: Link,
+    //   },
+    // },
     MuiBottomNavigationAction: {
       defaultProps: {
         component: Link,
@@ -208,7 +208,6 @@ export const persianTheme = createTheme({
   ...themeOptions,
   direction: 'rtl',
   typography: {
-    // fontFamily: "'iransans'," + defaultTheme.typography.fontFamily,
     fontFamily: 'iransans, noto-Arabic',
     ...themeOptions.typography,
   },

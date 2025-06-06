@@ -18,11 +18,11 @@ const PremiumPlanPriceCard = () => {
         borderColor: (theme) => alpha(theme.palette.common.black, 0.1),
       }}
     >
-      <Typography variant="h5" fontWeight="700">
+      <Typography variant="h5" fontWeight="bold">
         {t('pages.paymentPlans.payment.premiumPlan')}
       </Typography>
 
-      <Typography variant="h5" fontWeight="700">
+      <Typography variant="h5" fontWeight="bold">
         {t('pages.paymentPlans.plans.premium.price')}
       </Typography>
     </Box>

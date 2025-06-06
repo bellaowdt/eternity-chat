@@ -50,12 +50,12 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
       }}
     >
       <CardContent sx={{ minHeight: 420, position: 'relative' }}>
-        <Typography fontSize="48px" fontWeight="700">
+        <Typography fontSize="48px" fontWeight="bold">
           {price}
           {duration && (
             <Typography
               variant="body2"
-              fontWeight="700"
+              fontWeight="bold"
               component="span"
               color="#8D8D8D"
             >
@@ -82,7 +82,7 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
                   primary={feature.text}
                   slotProps={{
                     primary: {
-                      variant: 'subtitle1',
+                      variant: 'body2',
                       fontWeight: 400,
                     },
                   }}
