@@ -34,7 +34,7 @@
       "password": "Password",
       "language": "Language",
       "confirmPassword": "Confirm Password",
-      "namePlaceholder": "ex. John Doe",
+      "namePlaceholder": "ex. John",
       "emailPlaceholder": "ex. johndoe@gmail.com",
       "darkTheme": "Dark Theme",
       "editImage": "Edit Image",

@@ -1,7 +1,7 @@
 'use client';
 
 import { NAVBAR_HEIGHT } from '@/constants/general';
-import { DEFAULT_PLAYMENT_PLANS_PATH } from '@/constants/routes';
+import { DEFAULT_PRICING_PATH } from '@/constants/routes';
 import { ArrowBack } from '@mui/icons-material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import {
@@ -29,7 +29,7 @@ const PremiumPlanDetails = () => {
         px={20}
       >
         <Stack spacing={2}>
-          <Link href={DEFAULT_PLAYMENT_PLANS_PATH}>
+          <Link href={DEFAULT_PRICING_PATH}>
             <Box display="flex" alignItems="center" gap={1} mb={2}>
               <ArrowBack fontSize="medium" />
               <Typography variant="h5" sx={{ color: '#3D3D3D' }}>

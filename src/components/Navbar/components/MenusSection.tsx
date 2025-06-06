@@ -4,7 +4,7 @@ import { CustomButton } from '@/components/common/CustomStyle';
 import {
   DEFAULT_ONBOARDING_PATH,
   DEFAULT_ONBOARDING_WELCOME_PATH,
-  DEFAULT_PLAYMENT_PLANS_PATH,
+  DEFAULT_PRICING_PATH,
   DEFAULT_SIGNIN_PATH,
   DEFAULT_SIGNUP_PATH,
 } from '@/constants/routes';
@@ -20,7 +20,7 @@ const MenusSection = () => {
     { label: 'Sig In', href: DEFAULT_SIGNIN_PATH },
     { label: 'Sign Up', href: DEFAULT_SIGNUP_PATH },
     { label: 'Onboarding Steps', href: DEFAULT_ONBOARDING_WELCOME_PATH },
-    { label: 'Payment Plans', href: DEFAULT_PLAYMENT_PLANS_PATH },
+    { label: 'Pricing', href: DEFAULT_PRICING_PATH },
   ];
 
   return (

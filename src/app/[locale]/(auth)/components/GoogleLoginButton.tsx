@@ -15,7 +15,7 @@ const GoogleLoginButton = () => {
       startIcon={<Image alt="" width={25} height={25} src={GOOGLE_ICON} />}
     >
       <Typography
-        variant="body2"
+        variant="body1"
         component="span"
         sx={{
           textAlign: 'center',

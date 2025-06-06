@@ -19,7 +19,7 @@ const SignUp = () => {
   const labels: Record<keyof SignUpPayload | 'confirmPassword', string> = {
     email: t('common.fields.email'),
     password: t('common.fields.password'),
-    name: t('common.fields.fullName'),
+    name: t('common.fields.name'),
     confirmPassword: t('common.fields.confirmPassword'),
   };
 
@@ -136,45 +136,52 @@ const SignUp = () => {
       p={4}
     >
       <FormProvider {...methods}>
-        <Title
-          title={t('pages.signUp.createAccount')}
-          sx={{ my: 1, justifyContent: 'flex-start' }}
-        />
-        <Grid
-          container
-          spacing={2}
-          component="form"
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
-          sx={{
-            mt: 3,
-            flexDirection: (theme) =>
-              theme.direction === 'rtl' ? 'row-reverse' : 'row',
-          }}
-        >
-          <FormBuilder fields={fields} />
+        <Box bgcolor="common.white" maxWidth={500} p={4} borderRadius={0.5}>
+          <Title
+            title={t('pages.signUp.createAccount')}
+            sx={{ my: 1, justifyContent: 'flex-start' }}
+            variant="h3"
+          />
+          <Grid
+            container
+            spacing={2}
+            component="form"
+            onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+            sx={{
+              mt: 3,
+              flexDirection: (theme) =>
+                theme.direction === 'rtl' ? 'row-reverse' : 'row',
+            }}
+          >
+            <FormBuilder fields={fields} />
+            <Grid size={{ xs: 12 }}>
+              <Typography>
+                {t.rich('pages.signUp.signUpPrivacyPolicyText', {
+                  terms: (chunks) => (
+                    <Link href="/terms-conditions">{chunks}</Link>
+                  ),
+                  policy: (chunks) => (
+                    <Link href="/privacy-policy">{chunks}</Link>
+                  ),
+                })}
+              </Typography>
+            </Grid>
 
-          <Grid size={{ xs: 12 }}>
-            <ButtonWithLoading
-              // isLoading={isPending}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              disableElevation
-              size="large"
-            >
-              {t('common.buttons.continue')}
-            </ButtonWithLoading>
+            <Grid size={{ xs: 12 }}>
+              <ButtonWithLoading
+                // isLoading={isPending}
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                disableElevation
+                size="large"
+              >
+                {t('common.buttons.continue')}
+              </ButtonWithLoading>
+            </Grid>
           </Grid>
-          <Grid size={{ xs: 12 }}>
-            <Typography>
-              {t.rich('pages.signUp.signUpPrivacyPolicyText', {
-                terms: (chunks) => <Link href="/terms">{chunks}</Link>,
-                policy: (chunks) => <Link href="/policy">{chunks}</Link>,
-              })}
-            </Typography>
-          </Grid>
-        </Grid>
+        </Box>
       </FormProvider>
     </Box>
   );

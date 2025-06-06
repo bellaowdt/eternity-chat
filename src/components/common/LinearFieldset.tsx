@@ -19,7 +19,7 @@ interface LinearFieldsetProps {
 const LinearFieldset: FC<LinearFieldsetProps> = ({
   title,
   lineColor = 'grey.700',
-  titleSize = '1.2rem',
+  titleSize = '1rem',
   borderWidth = 0,
   borderRadius = 2,
   sx = {},

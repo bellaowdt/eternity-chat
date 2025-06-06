@@ -49,7 +49,7 @@ const SignIn = () => {
       label: labels.email,
       type: 'String',
       props: {
-        placeholder: labels.email,
+        placeholder: t('common.fields.emailPlaceholder'),
       },
       ui: {
         grid: {
@@ -88,47 +88,55 @@ const SignIn = () => {
           subTitle={t('pages.signIn.welcomeSubMsg')}
           sx={{ my: 5, textAlign: 'center' }}
         />
-        <Grid
-          container
-          spacing={2}
-          component="form"
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+        <Box
+          bgcolor="common.white"
+          width="100%"
+          maxWidth={500}
+          p={4}
+          borderRadius={0.5}
         >
-          <FormBuilder fields={fields} />
+          <Grid
+            container
+            spacing={2}
+            component="form"
+            onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+          >
+            <FormBuilder fields={fields} />
 
-          <Grid size={{ xs: 12 }}>
-            <GradientButtonWithLoading
-              isLoading={isPending}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              size="large"
-            >
-              {t('common.buttons.continue')}
-            </GradientButtonWithLoading>
-          </Grid>
+            <Grid size={{ xs: 12 }}>
+              <GradientButtonWithLoading
+                isLoading={isPending}
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                size="large"
+              >
+                {t('common.buttons.continue')}
+              </GradientButtonWithLoading>
+            </Grid>
 
-          <Grid size={{ xs: 12 }}>
-            <Divider />
-          </Grid>
+            <Grid size={{ xs: 12 }}>
+              <Divider />
+            </Grid>
 
-          <Grid size={{ xs: 12 }}>
-            <Grid
-              container
-              spacing={2}
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Grid size={{ xs: 12 }}>
-                <LinearFieldset title={t('common.buttons.or')} />
-              </Grid>
-              <Grid size={{ xs: 12 }}>
-                <GoogleLoginButton />
+            <Grid size={{ xs: 12 }}>
+              <Grid
+                container
+                spacing={2}
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Grid size={{ xs: 12 }}>
+                  <LinearFieldset title={t('common.buttons.or')} />
+                </Grid>
+                <Grid size={{ xs: 12 }}>
+                  <GoogleLoginButton />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </Box>
       </FormProvider>
     </Box>
   );
