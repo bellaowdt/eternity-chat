@@ -23,7 +23,7 @@ const FeedbackWrapper = () => {
 
       {!open && (
         <Button variant="text" onClick={() => setOpen(true)}>
-          {t('pages.chat..feedback.feedbackAgain')}
+          {t('pages.chat.feedback.feedbackAgain')}
         </Button>
       )}
     </>
