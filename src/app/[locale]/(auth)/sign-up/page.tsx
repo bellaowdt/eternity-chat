@@ -12,6 +12,7 @@ import * as yup from 'yup';
 import Title from '@/components/common/Title';
 import { useTranslations } from 'next-intl';
 import { RemoveRedEye } from '@mui/icons-material';
+import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
 
 const SignUp = () => {
   const t = useTranslations();
@@ -179,6 +180,15 @@ const SignUp = () => {
               >
                 {t('common.buttons.continue')}
               </ButtonWithLoading>
+            </Grid>
+
+            <Grid size={{ xs: 12 }}>
+              <Typography>
+                {t('pages.signUp.alreadyHaveAnAccount')}
+                <Link href={DEFAULT_SIGNIN_PATH}>
+                  {''} {t('common.buttons.login')}
+                </Link>
+              </Typography>
             </Grid>
           </Grid>
         </Box>

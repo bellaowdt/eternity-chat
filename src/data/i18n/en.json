@@ -16,6 +16,7 @@
       "edit": "Edit",
       "delete": "Delete",
       "cancel": "Cancel",
+      "login": "login",
       "logout": "Logout",
       "setting": "Settings",
       "saveChanges": "Save Changes",
@@ -103,11 +104,13 @@
     },
     "signIn": {
       "welcomeMsg": "Welcome to Eternity Chat",
-      "welcomeSubMsg": "A Space to Reconnect and Remember."
+      "welcomeSubMsg": "A Space to Reconnect and Remember.",
+      "dontHaveAnAccount": "Don't have an account?"
     },
     "signUp": {
       "createAccount": "Create Your Account",
-      "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>."
+      "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>.",
+      "alreadyHaveAnAccount": "Already have an account?"
     },
     "chat": {
       "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",

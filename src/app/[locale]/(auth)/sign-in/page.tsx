@@ -18,6 +18,7 @@ import { useRouter } from 'next/navigation';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import GoogleLoginButton from '../components/GoogleLoginButton';
+import RegisterTypography from '../components/RegisterTypography';
 const SignIn = () => {
   const t = useTranslations();
   const route = useRouter();
@@ -118,6 +119,10 @@ const SignIn = () => {
               >
                 {t('common.buttons.continue')}
               </GradientButtonWithLoading>
+            </Grid>
+
+            <Grid size={{ xs: 12 }}>
+              <RegisterTypography />
             </Grid>
 
             <Grid size={{ xs: 12 }}>
