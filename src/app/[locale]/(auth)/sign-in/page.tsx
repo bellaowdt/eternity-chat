@@ -1,10 +1,12 @@
 'use client';
 
-import Title from '@/components/common/Title';
 import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
 import LinearFieldset from '@/components/common/LinearFieldset';
+import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import { SAMPLE_CHAT_ID } from '@/constants/query-keys';
+import { DEFAULT_DASHBOARD_CHAT_PATH } from '@/constants/routes';
 import { signIn } from '@/services/iam';
 import { SignInPayload } from '@/services/iam/types';
 import { onInvalidSubmit } from '@/utils/form';
@@ -12,12 +14,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Divider, Grid } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import GoogleLoginButton from '../components/GoogleLoginButton';
-
 const SignIn = () => {
   const t = useTranslations();
+  const route = useRouter();
 
   const labels: Record<keyof SignInPayload, string> = {
     email: t('common.fields.email'),
@@ -40,7 +43,8 @@ const SignIn = () => {
   });
 
   const onSubmit: SubmitHandler<SignInPayload> = async (payload) => {
-    await mutateAsync({ payload });
+    // await mutateAsync({ payload });
+    route.push(DEFAULT_DASHBOARD_CHAT_PATH + `/${SAMPLE_CHAT_ID}`);
   };
 
   const fields: FormBuilderProps['fields'] = {

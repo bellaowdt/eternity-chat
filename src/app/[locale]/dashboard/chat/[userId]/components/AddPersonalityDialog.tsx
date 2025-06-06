@@ -23,6 +23,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
 
 export type AddPersonalityDialogProps = DialogProps;
@@ -100,10 +101,14 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
       ...payload,
       user_id: SAMPLE_CHAT_USER_ID,
     };
-    const { data, status } = await mutateAsync({ params: newPayload });
-    if (status === 200 && data?.message) {
+    const response = await mutateAsync({ params: newPayload });
+    if (response?.status === 200 && response?.data?.message) {
       methods.reset();
       props.onClose?.({}, 'backdropClick');
+    } else {
+      toast.error(t('messages.somethingWentWrong'));
+      // TODO: Handle error appropriately
+      // e.g. {"detail":"Personality 'Sara' already exists"}
     }
   };
 
@@ -187,7 +192,6 @@ const AddPersonalityDialog: FC<AddPersonalityDialogProps> = ({ ...props }) => {
       {...props}
       title={t('pages.chat.addPersonality')}
       maxWidth="sm"
-      fullWidth
       sx={{ marginX: 'auto' }}
       dialogButtons={[]}
     >
