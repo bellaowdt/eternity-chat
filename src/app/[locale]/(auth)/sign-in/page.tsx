@@ -19,9 +19,10 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 import RegisterTypography from '../components/RegisterTypography';
+import router from 'next/router';
 const SignIn = () => {
   const t = useTranslations();
-  const route = useRouter();
+  const router = useRouter();
 
   const labels: Record<keyof SignInPayload, string> = {
     email: t('common.fields.email'),
@@ -45,7 +46,7 @@ const SignIn = () => {
 
   const onSubmit: SubmitHandler<SignInPayload> = async (payload) => {
     // await mutateAsync({ payload });
-    route.push(DEFAULT_DASHBOARD_CHAT_PATH + `/${SAMPLE_CHAT_ID}`);
+    router.push(DEFAULT_DASHBOARD_CHAT_PATH + `/${SAMPLE_CHAT_ID}`);
   };
 
   const fields: FormBuilderProps['fields'] = {

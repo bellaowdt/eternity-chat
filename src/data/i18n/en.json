@@ -206,6 +206,11 @@
         "helpTitle": "Need help?",
         "helpDescription": "If you have questions, <support>contact support </support>or read our <faq>FAQ</faq>"
       },
+      "premiumSuccess": {
+        "welcome": "Welcome to the Full Experience!",
+        "description": "You’ve successfully upgraded to Premium.  Your AI companion is now ready to connect with you on a deeper level — through voice, memory, and personalized interaction.We’re honored to be part of your journey.",
+        "beginButton": "Let’s Begin"
+      },
       "payment": {
         "premiumPlan": "Premium Plan",
         "premiumPlanNoteTitle": "Money-Back Guarantee Reminder:",

@@ -11,14 +11,15 @@ import { useCountries } from '@/hooks/useCountries';
 import { queryClient } from '@/providers/TanstackProvider';
 import { permiumPlanRegister } from '@/services/payment';
 import { IPremimunPlanPay } from '@/services/payment/types';
-import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import PremiumPlanDialog from './PremiumPlanDialog';
 import PremiumPlanPriceCard from './PremiumPlanPriceCard';
 
 type IPremimunPlanPayPayload = IPremimunPlanPay;
@@ -26,6 +27,11 @@ type IPremimunPlanPayPayload = IPremimunPlanPay;
 const PremiumPlanForm = () => {
   const t = useTranslations();
   const countriesList = useCountries();
+  const [premuimPlanDialog, setPremuimPlanDialog] = useState(false);
+
+  const onTogglePremuimTrialDialog = () => {
+    setPremuimPlanDialog((prev) => !prev);
+  };
 
   const labels: Record<keyof IPremimunPlanPayPayload, string> = {
     cardholderName: t('common.fields.cardholderName'),
@@ -203,67 +209,92 @@ const PremiumPlanForm = () => {
   };
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
-      p={8}
-    >
-      <FormProvider {...methods}>
-        <Grid
-          container
-          spacing={2}
-          component="form"
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
-        >
-          <Grid size={{ xs: 12 }}>
-            <PremiumPlanPriceCard />
-          </Grid>
-          <FormBuilder fields={fields} />
+    <>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
+        p={8}
+      >
+        <FormProvider {...methods}>
+          <Grid
+            container
+            spacing={2}
+            // component="form"
+            //   onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+            onClick={onTogglePremuimTrialDialog}
+          >
+            <Grid size={{ xs: 12 }}>
+              <PremiumPlanPriceCard />
+            </Grid>
+            <FormBuilder fields={fields} />
 
-          <Grid size={{ xs: 12 }}>
-            <Stack spacing={2} mt={4}>
-              <Typography variant="subtitle1" fontWeight="bold">
-                {t('pages.paymentPlans.payment.premiumPlanNoteTitle')}
-              </Typography>
-
-              <Box display="flex" alignItems="flex-start" gap={1}>
-                <FiberManualRecordIcon
-                  sx={{ color: 'black', mt: '8px', fontSize: 8, flexShrink: 0 }}
-                />
-                <Typography variant="subtitle1" sx={{ p: 0 }}>
-                  {t('pages.paymentPlans.payment.premiumPlanNoteDescription1')}
+            <Grid size={{ xs: 12 }}>
+              <Stack spacing={2} mt={4}>
+                <Typography variant="subtitle1" fontWeight="bold">
+                  {t('pages.paymentPlans.payment.premiumPlanNoteTitle')}
                 </Typography>
-              </Box>
 
-              <Box display="flex" alignItems="flex-start" gap={1}>
-                <FiberManualRecordIcon
-                  sx={{ color: 'black', mt: '8px', fontSize: 8, flexShrink: 0 }}
-                />
-                <Typography variant="subtitle1">
-                  {t('pages.paymentPlans.payment.premiumPlanNoteDescription2')}
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
+                <Box display="flex" alignItems="flex-start" gap={1}>
+                  <FiberManualRecordIcon
+                    sx={{
+                      color: 'black',
+                      mt: '8px',
+                      fontSize: 8,
+                      flexShrink: 0,
+                    }}
+                  />
+                  <Typography variant="subtitle1" sx={{ p: 0 }}>
+                    {t(
+                      'pages.paymentPlans.payment.premiumPlanNoteDescription1',
+                    )}
+                  </Typography>
+                </Box>
 
-          <Grid size={{ xs: 12 }} mt={4}>
-            <ButtonWithLoading
-              isLoading={isPending}
-              fullWidth
-              type="submit"
-              variant="contained"
-              color="primary"
-              disableElevation
-              size="large"
-            >
-              {t('pages.paymentPlans.payment.button')}
-            </ButtonWithLoading>
+                <Box display="flex" alignItems="flex-start" gap={1}>
+                  <FiberManualRecordIcon
+                    sx={{
+                      color: 'black',
+                      mt: '8px',
+                      fontSize: 8,
+                      flexShrink: 0,
+                    }}
+                  />
+                  <Typography variant="subtitle1">
+                    {t(
+                      'pages.paymentPlans.payment.premiumPlanNoteDescription2',
+                    )}
+                  </Typography>
+                </Box>
+              </Stack>
+            </Grid>
+
+            <Grid size={{ xs: 12 }} mt={4}>
+              <ButtonWithLoading
+                isLoading={isPending}
+                fullWidth
+                type="submit"
+                variant="contained"
+                color="primary"
+                disableElevation
+                size="large"
+              >
+                {t('pages.paymentPlans.payment.button')}
+              </ButtonWithLoading>
+            </Grid>
           </Grid>
-        </Grid>
-      </FormProvider>
-    </Box>
+        </FormProvider>
+      </Box>
+
+      {premuimPlanDialog && (
+        <PremiumPlanDialog
+          open={premuimPlanDialog}
+          onClose={onTogglePremuimTrialDialog}
+          sx={{ width: 470 }}
+        />
+      )}
+    </>
   );
 };
 
