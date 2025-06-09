@@ -21,11 +21,14 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import PremiumPlanDialog from './PremiumPlanDialog';
 import PremiumPlanPriceCard from './PremiumPlanPriceCard';
+import { onInvalidSubmit } from '@/utils/form';
+import { useAppContext } from '@/hooks/useAppContext';
 
 type IPremimunPlanPayPayload = IPremimunPlanPay;
 
 const PremiumPlanForm = () => {
   const t = useTranslations();
+  const { isMobile } = useAppContext();
   const countriesList = useCountries();
   const [premuimPlanDialog, setPremuimPlanDialog] = useState(false);
 
@@ -81,10 +84,11 @@ const PremiumPlanForm = () => {
   });
 
   const onSubmit: SubmitHandler<IPremimunPlanPayPayload> = async (payload) => {
-    const { data, status } = await mutateAsync({ payload });
-    if (status === 200 && data?.message) {
-      methods.reset();
-    }
+    // const { data, status } = await mutateAsync({ payload });
+    // if (status === 200 && data?.message) {
+    //   methods.reset();
+    // }
+    onTogglePremuimTrialDialog();
   };
 
   const fields: FormBuilderProps['fields'] = {
@@ -221,9 +225,8 @@ const PremiumPlanForm = () => {
           <Grid
             container
             spacing={2}
-            // component="form"
-            //   onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
-            onClick={onTogglePremuimTrialDialog}
+            component="form"
+            onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
           >
             <Grid size={{ xs: 12 }}>
               <PremiumPlanPriceCard />
@@ -291,7 +294,8 @@ const PremiumPlanForm = () => {
         <PremiumPlanDialog
           open={premuimPlanDialog}
           onClose={onTogglePremuimTrialDialog}
-          sx={{ width: 470 }}
+          sx={{ width: 500, maxWidth: isMobile ? '100%' : 500 }}
+          showDialogTitle={false}
         />
       )}
     </>

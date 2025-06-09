@@ -15,9 +15,14 @@ import { DialogTransition } from '../DialogTransition';
 export interface DialogProps extends MuiDialogProps {
   dialogContentProps?: DialogContentProps;
   dialogButtons?: ButtonWithLoadingProps[];
+  showDialogTitle?: boolean;
 }
 
-const Dialog: FC<DialogProps> = ({ title, ...props }) => {
+const Dialog: FC<DialogProps> = ({
+  title,
+  showDialogTitle = true,
+  ...props
+}) => {
   return (
     <MuiDialog
       sx={{
@@ -32,25 +37,29 @@ const Dialog: FC<DialogProps> = ({ title, ...props }) => {
         ...props?.slotProps,
       }}
     >
-      <DialogTitle
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          fontWeight: '600',
-        }}
-      >
-        {title}
-        <IconButton
-          aria-label="close-dialog"
-          onClick={() => {
-            props.onClose?.({}, 'escapeKeyDown');
-          }}
-        >
-          <Close />
-        </IconButton>
-      </DialogTitle>
-      <Divider />
+      {showDialogTitle && (
+        <>
+          <DialogTitle
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              fontWeight: '600',
+            }}
+          >
+            {title}
+            <IconButton
+              aria-label="close-dialog"
+              onClick={() => {
+                props.onClose?.({}, 'escapeKeyDown');
+              }}
+            >
+              <Close />
+            </IconButton>
+          </DialogTitle>
+          <Divider />
+        </>
+      )}
       <DialogContent {...props.dialogContentProps}>
         {props.children}
       </DialogContent>

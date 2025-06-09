@@ -20,7 +20,7 @@ export const getChatHistory: GetChatHistoryService = ({ userId, params }) => {
 
 export const textToSpeech: ChatTextToVoiceService = ({ payload }) => {
   return externalApi.post(
-    `${SPEECCH_URL}/text-to-speech/1chWRM70ePjamezxPfiV`,
+    `${SPEECCH_URL}/text-to-speech/sk_af19c153ad88b4eed6776e26cfd95428d718fd25a12b09c9`,
     payload,
   );
 };
