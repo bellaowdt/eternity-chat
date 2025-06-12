@@ -1,20 +1,31 @@
-import { Box } from '@mui/material';
+'use client';
+
+import { useEffect, useRef } from 'react';
 
 interface VoicePlayerProps {
   voiceUrl: string;
+  playbackKey?: string; // triggers audio restart
 }
 
-const VoicePlayer = ({ voiceUrl }: VoicePlayerProps) => {
-  return (
-    <Box sx={{ display: 'none' }}>
-      <figure>
-        <audio controls autoPlay>
-          <source src={voiceUrl} type="audio/wav" />
-          Your browser does not support the audio element.
-        </audio>
-      </figure>
-    </Box>
-  );
+const VoicePlayer = ({ voiceUrl, playbackKey }: VoicePlayerProps) => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (!voiceUrl) return;
+
+    const audio = audioRef.current;
+
+    if (audio) {
+      audio.pause();
+      audio.src = voiceUrl;
+      audio.load();
+      audio.play().catch((err) => {
+        console.error('Audio playback failed:', err);
+      });
+    }
+  }, [playbackKey]); // triggers whenever a new key is passed
+
+  return <audio ref={audioRef} />;
 };
 
 export default VoicePlayer;

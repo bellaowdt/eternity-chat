@@ -1,15 +1,20 @@
+'use client';
+
 import { IconButtonWithLoading } from '@/components/IconButtonWithLoading';
+import VoicePlayer from '@/components/VoicePlayer';
 import {
   GET_CHAT_HISTORY_QUERY_KEY,
   SAMPLE_CHAT_USER_ID,
   SAMPLE_CHAT_USER_PERSONALITY,
 } from '@/constants/query-keys';
-import { chat } from '@/services/chat';
+import { chat, textToSpeech } from '@/services/chat';
 import { ChatMessageTypeEnum, IChatHistoryItem } from '@/services/chat/types';
-import { SendRounded } from '@mui/icons-material';
-import GraphicEqIcon from '@mui/icons-material/GraphicEq';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
-import LinkIcon from '@mui/icons-material/Link';
+import {
+  SendRounded,
+  GraphicEq as GraphicEqIcon,
+  InsertEmoticon as InsertEmoticonIcon,
+  Link as LinkIcon,
+} from '@mui/icons-material';
 import { Box, IconButton, InputBase, Paper, Typography } from '@mui/material';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
@@ -25,11 +30,10 @@ const ChatInput: FC = () => {
   const t = useTranslations();
   const [message, setMessage] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [playbackKey, setPlaybackKey] = useState<string | null>(null);
 
-  const { mutateAsync, isPending } = useMutation({
-    mutationFn: chat,
-  });
-
+  const { mutateAsync, isPending } = useMutation({ mutationFn: chat });
   const queryClient = useQueryClient();
 
   const createMessagePayload = (message: string): MessagePayload => ({
@@ -51,26 +55,23 @@ const ChatInput: FC = () => {
 
     queryClient.setQueryData(
       payload.queryKey,
-      (previous: IChatHistoryItem[]) => [...(previous || []), newMessage],
+      (prev: IChatHistoryItem[] = []) => [...prev, newMessage],
     );
   };
 
-  const convertAllMessagesToHistroy = () => {
+  const convertAllMessagesToHistory = () => {
     queryClient.setQueryData<IChatHistoryItem[]>(
       [GET_CHAT_HISTORY_QUERY_KEY, SAMPLE_CHAT_USER_ID],
-      (previous) => {
-        if (!previous || previous.length === 0) return previous;
-
-        const updated = [...previous];
+      (prev) => {
+        if (!prev || prev.length < 2) return prev;
+        const updated = [...prev];
         const lastItem = updated[updated.length - 2];
-
         if (lastItem.type === ChatMessageTypeEnum.CURRENT) {
           updated[updated.length - 2] = {
             ...lastItem,
             type: ChatMessageTypeEnum.HISTORY,
           };
         }
-
         return updated;
       },
     );
@@ -82,10 +83,10 @@ const ChatInput: FC = () => {
   ) => {
     queryClient.setQueryData(
       payload.queryKey,
-      (previous: IChatHistoryItem[]) =>
-        previous?.map((item) =>
+      (prev: IChatHistoryItem[] = []) =>
+        prev.map((item) =>
           item.traceId === payload.traceId ? { ...item, ...updates } : item,
-        ) || [],
+        ),
     );
   };
 
@@ -94,11 +95,10 @@ const ChatInput: FC = () => {
     if (!trimmed || isPending) return;
 
     const payload = createMessagePayload(trimmed);
-
     try {
       setMessage('');
       addMessageToHistory(payload);
-      convertAllMessagesToHistroy();
+      convertAllMessagesToHistory();
       inputRef.current?.focus();
 
       const { data } = await mutateAsync({
@@ -114,6 +114,26 @@ const ChatInput: FC = () => {
         isLoading: false,
         type: ChatMessageTypeEnum.CURRENT,
       });
+
+      // Generate voice and play
+      if (data?.response) {
+        const { data: audioData } = await textToSpeech({
+          payload: {
+            text: data.response,
+          },
+        });
+
+        if (audioUrl) {
+          URL.revokeObjectURL(audioUrl);
+        }
+
+        const blob = new Blob([audioData as ArrayBuffer], {
+          type: 'audio/mpeg',
+        });
+        const url = URL.createObjectURL(blob);
+        setAudioUrl(url);
+        setPlaybackKey(Date.now().toString());
+      }
     } catch {
       updateMessageInHistory(payload, {
         response: t('pages.chat.getChatResponseError'),
@@ -125,7 +145,6 @@ const ChatInput: FC = () => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     sendMessage();
   };
 
@@ -137,12 +156,7 @@ const ChatInput: FC = () => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-    >
+    <Box display="flex" flexDirection="column" alignItems="center">
       <Paper
         component="form"
         onSubmit={onSubmit}
@@ -192,6 +206,7 @@ const ChatInput: FC = () => {
           <GraphicEqIcon />
         </IconButton>
       </Paper>
+
       <Typography
         variant="body1"
         fontWeight={400}
@@ -200,6 +215,10 @@ const ChatInput: FC = () => {
       >
         {t('pages.chat.accuracyMsg')}
       </Typography>
+
+      {audioUrl && (
+        <VoicePlayer voiceUrl={audioUrl} playbackKey={playbackKey!} />
+      )}
     </Box>
   );
 };

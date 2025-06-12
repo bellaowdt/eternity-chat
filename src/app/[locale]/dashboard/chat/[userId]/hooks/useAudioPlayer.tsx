@@ -23,6 +23,7 @@ const useAudioPlayer = ({ text }: AudioPlayerProps) => {
       setAudioUrl(url);
     },
   });
+
   const onTexttoSpeech = () => {
     mutate();
   };
