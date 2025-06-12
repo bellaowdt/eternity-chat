@@ -1,5 +1,5 @@
 import { Close } from '@mui/icons-material';
-import { Box, DialogActions, Divider, IconButton } from '@mui/material';
+import { DialogActions, Divider, IconButton } from '@mui/material';
 import MuiDialog, {
   type DialogProps as MuiDialogProps,
 } from '@mui/material/Dialog';
@@ -21,6 +21,7 @@ export interface DialogProps extends MuiDialogProps {
 const Dialog: FC<DialogProps> = ({
   title,
   showDialogTitle = true,
+  dialogButtons,
   ...props
 }) => {
   return (
@@ -63,7 +64,7 @@ const Dialog: FC<DialogProps> = ({
       <DialogContent {...props.dialogContentProps}>
         {props.children}
       </DialogContent>
-      {props?.dialogButtons && props?.dialogButtons?.length > 0 && (
+      {dialogButtons && dialogButtons?.length > 0 && (
         <DialogActions
           sx={{
             display: 'flex',
@@ -71,7 +72,7 @@ const Dialog: FC<DialogProps> = ({
             justifyContent: 'center',
           }}
         >
-          {props?.dialogButtons?.map((button, index) => {
+          {dialogButtons?.map((button, index) => {
             return <ButtonWithLoading key={index} {...button} />;
           })}
         </DialogActions>
