@@ -69,8 +69,10 @@ export interface AvatarSetting {
   };
 }
 
-export interface IChatTextToVoicePayload extends AvatarSetting {
+export interface IChatTextToVoicePayload {
+  //extends AvatarSetting
   text: string;
+  // voice: string;
 }
 
 export interface ChatService {
