@@ -178,7 +178,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
           }}
         >
           <ChatIconToolbar value={message || ''} />
-          <FeedbackWrapper />
+          {/* <FeedbackWrapper /> */}
         </Box>
       )}
     </Box>
