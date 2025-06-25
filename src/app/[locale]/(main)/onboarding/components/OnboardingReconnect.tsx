@@ -80,7 +80,7 @@ const profiles = [
   },
 ];
 
-export default function OnboardingHeading() {
+const OnboardingReconnect = () => {
   const scale = useResponsiveScale();
   return (
     <Box
@@ -145,4 +145,6 @@ export default function OnboardingHeading() {
       ))}
     </Box>
   );
-}
+};
+
+export default OnboardingReconnect;

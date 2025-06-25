@@ -20,7 +20,7 @@ const ReconnectSlider = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   const steps = useOnboardingSteps();
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(2);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -151,17 +151,14 @@ const ReconnectSlider = () => {
               >
                 <KeyboardArrowRight />
               </Button>
-              {activeStep === steps.length - 1 ? (
-                <Link href={DEFAULT_SIGNIN_PATH}>Let&apos;s Begin</Link>
-              ) : (
-                <Typography
-                  variant="subtitle1"
-                  fontWeight={700}
-                  color="primary.main"
-                >
-                  Next
-                </Typography>
-              )}
+
+              <Typography
+                variant="subtitle1"
+                fontWeight={700}
+                color="primary.main"
+              >
+                Next
+              </Typography>
             </Box>
           </Box>
         </Box>
