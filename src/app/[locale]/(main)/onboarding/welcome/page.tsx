@@ -27,17 +27,20 @@ const WelcomeAboard = () => {
         justifyContent="center"
         mb={4}
       >
-        <Typography variant="h4" mb={2}>
-          Let’s Begin with Your Loved
+        <Typography variant="h1" fontWeight={700} mb={2}>
+          Let’s Begin with
           <br />
-          One’s Story
+          Your{' '}
+          <Box component="span" color="primary.main">
+            Loved One’s Story
+          </Box>
         </Typography>
-        <Typography variant="body1" mb={2}>
-          To create a meaningful experience together, <br />
-          please share some details about your loved one to <br />
-          help us craft personalized and heartfelt interactions.
+        <Typography variant="h4" m={2}>
+          To create a meaningful experience together, please <br />
+          share some details about your loved one to help us <br />
+          craft personalized and heartfelt interactions.
         </Typography>
-        <Typography variant="body2" mb={2} color="info.main">
+        <Typography variant="h4" m={2}>
           Feel free to skip this question if it’s too personal.
         </Typography>
       </Box>
