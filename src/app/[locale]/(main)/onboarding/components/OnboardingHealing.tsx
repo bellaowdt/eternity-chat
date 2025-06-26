@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  LIGHT_BLUE_COLOR,
   ONBOARDING_BG_COLOR,
   ONBOARDING_GRID_IMAGES,
 } from '@/constants/general';

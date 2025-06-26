@@ -26,12 +26,12 @@ const SignIn = () => {
 
   const labels: Record<keyof SignInPayload, string> = {
     email: t('common.fields.email'),
-    password: t('common.fields.password'),
+    // password: t('common.fields.password'),
   };
 
   const resolveSchema: yup.ObjectSchema<SignInPayload> = yup.object({
     email: yup.string().nullable().required().label(labels.email),
-    password: yup.string().nullable().required().label(labels.password),
+    // password: yup.string().nullable().required().label(labels.password),
   });
 
   const methods = useForm<SignInPayload>({
@@ -63,19 +63,19 @@ const SignIn = () => {
         },
       },
     },
-    password: {
-      name: 'password',
-      label: labels.password,
-      type: 'String',
-      props: {
-        type: 'password',
-      },
-      ui: {
-        grid: {
-          size: { xs: 12 },
-        },
-      },
-    },
+    // password: {
+    //   name: 'password',
+    //   label: labels.password,
+    //   type: 'String',
+    //   props: {
+    //     type: 'password',
+    //   },
+    //   ui: {
+    //     grid: {
+    //       size: { xs: 12 },
+    //     },
+    //   },
+    // },
   };
 
   return (
@@ -126,9 +126,9 @@ const SignIn = () => {
               <RegisterTypography />
             </Grid>
 
-            <Grid size={{ xs: 12 }}>
+            {/* <Grid size={{ xs: 12 }}>
               <Divider />
-            </Grid>
+            </Grid> */}
 
             <Grid size={{ xs: 12 }}>
               <Grid

@@ -1,3 +1,4 @@
+import { GREY_COLOR } from '@/constants/general';
 import { Stack, SxProps, Typography } from '@mui/material';
 import { FC } from 'react';
 
@@ -10,10 +11,10 @@ export interface TitleProps {
 const Title: FC<TitleProps> = ({ title, subTitle, sx, variant = 'h1' }) => {
   return (
     <Stack spacing={2} sx={{ ...sx }}>
-      <Typography variant={variant} fontWeight="bold">
+      <Typography variant={variant} fontWeight="700" color={GREY_COLOR}>
         {title}
       </Typography>
-      <Typography variant="h4" fontWeight={400} color="text.primary">
+      <Typography variant="h4" fontWeight={400} color={GREY_COLOR}>
         {subTitle}
       </Typography>
     </Stack>

@@ -187,6 +187,24 @@ const themeOptions: ThemeOptions = {
         },
       },
     },
+    // MuiInputBase: {
+    //   styleOverrides: {
+    //     root: {
+    //       height: 54,
+    //     },
+    //   },
+    // },
+    // MuiButtonBase: {
+    //   styleOverrides: {
+    //     root: {
+    //       MuiButton: {
+    //         contained: {
+    //           height: 55,
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
   },
   breakpoints: {
     values: {

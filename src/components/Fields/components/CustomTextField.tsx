@@ -64,13 +64,18 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
           <CustomSkeleton isLoading={isLoading}>
             <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {label && (
-                <Typography variant="subtitle2" fontWeight="bold">
+                <Typography variant="subtitle1" mb={1}>
                   {label}
                 </Typography>
               )}
 
               <TextField
                 {...props}
+                // sx={{
+                //   '& .MuiInputBase-root': {
+                //     height: 54,
+                //   },
+                // }}
                 fullWidth={fullWidth}
                 size={size}
                 onKeyDown={
@@ -82,6 +87,9 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                 helperText={errors[props.name]?.message?.toString()}
                 slotProps={{
                   input: {
+                    sx: {
+                      height: 54,
+                    },
                     endAdornment: (
                       <>
                         {!props.disabled && value && (

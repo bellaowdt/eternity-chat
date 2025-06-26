@@ -12,8 +12,11 @@ import {
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { useOnboardingSteps } from './hooks/useOnboardingSteps';
 import { useAppContext } from '@/hooks/useAppContext';
+import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
+import { useRouter } from 'next/navigation';
 
 const ReconnectSlider = () => {
+  const router = useRouter();
   const theme = useTheme();
   const { isMobile } = useAppContext();
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
@@ -25,7 +28,7 @@ const ReconnectSlider = () => {
     if (activeStep < steps.length - 1) {
       setActiveStep((prev) => prev + 1);
     } else {
-      // Example: router.push('/dashboard')
+      router.push(DEFAULT_SIGNIN_PATH);
     }
   };
 
@@ -49,7 +52,7 @@ const ReconnectSlider = () => {
     >
       <Box
         display="flex"
-        flexDirection={{ xs: 'column-reverse', sm: 'row' }}
+        flexDirection={{ xs: 'column', sm: 'row' }}
         alignItems="center"
         justifyContent="center"
         width="100%"

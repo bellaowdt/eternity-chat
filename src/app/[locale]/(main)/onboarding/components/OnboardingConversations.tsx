@@ -70,7 +70,7 @@ const OnboardingConversations = () => {
       <Box
         sx={{
           position: 'absolute',
-          top: { xs: '38%', sm: '26', md: '26%' },
+          top: { xs: '38%', sm: '26', md: '28%' },
           left: { xs: '4%', sm: '5%', md: '6%' },
           maxWidth: { xs: '70%', sm: '65%', md: '60%' },
           zIndex: 1,
@@ -137,7 +137,7 @@ const OnboardingConversations = () => {
         sx={{
           position: 'absolute',
           top: { xs: '70%', sm: '70%', md: '72%', xl: '78%' },
-          right: { xs: '1%', sm: '15%', md: '1%', xl: '20%' },
+          right: { xs: '1%', sm: '15%', md: '1%', xl: '10%' },
           [theme.breakpoints.between(600, 768)]: {
             right: '35%',
           },
