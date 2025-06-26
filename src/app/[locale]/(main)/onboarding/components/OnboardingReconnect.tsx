@@ -87,7 +87,7 @@ const OnboardingReconnect = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        height: '100vh',
+        minHeight: { xs: 600, sm: 700, md: 800 },
         overflow: 'hidden',
         background: 'linear-gradient(to right, #fff, #fbeedf)',
       }}
@@ -120,27 +120,25 @@ const OnboardingReconnect = () => {
               objectFit: 'cover',
             }}
           />
-          {focus && (
-            <Box
-              sx={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                background:
-                  'linear-gradient(to top, rgba(0,0,0,0.6), transparent)',
-                px: 2,
-                py: 1,
-              }}
-            >
-              <Typography fontWeight="bold" variant="subtitle1" color="white">
-                Christina
-              </Typography>
-              <Typography variant="body2" color="white" sx={{ opacity: 0.7 }}>
-                Relationip
-              </Typography>
-            </Box>
-          )}
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              background:
+                'linear-gradient(to top, rgba(0,0,0,0.6), transparent)',
+              px: 2,
+              py: 1,
+            }}
+          >
+            <Typography fontWeight="bold" variant="subtitle1" color="white">
+              Christina
+            </Typography>
+            <Typography variant="body2" color="white" sx={{ opacity: 0.7 }}>
+              Relationip
+            </Typography>
+          </Box>
         </Card>
       ))}
     </Box>

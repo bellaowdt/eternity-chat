@@ -1,22 +1,14 @@
 'use client';
 
 import {
+  LIGHT_BLUE_COLOR,
   ONBOARDING_BG_COLOR,
   ONBOARDING_GRID_IMAGES,
 } from '@/constants/general';
-import {
-  Avatar,
-  Box,
-  Button,
-  Stack,
-  Typography,
-  useTheme,
-} from '@mui/material';
+import { Avatar, Box, Button, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
 
 const OnboardingHealing = () => {
-  const theme = useTheme();
   return (
     <Box
       display="flex"
@@ -25,13 +17,12 @@ const OnboardingHealing = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        height: '100vh',
+        minHeight: { xs: 600, sm: 700, md: 800 },
         overflow: 'hidden',
         px: { xs: 2, md: 4 },
         py: { xs: 4, md: 0 },
       }}
     >
-      {/* Right-side image */}
       <Box
         sx={{
           position: 'absolute',
@@ -40,21 +31,18 @@ const OnboardingHealing = () => {
           height: { xs: 240, sm: 300, md: 536 },
           bgcolor: ONBOARDING_BG_COLOR,
           borderRadius: 0.5,
+          overflow: 'hidden',
         }}
       >
         <Image
           src={`${ONBOARDING_GRID_IMAGES}/chris.png`}
           alt="Chris"
           fill
-          style={{
-            objectFit: 'cover',
-            borderRadius: 0.5,
-          }}
+          style={{ objectFit: 'cover' }}
           priority
         />
       </Box>
 
-      {/* Floating chat box */}
       <Box
         sx={{
           position: 'absolute',
@@ -64,11 +52,10 @@ const OnboardingHealing = () => {
           bgcolor: 'common.white',
           borderRadius: 0.5,
           boxShadow: 4,
-          px: { xs: 1.5, sm: 2 },
+          px: 1.5,
         }}
       >
         <Stack p={{ xs: 2, sm: 3 }} spacing={2}>
-          {/* Header */}
           <Box display="flex" alignItems="center">
             <Avatar
               alt="Joe Collins"
@@ -97,17 +84,15 @@ const OnboardingHealing = () => {
             </Box>
           </Box>
 
-          {/* Message */}
           <Typography fontSize={{ xs: 14, sm: 16, md: 18 }} fontWeight={400}>
             Hey John, let’s talk about how you’ve been lately.
           </Typography>
 
-          {/* Call-to-action */}
           <Button
             variant="contained"
             fullWidth
             sx={{
-              bgcolor: '#A2CBF3',
+              bgcolor: 'secondary.light',
               '&:hover': { bgcolor: '#8dbfe7' },
               textTransform: 'none',
               py: 1,

@@ -6,6 +6,8 @@ export const MINI_DRAWER_WIDTH = 80;
 export const DIALOG_SIDEBAR_WIDTH = 200;
 export const NAVBAR_HEIGHT = 80;
 export const ONBOARDING_BG_COLOR = '#EEBF95';
+export const GREY_COLOR = '#3D3D3D';
+export const LIGHT_BLUE_COLOR = '#A2CBF3';
 
 export const DEFAULt_NO_IMAGE = '/assets/images/placeholders/no-image.jpg';
 export const HOME_CHAT_EXPERIENCE = '/assets/images/home/home-chat.png';

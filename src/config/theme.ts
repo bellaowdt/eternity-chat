@@ -91,7 +91,6 @@ const themeOptions: ThemeOptions = {
     h5: {
       fontSize: '1rem', //16px
       lineHeight: 1.5,
-      fontWeight: 700,
     },
     h6: {
       fontSize: '0.875rem', //14px

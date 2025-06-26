@@ -10,7 +10,6 @@ import {
   useTheme,
 } from '@mui/material';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
 import { useOnboardingSteps } from './hooks/useOnboardingSteps';
 import { useAppContext } from '@/hooks/useAppContext';
 
@@ -20,7 +19,7 @@ const ReconnectSlider = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   const steps = useOnboardingSteps();
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep, setActiveStep] = useState(1);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -50,7 +49,7 @@ const ReconnectSlider = () => {
     >
       <Box
         display="flex"
-        flexDirection={{ xs: 'column', sm: 'row' }}
+        flexDirection={{ xs: 'column-reverse', sm: 'row' }}
         alignItems="center"
         justifyContent="center"
         width="100%"
