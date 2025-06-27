@@ -47,15 +47,16 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
         padding: 3,
         mx: 'auto',
         backgroundColor: '#fff',
+        boxShadow: 2,
       }}
     >
       <CardContent sx={{ minHeight: 420, position: 'relative' }}>
-        <Typography fontSize="48px" fontWeight="bold">
+        <Typography fontSize="48px" fontWeight="700">
           {price}
           {duration && (
             <Typography
-              variant="body2"
-              fontWeight="bold"
+              variant="subtitle1"
+              fontWeight="700"
               component="span"
               color="#8D8D8D"
             >
@@ -65,8 +66,8 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
         </Typography>
 
         <Typography variant="h3" mt={3} mb={1}>
-          {title}
-          <Typography variant="h5" component="span">
+          {title} {''}
+          <Typography variant="subtitle1" fontWeight={700} component="span">
             {planType}
           </Typography>
         </Typography>
@@ -75,14 +76,14 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
           {features &&
             features?.map((feature, index) => (
               <ListItem key={index} disableGutters>
-                <ListItemIcon sx={{ minWidth: 36 }}>
+                <ListItemIcon sx={{ minWidth: 32 }}>
                   {feature.icon}
                 </ListItemIcon>
                 <ListItemText
                   primary={feature.text}
                   slotProps={{
                     primary: {
-                      variant: 'body2',
+                      variant: 'subtitle2',
                       fontWeight: 400,
                     },
                   }}
@@ -90,10 +91,6 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
               </ListItem>
             ))}
         </List>
-
-        <Typography variant="button" color="text.secondary" mt={2}>
-          {moreDetails}
-        </Typography>
 
         <Box position="absolute" bottom={0} right={0} width="100%">
           <Button

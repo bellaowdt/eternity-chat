@@ -13,12 +13,15 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
 import { FC } from 'react';
+import { useAppContext } from '@/hooks/useAppContext';
 
 interface AppearanceProsp {
   onSkip: VoidFunction;
 }
 
 const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
+  const { isMobile } = useAppContext();
+
   const labels: Record<keyof AppearancePayload, string> = {
     description: 'description',
     photo: 'photo',
@@ -75,6 +78,7 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
         <Box>
           <Title
             title="Appearance"
+            variant={isMobile ? 'h3' : 'h1'}
             sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
           />
           <Grid

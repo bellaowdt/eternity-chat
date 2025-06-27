@@ -166,7 +166,7 @@
             "f2": "No credit card required",
             "f3": "7-day access"
           },
-          "moreDetails": "A gentle first step to see what it's like.",
+          "moreDetails": "",
           "buttonTilte": "Start Free Trial"
         },
         "premium": {
@@ -182,7 +182,7 @@
             "f4": "Priority customer support",
             "f5": "Everything included in Free Trial"
           },
-          "moreDetails": "Feel the presence. Hear their voice. Stay connected.",
+          "moreDetails": "",
           "buttonTilte": "Upgrade to Premium"
         }
       },

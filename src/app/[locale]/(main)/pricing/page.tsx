@@ -43,7 +43,7 @@ const PaymentPlans = () => {
   return (
     <>
       <Box
-        p={8}
+        p={{ xs: 4, sm: 8 }}
         display="flex"
         width="100%"
         alignItems="center"
@@ -53,12 +53,13 @@ const PaymentPlans = () => {
         <Grid container spacing={isMobile ? 4 : 2} gap={2}>
           <Grid size={{ xs: 12, sm: 5 }}>
             <Box
-              px={isMobile ? 1 : 16}
+              px={isMobile ? 1 : 4}
               display="flex"
               flexDirection="column"
               justifyContent="center"
               height="100%"
               width="100%"
+              maxWidth="customSize"
             >
               <Typography
                 variant="h1"

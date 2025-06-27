@@ -14,12 +14,14 @@ import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
+import { useAppContext } from '@/hooks/useAppContext';
 
 interface CommunicationStyleProps {
   onSkip: VoidFunction;
 }
 
 const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
+  const { isMobile } = useAppContext();
   const labels: Record<keyof CommunicationPayload, string> = {
     description: 'description',
     saying: 'saying',
@@ -93,6 +95,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
         <Box>
           <Title
             title="Communication Style"
+            variant={isMobile ? 'h3' : 'h1'}
             sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
           />
           <Grid
