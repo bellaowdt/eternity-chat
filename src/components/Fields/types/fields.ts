@@ -114,6 +114,7 @@ export type TextLimitations = Partial<{
 export interface CustomTextFieldProps
   extends Partial<TextFieldProps<'standard'>> {
   label: string;
+  boldLabel?: boolean;
   name: string;
   limitations?: TextLimitations & NumberLimitations;
   ControllerProps?: Partial<ControllerProps>;

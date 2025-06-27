@@ -15,6 +15,7 @@ import CustomSkeleton from '../../common/CustomSkeleton';
 import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CustomSelectProps } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
+import { FIXED_SELECT_HEIGHT } from '@/constants/general';
 
 const CustomSelect: FC<CustomSelectProps> = ({
   options = [],
@@ -70,6 +71,9 @@ const CustomSelect: FC<CustomSelectProps> = ({
                 )}
                 <Select
                   {...props}
+                  sx={{
+                    height: FIXED_SELECT_HEIGHT,
+                  }}
                   id={`${name}-select`}
                   value={normalizedValue}
                   onChange={handleChange}

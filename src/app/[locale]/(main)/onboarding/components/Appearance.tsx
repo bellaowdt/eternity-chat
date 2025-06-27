@@ -53,6 +53,7 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
           'E.g., They were tall with short brown hair and often wore glasses. Their smile was warm, and they had a calming presence.',
         multiline: true,
         minRows: 8,
+        boldLabel: true,
       },
       ui: {
         grid: {
@@ -63,51 +64,57 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width="100%"
-      minHeight="100vh"
-      p={4}
-    >
-      <FormProvider {...methods}>
-        <Title
-          title="Appearance"
-          sx={{ my: 5, justifyContent: 'flex-start' }}
-        />
-        <Grid
-          container
-          spacing={2}
-          component="form"
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
-        >
-          <FormBuilder fields={fields} />
+    <FormProvider {...methods}>
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        width="100%"
+        flex={1}
+      >
+        <Box>
+          <Title
+            title="Appearance"
+            sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
+          />
+          <Grid
+            container
+            spacing={2}
+            component="form"
+            onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+          >
+            <FormBuilder fields={fields} />
 
-          <Grid size={{ xs: 12 }}>
-            <FileUploadForm
-              name="photo"
-              label="Do you have a photo you'd like to share?"
-              acceptedFormat=".jpg,.jpeg,.png"
-              acceptedFormatText="Supported formats: JPG, JPEG, PNG"
-            />
+            <Grid size={{ xs: 12 }}>
+              <FileUploadForm
+                name="photo"
+                label="Do you have a photo you'd like to share?"
+                acceptedFormat=".jpg,.jpeg,.png"
+                acceptedFormatText="Supported formats: JPG, JPEG, PNG"
+              />
+            </Grid>
           </Grid>
+        </Box>
 
-          <Grid size={{ xs: 12 }} textAlign="center">
-            <GradientButtonWithLoading
-              // isLoading={isPending}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              size="large"
-            >
-              Continue
-            </GradientButtonWithLoading>
-            <SkipStep onSkip={onSkip} />
+        <Box mt={2}>
+          <Grid container textAlign="center" spacing={2}>
+            <Grid size={{ xs: 12 }}>
+              <GradientButtonWithLoading
+                // isLoading={isPending}
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                size="large"
+              >
+                Continue
+              </GradientButtonWithLoading>
+              <SkipStep onSkip={onSkip} />
+            </Grid>
           </Grid>
-        </Grid>
-      </FormProvider>
-    </Box>
+        </Box>
+      </Box>
+    </FormProvider>
   );
 };
 

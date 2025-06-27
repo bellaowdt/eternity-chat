@@ -14,6 +14,7 @@ import { useOnboardingSteps } from './hooks/useOnboardingSteps';
 import { useAppContext } from '@/hooks/useAppContext';
 import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
 import { useRouter } from 'next/navigation';
+import { STEPPER_COLOR } from '@/constants/general';
 
 const ReconnectSlider = () => {
   const router = useRouter();
@@ -129,7 +130,7 @@ const ReconnectSlider = () => {
                 cursor:
                   activeStep === steps.length - 1 ? 'not-allowed' : 'pointer',
                 opacity: activeStep === steps.length - 1 ? 0.5 : 1,
-                color: '#6C747F',
+                color: STEPPER_COLOR,
                 minWidth: 0,
                 padding: 0,
               }}
@@ -164,7 +165,6 @@ const ReconnectSlider = () => {
             </Box>
           </Box>
         </Box>
-
         {/* Right Side */}
         <Box
           flex={2}

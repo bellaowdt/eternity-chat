@@ -9,7 +9,8 @@ const useResponsiveContainer = (requiredSize?: MaxWidth) => {
   const matchesMd = useMediaQuery(theme.breakpoints.up('md'));
   const matchesLg = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const calculatedSize: MaxWidth = matchesLg ? 'md' : matchesMd ? 'sm' : 'xs';
+  // const calculatedSize: MaxWidth = matchesLg ? 'md' : matchesMd ? 'sm' : 'xs';
+  const calculatedSize: MaxWidth = 'xs';
 
   return requiredSize ?? calculatedSize;
 };

@@ -7,8 +7,8 @@ import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
 import { PersonalityTraitsPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid, Typography } from '@mui/material';
-import { FC } from 'react';
+import { Box, Button, Grid, Typography } from '@mui/material';
+import { FC, Fragment, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
@@ -18,7 +18,15 @@ interface GeneralInformationProps {
   onSkip: VoidFunction;
 }
 
-const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
+const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
+  const [selectedTraits, setSelectedTraits] = useState<string[]>([]);
+
+  const handleToggle = (trait: string) => {
+    setSelectedTraits((prev) =>
+      prev.includes(trait) ? prev.filter((t) => t !== trait) : [...prev, trait],
+    );
+  };
+
   const labels: Record<keyof PersonalityTraitsPayload, string> = {
     favoriteActivities: 'Favorite Activities',
     personality: 'Personality',
@@ -51,6 +59,9 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
       type: 'String',
       props: {
         placeholder: 'Type Here',
+        boldLabel: true,
+        multiline: true,
+        rows: 6,
       },
       ui: {
         grid: {
@@ -61,7 +72,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
     personalityLabel: {
       type: 'Custom',
       component: (
-        <Typography variant="body1" pt={3}>
+        <Typography variant="subtitle1" fontWeight={700} pt={3}>
           Which words best describe their personality?
         </Typography>
       ),
@@ -71,41 +82,59 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
         },
       },
     },
-    ...PersonalityList.reduce((acc, item) => {
-      acc[item?.value as string | number] = {
-        name: item.value as string,
-        label: item.label as string,
-        type: 'Checkbox',
-        ui: {
-          grid: {
-            size: { xs: 12 },
-          },
-        },
-      };
-      return acc;
-    }, {} as FormBuilderProps['fields']),
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width="100%"
-      minHeight="100vh"
-      p={4}
-    >
-      <FormProvider {...methods}>
-        <Title
-          title="Personality Traits"
-          sx={{ my: 5, justifyContent: 'flex-start' }}
-        />
-        <Grid
-          container
-          spacing={2}
-          component="form"
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
-        >
-          <FormBuilder fields={fields} />
+    <FormProvider {...methods}>
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        width="100%"
+        flex={1}
+      >
+        <Box>
+          <Title
+            title="Personality Traits"
+            sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
+          />
+          <Grid
+            container
+            spacing={2}
+            component="form"
+            onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+          >
+            <FormBuilder fields={fields} />
+
+            <Grid size={{ xs: 12 }}>
+              <Box display="flex" flexWrap="wrap" gap={1} sx={{ mt: 1 }}>
+                {PersonalityList.map((trait) => (
+                  <Fragment key={trait.value as string}>
+                    <Button
+                      variant={
+                        selectedTraits.includes(trait.value as string)
+                          ? 'contained'
+                          : 'outlined'
+                      }
+                      onClick={() => handleToggle(trait.value as string)}
+                      sx={{
+                        textTransform: 'none',
+                        borderRadius: '30px',
+                        px: 1.8,
+                        py: 1,
+                        fontSize: 16,
+                      }}
+                    >
+                      {trait.label}
+                    </Button>
+                  </Fragment>
+                ))}
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+
+        <Box mt={2}>
           <Grid size={{ xs: 12 }} textAlign="center">
             <GradientButtonWithLoading
               type="submit"
@@ -118,10 +147,10 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
             </GradientButtonWithLoading>
             <SkipStep onSkip={onSkip} />
           </Grid>
-        </Grid>
-      </FormProvider>
-    </Box>
+        </Box>
+      </Box>
+    </FormProvider>
   );
 };
 
-export default GeneralInformation;
+export default PersonalityTraits;

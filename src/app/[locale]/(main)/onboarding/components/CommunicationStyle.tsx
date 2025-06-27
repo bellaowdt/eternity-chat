@@ -55,6 +55,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
       props: {
         placeholder:
           'E.g., They spoke with a warm and friendly tone, often using kind words and gentle humor. Their messages were thoughtful and supportive.',
+        boldLabel: true,
         multiline: true,
         minRows: 8,
       },
@@ -70,6 +71,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
       type: 'String',
       props: {
         placeholder: "E.g., 'Keep smiling!",
+        boldLabel: true,
       },
       ui: {
         grid: {
@@ -80,61 +82,67 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width="100%"
-      minHeight="100vh"
-      p={4}
-    >
-      <FormProvider {...methods}>
-        <Title
-          title="Communication Style"
-          sx={{ my: 5, justifyContent: 'flex-start' }}
-        />
-        <Grid
-          container
-          spacing={3}
-          component="form"
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
-        >
-          <FormBuilder fields={fields} />
+    <FormProvider {...methods}>
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        width="100%"
+        flex={1}
+      >
+        <Box>
+          <Title
+            title="Communication Style"
+            sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
+          />
+          <Grid
+            container
+            spacing={3}
+            component="form"
+            onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+          >
+            <FormBuilder fields={fields} />
 
-          <Grid size={{ xs: 12 }}>
-            <FileUploadForm
-              name="lovedVoice"
-              label="Upload a voice recording of your loved one"
-              acceptedFormat=".mp3,wav"
-              acceptedFormatText="Supported formats: MP3, WAV"
-            />
-          </Grid>
+            <Grid size={{ xs: 12 }}>
+              <FileUploadForm
+                name="lovedVoice"
+                label="Upload a voice recording of your loved one"
+                acceptedFormat=".mp3,wav"
+                acceptedFormatText="Supported formats: MP3, WAV"
+              />
+            </Grid>
 
-          <Grid size={{ xs: 12 }}>
-            <FileUploadForm
-              name="textVoice"
-              label="Would you like to upload text messages they’ve sent you?"
-              subLabel="This helps us better understand their unique way of talking."
-              acceptedFormat=".mp3,wav"
-              acceptedFormatText="Supported formats: MP3, WAV"
-            />
+            <Grid size={{ xs: 12 }}>
+              <FileUploadForm
+                name="textVoice"
+                label="Would you like to upload text messages they’ve sent you?"
+                subLabel="This helps us better understand their unique way of talking."
+                acceptedFormat=".mp3,wav"
+                acceptedFormatText="Supported formats: MP3, WAV"
+              />
+            </Grid>
           </Grid>
+        </Box>
 
-          <Grid size={{ xs: 12 }} textAlign="center">
-            <GradientButtonWithLoading
-              isLoading={isPending}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              size="large"
-            >
-              Continue
-            </GradientButtonWithLoading>
-            <SkipStep onSkip={onSkip} />
+        <Box mt={2}>
+          <Grid container textAlign="center" spacing={2}>
+            <Grid size={{ xs: 12 }}>
+              <GradientButtonWithLoading
+                isLoading={isPending}
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                size="large"
+              >
+                Continue
+              </GradientButtonWithLoading>
+              <SkipStep onSkip={onSkip} />
+            </Grid>
           </Grid>
-        </Grid>
-      </FormProvider>
-    </Box>
+        </Box>
+      </Box>
+    </FormProvider>
   );
 };
 

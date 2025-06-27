@@ -14,6 +14,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
   ControllerProps = {},
   forbiddenChars = DEFAULT_FORBIDDEN_CHARS,
   label,
+  boldLabel = false,
   ...props
 }) => {
   const {
@@ -29,8 +30,6 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
       event.preventDefault();
     }
   };
-
-  console.log(props);
 
   return (
     <Controller
@@ -67,7 +66,11 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
           <CustomSkeleton isLoading={isLoading}>
             <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {label && (
-                <Typography variant="subtitle1" mb={1}>
+                <Typography
+                  variant="subtitle1"
+                  mb={1}
+                  fontWeight={boldLabel ? 'bold' : 'normal'}
+                >
                   {label}
                 </Typography>
               )}
@@ -85,9 +88,10 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                 helperText={errors[props.name]?.message?.toString()}
                 slotProps={{
                   input: {
-                    sx: {
-                      height: FIXED_INPUT_HEIGHT,
-                    },
+                    ...(props.multiline
+                      ? {}
+                      : { sx: { height: FIXED_INPUT_HEIGHT } }),
+
                     endAdornment: (
                       <>
                         {!props.disabled && value && (

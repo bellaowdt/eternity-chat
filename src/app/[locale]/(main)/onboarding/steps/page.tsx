@@ -9,9 +9,9 @@ const OnboardingProcess = () => {
   const containerMaxWidth = useResponsiveContainer();
 
   return (
-    <Container maxWidth={containerMaxWidth}>
-      <ProgressStepper />
-    </Container>
+    // <Container maxWidth={containerMaxWidth}>
+    <ProgressStepper />
+    // </Container>
   );
 };
 

@@ -6,11 +6,14 @@ export const MINI_DRAWER_WIDTH = 80;
 export const DIALOG_SIDEBAR_WIDTH = 200;
 export const NAVBAR_HEIGHT = 80;
 export const FIXED_BUTTON_HEIGHT = 55;
-export const FIXED_INPUT_HEIGHT = 54;
+export const FIXED_INPUT_HEIGHT = 51;
+export const FIXED_SELECT_HEIGHT = 50;
 
 export const ONBOARDING_BG_COLOR = '#EEBF95';
 export const GREY_COLOR = '#3D3D3D';
 export const LIGHT_BLUE_COLOR = '#A2CBF3';
+export const LAYOUT_BACKGROUND_BLUE = '#E0F0FF';
+export const STEPPER_COLOR = '#6C747F';
 
 export const DEFAULt_NO_IMAGE = '/assets/images/placeholders/no-image.jpg';
 export const HOME_CHAT_EXPERIENCE = '/assets/images/home/home-chat.png';
@@ -42,12 +45,33 @@ export const PersonalityList: Option[] = [
   },
   {
     id: 5,
+    label: 'Intelligent',
+    value: 'Intelligent',
+  },
+
+  {
+    id: 6,
     label: 'Creative',
     value: 'Creative',
   },
   {
-    id: 6,
+    id: 7,
     label: 'Calm',
     value: 'Calm',
+  },
+  {
+    id: 8,
+    label: 'Outgoing',
+    value: 'Outgoing',
+  },
+  {
+    id: 9,
+    label: 'Quiet',
+    value: 'Quiet',
+  },
+  {
+    id: 10,
+    label: 'Other',
+    value: 'Other',
   },
 ];

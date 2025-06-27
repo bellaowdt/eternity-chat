@@ -8,14 +8,24 @@ import { generalInformationUpdate } from '@/services/onboarding';
 import { GeneralInformationPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import { STEPPER_COLOR } from '@/constants/general';
+import { useAppContext } from '@/hooks/useAppContext';
+import { FC } from 'react';
+import SkipStep from './SkipStep';
 
-const GeneralInformation = () => {
+type GeneralInformationProps = {
+  onSkip: () => void;
+};
+
+const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
   const t = useTranslations();
+  const { isMobile } = useAppContext();
+
   const labels: Record<keyof GeneralInformationPayload, string> = {
     name: 'Name',
     relationship: 'Relationship',
@@ -88,6 +98,7 @@ const GeneralInformation = () => {
       type: 'String',
       props: {
         placeholder: t('common.fields.namePlaceholder'),
+        boldLabel: true,
       },
       ui: {
         grid: {
@@ -126,41 +137,48 @@ const GeneralInformation = () => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width="100%"
-      minHeight="100vh"
-      p={4}
-    >
-      <FormProvider {...methods}>
-        <Title
-          title="General Information"
-          sx={{ my: 5, justifyContent: 'flex-start' }}
-        />
-        <Grid
-          container
-          spacing={2}
-          component="form"
-          onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
-        >
-          <FormBuilder fields={fields} />
-
-          <Grid size={{ xs: 12 }}>
-            <GradientButtonWithLoading
-              isLoading={isPending}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              size="large"
-            >
-              Continue
-            </GradientButtonWithLoading>
+    <FormProvider {...methods}>
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        width="100%"
+        flex={1}
+      >
+        <Box>
+          <Title
+            title="General Information"
+            variant={isMobile ? 'h3' : 'h1'}
+            sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
+          />
+          <Grid
+            container
+            spacing={2}
+            component="form"
+            onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
+          >
+            <FormBuilder fields={fields} />
           </Grid>
-        </Grid>
-      </FormProvider>
-    </Box>
+        </Box>
+        <Box mt={2}>
+          <Grid container textAlign="center" spacing={2}>
+            <Grid size={{ xs: 12 }}>
+              <GradientButtonWithLoading
+                isLoading={isPending}
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                size="large"
+              >
+                Continue
+              </GradientButtonWithLoading>
+              <SkipStep onSkip={onSkip} />
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </FormProvider>
   );
 };
 

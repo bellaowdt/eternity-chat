@@ -4,6 +4,17 @@ import { GlobalStylesProps, ThemeOptions, createTheme } from '@mui/material';
 import Link from 'next/link';
 import { grey } from '@mui/material/colors';
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+    customSize: true;
+  }
+}
+
 export const globalStyles: GlobalStylesProps['styles'] = (theme) => ({
   '*::-webkit-scrollbar-track': {
     backgroundColor: grey[200],
@@ -213,6 +224,7 @@ const themeOptions: ThemeOptions = {
       md: 1024,
       lg: 1266,
       xl: 1536,
+      customSize: 480,
     },
   },
 };
