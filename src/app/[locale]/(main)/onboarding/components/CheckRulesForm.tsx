@@ -1,5 +1,6 @@
 'use client';
 
+import SizedButton from '@/components/common/SizedButton';
 import { DEFAULT_ONBOARDING_STEPS_PATH } from '@/constants/routes';
 import { Button, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -51,7 +52,7 @@ const CheckClubRulesForm = ({
               control={
                 <Checkbox {...field} checked={!!field.value} color="primary" />
               }
-              sx={{ fontSize: '18' }}
+              sx={{ fontSize: '18px' }}
               label="I have read and agree to the Terms of Service"
             />
           )}
@@ -60,13 +61,9 @@ const CheckClubRulesForm = ({
           <FormHelperText error>{errors.acceptClubRule.message}</FormHelperText>
         )}
       </Box>
-      <Button
-        variant="contained"
-        onClick={handleStart}
-        sx={{ fontSize: '16px' }}
-      >
+      <SizedButton variant="contained" onClick={handleStart}>
         Let’s Start
-      </Button>
+      </SizedButton>
     </Stack>
   );
 };

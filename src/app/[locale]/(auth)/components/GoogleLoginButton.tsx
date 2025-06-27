@@ -12,6 +12,7 @@ const GoogleLoginButton = () => {
       component={'a'}
       variant="outlined"
       color="inherit"
+      sx={{ height: 50 }}
       startIcon={<Image alt="" width={25} height={25} src={GOOGLE_ICON} />}
     >
       <Typography

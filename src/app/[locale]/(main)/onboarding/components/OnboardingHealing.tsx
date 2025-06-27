@@ -1,5 +1,6 @@
 'use client';
 
+import SizedButton from '@/components/common/SizedButton';
 import {
   ONBOARDING_BG_COLOR,
   ONBOARDING_GRID_IMAGES,
@@ -87,7 +88,7 @@ const OnboardingHealing = () => {
             Hey John, let’s talk about how you’ve been lately.
           </Typography>
 
-          <Button
+          <SizedButton
             variant="contained"
             fullWidth
             sx={{
@@ -105,7 +106,7 @@ const OnboardingHealing = () => {
             >
               Start Chat
             </Typography>
-          </Button>
+          </SizedButton>
         </Stack>
       </Box>
     </Box>

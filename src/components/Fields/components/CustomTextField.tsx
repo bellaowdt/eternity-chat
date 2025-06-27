@@ -6,6 +6,7 @@ import { DEFAULT_FORBIDDEN_CHARS } from '../constants/defaults';
 import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CustomTextFieldProps } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
+import { FIXED_INPUT_HEIGHT } from '@/constants/general';
 
 const CustomTextField: FC<CustomTextFieldProps> = ({
   fullWidth = true,
@@ -28,6 +29,8 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
       event.preventDefault();
     }
   };
+
+  console.log(props);
 
   return (
     <Controller
@@ -71,11 +74,6 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
 
               <TextField
                 {...props}
-                // sx={{
-                //   '& .MuiInputBase-root': {
-                //     height: 54,
-                //   },
-                // }}
                 fullWidth={fullWidth}
                 size={size}
                 onKeyDown={
@@ -88,7 +86,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
                 slotProps={{
                   input: {
                     sx: {
-                      height: 54,
+                      height: FIXED_INPUT_HEIGHT,
                     },
                     endAdornment: (
                       <>

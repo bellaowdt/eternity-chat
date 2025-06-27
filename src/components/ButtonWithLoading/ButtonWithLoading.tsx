@@ -1,3 +1,4 @@
+import { FIXED_BUTTON_HEIGHT } from '@/constants/general';
 import { Button, ButtonProps, CircularProgress } from '@mui/material';
 import { FC } from 'react';
 
@@ -12,7 +13,7 @@ const ButtonWithLoading: FC<ButtonWithLoadingProps> = ({
     <Button
       {...props}
       disabled={isLoading || props.disabled}
-      sx={{ minWidth: 100, ...props.sx }}
+      sx={{ minWidth: 100, height: FIXED_BUTTON_HEIGHT, ...props.sx }}
     >
       {isLoading ? (
         <CircularProgress color="inherit" size={20} />

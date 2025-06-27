@@ -5,6 +5,9 @@ export const DRAWER_MIN_WIDTH = 0;
 export const MINI_DRAWER_WIDTH = 80;
 export const DIALOG_SIDEBAR_WIDTH = 200;
 export const NAVBAR_HEIGHT = 80;
+export const FIXED_BUTTON_HEIGHT = 55;
+export const FIXED_INPUT_HEIGHT = 54;
+
 export const ONBOARDING_BG_COLOR = '#EEBF95';
 export const GREY_COLOR = '#3D3D3D';
 export const LIGHT_BLUE_COLOR = '#A2CBF3';
