@@ -41,84 +41,77 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
     buttonTilte,
   } = card;
   return (
-    <Card
+    <Box
       sx={{
-        borderRadius: 1,
-        padding: 3,
-        mx: 'auto',
-        backgroundColor: '#fff',
-        boxShadow: 2,
+        borderRadius: 2,
+        p: 0,
       }}
     >
-      <CardContent sx={{ minHeight: 420, position: 'relative' }}>
-        <Typography fontSize="48px" fontWeight="700">
-          {price}
-          {duration && (
-            <Typography
-              variant="subtitle1"
-              fontWeight="700"
-              component="span"
-              color="#8D8D8D"
-            >
-              {duration}
-            </Typography>
-          )}
-        </Typography>
-
-        <Typography variant="h3" mt={3} mb={1}>
-          {title} {''}
-          <Typography variant="subtitle1" fontWeight={700} component="span">
-            {planType}
-          </Typography>
-        </Typography>
-
-        <List>
-          {features &&
-            features?.map((feature, index) => (
-              <ListItem key={index} disableGutters>
-                <ListItemIcon sx={{ minWidth: 32 }}>
-                  {feature.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={feature.text}
-                  slotProps={{
-                    primary: {
-                      variant: 'subtitle2',
-                      fontWeight: 400,
-                    },
-                  }}
-                />
-              </ListItem>
-            ))}
-        </List>
-
-        <Box position="absolute" bottom={0} right={0} width="100%">
-          <Button
-            fullWidth
-            variant={planFormat === plans[0] ? 'outlined' : 'contained'}
-            size="large"
-            onClick={() => onClick?.()}
-            sx={{
-              mt: 3,
-              borderRadius: 10,
-              fontWeight: 700,
-              textTransform: 'none',
-              color: planFormat === plans[0] ? '#000' : '#fff',
-              borderColor:
-                planFormat === plans[0]
-                  ? '#979DA5'
-                  : (theme) => theme.palette.primary.main,
-              backgroundColor:
-                planFormat === plans[0]
-                  ? '#fff'
-                  : (theme) => theme.palette.primary.main,
-            }}
+      <Typography fontSize="48px" fontWeight="700">
+        {price}
+        {duration && (
+          <Typography
+            variant="subtitle1"
+            fontWeight="700"
+            component="span"
+            color="#8D8D8D"
           >
-            {buttonTilte}
-          </Button>
-        </Box>
-      </CardContent>
-    </Card>
+            {duration}
+          </Typography>
+        )}
+      </Typography>
+
+      <Typography variant="h3" mt={3} mb={1}>
+        {title} {''}
+        <Typography variant="subtitle1" fontWeight={700} component="span">
+          {planType}
+        </Typography>
+      </Typography>
+
+      <List>
+        {features &&
+          features?.map((feature, index) => (
+            <ListItem key={index} disableGutters>
+              <ListItemIcon sx={{ minWidth: 32 }}>{feature.icon}</ListItemIcon>
+              <ListItemText
+                primary={feature.text}
+                slotProps={{
+                  primary: {
+                    variant: 'subtitle2',
+                    fontWeight: 400,
+                  },
+                }}
+              />
+            </ListItem>
+          ))}
+      </List>
+
+      <Box position="absolute" bottom={0} right={0} width="100%">
+        <Button
+          fullWidth
+          variant={planFormat === plans[0] ? 'outlined' : 'contained'}
+          size="large"
+          onClick={() => onClick?.()}
+          sx={{
+            mt: 3,
+            borderRadius: 10,
+            fontWeight: 700,
+            textTransform: 'none',
+            color: planFormat === plans[0] ? '#000' : '#fff',
+            borderColor:
+              planFormat === plans[0]
+                ? '#979DA5'
+                : (theme) => theme.palette.primary.main,
+            backgroundColor:
+              planFormat === plans[0]
+                ? '#fff'
+                : (theme) => theme.palette.primary.main,
+          }}
+        >
+          {buttonTilte}
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

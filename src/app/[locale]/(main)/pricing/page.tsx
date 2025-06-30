@@ -1,15 +1,16 @@
 'use client';
 
-import { Box, Grid, Typography } from '@mui/material';
+import { NAVBAR_HEIGHT } from '@/constants/general';
+import { DEFAULT_PLAYMENT_PLANS_UPGRADE_PATH } from '@/constants/routes';
+import { useAppContext } from '@/hooks/useAppContext';
+import { Box, Card, Grid, Paper, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import PlanCard from './components/PlanCard';
-import { plans, planFeatures } from './components/PaymentPlansData';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import FreeTrialDialog from './components/FreeTrialDialog';
-import { useRouter } from 'next/navigation';
-import { DEFAULT_PLAYMENT_PLANS_UPGRADE_PATH } from '@/constants/routes';
-import { NAVBAR_HEIGHT } from '@/constants/general';
-import { useAppContext } from '@/hooks/useAppContext';
+import { planFeatures, plans } from './components/PaymentPlansData';
+import PlanCard from './components/PlanCard';
+import PlanDescriptionCard from './components/PlanDescriptionCard';
 
 const PaymentPlans = () => {
   const t = useTranslations();
@@ -42,6 +43,21 @@ const PaymentPlans = () => {
 
   return (
     <>
+      <Paper
+        elevation={1}
+        sx={{
+          px: 1.5,
+          py: 1,
+          borderTop: `8px solid #334`,
+          backgroundColor: '#fdecea',
+        }}
+      >
+        <Box display="flex" alignItems="center" gap={1} height={200}>
+          <Typography variant="body2" fontWeight={600}>
+            labele
+          </Typography>
+        </Box>
+      </Paper>
       <Box
         p={{ xs: 4, sm: 8 }}
         display="flex"
@@ -52,45 +68,49 @@ const PaymentPlans = () => {
       >
         <Grid container spacing={isMobile ? 4 : 2} gap={2}>
           <Grid size={{ xs: 12, sm: 5 }}>
-            <Box
-              px={isMobile ? 1 : 4}
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              height="100%"
-              width="100%"
-              maxWidth="customSize"
-            >
-              <Typography
-                variant="h1"
-                fontWeight="bold"
-                dangerouslySetInnerHTML={{
-                  __html: t('pages.paymentPlans.comment.title'),
-                }}
-              />
-
-              <Typography variant="body2" mt={4}>
-                {t('pages.paymentPlans.comment.description1')}
-              </Typography>
-
-              <Typography variant="body2" mt={4}>
-                {t('pages.paymentPlans.comment.description2')}
-              </Typography>
-            </Box>
+            <PlanDescriptionCard />
           </Grid>
           <Grid size={{ xs: 12, sm: 3 }}>
-            <PlanCard
-              card={planCards[0]}
-              onClick={onToggleFreeTrialDialog}
-              planFormat={plans[0]}
-            />
+            <Card
+              sx={{
+                borderRadius: 1,
+                padding: 3,
+                mx: 'auto',
+                backgroundColor: '#fff',
+                boxShadow: 2,
+                position: 'relative',
+              }}
+            >
+              <PlanCard
+                card={planCards[0]}
+                onClick={onToggleFreeTrialDialog}
+                planFormat={plans[0]}
+              />
+            </Card>
           </Grid>
           <Grid size={{ xs: 12, sm: 4 }}>
-            <PlanCard
-              card={planCards[1]}
-              onClick={onUpgradePlan}
-              planFormat={plans[1]}
-            />
+            <Paper
+              elevation={1}
+              sx={{
+                borderTop: (theme) =>
+                  `28px solid ${theme.palette.primary.main}`,
+                backgroundColor: 'common.white',
+              }}
+            >
+              <Box
+                display="flex"
+                alignItems="center"
+                position="relative"
+                bgcolor="pink"
+                borderTopLeftRadius={2}
+              >
+                <PlanCard
+                  card={planCards[1]}
+                  onClick={onUpgradePlan}
+                  planFormat={plans[1]}
+                />
+              </Box>
+            </Paper>
           </Grid>
         </Grid>
       </Box>
