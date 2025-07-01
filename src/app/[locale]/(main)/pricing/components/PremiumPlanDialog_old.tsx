@@ -1,11 +1,12 @@
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
+import { DEFAULT_MAX_WIDTH } from '@/constants/general';
 import { SAMPLE_CHAT_ID } from '@/constants/query-keys';
 import {
   DEFAULT_DASHBOARD_CHAT_PATH,
   DEFAULT_IMAGES_PATH,
 } from '@/constants/routes';
-import { Button, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -29,28 +30,30 @@ const PremiumPlanDialog: FC<PremiumPlanDialogProps> = ({ ...props }) => {
       sx={{ marginX: 'auto', ...props?.sx }}
       dialogButtons={[]}
     >
-      <Stack spacing={3} alignItems="center" px={2} textAlign="center">
-        <Image
-          src={`${DEFAULT_IMAGES_PATH}/premuim-success.png`}
-          alt=""
-          width={120}
-          height={120}
-        />
-        <Typography variant="h3">
-          {t('pages.paymentPlans.premiumSuccess.welcome')}
-        </Typography>
-        <Typography variant="body1">
-          {t('pages.paymentPlans.premiumSuccess.description')}
-        </Typography>
-        <Button
-          fullWidth
-          variant="contained"
-          size="large"
-          onClick={handleStartChat}
-        >
-          {t('pages.paymentPlans.premiumSuccess.beginButton')}
-        </Button>
-      </Stack>
+      <Box maxWidth={DEFAULT_MAX_WIDTH} py={2}>
+        <Stack spacing={3} alignItems="center" px={2} textAlign="center">
+          <Image
+            src={`${DEFAULT_IMAGES_PATH}/premuim-success.png`}
+            alt=""
+            width={120}
+            height={120}
+          />
+          <Typography variant="h3">
+            {t('pages.paymentPlans.premiumSuccess.welcome')}
+          </Typography>
+          <Typography variant="body1">
+            {t('pages.paymentPlans.premiumSuccess.description')}
+          </Typography>
+          <Button
+            fullWidth
+            variant="contained"
+            size="large"
+            onClick={handleStartChat}
+          >
+            {t('pages.paymentPlans.premiumSuccess.beginButton')}
+          </Button>
+        </Stack>
+      </Box>
     </Dialog>
   );
 };

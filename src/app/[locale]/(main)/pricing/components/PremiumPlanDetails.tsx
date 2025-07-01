@@ -1,6 +1,6 @@
 'use client';
 
-import { GREY_COLOR, NAVBAR_HEIGHT } from '@/constants/general';
+import { DEFAULT_MAX_WIDTH, GREY_COLOR } from '@/constants/general';
 import { DEFAULT_PRICING_PATH } from '@/constants/routes';
 import { ArrowBack } from '@mui/icons-material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
@@ -19,16 +19,17 @@ import Link from 'next/link';
 const PremiumPlanDetails = () => {
   const t = useTranslations();
   const featureKeys = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'];
-
   return (
     <>
       <Box
         display="flex"
-        minHeight={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
-        py={8}
-        px={20}
+        justifyContent="center"
+        flexDirection="column"
+        px={16}
+        minHeight="100%"
+        width="100%"
       >
-        <Stack spacing={2}>
+        <Box pt={8} width="100%">
           <Link href={DEFAULT_PRICING_PATH}>
             <Box display="flex" alignItems="center" gap={1} mb={2}>
               <ArrowBack fontSize="medium" />
@@ -37,14 +38,17 @@ const PremiumPlanDetails = () => {
               </Typography>
             </Box>
           </Link>
-          <Typography variant="h1" fontWeight="bold">
+        </Box>
+
+        <Stack maxWidth={DEFAULT_MAX_WIDTH}>
+          <Typography variant="h1" fontWeight="bold" pt={4}>
             {t('pages.paymentPlans.premiumUpgrade.title')}
           </Typography>
           <Typography variant="h4" fontWeight={400} mt={2}>
             {t('pages.paymentPlans.premiumUpgrade.planDetailTitle')}
           </Typography>
 
-          <Box pt={4}>
+          <Box pt={6}>
             <Typography variant="body2">
               {t('pages.paymentPlans.premiumUpgrade.planDetails')}
             </Typography>
@@ -92,16 +96,18 @@ const PremiumPlanDetails = () => {
             </List>
           </Box>
 
-          <Typography variant="h4" fontWeight="bold" pt={4}>
-            {t('pages.paymentPlans.premiumUpgrade.helpTitle')}
-          </Typography>
+          <Box maxWidth={DEFAULT_MAX_WIDTH} py={2}>
+            <Typography variant="h4" fontWeight="bold" pt={4}>
+              {t('pages.paymentPlans.premiumUpgrade.helpTitle')}
+            </Typography>
 
-          <Typography variant="body2">
-            {t.rich('pages.paymentPlans.premiumUpgrade.helpDescription', {
-              support: (chunks) => <Link href="/support">{chunks}</Link>,
-              faq: (chunks) => <Link href="/faq">{chunks}</Link>,
-            })}
-          </Typography>
+            <Typography variant="body2" pt={1}>
+              {t.rich('pages.paymentPlans.premiumUpgrade.helpDescription', {
+                support: (chunks) => <Link href="/support">{chunks}</Link>,
+                faq: (chunks) => <Link href="/faq">{chunks}</Link>,
+              })}
+            </Typography>
+          </Box>
         </Stack>
       </Box>
     </>

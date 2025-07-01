@@ -5,6 +5,7 @@ import {
   OutlinedInputProps,
   OutlinedTextFieldProps,
   SwitchOwnerState,
+  SxProps,
   TextFieldProps,
 } from '@mui/material';
 import {
@@ -50,6 +51,7 @@ export interface CustomDatePickerProps<TDate extends PickerValidDate = Date>
 export interface CustomSelectProps extends OutlinedInputProps {
   resetFieldsOnChange?: string[];
   options: Option[];
+  //sx?: SxProps;
   labelFormatter?: (option: Option) => ReactNode;
 }
 
@@ -115,6 +117,7 @@ export interface CustomTextFieldProps
   extends Partial<TextFieldProps<'standard'>> {
   label: string;
   boldLabel?: boolean;
+  labelVariant?: 'subtitle1' | 'body1';
   name: string;
   limitations?: TextLimitations & NumberLimitations;
   ControllerProps?: Partial<ControllerProps>;

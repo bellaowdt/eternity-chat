@@ -15,6 +15,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
   forbiddenChars = DEFAULT_FORBIDDEN_CHARS,
   label,
   boldLabel = false,
+  labelVariant = 'subtitle1',
   ...props
 }) => {
   const {
@@ -67,7 +68,7 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
             <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {label && (
                 <Typography
-                  variant="subtitle1"
+                  variant={labelVariant}
                   mb={1}
                   fontWeight={boldLabel ? 'bold' : 'normal'}
                 >

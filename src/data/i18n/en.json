@@ -208,7 +208,9 @@
       },
       "premiumSuccess": {
         "welcome": "Welcome to the Full Experience!",
-        "description": "You’ve successfully upgraded to Premium.  Your AI companion is now ready to connect with you on a deeper level — through voice, memory, and personalized interaction.We’re honored to be part of your journey.",
+        "description1": "You’ve successfully upgraded to Premium.",
+        "description2": "Your AI companion is now ready to connect with you on a deeper level — through voice, memory, and personalized interaction.",
+        "description3": "We’re honored to be part of your journey.",
         "beginButton": "Let’s Begin"
       },
       "payment": {

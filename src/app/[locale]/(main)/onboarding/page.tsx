@@ -23,7 +23,7 @@ const ReconnectSlider = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   const steps = useOnboardingSteps();
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {

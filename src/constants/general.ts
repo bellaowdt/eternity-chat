@@ -8,6 +8,7 @@ export const NAVBAR_HEIGHT = 80;
 export const FIXED_BUTTON_HEIGHT = 55;
 export const FIXED_INPUT_HEIGHT = 51;
 export const FIXED_SELECT_HEIGHT = 50;
+export const DEFAULT_MAX_WIDTH = 469;
 
 export const ONBOARDING_BG_COLOR = '#EEBF95';
 export const GREY_COLOR = '#3D3D3D';
@@ -21,6 +22,19 @@ export const GOOGLE_ICON = '/assets/images/google.png';
 export const DEFAULt_MALE_AVATAR_IMAGE = '/assets/images/users/avatar-1.png';
 export const DEFAULt_FEMALE_AVATAR_IMAGE = '/assets/images/users/avatar-7.png';
 export const ONBOARDING_GRID_IMAGES = '/assets/images/onboarding';
+export const STAR_IMAGE = '/assets/images/star.png';
+
+export const greyOutlinedInputBackgroundSx = {
+  '& .MuiOutlinedInput-root': {
+    backgroundColor: '#F9F6F1',
+  },
+};
+
+export const greyOutlinedSelectBackgroundSx = {
+  '& .MuiSelect-root': {
+    backgroundColor: '#ff0',
+  },
+};
 
 export const PersonalityList: Option[] = [
   {

@@ -30,7 +30,12 @@ interface IPlanCard {
 const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
   const { price, title, planType, duration, features, buttonTilte } = card;
   return (
-    <Box display="flex" flexDirection="column" justifyContent="space-between">
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      width="100%"
+    >
       <Box minHeight={352}>
         <Typography fontSize="48px" fontWeight="700">
           {price}
@@ -73,7 +78,13 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
             ))}
         </List>
       </Box>
-      <Box flexGrow={1} display="flex" alignItems="center">
+      <Box
+        flex={1}
+        width="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Button
           fullWidth
           variant={planFormat === plans[0] ? 'outlined' : 'contained'}

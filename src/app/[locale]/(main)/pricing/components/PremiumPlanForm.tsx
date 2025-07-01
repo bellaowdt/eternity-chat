@@ -2,39 +2,33 @@ import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import FormBuilder, {
   FormBuilderProps,
 } from '@/components/Fields/components/FormBuilder';
-import { NAVBAR_HEIGHT } from '@/constants/general';
+import { greyOutlinedInputBackgroundSx } from '@/constants/general';
 import {
   GET_USER_PERSONALITIES_LIST_KEY,
   SAMPLE_CHAT_USER_ID,
 } from '@/constants/query-keys';
+import { DEFAULT_PLAYMENT_PLANS_UPGRADE_SUCCESSFUL_PAY_PATH } from '@/constants/routes';
 import { useCountries } from '@/hooks/useCountries';
 import { queryClient } from '@/providers/TanstackProvider';
 import { permiumPlanRegister } from '@/services/payment';
 import { IPremimunPlanPay } from '@/services/payment/types';
+import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import PremiumPlanDialog from './PremiumPlanDialog';
 import PremiumPlanPriceCard from './PremiumPlanPriceCard';
-import { onInvalidSubmit } from '@/utils/form';
-import { useAppContext } from '@/hooks/useAppContext';
 
 type IPremimunPlanPayPayload = IPremimunPlanPay;
 
 const PremiumPlanForm = () => {
   const t = useTranslations();
-  const { isMobile } = useAppContext();
+  const router = useRouter();
   const countriesList = useCountries();
-  const [premuimPlanDialog, setPremuimPlanDialog] = useState(false);
-
-  const onTogglePremuimTrialDialog = () => {
-    setPremuimPlanDialog((prev) => !prev);
-  };
 
   const labels: Record<keyof IPremimunPlanPayPayload, string> = {
     cardholderName: t('common.fields.cardholderName'),
@@ -88,7 +82,8 @@ const PremiumPlanForm = () => {
     // if (status === 200 && data?.message) {
     //   methods.reset();
     // }
-    onTogglePremuimTrialDialog();
+    // onTogglePremuimTrialDialog();
+    router.push(DEFAULT_PLAYMENT_PLANS_UPGRADE_SUCCESSFUL_PAY_PATH);
   };
 
   const fields: FormBuilderProps['fields'] = {
@@ -98,6 +93,9 @@ const PremiumPlanForm = () => {
       type: 'String',
       props: {
         placeholder: t('common.fields.cardholderNameLable'),
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -111,6 +109,9 @@ const PremiumPlanForm = () => {
       type: 'String',
       props: {
         placeholder: 'xxxx-xxxx-xxxx-xxxx',
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -124,6 +125,9 @@ const PremiumPlanForm = () => {
       type: 'String',
       props: {
         placeholder: 'xxxx',
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -137,6 +141,9 @@ const PremiumPlanForm = () => {
       type: 'String',
       props: {
         placeholder: 'xxxx',
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -150,6 +157,9 @@ const PremiumPlanForm = () => {
       type: 'String',
       props: {
         placeholder: labels.address,
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -164,6 +174,8 @@ const PremiumPlanForm = () => {
       options: countriesList,
       props: {
         placeholder: labels.country,
+        boldLabel: true,
+        labelVariant: 'body1',
       },
       ui: {
         grid: {
@@ -176,7 +188,10 @@ const PremiumPlanForm = () => {
       label: labels.province,
       type: 'String',
       props: {
-        placeholder: labels.province,
+        placeholder: 'xxxx',
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -190,6 +205,9 @@ const PremiumPlanForm = () => {
       type: 'String',
       props: {
         placeholder: labels.city,
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -203,6 +221,9 @@ const PremiumPlanForm = () => {
       type: 'String',
       props: {
         placeholder: 'xxxx',
+        boldLabel: true,
+        labelVariant: 'body1',
+        sx: greyOutlinedInputBackgroundSx,
       },
       ui: {
         grid: {
@@ -218,8 +239,8 @@ const PremiumPlanForm = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        height={`calc(100vh - ${NAVBAR_HEIGHT}px)`}
-        p={8}
+        px={16}
+        minHeight="100vh"
       >
         <FormProvider {...methods}>
           <Grid
@@ -290,14 +311,14 @@ const PremiumPlanForm = () => {
         </FormProvider>
       </Box>
 
-      {premuimPlanDialog && (
+      {/* {premuimPlanDialog && (
         <PremiumPlanDialog
           open={premuimPlanDialog}
           onClose={onTogglePremuimTrialDialog}
           sx={{ width: 500, maxWidth: isMobile ? '100%' : 500 }}
           showDialogTitle={false}
         />
-      )}
+      )} */}
     </>
   );
 };

@@ -33,6 +33,9 @@ const CustomSelect: FC<CustomSelectProps> = ({
     setValue,
   } = useFormContext();
 
+  // const { sx } = props;
+  // console.log(sx);
+
   return (
     <Controller
       name={name}
@@ -65,12 +68,21 @@ const CustomSelect: FC<CustomSelectProps> = ({
             <FormControl fullWidth error={!!errors[name]} size={size}>
               <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 {label && (
-                  <Typography variant="subtitle2" fontWeight="bold">
+                  <Typography variant="subtitle2" fontWeight="bold" mb={1}>
                     {label}
                   </Typography>
                 )}
                 <Select
                   {...props}
+                  // inputProps={{
+                  //   MenuProps: {
+                  //     MenuListProps: {
+                  //       sx: {
+                  //         backgroundColor: 'red',
+                  //       },
+                  //     },
+                  //   },
+                  // }}
                   sx={{
                     height: FIXED_SELECT_HEIGHT,
                   }}
