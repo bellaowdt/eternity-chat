@@ -1,16 +1,13 @@
 'use client';
 
 import {
+  Box,
   Button,
-  Card,
-  CardContent,
-  Typography,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Box,
-  Stack,
+  Typography,
 } from '@mui/material';
 import { FC } from 'react';
 import { FeatureItem, plans } from './PaymentPlansData';
@@ -31,16 +28,7 @@ interface IPlanCard {
 }
 
 const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
-  const {
-    price,
-    title,
-    planType,
-    duration,
-    subTilte,
-    features,
-    moreDetails,
-    buttonTilte,
-  } = card;
+  const { price, title, planType, duration, features, buttonTilte } = card;
   return (
     <Box display="flex" flexDirection="column" justifyContent="space-between">
       <Box minHeight={352}>
@@ -69,7 +57,7 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
           {features &&
             features?.map((feature, index) => (
               <ListItem key={index} disableGutters>
-                <ListItemIcon sx={{ minWidth: 32 }}>
+                <ListItemIcon sx={{ minWidth: 22 }}>
                   {feature.icon}
                 </ListItemIcon>
                 <ListItemText

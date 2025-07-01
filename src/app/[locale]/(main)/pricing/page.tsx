@@ -44,15 +44,15 @@ const PaymentPlans = () => {
   return (
     <>
       <Box
-        p={{ xs: 4, sm: 4, md: 8 }}
+        p={2}
         display="flex"
         width="100%"
         alignItems="center"
         justifyContent="center"
         height={isMobile ? '100%' : `calc(100vh - ${NAVBAR_HEIGHT}px)`}
       >
-        <Grid container spacing={isMobile ? 4 : 2} gap={2}>
-          <Grid size={{ xs: 12, sm: 4, md: 5 }}>
+        <Grid container spacing={isMobile ? 4 : 2} gap={2} width="90%">
+          <Grid size={{ xs: 12, sm: 4, md: 4.5 }}>
             <PlanDescriptionCard />
           </Grid>
           <Grid size={{ xs: 12, sm: 4, md: 3.5 }}>
@@ -75,7 +75,7 @@ const PaymentPlans = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid size={{ xs: 12, sm: 4, md: 3.5 }}>
+          <Grid size={{ xs: 12, sm: 4, md: 4 }}>
             <Paper
               elevation={4}
               sx={{

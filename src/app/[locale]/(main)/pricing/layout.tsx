@@ -6,7 +6,7 @@ import { FC, PropsWithChildren } from 'react';
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {children}
     </>
   );
