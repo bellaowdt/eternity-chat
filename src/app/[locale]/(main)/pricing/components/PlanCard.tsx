@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   ListItemText,
   Box,
+  Stack,
 } from '@mui/material';
 import { FC } from 'react';
 import { FeatureItem, plans } from './PaymentPlansData';
@@ -41,59 +42,56 @@ const PlanCard: FC<IPlanCard> = ({ card, planFormat, onClick }) => {
     buttonTilte,
   } = card;
   return (
-    <Box
-      sx={{
-        borderRadius: 2,
-        p: 0,
-      }}
-    >
-      <Typography fontSize="48px" fontWeight="700">
-        {price}
-        {duration && (
-          <Typography
-            variant="subtitle1"
-            fontWeight="700"
-            component="span"
-            color="#8D8D8D"
-          >
-            {duration}
-          </Typography>
-        )}
-      </Typography>
-
-      <Typography variant="h3" mt={3} mb={1}>
-        {title} {''}
-        <Typography variant="subtitle1" fontWeight={700} component="span">
-          {planType}
+    <Box display="flex" flexDirection="column" justifyContent="space-between">
+      <Box minHeight={352}>
+        <Typography fontSize="48px" fontWeight="700">
+          {price}
+          {duration && (
+            <Typography
+              variant="subtitle1"
+              fontWeight="700"
+              component="span"
+              color="#8D8D8D"
+            >
+              {duration}
+            </Typography>
+          )}
         </Typography>
-      </Typography>
 
-      <List>
-        {features &&
-          features?.map((feature, index) => (
-            <ListItem key={index} disableGutters>
-              <ListItemIcon sx={{ minWidth: 32 }}>{feature.icon}</ListItemIcon>
-              <ListItemText
-                primary={feature.text}
-                slotProps={{
-                  primary: {
-                    variant: 'subtitle2',
-                    fontWeight: 400,
-                  },
-                }}
-              />
-            </ListItem>
-          ))}
-      </List>
+        <Typography variant="h3" mt={3} mb={1}>
+          {title} {''}
+          <Typography variant="subtitle1" fontWeight={700} component="span">
+            {planType}
+          </Typography>
+        </Typography>
 
-      <Box position="absolute" bottom={0} right={0} width="100%">
+        <List>
+          {features &&
+            features?.map((feature, index) => (
+              <ListItem key={index} disableGutters>
+                <ListItemIcon sx={{ minWidth: 32 }}>
+                  {feature.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={feature.text}
+                  slotProps={{
+                    primary: {
+                      variant: 'subtitle2',
+                      fontWeight: 400,
+                    },
+                  }}
+                />
+              </ListItem>
+            ))}
+        </List>
+      </Box>
+      <Box flexGrow={1} display="flex" alignItems="center">
         <Button
           fullWidth
           variant={planFormat === plans[0] ? 'outlined' : 'contained'}
           size="large"
           onClick={() => onClick?.()}
           sx={{
-            mt: 3,
             borderRadius: 10,
             fontWeight: 700,
             textTransform: 'none',

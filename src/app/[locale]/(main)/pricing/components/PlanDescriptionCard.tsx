@@ -17,7 +17,7 @@ const PlanDescriptionCard = () => {
       maxWidth="customSize"
     >
       <Typography
-        variant="h1"
+        variant={isMobile ? 'h2' : 'h1'}
         fontWeight="bold"
         dangerouslySetInnerHTML={{
           __html: t('pages.paymentPlans.comment.title'),
