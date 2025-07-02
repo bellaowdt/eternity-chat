@@ -11,7 +11,6 @@ import { Box, Card, CardMedia, Stack, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import useResponsiveScale from '../../../onboarding/hooks/useResponsiveScale ';
 
 const SuccessPayment = () => {
   const t = useTranslations();
@@ -21,49 +20,44 @@ const SuccessPayment = () => {
     router.push(DEFAULT_DASHBOARD_CHAT_PATH + `/${SAMPLE_CHAT_ID}`);
   };
 
+  const starImg = STAR_IMAGE;
   const stars = [
     {
       id: 1,
-      image: STAR_IMAGE,
-      top: '12%',
-      left: '30%',
+      top: { xs: '5%', sm: '12%', md: '12%' },
+      left: { xs: '20%', sm: '28%', md: '28%' },
       width: 44.7,
       height: 47.88,
     },
     {
       id: 2,
-      image: STAR_IMAGE,
-      top: '25%',
-      left: '27%',
+      top: { xs: '22%', sm: '25%', md: '25%' },
+      left: { xs: '18%', sm: '23%', md: '23%' },
       width: 31,
       height: 33,
     },
     {
       id: 3,
-      image: STAR_IMAGE,
-      top: '65%',
-      left: '30%',
+      top: { xs: '65%', sm: '69%', md: '69%' },
+      left: { xs: '15%', sm: '28%', md: '28%' },
       width: 22,
       height: 23,
     },
     {
       id: 4,
-      image: STAR_IMAGE,
-      top: '18%',
-      left: '70%',
+      top: { xs: '14%', sm: '16%', md: '16%' },
+      left: { xs: '70%', sm: '70%', md: '70%' },
       width: 44.7,
       height: 47.88,
     },
     {
       id: 5,
-      image: STAR_IMAGE,
-      top: '79%',
-      left: '70%',
+      top: { xs: '80%', sm: '79%', md: '79%' },
+      left: { xs: '75%', sm: '69%', md: '69%' },
       width: 22,
       height: 23,
     },
   ];
-  const scale = useResponsiveScale();
 
   return (
     <Box
@@ -113,15 +107,15 @@ const SuccessPayment = () => {
         </Stack>
       </Box>
 
-      {stars.map(({ id, image, top, left, width, height }) => (
+      {stars.map(({ id, top, left, width, height }) => (
         <Card
           key={id}
           sx={{
             position: 'absolute',
             top,
             left,
-            width: width * scale,
-            height: height * scale,
+            width,
+            height,
             overflow: 'hidden',
             transition: 'all 0.6s ease-in-out',
             background: 'transparent',
@@ -146,7 +140,7 @@ const SuccessPayment = () => {
         >
           <CardMedia
             component="img"
-            image={image}
+            image={starImg}
             alt=""
             sx={{
               border: 0,
