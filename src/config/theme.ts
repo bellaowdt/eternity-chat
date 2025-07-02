@@ -77,7 +77,7 @@ const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: 'sfproDisplay, sans-serif',
+    fontFamily: ['manrope, sans-serif', 'sfproDisplay', 'lato'].join(','),
     htmlFontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
@@ -189,6 +189,10 @@ const themeOptions: ThemeOptions = {
             @font-face {
                font-family: 'iransans';
                src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('truetype');
+             },
+              @font-face {
+               font-family: 'lato';
+               src: url('/assets/fonts/lato/Lato-Light.ttf') format('truetype');
              }`,
     },
     MuiSkeleton: {

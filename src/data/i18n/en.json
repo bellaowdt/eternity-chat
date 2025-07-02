@@ -213,6 +213,12 @@
         "description3": "We’re honored to be part of your journey.",
         "beginButton": "Let’s Begin"
       },
+      "premiumFailed": {
+        "errorMsg": "Payment Failed!",
+        "description1": "Something went wrong while trying to activate your Premium plan. ",
+        "description2": "Don’t worry, no charges were made.",
+        "failButton": "Retry Payment"
+      },
       "payment": {
         "premiumPlan": "Premium Plan",
         "premiumPlanNoteTitle": "Money-Back Guarantee Reminder:",
