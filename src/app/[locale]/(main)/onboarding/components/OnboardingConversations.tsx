@@ -36,8 +36,8 @@ const OnboardingConversations = () => {
         minHeight: { xs: 600, sm: 700, md: 800 },
         position: 'relative',
         overflow: 'hidden',
-        px: { xs: 1, sm: 2, md: 4 },
-        py: { xs: 3, sm: 4, md: 5 },
+        px: { xs: 1, sm: 2, md: 2 },
+        py: { xs: 3, sm: 4, md: 4 },
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -74,8 +74,8 @@ const OnboardingConversations = () => {
       <Box
         sx={{
           position: 'absolute',
-          top: { xs: '38%', sm: '26', md: '28%' },
-          left: { xs: '4%', sm: '5%', md: '6%' },
+          top: { xs: '38%', sm: '26%', md: '28%' },
+          left: { xs: '4%', sm: '5%', md: '0' },
           maxWidth: { xs: '70%', sm: '65%', md: '60%' },
           zIndex: 1,
         }}
@@ -141,8 +141,8 @@ const OnboardingConversations = () => {
       <Box
         sx={{
           position: 'absolute',
-          top: { xs: '70%', sm: '70%', md: '72%', xl: '78%' },
-          right: { xs: '1%', sm: '15%', md: '1%', xl: '10%' },
+          top: { xs: '70%', sm: '70%', md: '77%', xl: '78%' },
+          right: { xs: '3%', sm: '10%', md: '1%', xl: '10%' },
           [theme.breakpoints.between(600, 768)]: {
             right: '35%',
           },
@@ -162,7 +162,12 @@ const OnboardingConversations = () => {
             bubbleTimeColor={GREY_COLOR}
             bubblePadding={1}
           >
-            <Box display="flex" alignItems="center" width="100%" minWidth={200}>
+            <Box
+              display="flex"
+              alignItems="center"
+              width="100%"
+              minWidth={{ xs: 160, sm: 200, md: 280, xl: 340 }}
+            >
               <Box
                 bgcolor="common.white"
                 borderRadius="50%"
@@ -205,7 +210,7 @@ const OnboardingConversations = () => {
             justifyContent="flex-end"
             alignItems="center"
             sx={{
-              width: { xs: '100%', sm: '100%', md: '100%', xl: '160px' },
+              width: { xs: '100%', sm: '100%', md: '100%', xl: '280px' },
             }}
           >
             <Avatar

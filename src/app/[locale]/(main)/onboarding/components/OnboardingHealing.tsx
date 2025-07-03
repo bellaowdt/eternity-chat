@@ -5,7 +5,7 @@ import {
   ONBOARDING_BG_COLOR,
   ONBOARDING_GRID_IMAGES,
 } from '@/constants/general';
-import { Avatar, Box, Button, Stack, Typography } from '@mui/material';
+import { Avatar, Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 
 const OnboardingHealing = () => {
@@ -14,21 +14,21 @@ const OnboardingHealing = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
+      width="100%"
       sx={{
         position: 'relative',
-        width: '100%',
-        minHeight: { xs: 600, sm: 700, md: 800 },
-        overflow: 'hidden',
-        px: { xs: 2, md: 4 },
-        py: { xs: 4, md: 0 },
+        minHeight: { xs: 400, sm: 700, md: 800 },
+        // overflow: 'hidden',
+        // px: { xs: 2, md: 4, lg: 8 },
+        // py: { xs: 4, md: 0 },
       }}
     >
       <Box
         sx={{
           position: 'absolute',
-          right: { xs: '5%', md: 0 },
-          width: { xs: 240, sm: 300, md: 430 },
-          height: { xs: 240, sm: 300, md: 536 },
+          right: { xs: '10%' },
+          width: { xs: 280, sm: 380, md: 430 },
+          height: { xs: 280, sm: 430, md: 536 },
           bgcolor: ONBOARDING_BG_COLOR,
           borderRadius: 0.5,
           overflow: 'hidden',
@@ -47,12 +47,13 @@ const OnboardingHealing = () => {
         sx={{
           position: 'absolute',
           top: { xs: '60%', sm: '65%', md: '60%' },
-          left: { xs: '5%', sm: '10%', md: '15%' },
-          maxWidth: { xs: 280, sm: 320, md: 400 },
+          left: { xs: '5%', sm: '4%', md: '0%' },
+          maxWidth: { xs: 300, sm: 320, md: 400 },
           bgcolor: 'common.white',
           borderRadius: 0.5,
           boxShadow: 4,
           px: 1.5,
+          py: 1,
         }}
       >
         <Stack p={{ xs: 2, sm: 3 }} spacing={2}>

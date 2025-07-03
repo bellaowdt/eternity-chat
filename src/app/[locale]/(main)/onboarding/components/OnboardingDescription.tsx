@@ -56,7 +56,7 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
       flex={1}
       justifyContent="space-between"
       alignItems={{ xs: 'center', md: 'flex-start' }}
-      px={isMobile ? 2 : isTablet ? 12 : 20}
+      px={isMobile ? 2 : isTablet ? 12 : 16}
     >
       <Box my={{ xs: 8, sm: 8, md: 12 }}>
         {/* Dots */}
