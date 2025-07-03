@@ -77,7 +77,7 @@ const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: ['manrope, sans-serif', 'sfproDisplay', 'lato'].join(','),
+    fontFamily: 'sfproDisplay, sans-serif',
     htmlFontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
@@ -188,11 +188,9 @@ const themeOptions: ThemeOptions = {
             },
             @font-face {
                font-family: 'iransans';
-               src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('truetype');
-             },
-              @font-face {
-               font-family: 'lato';
-               src: url('/assets/fonts/lato/Lato-Light.ttf') format('truetype');
+               src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('woff');
+               font-weight: 500;
+               font-style: normal;
              }`,
     },
     MuiSkeleton: {
@@ -241,7 +239,7 @@ export const persianTheme = createTheme({
   ...themeOptions,
   direction: 'rtl',
   typography: {
-    fontFamily: 'iransans, noto-Arabic',
     ...themeOptions.typography,
+    fontFamily: 'iransans, noto-Arabic',
   },
 });

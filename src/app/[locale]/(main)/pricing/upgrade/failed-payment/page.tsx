@@ -8,12 +8,14 @@ import {
   DEFAULT_IMAGES_PATH,
 } from '@/constants/routes';
 import { Box, Stack, Typography } from '@mui/material';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const FailedPayment = () => {
   const t = useTranslations();
+  const locale = useLocale();
+
   const router = useRouter();
 
   const handleStartChat = () => {
@@ -64,11 +66,11 @@ const FailedPayment = () => {
           <Typography variant="h3">
             {t('pages.paymentPlans.premiumFailed.errorMsg')}
           </Typography>
-          <Box maxWidth={DEFAULT_MAX_WIDTH} pt={2}>
-            <Typography variant="body1">
+          <Box maxWidth={DEFAULT_MAX_WIDTH} px={6}>
+            <Typography variant="body1" className={`latoStyle-${locale}`}>
               {t('pages.paymentPlans.premiumFailed.description1')}
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="body1" className={`latoStyle-${locale}`}>
               {t('pages.paymentPlans.premiumFailed.description2')}
             </Typography>
           </Box>
@@ -78,7 +80,7 @@ const FailedPayment = () => {
             variant="contained"
             size="large"
             onClick={handleStartChat}
-            sx={{ fontFamily: 'lato !important', fontWeight: '400' }}
+            className={`latoStyle-ar`}
           >
             {t('pages.paymentPlans.premiumFailed.failButton')}
           </SizedButton>

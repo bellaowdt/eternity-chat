@@ -20,6 +20,7 @@ import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { userAgent } from 'next/server';
 import { PropsWithChildren, ReactNode } from 'react';
+import '../../../global.css';
 
 type LocaleLayoutParams = {
   children: ReactNode;
@@ -43,7 +44,6 @@ export default async function LocaleLayout({
     ar: persianTheme,
   };
   const { locale } = await params;
-
   return (
     <html lang={locale} dir={languages?.[locale]?.direction}>
       <body>
