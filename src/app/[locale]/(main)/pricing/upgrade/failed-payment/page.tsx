@@ -15,7 +15,6 @@ import { useRouter } from 'next/navigation';
 const FailedPayment = () => {
   const t = useTranslations();
   const locale = useLocale();
-
   const router = useRouter();
 
   const handleStartChat = () => {
@@ -80,7 +79,7 @@ const FailedPayment = () => {
             variant="contained"
             size="large"
             onClick={handleStartChat}
-            className={`latoStyle-ar`}
+            sx={{ fontWeight: '700' }}
           >
             {t('pages.paymentPlans.premiumFailed.failButton')}
           </SizedButton>

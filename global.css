@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'LatoBold';
   src: url('/assets/fonts/lato/Lato-Bold.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -13,9 +13,9 @@
 }
 
 .latoStyle-en {
-  font-family: 'LatoBold, sans-serif';
+  font-family: 'LatoBold' !important;
 }
 
 .latoStyle-ar {
-  font-family: 'iranSansFont';
+  font-family: 'iranSansFont' !important;
 }

@@ -8,13 +8,14 @@ import {
   DEFAULT_IMAGES_PATH,
 } from '@/constants/routes';
 import { Box, Card, CardMedia, Stack, Typography } from '@mui/material';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const SuccessPayment = () => {
   const t = useTranslations();
   const router = useRouter();
+  const locale = useLocale();
 
   const handleStartChat = () => {
     router.push(DEFAULT_DASHBOARD_CHAT_PATH + `/${SAMPLE_CHAT_ID}`);
@@ -77,34 +78,54 @@ const SuccessPayment = () => {
         boxShadow={4}
         borderRadius={0.5}
       >
-        <Stack spacing={3} alignItems="center" px={2} textAlign="center">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+        >
           <Image
             src={`${DEFAULT_IMAGES_PATH}/premuim-success.png`}
             alt=""
             width={120}
             height={120}
           />
-          <Typography variant="h3">
+
+          <Typography variant="h3" className={`latoStyle-${locale}`} pt={1}>
             {t('pages.paymentPlans.premiumSuccess.welcome')}
           </Typography>
-          <Typography variant="body1">
-            {t('pages.paymentPlans.premiumSuccess.description1')}
-          </Typography>
-          <Typography variant="body1">
-            {t('pages.paymentPlans.premiumSuccess.description2')}
-          </Typography>
-          <Typography variant="body1">
-            {t('pages.paymentPlans.premiumSuccess.description3')}
-          </Typography>
+          <Box
+            maxWidth={DEFAULT_MAX_WIDTH}
+            textAlign="center"
+            mt={2}
+            width="100%"
+            px={1}
+            py={2}
+          >
+            <Typography variant="body1" className={`latoStyle-${locale}`}>
+              {t('pages.paymentPlans.premiumSuccess.description1')}
+            </Typography>
+            <Typography variant="body1" className={`latoStyle-${locale}`}>
+              {t('pages.paymentPlans.premiumSuccess.description2')}
+            </Typography>
+            <Typography
+              variant="body1"
+              className={`latoStyle-${locale}`}
+              mt={3}
+            >
+              {t('pages.paymentPlans.premiumSuccess.description3')}
+            </Typography>
+          </Box>
           <SizedButton
             fullWidth
             variant="contained"
             size="large"
             onClick={handleStartChat}
+            sx={{ fontWeight: '700' }}
           >
             {t('pages.paymentPlans.premiumSuccess.beginButton')}
           </SizedButton>
-        </Stack>
+        </Box>
       </Box>
 
       {stars.map(({ id, top, left, width, height }) => (

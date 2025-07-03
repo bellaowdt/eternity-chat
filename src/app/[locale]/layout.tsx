@@ -44,6 +44,7 @@ export default async function LocaleLayout({
     ar: persianTheme,
   };
   const { locale } = await params;
+
   return (
     <html lang={locale} dir={languages?.[locale]?.direction}>
       <body>
