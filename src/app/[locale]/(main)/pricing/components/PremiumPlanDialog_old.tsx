@@ -1,6 +1,6 @@
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
-import { DEFAULT_MAX_WIDTH } from '@/constants/general';
+import { DEFAULT_MAX_WIDTH_469 } from '@/constants/general';
 import { SAMPLE_CHAT_ID } from '@/constants/query-keys';
 import {
   DEFAULT_DASHBOARD_CHAT_PATH,
@@ -30,7 +30,7 @@ const PremiumPlanDialog: FC<PremiumPlanDialogProps> = ({ ...props }) => {
       sx={{ marginX: 'auto', ...props?.sx }}
       dialogButtons={[]}
     >
-      <Box maxWidth={DEFAULT_MAX_WIDTH} py={2}>
+      <Box maxWidth={DEFAULT_MAX_WIDTH_469} py={2}>
         <Stack spacing={3} alignItems="center" px={2} textAlign="center">
           <Image
             src={`${DEFAULT_IMAGES_PATH}/premuim-success.png`}

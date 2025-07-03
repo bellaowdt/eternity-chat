@@ -89,7 +89,6 @@ const OnboardingReconnect = () => {
         width: '100%',
         minHeight: { xs: 600, sm: 700, md: 800 },
         overflow: 'hidden',
-        background: 'linear-gradient(to right, #fff, #fbeedf)',
       }}
     >
       {profiles.map(({ id, image, focus, top, left, width, height, blur }) => (
@@ -107,7 +106,7 @@ const OnboardingReconnect = () => {
             transform: focus ? 'scale(1)' : 'scale(0.9)',
             filter: focus ? 'none' : `blur(${blur}px)`,
             transition: 'all 0.4s ease-in-out',
-            background: ONBOARDING_BG_COLOR || '#fff',
+            background: ONBOARDING_BG_COLOR || 'common.white',
           }}
         >
           <CardMedia

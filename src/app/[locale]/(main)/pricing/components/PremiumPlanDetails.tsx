@@ -1,6 +1,6 @@
 'use client';
 
-import { DEFAULT_MAX_WIDTH, GREY_COLOR } from '@/constants/general';
+import { DEFAULT_MAX_WIDTH_469, GREY_COLOR } from '@/constants/general';
 import { DEFAULT_PRICING_PATH } from '@/constants/routes';
 import { ArrowBack } from '@mui/icons-material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
@@ -40,7 +40,7 @@ const PremiumPlanDetails = () => {
           </Link>
         </Box>
 
-        <Stack maxWidth={DEFAULT_MAX_WIDTH}>
+        <Stack maxWidth={DEFAULT_MAX_WIDTH_469}>
           <Typography variant="h1" fontWeight="bold" pt={4}>
             {t('pages.paymentPlans.premiumUpgrade.title')}
           </Typography>
@@ -96,7 +96,7 @@ const PremiumPlanDetails = () => {
             </List>
           </Box>
 
-          <Box maxWidth={DEFAULT_MAX_WIDTH} py={2}>
+          <Box maxWidth={DEFAULT_MAX_WIDTH_469} py={2}>
             <Typography variant="h4" fontWeight="bold" pt={4}>
               {t('pages.paymentPlans.premiumUpgrade.helpTitle')}
             </Typography>

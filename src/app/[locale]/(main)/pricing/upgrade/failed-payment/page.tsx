@@ -1,7 +1,7 @@
 'use client';
 
 import SizedButton from '@/components/common/SizedButton';
-import { DEFAULT_MAX_WIDTH } from '@/constants/general';
+import { DEFAULT_MAX_WIDTH_469 } from '@/constants/general';
 import { SAMPLE_CHAT_ID } from '@/constants/query-keys';
 import {
   DEFAULT_DASHBOARD_CHAT_PATH,
@@ -32,8 +32,8 @@ const FailedPayment = () => {
       position="relative"
     >
       <Box
-        maxWidth={DEFAULT_MAX_WIDTH}
-        width={{ xs: '90%', sm: 420, md: DEFAULT_MAX_WIDTH }}
+        maxWidth={DEFAULT_MAX_WIDTH_469}
+        width={{ xs: '90%', sm: 420, md: DEFAULT_MAX_WIDTH_469 }}
         p={3}
         bgcolor="common.white"
         boxShadow={4}
@@ -65,7 +65,7 @@ const FailedPayment = () => {
           <Typography variant="h3">
             {t('pages.paymentPlans.premiumFailed.errorMsg')}
           </Typography>
-          <Box maxWidth={DEFAULT_MAX_WIDTH} px={6}>
+          <Box maxWidth={DEFAULT_MAX_WIDTH_469} px={6}>
             <Typography variant="body1" className={`latoStyle-${locale}`}>
               {t('pages.paymentPlans.premiumFailed.description1')}
             </Typography>

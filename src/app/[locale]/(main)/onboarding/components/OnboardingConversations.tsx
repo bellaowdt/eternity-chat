@@ -21,10 +21,13 @@ import {
 import Image from 'next/image';
 import MessageBubble from './MessageBubble';
 import { common } from '@mui/material/colors';
+import { useAppContext } from '@/hooks/useAppContext';
 
 const OnboardingConversations = () => {
   const theme = useTheme();
+  const { isMobile } = useAppContext();
   const isXs = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   return (
     <Box
@@ -56,6 +59,7 @@ const OnboardingConversations = () => {
           bubbleTimeColor={GREY_COLOR}
           bubbleTextColor={common.white}
           tailPosition={ChatCardDirectionEnum.RIGHT}
+          bubblePadding={isMobile ? 1.5 : isTablet ? 2 : 3}
         >
           <Typography
             variant={isXs ? 'body1' : 'h6'}
@@ -82,6 +86,7 @@ const OnboardingConversations = () => {
           bubbleTextColor={common.white}
           tailPosition={ChatCardDirectionEnum.LEFT}
           bubbleTimeColor={alpha(common.white, 0.6)}
+          bubblePadding={isMobile ? 1.5 : isTablet ? 2 : 3}
         >
           <Typography
             variant={isXs ? 'body1' : 'h6'}

@@ -1,13 +1,13 @@
 'use client';
 
 import SizedButton from '@/components/common/SizedButton';
-import { DEFAULT_MAX_WIDTH, STAR_IMAGE } from '@/constants/general';
+import { DEFAULT_MAX_WIDTH_469, STAR_IMAGE } from '@/constants/general';
 import { SAMPLE_CHAT_ID } from '@/constants/query-keys';
 import {
   DEFAULT_DASHBOARD_CHAT_PATH,
   DEFAULT_IMAGES_PATH,
 } from '@/constants/routes';
-import { Box, Card, CardMedia, Stack, Typography } from '@mui/material';
+import { Box, Card, CardMedia, Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -71,8 +71,8 @@ const SuccessPayment = () => {
       position="relative"
     >
       <Box
-        maxWidth={DEFAULT_MAX_WIDTH}
-        width={{ xs: '90%', sm: 420, md: DEFAULT_MAX_WIDTH }}
+        maxWidth={DEFAULT_MAX_WIDTH_469}
+        width={{ xs: '90%', sm: 420, md: DEFAULT_MAX_WIDTH_469 }}
         p={3}
         bgcolor="common.white"
         boxShadow={4}
@@ -95,7 +95,7 @@ const SuccessPayment = () => {
             {t('pages.paymentPlans.premiumSuccess.welcome')}
           </Typography>
           <Box
-            maxWidth={DEFAULT_MAX_WIDTH}
+            maxWidth={DEFAULT_MAX_WIDTH_469}
             textAlign="center"
             mt={2}
             width="100%"

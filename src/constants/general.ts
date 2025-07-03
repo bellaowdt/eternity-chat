@@ -8,7 +8,8 @@ export const NAVBAR_HEIGHT = 80;
 export const FIXED_BUTTON_HEIGHT = 55;
 export const FIXED_INPUT_HEIGHT = 51;
 export const FIXED_SELECT_HEIGHT = 50;
-export const DEFAULT_MAX_WIDTH = 469;
+export const DEFAULT_MAX_WIDTH_469 = 469;
+export const DEFAULT_MAX_WIDTH_591 = 591;
 
 export const ONBOARDING_BG_COLOR = '#EEBF95';
 export const GREY_COLOR = '#3D3D3D';

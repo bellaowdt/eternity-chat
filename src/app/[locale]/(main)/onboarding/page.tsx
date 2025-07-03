@@ -1,44 +1,15 @@
 'use client';
 
-import { useState } from 'react';
-import {
-  Box,
-  Button,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import { alpha, Box, Grid } from '@mui/material';
+import OnboardingDescription from './components/OnboardingDescription';
 import { useOnboardingSteps } from './hooks/useOnboardingSteps';
+import { useState } from 'react';
 import { useAppContext } from '@/hooks/useAppContext';
-import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
-import { useRouter } from 'next/navigation';
-import { STEPPER_COLOR } from '@/constants/general';
 
-const ReconnectSlider = () => {
-  const router = useRouter();
-  const theme = useTheme();
+const OnboardingSlider = () => {
   const { isMobile } = useAppContext();
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-
   const steps = useOnboardingSteps();
-  const [activeStep, setActiveStep] = useState(0);
-
-  const handleNext = () => {
-    if (activeStep < steps.length - 1) {
-      setActiveStep((prev) => prev + 1);
-    } else {
-      router.push(DEFAULT_SIGNIN_PATH);
-    }
-  };
-
-  const handleSkip = () => {
-    setActiveStep(steps.length - 1);
-  };
-
-  const handleDotClick = (index: number) => {
-    setActiveStep(index);
-  };
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <Box
@@ -47,136 +18,47 @@ const ReconnectSlider = () => {
       alignItems="center"
       justifyContent="center"
       minHeight="100vh"
-      px={isMobile ? 2 : isTablet ? 8 : 20}
-      py={4}
     >
-      <Box
+      <Grid
+        container
         display="flex"
         flexDirection={{ xs: 'column', sm: 'row' }}
         alignItems="center"
         justifyContent="center"
         width="100%"
-        gap={2}
+        mx="auto"
       >
         {/* Left Side */}
-        <Box
-          flex={1.5}
-          display="flex"
-          flexDirection="column"
-          height={{ xs: 'auto', md: '500px' }}
-          width="100%"
-          justifyContent="space-between"
-          alignItems={{ xs: 'center', md: 'flex-start' }}
-        >
-          {/* Dots */}
-          <Box mb={2} display="flex" gap={1}>
-            {steps?.map((_, index) => (
-              <Box
-                key={index}
-                sx={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '50%',
-                  bgcolor: index === activeStep ? 'primary.main' : 'grey.400',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  transform: index === activeStep ? 'scale(1.4)' : 'scale(1)',
-                }}
-                onClick={() => handleDotClick(index)}
-              />
-            ))}
-          </Box>
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <OnboardingDescription
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+          />
+        </Grid>
 
-          {/* Title and Description */}
-          <Box
-            display="flex"
-            flexDirection="column"
-            flexGrow={1}
-            justifyContent="center"
-            alignItems={{ xs: 'center', md: 'flex-start' }}
-            textAlign={{ xs: 'center', md: 'left' }}
-          >
-            <Box maxWidth={560}>
-              <Typography variant="h1" fontWeight="700" mb={2}>
-                {steps[activeStep].title}
-              </Typography>
-            </Box>
-
-            <Box maxWidth={469}>
-              <Typography fontSize={18} color="text.secondary" mb={4}>
-                {steps[activeStep].description}
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Bottom Actions */}
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            gap={2}
-            width="100%"
-            maxWidth={400}
-            mt={{ xs: 4, md: 0 }}
-          >
-            <Typography
-              onClick={handleSkip}
-              variant="subtitle1"
-              fontWeight={700}
-              sx={{
-                pointerEvents:
-                  activeStep === steps.length - 1 ? 'none' : 'auto',
-                cursor:
-                  activeStep === steps.length - 1 ? 'not-allowed' : 'pointer',
-                opacity: activeStep === steps.length - 1 ? 0.5 : 1,
-                color: STEPPER_COLOR,
-                minWidth: 0,
-                padding: 0,
-              }}
-            >
-              Skip
-            </Typography>
-            <Box display="flex" alignItems="center" gap={1}>
-              <Button
-                variant="contained"
-                onClick={handleNext}
-                sx={{
-                  borderRadius: '50%',
-                  width: '48px',
-                  height: '48px',
-                  padding: 0,
-                  minWidth: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <KeyboardArrowRight />
-              </Button>
-
-              <Typography
-                variant="subtitle1"
-                fontWeight={700}
-                color="primary.main"
-              >
-                Next
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
         {/* Right Side */}
-        <Box
-          flex={2}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          width="100%"
-        >
-          {steps[activeStep].component}
-        </Box>
-      </Box>
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Box
+            flex={1}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            width="100%"
+            minHeight={isMobile ? '50vh' : '100vh'}
+            sx={(theme) => ({
+              backgroundImage: `linear-gradient(
+                              to top left,
+                              ${alpha('#EEBF95', 0.2)},
+                              ${theme.palette.background.default}
+                            )`,
+            })}
+          >
+            {steps[activeStep].component}
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
 
-export default ReconnectSlider;
+export default OnboardingSlider;
