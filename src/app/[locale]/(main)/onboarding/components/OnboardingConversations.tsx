@@ -47,8 +47,8 @@ const OnboardingConversations = () => {
       <Box
         sx={{
           position: 'absolute',
-          top: { xs: '8%', sm: '10%', md: '10%' },
-          left: { xs: '4%', sm: '5%', md: '6%' },
+          top: { xs: '5%', sm: '10%', md: '16%', lg: '10%' },
+          left: { xs: '4%', sm: '5%', md: '6%', lg: '6%' },
           maxWidth: { xs: '70%', sm: '65%', md: '60%' },
           zIndex: 1,
         }}
@@ -59,7 +59,7 @@ const OnboardingConversations = () => {
           bubbleTimeColor={GREY_COLOR}
           bubbleTextColor={common.white}
           tailPosition={ChatCardDirectionEnum.RIGHT}
-          bubblePadding={isMobile ? 1.5 : isTablet ? 2 : 3}
+          bubblePadding={isMobile ? 1.5 : 2}
         >
           <Typography
             variant={isXs ? 'body1' : 'h6'}
@@ -74,8 +74,8 @@ const OnboardingConversations = () => {
       <Box
         sx={{
           position: 'absolute',
-          top: { xs: '38%', sm: '26%', md: '28%' },
-          left: { xs: '4%', sm: '5%', md: '0' },
+          top: { xs: '23%', sm: '26%', md: '26%', lg: '29%' },
+          left: { xs: '4%', sm: '5%', md: '1%', lg: '1%' },
           maxWidth: { xs: '70%', sm: '65%', md: '60%' },
           zIndex: 1,
         }}
@@ -86,7 +86,7 @@ const OnboardingConversations = () => {
           bubbleTextColor={common.white}
           tailPosition={ChatCardDirectionEnum.LEFT}
           bubbleTimeColor={alpha(common.white, 0.6)}
-          bubblePadding={isMobile ? 1.5 : isTablet ? 2 : 3}
+          bubblePadding={isMobile ? 1.5 : 2}
         >
           <Typography
             variant={isXs ? 'body1' : 'h6'}
@@ -113,15 +113,15 @@ const OnboardingConversations = () => {
       {/* Center image */}
       <Box
         sx={{
-          width: { xs: 260, sm: 420, md: 430 },
+          width: { xs: 280, sm: 420, md: 430 },
           height: { xs: 350, sm: 420, md: 536 },
           [theme.breakpoints.between(500, 768)]: {
             width: 400,
             height: 450,
           },
           position: 'absolute',
-          top: { xs: '18%', sm: '20%', md: '20%' },
-          left: { xs: '18%', sm: '20%', md: '20%' },
+          top: { xs: '20%', sm: '20%', md: '20%' },
+          left: { xs: '18%', sm: '20%', md: '22%' },
           borderRadius: 1,
           backgroundColor: ONBOARDING_BG_COLOR,
           boxShadow: 3,

@@ -1,11 +1,14 @@
 import {
   DEFAULT_MAX_WIDTH_469,
   DEFAULT_MAX_WIDTH_591,
+  LIGHT_BLUE_COLOR,
   STEPPER_COLOR,
 } from '@/constants/general';
 import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
 import { useAppContext } from '@/hooks/useAppContext';
 import { KeyboardArrowRight } from '@mui/icons-material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 import {
   Box,
   Button,
@@ -118,10 +121,9 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
         maxWidth={400}
         mt={{ xs: 4, md: 0 }}
       >
-        <Typography
+        <Button
           onClick={handleSkip}
-          variant="subtitle1"
-          fontWeight={700}
+          variant="text"
           sx={{
             pointerEvents: activeStep === steps.length - 1 ? 'none' : 'auto',
             cursor: activeStep === steps.length - 1 ? 'not-allowed' : 'pointer',
@@ -129,14 +131,33 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
             color: STEPPER_COLOR,
             minWidth: 0,
             padding: 0,
+            fontWeight: 700,
           }}
         >
           Skip
-        </Typography>
-        <Box display="flex" alignItems="center" gap={1}>
+        </Button>
+
+        <Box
+          display="flex"
+          alignItems="center"
+          gap={1}
+          sx={{
+            cursor: 'pointer',
+            '&:hover .hover-text': {
+              color: 'common.black',
+            },
+            '&:hover .hover-button::before': {
+              transform: 'translateY(0)',
+            },
+            '&:hover .hover-button-icon': {
+              color: 'common.black',
+            },
+          }}
+        >
           <Button
             variant="contained"
             onClick={handleNext}
+            className="hover-button"
             sx={{
               borderRadius: '50%',
               width: '48px',
@@ -146,12 +167,37 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              zIndex: 1,
+              position: 'relative',
+              overflow: 'hidden',
+              transition: 'all 0.3s ease-in-out',
+              '::before': {
+                content: '""',
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: LIGHT_BLUE_COLOR,
+                zIndex: -1,
+                transform: 'translateY(100%)',
+                transition: 'transform 0.4s ease-in-out',
+                borderRadius: '50%',
+              },
             }}
           >
-            <KeyboardArrowRight />
+            <ArrowForwardIcon className="hover-button-icon" />
           </Button>
 
-          <Typography variant="subtitle1" fontWeight={700} color="primary.main">
+          <Typography
+            variant="subtitle1"
+            fontWeight={700}
+            color="primary.main"
+            className="hover-text"
+            sx={{
+              transition: 'color 0.3s ease-in-out',
+            }}
+          >
             Next
           </Typography>
         </Box>

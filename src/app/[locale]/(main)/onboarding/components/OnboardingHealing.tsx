@@ -18,9 +18,6 @@ const OnboardingHealing = () => {
       sx={{
         position: 'relative',
         minHeight: { xs: 400, sm: 700, md: 800 },
-        // overflow: 'hidden',
-        // px: { xs: 2, md: 4, lg: 8 },
-        // py: { xs: 4, md: 0 },
       }}
     >
       <Box
@@ -39,6 +36,7 @@ const OnboardingHealing = () => {
           alt="Chris"
           fill
           style={{ objectFit: 'cover' }}
+          // style={{ objectFit: 'cover', objectPosition: 'top center' }}
           priority
         />
       </Box>
@@ -59,7 +57,7 @@ const OnboardingHealing = () => {
         <Stack p={{ xs: 2, sm: 3 }} spacing={2}>
           <Box display="flex" alignItems="center">
             <Avatar
-              alt="Joe Collins"
+              alt=""
               src={`${ONBOARDING_GRID_IMAGES}/chris.png`}
               sx={{
                 width: { xs: 48, sm: 60 },
@@ -90,12 +88,10 @@ const OnboardingHealing = () => {
           </Typography>
 
           <SizedButton
-            variant="contained"
+            variant="text"
             fullWidth
             sx={{
               bgcolor: 'secondary.light',
-              '&:hover': { bgcolor: '#8dbfe7' },
-              textTransform: 'none',
               py: 1,
             }}
           >

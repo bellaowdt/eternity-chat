@@ -18,7 +18,7 @@ const profiles = [
   {
     id: 2,
     image: `${ONBOARDING_GRID_IMAGES}/carlos.png`,
-    top: '15%',
+    top: '11%',
     left: '35%',
     blur: 8,
     width: 128,
