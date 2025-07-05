@@ -13,12 +13,14 @@ import * as yup from 'yup';
 import SkipStep from './SkipStep';
 import { PersonalityList } from '@/constants/general';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
+import { useTranslations } from 'next-intl';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;
 }
 
 const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
+  const t = useTranslations();
   const [selectedTraits, setSelectedTraits] = useState<string[]>([]);
 
   const handleToggle = (trait: string) => {
@@ -143,7 +145,9 @@ const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
               color="primary"
               size="large"
             >
-              Continue
+              <Typography variant="subtitle1" fontWeight={700}>
+                {t('common.buttons.continue')}
+              </Typography>
             </ButtonWithLoading>
             <SkipStep onSkip={onSkip} />
           </Grid>

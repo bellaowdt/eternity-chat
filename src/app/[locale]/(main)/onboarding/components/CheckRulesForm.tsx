@@ -61,7 +61,7 @@ const CheckClubRulesForm = ({
               }
               label={
                 <Typography
-                  fontSize={isMobile ? '12px' : '18px'}
+                  fontSize={isMobile ? '14px' : '18px'}
                   className={`latoStyleRegular-${locale}`}
                   fontWeight={400}
                 >

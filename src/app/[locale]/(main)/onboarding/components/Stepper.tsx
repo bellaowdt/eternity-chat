@@ -25,7 +25,7 @@ const steps = [
 
 const ProgressStepper = () => {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(2);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -59,7 +59,6 @@ const ProgressStepper = () => {
       alignItems="center"
       justifyContent="center"
       flexDirection="column"
-      px={4}
     >
       {/* Dots */}
       <Box

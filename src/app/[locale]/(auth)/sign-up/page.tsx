@@ -5,6 +5,7 @@ import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import { GREY_7D_COLOR } from '@/constants/general';
 import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
 import { SignUpPayload } from '@/services/iam/types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -92,7 +93,7 @@ const SignUp = () => {
               borderColor: '#E6F2FD',
             },
             input: {
-              color: '#7D7D7D',
+              color: GREY_7D_COLOR,
               fontSize: '1rem',
               fontWeight: '600',
             },

@@ -1,8 +1,12 @@
 'use client';
 
+import { GREY_7D_COLOR, UPLOAD_ICON_IMAGE } from '@/constants/general';
 import { Box, Typography } from '@mui/material';
+import Image from 'next/image';
 import { FC, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
+import RoundedIcon from './RoundedIcon';
+import { useLocale } from 'next-intl';
 
 type FileUploadFormProps = {
   name: string;
@@ -21,22 +25,16 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
   acceptedFormat,
   acceptedFormatText,
 }) => {
+  const locale = useLocale();
   const { control } = useFormContext();
-  const [fileName, setFileName] = useState('No file chosen');
+  const [fileName, setFileName] = useState('');
   const [filePreview, setFilePreview] = useState<string | null>(null);
 
   return (
     <Box width="100%">
-      <Typography variant="h5" mb={1}>
+      <Typography variant="h5" mb={1} fontWeight={700}>
         {label}
       </Typography>
-
-      {subLabel && (
-        <Typography variant="body1" mb={1}>
-          {subLabel}
-        </Typography>
-      )}
-
       <Controller
         name={name}
         control={control}
@@ -53,36 +51,56 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                border: '1px solid #ccc',
+                border: '2px dashed #ccc',
                 borderRadius: '50px',
                 overflow: 'hidden',
                 width: '100%',
                 cursor: 'pointer',
-                mb: 1,
+                minHeight: 80,
               }}
             >
               <Box
-                sx={{
-                  backgroundColor: '#5a5a5a',
-                  color: '#fff',
-                  padding: '10px 20px',
-                  whiteSpace: 'nowrap',
-                }}
+                display="flex"
+                alignItems="center"
+                flexDirection={'column'}
+                py={2}
+                width="100%"
               >
-                {chooseFileText}
-              </Box>
-              <Box
-                sx={{
-                  padding: '10px 20px',
-                  backgroundColor: '#f9f9f9',
-                  flexGrow: 1,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'nowrap',
-                }}
-              >
+                <RoundedIcon
+                  width={35}
+                  height={35}
+                  backgroundColor="#D0DAEE"
+                  icon={
+                    <Image
+                      alt="upload"
+                      width={21}
+                      height={21}
+                      src={UPLOAD_ICON_IMAGE}
+                    />
+                  }
+                />
+                <Typography
+                  variant="subtitle1"
+                  fontWeight={400}
+                  color={GREY_7D_COLOR}
+                  className={`ambitStyleRegular-${locale}`}
+                  mt={2}
+                >
+                  {subLabel}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  fontWeight={400}
+                  color={GREY_7D_COLOR}
+                  className={`ambitStyleRegular-${locale}`}
+                  my={2}
+                >
+                  {acceptedFormatText}
+                </Typography>
+
                 {fileName}
               </Box>
+
               <input
                 name={field.name}
                 type="file"
@@ -97,10 +115,6 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
           );
         }}
       />
-
-      <Typography variant="body2" color="textSecondary" my={2}>
-        {acceptedFormatText}
-      </Typography>
 
       {/* {filePreview && (
         <Box

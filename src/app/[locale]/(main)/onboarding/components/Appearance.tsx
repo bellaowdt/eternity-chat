@@ -9,17 +9,19 @@ import { useAppContext } from '@/hooks/useAppContext';
 import { AppearancePayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
+import { useTranslations } from 'next-intl';
 
 interface AppearanceProsp {
   onSkip: VoidFunction;
 }
 
 const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
+  const t = useTranslations();
   const { isMobile } = useAppContext();
 
   const labels: Record<keyof AppearancePayload, string> = {
@@ -55,7 +57,7 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
         placeholder:
           'E.g., They were tall with short brown hair and often wore glasses. Their smile was warm, and they had a calming presence.',
         multiline: true,
-        minRows: 8,
+        minRows: 6,
         boldLabel: true,
       },
       ui: {
@@ -93,6 +95,7 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
               <FileUploadForm
                 name="photo"
                 label="Do you have a photo you'd like to share?"
+                subLabel="Drag & drop or choose file to upload"
                 acceptedFormat=".jpg,.jpeg,.png"
                 acceptedFormatText="Supported formats: JPG, JPEG, PNG"
               />
@@ -111,7 +114,9 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
                 color="primary"
                 size="large"
               >
-                Continue
+                <Typography variant="subtitle1" fontWeight={700}>
+                  {t('common.buttons.continue')}
+                </Typography>
               </ButtonWithLoading>
               <SkipStep onSkip={onSkip} />
             </Grid>

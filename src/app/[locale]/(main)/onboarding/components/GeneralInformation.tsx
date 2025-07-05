@@ -9,7 +9,7 @@ import { generalInformationUpdate } from '@/services/onboarding';
 import { GeneralInformationPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
@@ -170,7 +170,9 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
                 color="primary"
                 size="large"
               >
-                Continue
+                <Typography variant="subtitle1" fontWeight={700}>
+                  {t('common.buttons.continue')}
+                </Typography>
               </ButtonWithLoading>
               <SkipStep onSkip={onSkip} />
             </Grid>

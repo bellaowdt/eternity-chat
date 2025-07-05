@@ -16,6 +16,7 @@ export const GREY_COLOR = '#3D3D3D';
 export const LIGHT_BLUE_COLOR = '#A2CBF3';
 export const LAYOUT_BACKGROUND_BLUE = '#E0F0FF';
 export const STEPPER_COLOR = '#6C747F';
+export const GREY_7D_COLOR = '#7D7D7D';
 
 export const DEFAULt_NO_IMAGE = '/assets/images/placeholders/no-image.jpg';
 export const HOME_CHAT_EXPERIENCE = '/assets/images/home/home-chat.png';
@@ -23,7 +24,8 @@ export const GOOGLE_ICON = '/assets/images/google.png';
 export const DEFAULt_MALE_AVATAR_IMAGE = '/assets/images/users/avatar-1.png';
 export const DEFAULt_FEMALE_AVATAR_IMAGE = '/assets/images/users/avatar-7.png';
 export const ONBOARDING_GRID_IMAGES = '/assets/images/onboarding';
-export const STAR_IMAGE = '/assets/images/star.png';
+export const STAR_IMAGE = '/assets/images/star-icon.png';
+export const UPLOAD_ICON_IMAGE = '/assets/images/upload-icon.png';
 
 export const greyOutlinedInputBackgroundSx = {
   '& .MuiOutlinedInput-root': {
