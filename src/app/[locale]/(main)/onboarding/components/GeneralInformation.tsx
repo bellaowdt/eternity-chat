@@ -1,21 +1,20 @@
 'use client';
 
+import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import Title from '@/components/common/Title';
 import { FormBuilder, Option } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
-import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
+import { useAppContext } from '@/hooks/useAppContext';
 import { generalInformationUpdate } from '@/services/onboarding';
 import { GeneralInformationPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { STEPPER_COLOR } from '@/constants/general';
-import { useAppContext } from '@/hooks/useAppContext';
-import { FC } from 'react';
 import SkipStep from './SkipStep';
 
 type GeneralInformationProps = {
@@ -163,7 +162,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
         <Box mt={2}>
           <Grid container textAlign="center" spacing={2}>
             <Grid size={{ xs: 12 }}>
-              <GradientButtonWithLoading
+              <ButtonWithLoading
                 isLoading={isPending}
                 type="submit"
                 fullWidth
@@ -172,7 +171,7 @@ const GeneralInformation: FC<GeneralInformationProps> = ({ onSkip }) => {
                 size="large"
               >
                 Continue
-              </GradientButtonWithLoading>
+              </ButtonWithLoading>
               <SkipStep onSkip={onSkip} />
             </Grid>
           </Grid>

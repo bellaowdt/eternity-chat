@@ -45,8 +45,6 @@ const SignUp = () => {
     formState: { errors },
   } = methods;
 
-  console.log('errors>>>', errors);
-
   // const { mutateAsync, isPending } = useMutation({
   //   mutationFn: sendCode,
   // });
@@ -218,7 +216,9 @@ const SignUp = () => {
                 disableElevation
                 size="large"
               >
-                {t('common.buttons.continue')}
+                <Typography variant="subtitle1" fontWeight={700}>
+                  {t('common.buttons.continue')}
+                </Typography>
               </ButtonWithLoading>
             </Grid>
 

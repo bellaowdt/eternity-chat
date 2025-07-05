@@ -1,6 +1,5 @@
 'use client';
 
-import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
 import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
@@ -13,6 +12,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
 import { PersonalityList } from '@/constants/general';
+import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;
@@ -136,7 +136,7 @@ const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
 
         <Box mt={2}>
           <Grid size={{ xs: 12 }} textAlign="center">
-            <GradientButtonWithLoading
+            <ButtonWithLoading
               type="submit"
               fullWidth
               variant="contained"
@@ -144,7 +144,7 @@ const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
               size="large"
             >
               Continue
-            </GradientButtonWithLoading>
+            </ButtonWithLoading>
             <SkipStep onSkip={onSkip} />
           </Grid>
         </Box>

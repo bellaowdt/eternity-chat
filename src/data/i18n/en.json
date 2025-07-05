@@ -226,6 +226,11 @@
         "premiumPlanNoteDescription2": "By starting your subscription, you agree to be charged $5 per client per month. You can cancel anytime from your account settings.",
         "button": "Upgrade to Premium"
       }
+    },
+    "onboarding": {
+      "welcome": {
+        "terms": "I have read and agree to the  <terms>Terms of Service</terms>"
+      }
     }
   }
 }

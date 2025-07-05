@@ -102,7 +102,7 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
                 fontSize={18}
                 color="text.secondary"
                 mb={4}
-                className={`latoStyle-${locale}`}
+                className={`latoStyleBold-${locale}`}
               >
                 {steps[activeStep].description}
               </Typography>

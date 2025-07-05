@@ -13,6 +13,7 @@ interface MessageBubbleProps {
   bubbleTimeColor?: string;
   tailPosition?: ChatCardDirectionEnum;
   bubblePadding?: number;
+  timerPadding?: number;
 }
 
 const MessageBubble: FC<MessageBubbleProps> = ({
@@ -23,6 +24,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
   bubbleTimeColor = 'common.white',
   tailPosition = ChatCardDirectionEnum.LEFT,
   bubblePadding = 3,
+  timerPadding = bubblePadding,
 }) => {
   const { isMobile } = useAppContext();
   const isLeft = tailPosition === ChatCardDirectionEnum.LEFT;
@@ -108,7 +110,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
             justifyContent: 'flex-end',
             gap: 1,
             zIndex: 1,
-            pt: bubblePadding,
+            pt: timerPadding ? timerPadding : bubblePadding,
           }}
         >
           {new Date(time).toLocaleTimeString(locale, {

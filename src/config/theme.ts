@@ -98,6 +98,7 @@ const themeOptions: ThemeOptions = {
     h4: {
       fontSize: '1.25rem', //20px
       lineHeight: 1.4,
+      fontWeight: 500,
     },
     h5: {
       fontSize: '1rem', //16px

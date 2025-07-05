@@ -91,7 +91,7 @@ const SuccessPayment = () => {
             height={120}
           />
 
-          <Typography variant="h3" className={`latoStyle-${locale}`} pt={1}>
+          <Typography variant="h3" className={`latoStyleBold-${locale}`} pt={1}>
             {t('pages.paymentPlans.premiumSuccess.welcome')}
           </Typography>
           <Box
@@ -102,15 +102,15 @@ const SuccessPayment = () => {
             px={1}
             py={2}
           >
-            <Typography variant="body1" className={`latoStyle-${locale}`}>
+            <Typography variant="body1" className={`latoStyleBold-${locale}`}>
               {t('pages.paymentPlans.premiumSuccess.description1')}
             </Typography>
-            <Typography variant="body1" className={`latoStyle-${locale}`}>
+            <Typography variant="body1" className={`latoStyleBold-${locale}`}>
               {t('pages.paymentPlans.premiumSuccess.description2')}
             </Typography>
             <Typography
               variant="body1"
-              className={`latoStyle-${locale}`}
+              className={`latoStyleBold-${locale}`}
               mt={3}
             >
               {t('pages.paymentPlans.premiumSuccess.description3')}

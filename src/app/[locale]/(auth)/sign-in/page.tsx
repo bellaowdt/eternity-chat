@@ -1,6 +1,6 @@
 'use client';
 
-import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
+import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import LinearFieldset from '@/components/common/LinearFieldset';
 import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
@@ -11,7 +11,7 @@ import { signIn } from '@/services/iam';
 import { SignInPayload } from '@/services/iam/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Divider, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -56,6 +56,7 @@ const SignIn = () => {
       type: 'String',
       props: {
         placeholder: t('common.fields.emailPlaceholder'),
+        boldLabel: true,
       },
       ui: {
         grid: {
@@ -110,7 +111,7 @@ const SignIn = () => {
             <FormBuilder fields={fields} />
 
             <Grid size={{ xs: 12 }}>
-              <GradientButtonWithLoading
+              <ButtonWithLoading
                 isLoading={isPending}
                 type="submit"
                 fullWidth
@@ -118,17 +119,15 @@ const SignIn = () => {
                 color="primary"
                 size="large"
               >
-                {t('common.buttons.continue')}
-              </GradientButtonWithLoading>
+                <Typography variant="subtitle1" fontWeight={700}>
+                  {t('common.buttons.continue')}
+                </Typography>
+              </ButtonWithLoading>
             </Grid>
 
             <Grid size={{ xs: 12 }}>
               <RegisterTypography />
             </Grid>
-
-            {/* <Grid size={{ xs: 12 }}>
-              <Divider />
-            </Grid> */}
 
             <Grid size={{ xs: 12 }}>
               <Grid

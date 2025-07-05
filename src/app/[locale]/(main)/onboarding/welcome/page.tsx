@@ -3,8 +3,13 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import CheckClubRulesForm from '../components/CheckRulesForm';
+import { useLocale } from 'next-intl';
+import { useAppContext } from '@/hooks/useAppContext';
 
 const WelcomeAboard = () => {
+  const locale = useLocale();
+  const { isMobile } = useAppContext();
+
   return (
     <Box
       display="flex"
@@ -27,7 +32,7 @@ const WelcomeAboard = () => {
         justifyContent="center"
         mb={4}
       >
-        <Typography variant="h1" fontWeight={700} mb={2}>
+        <Typography variant={isMobile ? 'h2' : 'h1'} fontWeight={700} mb={2}>
           Let’s Begin with
           <br />
           Your{' '}
@@ -35,12 +40,12 @@ const WelcomeAboard = () => {
             Loved One’s Story
           </Box>
         </Typography>
-        <Typography variant="h4" m={2}>
+        <Typography variant="h4" m={2} className={`latoStyleRegular-${locale}`}>
           To create a meaningful experience together, please <br />
           share some details about your loved one to help us <br />
           craft personalized and heartfelt interactions.
         </Typography>
-        <Typography variant="h4" m={2}>
+        <Typography variant="h4" m={2} className={`latoStyleRegular-${locale}`}>
           Feel free to skip this question if it’s too personal.
         </Typography>
       </Box>

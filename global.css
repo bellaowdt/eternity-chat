@@ -8,14 +8,22 @@
 @font-face {
   font-family: 'iranSansFont';
   src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
 }
 
-.latoStyle-en {
+@font-face {
+  font-family: 'LatoRegular';
+  src: url('/assets/fonts/lato/Lato-Regular.ttf') format('truetype');
+}
+
+.latoStyleBold-en {
   font-family: 'LatoBold' !important;
 }
 
-.latoStyle-ar {
+.latoStyleBold-ar,
+.latoStyleRegular-ar {
   font-family: 'iranSansFont' !important;
+}
+
+.latoStyleRegular-en {
+  font-family: 'LatoRegular' !important;
 }

@@ -74,7 +74,7 @@ const OnboardingConversations = () => {
       <Box
         sx={{
           position: 'absolute',
-          top: { xs: '23%', sm: '26%', md: '26%', lg: '29%' },
+          top: { xs: '23%', sm: '26%', md: '29%', lg: '29%' },
           left: { xs: '4%', sm: '5%', md: '1%', lg: '1%' },
           maxWidth: { xs: '70%', sm: '65%', md: '60%' },
           zIndex: 1,
@@ -154,63 +154,63 @@ const OnboardingConversations = () => {
           alignItems="flex-start"
           width="100%"
         >
-          <MessageBubble
-            time="2025-05-05 15:41:00"
-            bubbleColor={LIGHT_BLUE_COLOR}
-            bubbleTextColor={common.black}
-            tailPosition={ChatCardDirectionEnum.RIGHT}
-            bubbleTimeColor={GREY_COLOR}
-            bubblePadding={1}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              width="100%"
-              minWidth={{ xs: 160, sm: 200, md: 280, xl: 340 }}
+          <Box width="fit-content" display="flex" justifyContent="flex-end">
+            <MessageBubble
+              time="2025-05-05 15:41:00"
+              bubbleColor={LIGHT_BLUE_COLOR}
+              bubbleTextColor={common.black}
+              tailPosition={ChatCardDirectionEnum.RIGHT}
+              bubbleTimeColor={GREY_COLOR}
+              bubblePadding={1}
+              timerPadding={0}
             >
               <Box
-                bgcolor="common.white"
-                borderRadius="50%"
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <IconButton size="small" aria-label="Play voice message">
-                  <PlayArrow />
-                </IconButton>
-              </Box>
-              <Box
                 display="flex"
-                alignItems="flex-end"
-                flexDirection="column"
-                p={1}
-                sx={{ minWidth: 80 }}
+                alignItems="center"
+                width="100%"
+                minWidth={{ xs: 160, sm: 200, md: 230, xl: 260 }}
               >
                 <Box
+                  bgcolor="common.white"
+                  borderRadius="50%"
                   sx={{
-                    height: 24,
-                    width: '100%',
-                    maxWidth: 100,
-                    background: `url(${ONBOARDING_GRID_IMAGES}/waveform.png)`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'contain',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                   }}
-                />
-                <Typography fontSize={10} align="right">
-                  00:08
-                </Typography>
+                >
+                  <IconButton size="small" aria-label="Play voice message">
+                    <PlayArrow />
+                  </IconButton>
+                </Box>
+                <Box
+                  display="flex"
+                  alignItems="flex-start"
+                  flexDirection="column"
+                  p={1}
+                  sx={{ minWidth: 80 }}
+                >
+                  <Box
+                    sx={{
+                      height: 24,
+                      width: 118,
+                      background: `url(${ONBOARDING_GRID_IMAGES}/waveform.png)`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'contain',
+                    }}
+                  />
+                  <Typography fontSize={10}>00:08</Typography>
+                </Box>
               </Box>
-            </Box>
-          </MessageBubble>
+            </MessageBubble>
+          </Box>
 
           <Box
             display="flex"
             justifyContent="flex-end"
             alignItems="center"
             sx={{
-              width: { xs: '100%', sm: '100%', md: '100%', xl: '280px' },
+              width: { xs: '100%', xl: '280px' },
             }}
           >
             <Avatar

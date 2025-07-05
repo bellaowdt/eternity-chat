@@ -66,10 +66,10 @@ const FailedPayment = () => {
             {t('pages.paymentPlans.premiumFailed.errorMsg')}
           </Typography>
           <Box maxWidth={DEFAULT_MAX_WIDTH_469} px={6}>
-            <Typography variant="body1" className={`latoStyle-${locale}`}>
+            <Typography variant="body1" className={`latoStyleBold-${locale}`}>
               {t('pages.paymentPlans.premiumFailed.description1')}
             </Typography>
-            <Typography variant="body1" className={`latoStyle-${locale}`}>
+            <Typography variant="body1" className={`latoStyleBold-${locale}`}>
               {t('pages.paymentPlans.premiumFailed.description2')}
             </Typography>
           </Box>

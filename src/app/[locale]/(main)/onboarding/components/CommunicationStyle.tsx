@@ -4,7 +4,6 @@ import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
 import FileUploadForm from '@/components/common/FileUploadForm';
-import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
 import { CommunicationPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,6 +14,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
 import { useAppContext } from '@/hooks/useAppContext';
+import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 
 interface CommunicationStyleProps {
   onSkip: VoidFunction;
@@ -130,7 +130,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
         <Box mt={2}>
           <Grid container textAlign="center" spacing={2}>
             <Grid size={{ xs: 12 }}>
-              <GradientButtonWithLoading
+              <ButtonWithLoading
                 isLoading={isPending}
                 type="submit"
                 fullWidth
@@ -139,7 +139,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
                 size="large"
               >
                 Continue
-              </GradientButtonWithLoading>
+              </ButtonWithLoading>
               <SkipStep onSkip={onSkip} />
             </Grid>
           </Grid>

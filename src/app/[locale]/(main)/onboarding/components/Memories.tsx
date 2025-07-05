@@ -3,7 +3,6 @@
 import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
-import GradientButtonWithLoading from '@/components/common/GradientButtonWithLoading';
 import { MemoriesPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,6 +14,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/navigation';
 import { DEFAULT_ONBOARDING_COMPLETE_PATH } from '@/constants/routes';
 import { useAppContext } from '@/hooks/useAppContext';
+import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 
 interface MemoriesProps {
   onSkip: VoidFunction;
@@ -109,7 +109,7 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
         <Box mt={2}>
           <Grid container textAlign="center" spacing={2}>
             <Grid size={{ xs: 12 }}>
-              <GradientButtonWithLoading
+              <ButtonWithLoading
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -117,7 +117,7 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
                 size="large"
               >
                 Continue
-              </GradientButtonWithLoading>
+              </ButtonWithLoading>
               <SkipStep onSkip={onSkip} />
             </Grid>
           </Grid>

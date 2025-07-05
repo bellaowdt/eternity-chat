@@ -1,5 +1,6 @@
 import { GREY_COLOR } from '@/constants/general';
 import { Stack, SxProps, Typography } from '@mui/material';
+import { useLocale } from 'next-intl';
 import { FC } from 'react';
 
 export interface TitleProps {
@@ -9,12 +10,19 @@ export interface TitleProps {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 const Title: FC<TitleProps> = ({ title, subTitle, sx, variant = 'h1' }) => {
+  const locale = useLocale();
+
   return (
     <Stack spacing={2} sx={{ ...sx }}>
       <Typography variant={variant} fontWeight="700" color={GREY_COLOR}>
         {title}
       </Typography>
-      <Typography variant="h4" fontWeight={400} color={GREY_COLOR}>
+      <Typography
+        variant="h4"
+        fontWeight={400}
+        color={GREY_COLOR}
+        className={`latoStyleBold-${locale}`}
+      >
         {subTitle}
       </Typography>
     </Stack>

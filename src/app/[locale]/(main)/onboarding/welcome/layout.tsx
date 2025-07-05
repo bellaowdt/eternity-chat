@@ -5,11 +5,7 @@ import { Box } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <Box p={2} bgcolor={LAYOUT_BACKGROUND_BLUE}>
-      {children}
-    </Box>
-  );
+  return <Box bgcolor={LAYOUT_BACKGROUND_BLUE}>{children}</Box>;
 };
 
 export default Layout;
