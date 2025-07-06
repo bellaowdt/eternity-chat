@@ -13,6 +13,7 @@ import {
   DateTimePickerProps,
   PickerValidDate,
 } from '@mui/x-date-pickers';
+import { type } from 'os';
 import { ReactNode } from 'react';
 import { ControllerProps, UseFormRegister } from 'react-hook-form';
 import { FileUploadProps } from 'react-material-file-upload';
@@ -158,17 +159,28 @@ export interface ICustomTextField {
   defaultValue: unknown;
 }
 
-export interface ICustomDatePicker {
-  type: 'DatePicker';
-  props: Omit<
+// export interface ICustomDatePicker {
+//   type: 'DatePicker';
+//   props: Omit<
+//     CustomDatePickerProps<PickerValidDate>,
+//     'onSelectedSectionsChange'
+//   > & {
+//     boldLabel?: boolean;
+//     labelVariant?: 'subtitle1' | 'body1';
+//     sx?: SxProps;
+//   };
+//   defaultValue: unknown;
+// }
+
+export interface ICustomDatePicker
+  extends Omit<
     CustomDatePickerProps<PickerValidDate>,
     'onSelectedSectionsChange'
-  > & {
-    boldLabel?: boolean;
-    labelVariant?: 'subtitle1' | 'body1';
-    sx?: SxProps;
-  };
-  defaultValue: unknown;
+  > {
+  type: 'DatePicker';
+  props: any;
+  boldLabel?: boolean;
+  labelVariant?: 'subtitle1' | 'body1';
 }
 
 export interface ICustomSelect {

@@ -5,12 +5,14 @@ import { ICustomDatePicker } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
 import { Box, Typography } from '@mui/material';
 
-const CustomDatePicker: FC<ICustomDatePicker['props']> = ({
+const CustomDatePicker: FC<ICustomDatePicker> = ({
   name,
   label,
   variant = 'outlined',
   valueFormatter,
   format = 'yyyy/MM/dd',
+  labelVariant = 'subtitle1',
+  boldLabel = false,
   ...props
 }) => {
   const { control } = useFormContext();
@@ -28,16 +30,13 @@ const CustomDatePicker: FC<ICustomDatePicker['props']> = ({
     field.onChange(value);
   };
 
-  const { labelVariant, boldLabel } = props!.props as any;
-
-  console.log(props);
   return (
     <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       {label && (
         <Typography
-          variant={labelVariant}
+          variant={props?.props?.labelVariant}
           mb={1}
-          fontWeight={boldLabel ? 'bold' : 'normal'}
+          fontWeight={props?.props?.boldLabel ? 'bold' : 'normal'}
         >
           {label}
         </Typography>
@@ -56,7 +55,7 @@ const CustomDatePicker: FC<ICustomDatePicker['props']> = ({
             helperText: errors[name]?.message?.toString(),
             error: !!errors[name],
             fullWidth: true,
-            variant,
+            variant: props?.props?.variant,
             size: 'small',
             InputProps: {
               startAdornment: (
