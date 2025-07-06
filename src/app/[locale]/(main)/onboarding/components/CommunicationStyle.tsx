@@ -97,6 +97,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
         justifyContent="space-between"
         width="100%"
         flex={1}
+        px={2}
       >
         <Box>
           <Title

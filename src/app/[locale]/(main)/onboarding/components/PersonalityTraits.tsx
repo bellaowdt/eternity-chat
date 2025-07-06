@@ -15,6 +15,7 @@ import { GREY_F9_COLOR, PersonalityList } from '@/constants/general';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import { useTranslations } from 'next-intl';
 import { greyOutlinedInputBackgroundSx } from '@/utils/general';
+import { useAppContext } from '@/hooks/useAppContext';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;
@@ -22,6 +23,7 @@ interface GeneralInformationProps {
 
 const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
   const t = useTranslations();
+  const { isMobile } = useAppContext();
   const [selectedTraits, setSelectedTraits] = useState<string[]>([]);
 
   const handleToggle = (trait: string) => {
@@ -96,10 +98,12 @@ const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
         justifyContent="space-between"
         width="100%"
         flex={1}
+        px={2}
       >
         <Box>
           <Title
             title="Personality Traits"
+            variant={isMobile ? 'h2' : 'h1'}
             sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
           />
           <Grid

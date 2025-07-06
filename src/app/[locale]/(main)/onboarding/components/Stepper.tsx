@@ -25,7 +25,7 @@ const steps = [
 
 const ProgressStepper = () => {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(4);
+  const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -63,10 +63,10 @@ const ProgressStepper = () => {
       {/* Dots */}
       <Box
         width="100%"
+        display="flex"
         alignItems="center"
         justifyContent="center"
         mt={6}
-        display="flex"
         gap={1}
       >
         {steps?.map((_, index) => (

@@ -79,11 +79,12 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
         justifyContent="space-between"
         width="100%"
         flex={1}
+        px={2}
       >
         <Box>
           <Title
             title="Appearance"
-            variant={isMobile ? 'h3' : 'h1'}
+            variant={isMobile ? 'h2' : 'h1'}
             sx={{ mt: 4, mb: 2, justifyContent: 'flex-start' }}
           />
           <Grid
