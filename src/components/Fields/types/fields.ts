@@ -163,7 +163,11 @@ export interface ICustomDatePicker {
   props: Omit<
     CustomDatePickerProps<PickerValidDate>,
     'onSelectedSectionsChange'
-  >;
+  > & {
+    boldLabel?: boolean;
+    labelVariant?: 'subtitle1' | 'body1';
+    sx?: SxProps;
+  };
   defaultValue: unknown;
 }
 
@@ -204,6 +208,11 @@ export type IFieldTypes =
   | {
       type?: 'Date';
       limitations?: DateLimitations;
+      props?: Partial<ICustomDatePicker> & {
+        boldLabel?: boolean;
+        labelVariant?: 'subtitle1' | 'body1';
+        sx?: SxProps;
+      };
     }
   | {
       type?: 'RadioButtons';

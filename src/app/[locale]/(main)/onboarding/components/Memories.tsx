@@ -1,26 +1,31 @@
 'use client';
 
+import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
+import { GREY_F9_COLOR } from '@/constants/general';
+import { DEFAULT_ONBOARDING_COMPLETE_PATH } from '@/constants/routes';
+import { useAppContext } from '@/hooks/useAppContext';
 import { MemoriesPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
+import { greyOutlinedInputBackgroundSx } from '@/utils/general';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
-import { FC } from 'react';
-import { useRouter } from 'next/navigation';
-import { DEFAULT_ONBOARDING_COMPLETE_PATH } from '@/constants/routes';
-import { useAppContext } from '@/hooks/useAppContext';
-import { ButtonWithLoading } from '@/components/ButtonWithLoading';
+import MemoriesSocialConnet from './MemoriesSocialConnet';
 
 interface MemoriesProps {
   onSkip: VoidFunction;
 }
 
 const Memories: FC<MemoriesProps> = ({ onSkip }) => {
+  const t = useTranslations();
   const router = useRouter();
   const { isMobile } = useAppContext();
 
@@ -62,6 +67,7 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
         multiline: true,
         minRows: 6,
         boldLabel: true,
+        sx: greyOutlinedInputBackgroundSx(GREY_F9_COLOR),
       },
       ui: {
         grid: {
@@ -69,17 +75,25 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
         },
       },
     },
-    // receiveReminderDate: {
-    //   name: "receiveReminderDate",
-    //   type: "Date",
-    //   label:
-    //     "If you'd like, you can provide a meaningful date to receive a gentle reminder.",
-    //   ui: {
-    //     grid: {
-    //       size: { xs: 12 },
-    //     },
-    //   },
-    // },
+    receiveReminderDate: {
+      name: 'receiveReminderDate',
+      type: 'Date',
+      label:
+        "If you'd like, you can provide a meaningful date to receive a gentle reminder.",
+      props: {
+        boldLabel: true,
+        labelVariant: 'subtitle1',
+        sx: {
+          bgcolor: GREY_F9_COLOR,
+          height: 50,
+        },
+      },
+      ui: {
+        grid: {
+          size: { xs: 12 },
+        },
+      },
+    },
   };
 
   return (
@@ -104,6 +118,9 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
             onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
           >
             <FormBuilder fields={fields} />
+            <Grid size={{ xs: 12 }}>
+              <MemoriesSocialConnet />
+            </Grid>
           </Grid>
         </Box>
         <Box mt={2}>
@@ -116,7 +133,9 @@ const Memories: FC<MemoriesProps> = ({ onSkip }) => {
                 color="primary"
                 size="large"
               >
-                Continue
+                <Typography variant="subtitle1" fontWeight={700}>
+                  {t('common.buttons.continue')}
+                </Typography>
               </ButtonWithLoading>
               <SkipStep onSkip={onSkip} />
             </Grid>

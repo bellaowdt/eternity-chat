@@ -1,6 +1,10 @@
 'use client';
 
-import { GREY_7D_COLOR, UPLOAD_ICON_IMAGE } from '@/constants/general';
+import {
+  GREY_7D_COLOR,
+  GREY_F9_COLOR,
+  UPLOAD_ICON_IMAGE,
+} from '@/constants/general';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, useState } from 'react';
@@ -57,6 +61,7 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
                 width: '100%',
                 cursor: 'pointer',
                 minHeight: 80,
+                bgcolor: GREY_F9_COLOR,
               }}
             >
               <Box
@@ -69,7 +74,9 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
                 <RoundedIcon
                   width={35}
                   height={35}
-                  backgroundColor="#D0DAEE"
+                  sxProp={{
+                    backgroundColor: '#D0DAEE',
+                  }}
                   icon={
                     <Image
                       alt="upload"
@@ -83,6 +90,7 @@ const FileUploadForm: FC<FileUploadFormProps> = ({
                   variant="subtitle1"
                   fontWeight={400}
                   color={GREY_7D_COLOR}
+                  textAlign="center"
                   className={`ambitStyleRegular-${locale}`}
                   mt={2}
                 >

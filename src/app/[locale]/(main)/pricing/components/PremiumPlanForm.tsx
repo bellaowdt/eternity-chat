@@ -2,7 +2,7 @@ import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import FormBuilder, {
   FormBuilderProps,
 } from '@/components/Fields/components/FormBuilder';
-import { greyOutlinedInputBackgroundSx } from '@/constants/general';
+import { greyOutlinedInputBackgroundSx } from '@/utils/general';
 import {
   GET_USER_PERSONALITIES_LIST_KEY,
   SAMPLE_CHAT_USER_ID,
@@ -95,7 +95,7 @@ const PremiumPlanForm = () => {
         placeholder: t('common.fields.cardholderNameLable'),
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {
@@ -111,7 +111,7 @@ const PremiumPlanForm = () => {
         placeholder: 'xxxx-xxxx-xxxx-xxxx',
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {
@@ -127,7 +127,7 @@ const PremiumPlanForm = () => {
         placeholder: 'xxxx',
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {
@@ -143,7 +143,7 @@ const PremiumPlanForm = () => {
         placeholder: 'xxxx',
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {
@@ -159,7 +159,7 @@ const PremiumPlanForm = () => {
         placeholder: labels.address,
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {
@@ -191,7 +191,7 @@ const PremiumPlanForm = () => {
         placeholder: 'xxxx',
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {
@@ -207,7 +207,7 @@ const PremiumPlanForm = () => {
         placeholder: labels.city,
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {
@@ -223,7 +223,7 @@ const PremiumPlanForm = () => {
         placeholder: 'xxxx',
         boldLabel: true,
         labelVariant: 'body1',
-        sx: greyOutlinedInputBackgroundSx,
+        sx: greyOutlinedInputBackgroundSx(''),
       },
       ui: {
         grid: {

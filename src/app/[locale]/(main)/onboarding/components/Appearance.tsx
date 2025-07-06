@@ -15,6 +15,8 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
 import { useTranslations } from 'next-intl';
+import { greyOutlinedInputBackgroundSx } from '@/utils/general';
+import { GREY_F9_COLOR } from '@/constants/general';
 
 interface AppearanceProsp {
   onSkip: VoidFunction;
@@ -59,6 +61,7 @@ const Appearance: FC<AppearanceProsp> = ({ onSkip }) => {
         multiline: true,
         minRows: 6,
         boldLabel: true,
+        sx: greyOutlinedInputBackgroundSx(GREY_F9_COLOR),
       },
       ui: {
         grid: {

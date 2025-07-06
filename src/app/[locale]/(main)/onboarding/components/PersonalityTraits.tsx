@@ -11,9 +11,10 @@ import { FC, Fragment, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SkipStep from './SkipStep';
-import { PersonalityList } from '@/constants/general';
+import { GREY_F9_COLOR, PersonalityList } from '@/constants/general';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
 import { useTranslations } from 'next-intl';
+import { greyOutlinedInputBackgroundSx } from '@/utils/general';
 
 interface GeneralInformationProps {
   onSkip: VoidFunction;
@@ -64,6 +65,7 @@ const PersonalityTraits: FC<GeneralInformationProps> = ({ onSkip }) => {
         boldLabel: true,
         multiline: true,
         rows: 6,
+        sx: greyOutlinedInputBackgroundSx(GREY_F9_COLOR),
       },
       ui: {
         grid: {

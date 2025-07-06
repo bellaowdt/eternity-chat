@@ -7,7 +7,7 @@ import FileUploadForm from '@/components/common/FileUploadForm';
 import { CommunicationPayload } from '@/services/onboarding/types';
 import { onInvalidSubmit } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -15,12 +15,16 @@ import * as yup from 'yup';
 import SkipStep from './SkipStep';
 import { useAppContext } from '@/hooks/useAppContext';
 import { ButtonWithLoading } from '@/components/ButtonWithLoading';
+import { GREY_F9_COLOR } from '@/constants/general';
+import { greyOutlinedInputBackgroundSx } from '@/utils/general';
+import { useTranslations } from 'next-intl';
 
 interface CommunicationStyleProps {
   onSkip: VoidFunction;
 }
 
 const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
+  const t = useTranslations();
   const { isMobile } = useAppContext();
   const labels: Record<keyof CommunicationPayload, string> = {
     description: 'description',
@@ -59,7 +63,8 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
           'E.g., They spoke with a warm and friendly tone, often using kind words and gentle humor. Their messages were thoughtful and supportive.',
         boldLabel: true,
         multiline: true,
-        minRows: 8,
+        minRows: 6,
+        sx: greyOutlinedInputBackgroundSx(GREY_F9_COLOR),
       },
       ui: {
         grid: {
@@ -74,6 +79,7 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
       props: {
         placeholder: "E.g., 'Keep smiling!",
         boldLabel: true,
+        sx: greyOutlinedInputBackgroundSx(GREY_F9_COLOR),
       },
       ui: {
         grid: {
@@ -106,22 +112,23 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
           >
             <FormBuilder fields={fields} />
 
-            <Grid size={{ xs: 12 }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <FileUploadForm
                 name="lovedVoice"
-                label="Upload a voice recording of your loved one"
+                label="Upload a voice recording"
+                subLabel="Drag & drop or choose file to upload"
                 acceptedFormat=".mp3,wav"
                 acceptedFormatText="Supported formats: MP3, WAV"
               />
             </Grid>
 
-            <Grid size={{ xs: 12 }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <FileUploadForm
                 name="textVoice"
-                label="Would you like to upload text messages they’ve sent you?"
-                subLabel="This helps us better understand their unique way of talking."
-                acceptedFormat=".mp3,wav"
-                acceptedFormatText="Supported formats: MP3, WAV"
+                label="Upload a text message"
+                subLabel="Drag & drop or choose file to upload"
+                acceptedFormat=".txt"
+                acceptedFormatText="Supported formats: TXT"
               />
             </Grid>
           </Grid>
@@ -138,7 +145,9 @@ const CommunicationStyle: FC<CommunicationStyleProps> = ({ onSkip }) => {
                 color="primary"
                 size="large"
               >
-                Continue
+                <Typography variant="subtitle1" fontWeight={700}>
+                  {t('common.buttons.continue')}
+                </Typography>
               </ButtonWithLoading>
               <SkipStep onSkip={onSkip} />
             </Grid>

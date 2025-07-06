@@ -13,10 +13,12 @@ export const DEFAULT_MAX_WIDTH_591 = 591;
 
 export const ONBOARDING_BG_COLOR = '#EEBF95';
 export const GREY_COLOR = '#3D3D3D';
+export const GREY_7D_COLOR = '#7D7D7D';
+export const GREY_F9_COLOR = '#F9F6F1';
+
 export const LIGHT_BLUE_COLOR = '#A2CBF3';
 export const LAYOUT_BACKGROUND_BLUE = '#E0F0FF';
 export const STEPPER_COLOR = '#6C747F';
-export const GREY_7D_COLOR = '#7D7D7D';
 
 export const DEFAULt_NO_IMAGE = '/assets/images/placeholders/no-image.jpg';
 export const HOME_CHAT_EXPERIENCE = '/assets/images/home/home-chat.png';
@@ -26,18 +28,11 @@ export const DEFAULt_FEMALE_AVATAR_IMAGE = '/assets/images/users/avatar-7.png';
 export const ONBOARDING_GRID_IMAGES = '/assets/images/onboarding';
 export const STAR_IMAGE = '/assets/images/star-icon.png';
 export const UPLOAD_ICON_IMAGE = '/assets/images/upload-icon.png';
-
-export const greyOutlinedInputBackgroundSx = {
-  '& .MuiOutlinedInput-root': {
-    backgroundColor: '#F9F6F1',
-  },
-};
-
-export const greyOutlinedSelectBackgroundSx = {
-  '& .MuiSelect-root': {
-    backgroundColor: '#ff0',
-  },
-};
+export const SOCIAL_MEDIA_ICONS = '/assets/images/social-media';
+export const INSTAGRAM_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/instagram.png`;
+export const X_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/x.png`;
+export const FACEBOOK_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/facebook.png`;
+export const WHATSAPP_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/whatsapp.png`;
 
 export const PersonalityList: Option[] = [
   {
