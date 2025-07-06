@@ -159,28 +159,17 @@ export interface ICustomTextField {
   defaultValue: unknown;
 }
 
-// export interface ICustomDatePicker {
-//   type: 'DatePicker';
-//   props: Omit<
-//     CustomDatePickerProps<PickerValidDate>,
-//     'onSelectedSectionsChange'
-//   > & {
-//     boldLabel?: boolean;
-//     labelVariant?: 'subtitle1' | 'body1';
-//     sx?: SxProps;
-//   };
-//   defaultValue: unknown;
-// }
-
-export interface ICustomDatePicker
-  extends Omit<
+export interface ICustomDatePicker {
+  type: 'DatePicker';
+  props: Omit<
     CustomDatePickerProps<PickerValidDate>,
     'onSelectedSectionsChange'
-  > {
-  type: 'DatePicker';
-  props: any;
-  boldLabel?: boolean;
-  labelVariant?: 'subtitle1' | 'body1';
+  > & {
+    boldLabel?: boolean;
+    labelVariant?: 'subtitle1' | 'body1';
+    sx?: SxProps;
+  };
+  defaultValue: unknown;
 }
 
 export interface ICustomSelect {
