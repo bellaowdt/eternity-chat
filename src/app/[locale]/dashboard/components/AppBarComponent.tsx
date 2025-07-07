@@ -1,9 +1,10 @@
 'use client';
 
+import { DEFAULT_DASHBOARD_ICONS } from '@/constants/general';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import PhoneIcon from '@mui/icons-material/Phone';
 import SearchIcon from '@mui/icons-material/Search';
 import { Avatar, Box, IconButton, Toolbar, Typography } from '@mui/material';
+import Image from 'next/image';
 
 const AppBarComponent = () => {
   return (
@@ -11,7 +12,7 @@ const AppBarComponent = () => {
       <Box display="flex" alignItems="center">
         <Avatar
           alt="John Doe"
-          src="/path-to-profile.jpg"
+          src={`${DEFAULT_DASHBOARD_ICONS}/john-doe-avatar.png`}
           sx={{ marginRight: 1 }}
         />
         <Typography variant="subtitle1" fontWeight="bold">
@@ -21,13 +22,18 @@ const AppBarComponent = () => {
 
       <Box>
         <IconButton>
-          <PhoneIcon />
+          <Image
+            alt="Attachment"
+            src={`${DEFAULT_DASHBOARD_ICONS}/phone.png`}
+            width={24}
+            height={24}
+          />
         </IconButton>
         <IconButton>
-          <SearchIcon />
+          <SearchIcon sx={{ color: 'black' }} />
         </IconButton>
         <IconButton>
-          <MoreVertIcon />
+          <MoreVertIcon sx={{ color: 'black' }} />
         </IconButton>
       </Box>
     </Toolbar>
