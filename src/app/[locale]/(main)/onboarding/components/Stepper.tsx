@@ -14,6 +14,9 @@ import CommunicationStyle from './CommunicationStyle';
 import GeneralInformation from './GeneralInformation';
 import Memories from './Memories';
 import PersonalityTraits from './PersonalityTraits';
+import { useRouter } from 'next/navigation';
+import { DEFAULT_PRICING_PATH } from '@/constants/routes';
+import router from 'next/router';
 
 const steps = [
   GeneralInformation,
@@ -25,6 +28,7 @@ const steps = [
 
 const ProgressStepper = () => {
   const theme = useTheme();
+  const router = useRouter();
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -42,6 +46,8 @@ const ProgressStepper = () => {
   const handleSkip = () => {
     if (activeStep < steps.length - 1) {
       setActiveStep((prev) => prev + 1);
+    } else {
+      router.push(DEFAULT_PRICING_PATH);
     }
   };
 

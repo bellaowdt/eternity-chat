@@ -6,17 +6,22 @@ import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
 import { GREY_7D_COLOR } from '@/constants/general';
-import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
+import {
+  DEFAULT_ONBOARDING_WELCOME_PATH,
+  DEFAULT_SIGNIN_PATH,
+} from '@/constants/routes';
 import { SignUpPayload } from '@/services/iam/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RemoveRedEye } from '@mui/icons-material';
 import { Box, Grid, Link, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 const SignUp = () => {
   const t = useTranslations();
+  const router = useRouter();
 
   const labels: Record<keyof SignUpPayload, string> = {
     email: t('common.fields.email'),
@@ -57,6 +62,7 @@ const SignUp = () => {
     //   },
     // });
     // router.push('', { state: payload });
+    router.push(DEFAULT_ONBOARDING_WELCOME_PATH);
   };
 
   const fields: FormBuilderProps['fields'] = {

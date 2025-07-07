@@ -11,7 +11,7 @@ export const DEFAULT_POLICY_PRIVACY_PATH = '/policy-privacy';
 export const DEFAULT_HELP_CENTER_PATH = '/help-center';
 export const DEFAULT_PRICING_PATH = '/pricing';
 export const DEFAULT_PLAYMENT_PLANS_UPGRADE_PATH = `${DEFAULT_PRICING_PATH}/upgrade`;
-export const DEFAULT_PLAYMENT_PLANS_UPGRADE_SUCCESSFUL_PAY_PATH = `${DEFAULT_PRICING_PATH}/upgrade/success-pay`;
+export const DEFAULT_PLAYMENT_PLANS_UPGRADE_SUCCESSFUL_PAY_PATH = `${DEFAULT_PRICING_PATH}/upgrade/success-payment`;
 
 export const DEFAULT_DASHBOARD_PATH = '/dashboard';
 export const DEFAULT_DASHBOARD_CHAT_PATH = `${DEFAULT_DASHBOARD_PATH}/chat/`;

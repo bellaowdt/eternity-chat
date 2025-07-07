@@ -1,7 +1,10 @@
 'use client';
 
 import { NAVBAR_HEIGHT } from '@/constants/general';
-import { DEFAULT_PLAYMENT_PLANS_UPGRADE_PATH } from '@/constants/routes';
+import {
+  DEFAULT_DASHBOARD_CHAT_PATH,
+  DEFAULT_PLAYMENT_PLANS_UPGRADE_PATH,
+} from '@/constants/routes';
 import { useAppContext } from '@/hooks/useAppContext';
 import { Box, Card, CardContent, Grid, Paper } from '@mui/material';
 import { useTranslations } from 'next-intl';
@@ -11,6 +14,7 @@ import FreeTrialDialog from './components/FreeTrialDialog';
 import { planFeatures, plans } from './components/PaymentPlansData';
 import PlanCard from './components/PlanCard';
 import PlanDescriptionCard from './components/PlanDescriptionCard';
+import { SAMPLE_CHAT_ID } from '@/constants/query-keys';
 
 const PaymentPlans = () => {
   const t = useTranslations();
@@ -20,7 +24,8 @@ const PaymentPlans = () => {
   const [freePlanDialog, setFreePlanDialog] = useState(false);
 
   const onToggleFreeTrialDialog = () => {
-    setFreePlanDialog((prev) => !prev);
+    // setFreePlanDialog((prev) => !prev);
+    router.push(DEFAULT_DASHBOARD_CHAT_PATH + `/${SAMPLE_CHAT_ID}`);
   };
 
   const onUpgradePlan = () => {
