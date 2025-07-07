@@ -1,4 +1,4 @@
-import { FIXED_BUTTON_HEIGHT, LIGHT_BLUE_COLOR } from '@/constants/general';
+import { FIXED_BUTTON_HEIGHT } from '@/constants/general';
 import {
   Button,
   ButtonProps,
@@ -31,7 +31,7 @@ export const fancyButtonStyle: SxProps<Theme> = {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: LIGHT_BLUE_COLOR,
+    backgroundColor: 'secondary.light',
     zIndex: -1,
     transform: 'translateY(100%)',
     transition: 'transform 0.2s ease-in-out',

@@ -1,7 +1,4 @@
-import { Notifications } from '@mui/icons-material';
-import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import SettingsIcon from '@mui/icons-material/Settings';
+import { DEFAULT_DASHBOARD_ICONS } from '@/constants/general';
 import {
   Divider,
   List,
@@ -11,12 +8,11 @@ import {
   Typography,
 } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import HelpCenterDialog from '../help-center/HelpCenterDialog';
 import SettingDialog from '../setting/SettingDialog';
-import { DEFAULt_SIDEBAR_ICONS } from '@/constants/general';
-import Image from 'next/image';
 
 interface SidebarMenusProps {
   collapsed: boolean;
@@ -45,25 +41,25 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const menus: ISideBarMenu[] = [
     {
       text: t('common.sidebar.menu.notification'),
-      icon: `${DEFAULt_SIDEBAR_ICONS}/notification.png`,
+      icon: `${DEFAULT_DASHBOARD_ICONS}/notification.png`,
     },
     {
       text: t('common.sidebar.menu.settings'),
-      icon: `${DEFAULt_SIDEBAR_ICONS}/settings.png`,
+      icon: `${DEFAULT_DASHBOARD_ICONS}/settings.png`,
       callFunc: onToggleSettingDialog,
     },
     {
       text: t('common.sidebar.menu.subscription'),
-      icon: `${DEFAULt_SIDEBAR_ICONS}/credit-card.png`,
+      icon: `${DEFAULT_DASHBOARD_ICONS}/credit-card.png`,
     },
     {
       text: t('common.sidebar.menu.helpCenter'),
-      icon: `${DEFAULt_SIDEBAR_ICONS}/message-question-checkmark.png`,
+      icon: `${DEFAULT_DASHBOARD_ICONS}/message-question-checkmark.png`,
       callFunc: onToggleHelpCenterDialog,
     },
     {
       text: t('common.sidebar.menu.privacyPolicy'),
-      icon: `${DEFAULt_SIDEBAR_ICONS}/lock.png`,
+      icon: `${DEFAULT_DASHBOARD_ICONS}/lock.png`,
     },
   ];
 

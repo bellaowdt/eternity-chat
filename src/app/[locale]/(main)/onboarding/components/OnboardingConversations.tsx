@@ -2,7 +2,6 @@
 
 import {
   GREY_COLOR,
-  LIGHT_BLUE_COLOR,
   ONBOARDING_BG_COLOR,
   ONBOARDING_GRID_IMAGES,
 } from '@/constants/general';
@@ -55,7 +54,7 @@ const OnboardingConversations = () => {
       >
         <MessageBubble
           time="2025-05-05 15:41:00"
-          bubbleColor={LIGHT_BLUE_COLOR}
+          bubbleColor={'secondary.light'}
           bubbleTimeColor={GREY_COLOR}
           bubbleTextColor={common.white}
           tailPosition={ChatCardDirectionEnum.RIGHT}
@@ -157,7 +156,7 @@ const OnboardingConversations = () => {
           <Box width="fit-content" display="flex" justifyContent="flex-end">
             <MessageBubble
               time="2025-05-05 15:41:00"
-              bubbleColor={LIGHT_BLUE_COLOR}
+              bubbleColor={'secondary.light'}
               bubbleTextColor={common.black}
               tailPosition={ChatCardDirectionEnum.RIGHT}
               bubbleTimeColor={GREY_COLOR}

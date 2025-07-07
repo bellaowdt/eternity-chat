@@ -16,7 +16,7 @@ export const GREY_COLOR = '#3D3D3D';
 export const GREY_7D_COLOR = '#7D7D7D';
 export const GREY_F9_COLOR = '#F9F6F1';
 
-export const LIGHT_BLUE_COLOR = '#A2CBF3';
+// export const LIGHT_BLUE_COLOR = '#A2CBF3';
 export const LAYOUT_BACKGROUND_BLUE = '#E0F0FF';
 export const STEPPER_COLOR = '#6C747F';
 
@@ -33,8 +33,7 @@ export const INSTAGRAM_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/instagram.png`;
 export const X_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/x.png`;
 export const FACEBOOK_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/facebook.png`;
 export const WHATSAPP_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/whatsapp.png`;
-
-export const DEFAULt_SIDEBAR_ICONS = '/assets/images/dashboard';
+export const DEFAULT_DASHBOARD_ICONS = '/assets/images/dashboard';
 
 export const PersonalityList: Option[] = [
   {

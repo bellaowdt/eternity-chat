@@ -13,7 +13,7 @@ import NotificationBar from '../../components/NotificationBar';
 
 const ChatPage = () => {
   const { isMobile } = useAppContext();
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const toggleDrawer = () => setCollapsed(!collapsed);
 
   return (

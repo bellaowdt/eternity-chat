@@ -1,23 +1,24 @@
 'use client';
 
-import { IconButtonWithLoading } from '@/components/IconButtonWithLoading';
+import RoundedIcon from '@/components/common/RoundedIcon';
 import VoicePlayer from '@/components/VoicePlayer';
+import { DEFAULT_DASHBOARD_ICONS } from '@/constants/general';
 import {
   GET_CHAT_HISTORY_QUERY_KEY,
   SAMPLE_CHAT_USER_ID,
   SAMPLE_CHAT_USER_PERSONALITY,
 } from '@/constants/query-keys';
+import { useAppContext } from '@/hooks/useAppContext';
 import { chat, textToSpeech } from '@/services/chat';
 import { ChatMessageTypeEnum, IChatHistoryItem } from '@/services/chat/types';
 import {
-  SendRounded,
   GraphicEq as GraphicEqIcon,
   InsertEmoticon as InsertEmoticonIcon,
-  Link as LinkIcon,
 } from '@mui/icons-material';
-import { Box, IconButton, InputBase, Paper, Typography } from '@mui/material';
+import { Box, InputBase, Typography } from '@mui/material';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { FC, useRef, useState } from 'react';
 
 interface MessagePayload {
@@ -28,6 +29,8 @@ interface MessagePayload {
 
 const ChatInput: FC = () => {
   const t = useTranslations();
+  const { isMobile } = useAppContext();
+
   const [message, setMessage] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
@@ -156,62 +159,117 @@ const ChatInput: FC = () => {
   };
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center">
-      <Paper
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      width="100%"
+      mt={3}
+    >
+      <Box
         component="form"
         onSubmit={onSubmit}
-        variant="outlined"
+        width="100%"
         sx={{
           display: 'flex',
-          alignItems: 'center',
-          borderRadius: '40px',
-          backgroundColor: '#e0e0e0',
-          padding: '4px 16px',
-          width: '100%',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'stretch' : 'center',
+          gap: 1,
         }}
       >
-        <IconButton>
-          <LinkIcon />
-        </IconButton>
+        <Box display={isMobile ? 'none' : 'block'}>
+          <RoundedIcon
+            width={isMobile ? 48 : 65}
+            height={isMobile ? 48 : 65}
+            sxProp={{ backgroundColor: 'white', flexShrink: 0 }}
+            icon={
+              <Image
+                alt="Attachment"
+                src={`${DEFAULT_DASHBOARD_ICONS}/attachment.png`}
+                width={24}
+                height={24}
+              />
+            }
+          />
+        </Box>
+
+        {/* Input Field */}
         <InputBase
           inputRef={inputRef}
           autoFocus
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
-          sx={{ ml: 1, flex: 1 }}
+          sx={{
+            flex: 1,
+            borderRadius: '40px',
+            bgcolor: 'white',
+            fontFamily: 'Lato, sans-serif',
+            p: 2,
+            fontSize: isMobile ? 14 : 16,
+            width: '100%',
+          }}
           placeholder={`${t('pages.chat.typeMsg')}...`}
           multiline
           rows={1}
+          endAdornment={
+            <Box onClick={sendMessage} sx={{ cursor: 'pointer' }}>
+              <Image
+                alt="Send"
+                src={`${DEFAULT_DASHBOARD_ICONS}/send.png`}
+                width={isMobile ? 30 : 40}
+                height={isMobile ? 30 : 40}
+              />
+            </Box>
+          }
         />
-        <IconButton>
-          <InsertEmoticonIcon />
-        </IconButton>
-        <IconButtonWithLoading
-          type="submit"
-          disabled={!message.trim() || isPending}
-          sx={{
-            backgroundColor: 'common.white',
-            borderRadius: '50%',
-            padding: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: 1,
-          }}
-        >
-          <SendRounded fontSize="small" />
-        </IconButtonWithLoading>
-        <IconButton>
-          <GraphicEqIcon />
-        </IconButton>
-      </Paper>
 
+        {/* Icons Group */}
+        <Box
+          display="flex"
+          flexDirection="row"
+          justifyContent={isMobile ? 'center' : 'flex-start'}
+          gap={1}
+          mt={isMobile ? 1 : 0}
+        >
+          <Box display={isMobile ? 'block' : 'none'}>
+            <RoundedIcon
+              width={isMobile ? 48 : 65}
+              height={isMobile ? 48 : 65}
+              sxProp={{ backgroundColor: 'white', flexShrink: 0 }}
+              icon={
+                <Image
+                  alt="Attachment"
+                  src={`${DEFAULT_DASHBOARD_ICONS}/attachment.png`}
+                  width={24}
+                  height={24}
+                />
+              }
+            />
+          </Box>
+          <RoundedIcon
+            width={isMobile ? 48 : 65}
+            height={isMobile ? 48 : 65}
+            sxProp={{ backgroundColor: 'white', flexShrink: 0 }}
+            icon={<InsertEmoticonIcon />}
+          />
+          <RoundedIcon
+            width={isMobile ? 48 : 65}
+            height={isMobile ? 48 : 65}
+            sxProp={{ backgroundColor: 'white', flexShrink: 0 }}
+            icon={<GraphicEqIcon />}
+          />
+        </Box>
+      </Box>
+
+      {/* Footer Message */}
       <Typography
         variant="body1"
         fontWeight={400}
         my={2}
         color="text.secondary"
+        textAlign="center"
+        px={2}
       >
         {t('pages.chat.accuracyMsg')}
       </Typography>

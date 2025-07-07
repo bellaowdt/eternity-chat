@@ -1,7 +1,6 @@
 import {
   DEFAULT_MAX_WIDTH_469,
   DEFAULT_MAX_WIDTH_591,
-  LIGHT_BLUE_COLOR,
   STEPPER_COLOR,
 } from '@/constants/general';
 import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
@@ -178,7 +177,7 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: LIGHT_BLUE_COLOR,
+                backgroundColor: 'secondary.light',
                 zIndex: -1,
                 transform: 'translateY(100%)',
                 transition: 'transform 0.4s ease-in-out',
