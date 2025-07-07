@@ -30,7 +30,10 @@ const TopBar: FC<TopBarProps> = ({ collapsed, toggleCollapsed }) => {
               <MenuIcon />
             </IconButton>
           </Toolbar>
-          <Container maxWidth="md" sx={{ flex: 1 }}>
+          <Container
+            maxWidth="lg"
+            sx={{ flex: 1, px: { xs: 2, sm: 4, md: 6 } }}
+          >
             <AppBarComponent />
           </Container>
         </Box>

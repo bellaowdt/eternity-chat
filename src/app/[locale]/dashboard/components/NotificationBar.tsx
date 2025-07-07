@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const NotificationBar = () => {
   const t = useTranslations();
+  const locale = useLocale();
   const [visible, setVisible] = useState(true);
   if (!visible) return null;
 
@@ -27,12 +28,16 @@ const NotificationBar = () => {
         <Stack spacing={1}>
           <Typography
             variant="subtitle1"
-            fontWeight="bold"
+            fontWeight="700"
             sx={{ color: '#485D71' }}
           >
             {t('pages.chat.notification.title')}
           </Typography>
-          <Typography variant="subtitle2" sx={{ color: '#485D71' }}>
+          <Typography
+            variant="subtitle2"
+            className={`latoStyleRegular-${locale}`}
+            sx={{ color: '#485D71' }}
+          >
             {t('pages.chat.notification.description')}
           </Typography>
         </Stack>

@@ -1,9 +1,9 @@
 import { Option } from '@/components/Fields';
 
-export const DRAWER_WIDTH = 200;
+export const DRAWER_WIDTH = 240;
 export const DRAWER_MIN_WIDTH = 0;
 export const MINI_DRAWER_WIDTH = 80;
-export const DIALOG_SIDEBAR_WIDTH = 200;
+export const DIALOG_SIDEBAR_WIDTH = 240;
 export const NAVBAR_HEIGHT = 80;
 export const FIXED_BUTTON_HEIGHT = 55;
 export const FIXED_INPUT_HEIGHT = 51;
@@ -33,6 +33,8 @@ export const INSTAGRAM_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/instagram.png`;
 export const X_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/x.png`;
 export const FACEBOOK_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/facebook.png`;
 export const WHATSAPP_ICON_PATH = `${SOCIAL_MEDIA_ICONS}/whatsapp.png`;
+
+export const DEFAULt_SIDEBAR_ICONS = '/assets/images/dashboard';
 
 export const PersonalityList: Option[] = [
   {

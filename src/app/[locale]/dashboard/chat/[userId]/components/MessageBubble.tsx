@@ -142,7 +142,7 @@ const MessageBubble: FC<MessageBubbleProps> = ({
             variant="caption"
             sx={{
               textAlign: 'right',
-              color: '#999',
+              color: isSystem ? 'white' : '#999',
               position: 'relative',
               display: 'flex',
               alignItems: 'center',

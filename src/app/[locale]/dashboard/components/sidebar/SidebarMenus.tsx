@@ -8,13 +8,15 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
+  Typography,
 } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import HelpCenterDialog from '../help-center/HelpCenterDialog';
 import SettingDialog from '../setting/SettingDialog';
+import { DEFAULt_SIDEBAR_ICONS } from '@/constants/general';
+import Image from 'next/image';
 
 interface SidebarMenusProps {
   collapsed: boolean;
@@ -22,7 +24,7 @@ interface SidebarMenusProps {
 
 interface ISideBarMenu {
   text: string;
-  icon: React.ReactElement;
+  icon: string;
   callFunc?: VoidFunction;
   linkUrl?: string;
 }
@@ -43,21 +45,25 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const menus: ISideBarMenu[] = [
     {
       text: t('common.sidebar.menu.notification'),
-      icon: <Notifications />,
+      icon: `${DEFAULt_SIDEBAR_ICONS}/notification.png`,
     },
     {
       text: t('common.sidebar.menu.settings'),
-      icon: <SettingsIcon />,
+      icon: `${DEFAULt_SIDEBAR_ICONS}/settings.png`,
       callFunc: onToggleSettingDialog,
     },
     {
+      text: t('common.sidebar.menu.subscription'),
+      icon: `${DEFAULt_SIDEBAR_ICONS}/credit-card.png`,
+    },
+    {
       text: t('common.sidebar.menu.helpCenter'),
-      icon: <ContactSupportOutlinedIcon />,
+      icon: `${DEFAULt_SIDEBAR_ICONS}/message-question-checkmark.png`,
       callFunc: onToggleHelpCenterDialog,
     },
     {
       text: t('common.sidebar.menu.privacyPolicy'),
-      icon: <LockOutlinedIcon />,
+      icon: `${DEFAULt_SIDEBAR_ICONS}/lock.png`,
     },
   ];
 
@@ -73,7 +79,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
               sx={{
                 minHeight: 48,
                 justifyContent: collapsed ? 'center' : 'flex-start',
-                px: collapsed ? 1 : 2.5,
+                p: collapsed ? 1 : 2.5,
               }}
             >
               <ListItemIcon
@@ -83,9 +89,13 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
                   justifyContent: 'center',
                 }}
               >
-                {icon}
+                <Image alt={text} src={icon} width={24} height={24} />
               </ListItemIcon>
-              {!collapsed && <ListItemText primary={text} />}
+              {!collapsed && (
+                <Typography variant="subtitle1" fontWeight={700}>
+                  {text}
+                </Typography>
+              )}
             </ListItemButton>
           );
 

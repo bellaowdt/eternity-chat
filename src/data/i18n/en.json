@@ -66,6 +66,7 @@
       "menu": {
         "notification": "Notifications",
         "settings": "Settings",
+        "subscription": "Subscription",
         "helpCenter": "Help Center",
         "privacyPolicy": "Privacy Policy"
       }

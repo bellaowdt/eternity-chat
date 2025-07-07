@@ -10,7 +10,6 @@ import ChatDrawer from './components/ChatDrawer';
 import ChatInput from './components/ChatInput';
 import TopBar from '../../components/TopBar';
 import NotificationBar from '../../components/NotificationBar';
-import { red } from '@mui/material/colors';
 
 const ChatPage = () => {
   const { isMobile } = useAppContext();

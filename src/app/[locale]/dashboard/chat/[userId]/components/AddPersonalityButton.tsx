@@ -18,11 +18,11 @@ const AddPersonalityButton = () => {
         borderRadius="100%"
         width={60}
         height={60}
-        bgcolor="common.black"
+        bgcolor="primary.main"
         sx={{ cursor: 'pointer' }}
         onClick={onToggleAddDialog}
       >
-        <Typography fontSize={24} color="common.white">
+        <Typography fontSize={30} color="common.white">
           +
         </Typography>
       </Box>

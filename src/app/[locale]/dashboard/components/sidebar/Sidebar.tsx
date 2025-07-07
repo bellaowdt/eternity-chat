@@ -24,9 +24,10 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
           width: collapsed ? miniWidth : drawerWidth,
           boxSizing: 'border-box',
           transition: 'width 0.3s',
-          borderRight: 'none',
-          boxShadow: 'none',
-          bgcolor: (theme) => theme.palette.background.paper,
+          boxShadow: 2,
+          bgcolor: 'white',
+          borderTopRightRadius: 20,
+          borderBottomRightRadius: 20,
         },
       }}
     >
@@ -37,8 +38,9 @@ const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
         alignItems="center"
         height="100%"
         py={2}
+        width="100%"
       >
-        <Box>
+        <Box width="100%">
           <UserDetails collapsed={collapsed} />
           <SidebarMenus collapsed={collapsed} />
         </Box>

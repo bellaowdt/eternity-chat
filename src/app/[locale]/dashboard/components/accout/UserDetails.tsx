@@ -8,7 +8,7 @@ interface UserDetailsProps {
 
 const UserDetails: FC<UserDetailsProps> = ({ collapsed }) => {
   const avatarSize = collapsed ? 35 : 70;
-  const data = {
+  const profileData = {
     fullName: 'Linda Peterson',
     avatar: '/assets/images/users/linda.jpg',
     email: 'bahar.keshavarzc@gmail.com',
@@ -23,7 +23,8 @@ const UserDetails: FC<UserDetailsProps> = ({ collapsed }) => {
     >
       <Avatar
         alt=""
-        src={data?.avatar}
+        src={profileData?.avatar}
+        sx={{ width: avatarSize, height: avatarSize }}
         slotProps={{
           img: {
             width: avatarSize,
@@ -32,12 +33,8 @@ const UserDetails: FC<UserDetailsProps> = ({ collapsed }) => {
         }}
       />
       <CustomSkeleton isLoading={isFetching}>
-        <Typography
-          variant={collapsed ? 'caption' : 'body1'}
-          textAlign="center"
-          fontWeight={600}
-        >
-          {data?.fullName}
+        <Typography variant={collapsed ? 'caption' : 'body2'} fontWeight={700}>
+          {profileData?.fullName}
         </Typography>
       </CustomSkeleton>
     </Stack>
