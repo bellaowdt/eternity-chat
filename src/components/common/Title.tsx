@@ -1,4 +1,4 @@
-import { GREY_COLOR } from '@/constants/general';
+import { GREY_3D_COLOR } from '@/constants/general';
 import { Stack, SxProps, Typography } from '@mui/material';
 import { useLocale } from 'next-intl';
 import { FC } from 'react';
@@ -14,13 +14,13 @@ const Title: FC<TitleProps> = ({ title, subTitle, sx, variant = 'h1' }) => {
 
   return (
     <Stack spacing={2} sx={{ ...sx }}>
-      <Typography variant={variant} fontWeight="700" color={GREY_COLOR}>
+      <Typography variant={variant} fontWeight="700" color={GREY_3D_COLOR}>
         {title}
       </Typography>
       <Typography
         variant="h4"
         fontWeight={400}
-        color={GREY_COLOR}
+        color={GREY_3D_COLOR}
         className={`latoStyleBold-${locale}`}
       >
         {subTitle}

@@ -5,11 +5,7 @@ import LinearFieldset from '@/components/common/LinearFieldset';
 import Title from '@/components/common/Title';
 import { FormBuilder } from '@/components/Fields';
 import { FormBuilderProps } from '@/components/Fields/components/FormBuilder';
-import { SAMPLE_CHAT_ID } from '@/constants/query-keys';
-import {
-  DEFAULT_DASHBOARD_CHAT_PATH,
-  DEFAULT_SIGNUP_PATH,
-} from '@/constants/routes';
+import { DEFAULT_SIGNUP_PATH } from '@/constants/routes';
 import { signIn } from '@/services/iam';
 import { SignInPayload } from '@/services/iam/types';
 import { onInvalidSubmit } from '@/utils/form';

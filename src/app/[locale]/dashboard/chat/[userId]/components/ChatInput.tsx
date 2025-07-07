@@ -15,11 +15,12 @@ import {
   GraphicEq as GraphicEqIcon,
   InsertEmoticon as InsertEmoticonIcon,
 } from '@mui/icons-material';
-import { Box, InputBase, Typography } from '@mui/material';
+import { Box, InputBase } from '@mui/material';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { FC, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
+import ChatAIAccuracyMessage from './ChatAIAccuracyMessage';
 
 interface MessagePayload {
   message: string;
@@ -27,9 +28,21 @@ interface MessagePayload {
   queryKey: [string, string];
 }
 
-const ChatInput: FC = () => {
+type ChatInputProps = {
+  defaultQuestion?: string;
+  handleStartChat?: any;
+};
+
+const ChatInput: FC<ChatInputProps> = ({
+  defaultQuestion = '',
+  handleStartChat,
+}) => {
   const t = useTranslations();
   const { isMobile } = useAppContext();
+
+  useEffect(() => {
+    if (defaultQuestion) setMessage(defaultQuestion);
+  }, [defaultQuestion]);
 
   const [message, setMessage] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
@@ -144,6 +157,8 @@ const ChatInput: FC = () => {
         isError: true,
       });
     }
+
+    handleStartChat?.();
   };
 
   const onSubmit = (e: React.FormEvent) => {
@@ -205,7 +220,8 @@ const ChatInput: FC = () => {
             borderRadius: '40px',
             bgcolor: 'white',
             fontFamily: 'Lato, sans-serif',
-            p: 2,
+            py: 1.3,
+            px: 2,
             fontSize: isMobile ? 14 : 16,
             width: '100%',
           }}
@@ -261,19 +277,6 @@ const ChatInput: FC = () => {
           />
         </Box>
       </Box>
-
-      {/* Footer Message */}
-      <Typography
-        variant="body1"
-        fontWeight={400}
-        my={2}
-        color="text.secondary"
-        textAlign="center"
-        px={2}
-      >
-        {t('pages.chat.accuracyMsg')}
-      </Typography>
-
       {audioUrl && (
         <VoicePlayer voiceUrl={audioUrl} playbackKey={playbackKey!} />
       )}

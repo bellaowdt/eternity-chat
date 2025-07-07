@@ -1,6 +1,6 @@
 'use client';
 
-import { DEFAULT_MAX_WIDTH_469, GREY_COLOR } from '@/constants/general';
+import { DEFAULT_MAX_WIDTH_469, GREY_3D_COLOR } from '@/constants/general';
 import { DEFAULT_PRICING_PATH } from '@/constants/routes';
 import { ArrowBack } from '@mui/icons-material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
@@ -33,7 +33,7 @@ const PremiumPlanDetails = () => {
           <Link href={DEFAULT_PRICING_PATH}>
             <Box display="flex" alignItems="center" gap={1} mb={2}>
               <ArrowBack fontSize="medium" />
-              <Typography variant="h5" sx={{ color: GREY_COLOR }}>
+              <Typography variant="h5" sx={{ color: GREY_3D_COLOR }}>
                 {t('common.buttons.back')}
               </Typography>
             </Box>

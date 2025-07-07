@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  GREY_COLOR,
+  GREY_3D_COLOR,
   ONBOARDING_BG_COLOR,
   ONBOARDING_GRID_IMAGES,
 } from '@/constants/general';
@@ -55,14 +55,14 @@ const OnboardingConversations = () => {
         <MessageBubble
           time="2025-05-05 15:41:00"
           bubbleColor={'secondary.light'}
-          bubbleTimeColor={GREY_COLOR}
+          bubbleTimeColor={GREY_3D_COLOR}
           bubbleTextColor={common.white}
           tailPosition={ChatCardDirectionEnum.RIGHT}
           bubblePadding={isMobile ? 1.5 : 2}
         >
           <Typography
             variant={isXs ? 'body1' : 'h6'}
-            sx={{ color: GREY_COLOR, lineHeight: 1.3 }}
+            sx={{ color: GREY_3D_COLOR, lineHeight: 1.3 }}
           >
             I’m here with you. Let’s talk about anything you like.
           </Typography>
@@ -159,7 +159,7 @@ const OnboardingConversations = () => {
               bubbleColor={'secondary.light'}
               bubbleTextColor={common.black}
               tailPosition={ChatCardDirectionEnum.RIGHT}
-              bubbleTimeColor={GREY_COLOR}
+              bubbleTimeColor={GREY_3D_COLOR}
               bubblePadding={1}
               timerPadding={0}
             >

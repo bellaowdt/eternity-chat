@@ -10,9 +10,11 @@ export const FIXED_INPUT_HEIGHT = 51;
 export const FIXED_SELECT_HEIGHT = 50;
 export const DEFAULT_MAX_WIDTH_469 = 469;
 export const DEFAULT_MAX_WIDTH_591 = 591;
+export const DEFAULT_MAX_WIDTH_713 = 713;
+export const DEFAULT_MAX_WIDTH_958 = 958;
 
 export const ONBOARDING_BG_COLOR = '#EEBF95';
-export const GREY_COLOR = '#3D3D3D';
+export const GREY_3D_COLOR = '#3D3D3D';
 export const GREY_7D_COLOR = '#7D7D7D';
 export const GREY_F9_COLOR = '#F9F6F1';
 
@@ -86,5 +88,28 @@ export const PersonalityList: Option[] = [
     id: 10,
     label: 'Other',
     value: 'Other',
+  },
+];
+
+export const DefaultQuestionsList: Option[] = [
+  {
+    id: 1,
+    label: 'How have you been?',
+    value: 'How have you been?',
+  },
+  {
+    id: 2,
+    label: 'Is there anything you want to tell me now?',
+    value: 'Is there anything you want to tell me now?',
+  },
+  {
+    id: 3,
+    label: 'Do you still watch over me?',
+    value: 'Do you still watch over me?',
+  },
+  {
+    id: 4,
+    label: 'How are you?',
+    value: 'How are you?',
   },
 ];

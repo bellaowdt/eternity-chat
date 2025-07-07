@@ -135,6 +135,10 @@
         "title": "🔔 Free Trial: 6 days remaining",
         "description": "You’re using the free version with text chat only. Upgrade anytime to unlock voice, memory recall, and more.",
         "upgradeButton": "Upgrade your Plan"
+      },
+      "welcome": {
+        "welcomeMsg": "Welcome to Eternity Chat",
+        "description": "You now have access to text-based conversations with your AI companion — crafted from memories, moments, and the bond you shared."
       }
     },
     "helpCenter": {

@@ -1,5 +1,6 @@
 import { DEFAULT_DASHBOARD_ICONS } from '@/constants/general';
 import {
+  Box,
   Divider,
   List,
   ListItem,
@@ -13,6 +14,7 @@ import Link from 'next/link';
 import { FC, useState } from 'react';
 import HelpCenterDialog from '../help-center/HelpCenterDialog';
 import SettingDialog from '../setting/SettingDialog';
+import RoundedIcon from '@/components/common/RoundedIcon';
 
 interface SidebarMenusProps {
   collapsed: boolean;
@@ -23,6 +25,7 @@ interface ISideBarMenu {
   icon: string;
   callFunc?: VoidFunction;
   linkUrl?: string;
+  badgeCount?: number;
 }
 
 const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
@@ -42,6 +45,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
     {
       text: t('common.sidebar.menu.notification'),
       icon: `${DEFAULT_DASHBOARD_ICONS}/notification.png`,
+      badgeCount: 1,
     },
     {
       text: t('common.sidebar.menu.settings'),
@@ -66,7 +70,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   return (
     <>
       <List>
-        {menus?.map(({ text, icon, callFunc, linkUrl }, index) => {
+        {menus?.map(({ text, icon, callFunc, linkUrl, badgeCount }, index) => {
           const buttonContent = (
             <ListItemButton
               onClick={callFunc}
@@ -88,9 +92,31 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
                 <Image alt={text} src={icon} width={24} height={24} />
               </ListItemIcon>
               {!collapsed && (
-                <Typography variant="subtitle1" fontWeight={700}>
-                  {text}
-                </Typography>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  flex={1}
+                >
+                  <Typography variant="subtitle1" fontWeight={700}>
+                    {text}
+                  </Typography>
+
+                  {badgeCount !== undefined && badgeCount > 0 && (
+                    <Box ml={4}>
+                      <RoundedIcon
+                        width={24}
+                        height={24}
+                        sxProp={{ backgroundColor: 'primary.main' }}
+                        icon={
+                          <Typography variant="caption" color="white">
+                            {badgeCount}
+                          </Typography>
+                        }
+                      />
+                    </Box>
+                  )}
+                </Box>
               )}
             </ListItemButton>
           );

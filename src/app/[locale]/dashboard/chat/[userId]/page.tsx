@@ -10,6 +10,7 @@ import ChatDrawer from './components/ChatDrawer';
 import ChatInput from './components/ChatInput';
 import TopBar from '../../components/TopBar';
 import NotificationBar from '../../components/NotificationBar';
+import ChatAIAccuracyMessage from './components/ChatAIAccuracyMessage';
 
 const ChatPage = () => {
   const { isMobile } = useAppContext();
@@ -46,6 +47,7 @@ const ChatPage = () => {
             >
               <MessagesContainer />
               <ChatInput />
+              <ChatAIAccuracyMessage />
             </Container>
           </Box>
         </Box>
