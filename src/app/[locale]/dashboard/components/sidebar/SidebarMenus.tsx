@@ -80,6 +80,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
                 minHeight: 48,
                 justifyContent: collapsed ? 'center' : 'flex-start',
                 p: collapsed ? 1 : 2.5,
+                color: 'text.primary',
               }}
             >
               <ListItemIcon
@@ -87,6 +88,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
                   minWidth: 0,
                   mr: collapsed ? 0 : 2,
                   justifyContent: 'center',
+                  color: 'text.primary',
                 }}
               >
                 <Image alt={text} src={icon} width={24} height={24} />
@@ -98,7 +100,11 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
                   alignItems="center"
                   flex={1}
                 >
-                  <Typography variant="subtitle1" fontWeight={700}>
+                  <Typography
+                    variant="subtitle1"
+                    fontWeight={700}
+                    color="text.primary"
+                  >
                     {text}
                   </Typography>
 

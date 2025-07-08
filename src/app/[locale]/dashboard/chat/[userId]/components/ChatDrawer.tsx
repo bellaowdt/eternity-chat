@@ -42,7 +42,10 @@ const ChatDrawer = () => {
                   <Avatar
                     alt={user.title}
                     src={(user.icon as string) || ''}
-                    sx={{ width: 60, height: 60 }}
+                    sx={{
+                      width: { xs: 45, md: 60 },
+                      height: { xs: 45, md: 60 },
+                    }}
                   />
                 </Tooltip>
               ))}

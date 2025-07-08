@@ -17,8 +17,8 @@ const UploadDocumentButton = () => {
         justifyContent="center"
         alignItems="center"
         borderRadius="100%"
-        width={60}
-        height={60}
+        width={{ xs: 50, md: 60 }}
+        height={{ xs: 50, md: 60 }}
         bgcolor="primary.main"
         sx={{ cursor: 'pointer' }}
         onClick={onToggleUploadDialog}

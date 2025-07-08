@@ -1,19 +1,9 @@
 import { DRAWER_WIDTH } from '@/constants/general';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import MailIcon from '@mui/icons-material/Mail';
-import SettingsIcon from '@mui/icons-material/Settings';
-import {
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  ListItemButton,
-  useTheme,
-} from '@mui/material';
-import { FC, useState } from 'react';
+import { Box, Drawer } from '@mui/material';
+import { FC } from 'react';
+import SignOutButton from '../accout/SignOutButton';
+import UserDetails from '../accout/UserDetails';
+import SidebarMenus from './SidebarMenus';
 
 interface MobileSidebarProps {
   toggleDrawer: VoidFunction;
@@ -21,57 +11,40 @@ interface MobileSidebarProps {
 }
 
 const MobileSidebar: FC<MobileSidebarProps> = ({ collapsed, toggleDrawer }) => {
-  const [active, setActive] = useState('Dashboard');
-  const theme = useTheme();
-
-  const menuItems = [
-    { text: 'Dashboard', icon: <DashboardIcon /> },
-    { text: 'Inbox', icon: <MailIcon /> },
-    { text: 'Contacts', icon: <ContactsIcon /> },
-    { text: 'Settings', icon: <SettingsIcon /> },
-  ];
-
   return (
     <Drawer
       anchor="left"
       open={collapsed}
       onClose={toggleDrawer}
       sx={{
+        width: DRAWER_WIDTH,
+        flexShrink: 0,
+        height: '100vh',
         '& .MuiDrawer-paper': {
           width: DRAWER_WIDTH,
-          borderRight: 'none',
-          boxShadow: 'none',
+          boxSizing: 'border-box',
+          transition: 'width 0.3s',
+          boxShadow: 2,
           bgcolor: 'white',
+          borderTopRightRadius: 20,
+          borderBottomRightRadius: 20,
         },
       }}
     >
-      <Box sx={{ width: DRAWER_WIDTH }}>
-        <List>
-          {menuItems?.map(({ text, icon }) => (
-            <ListItem disablePadding key={text}>
-              <ListItemButton
-                onClick={() => {
-                  setActive(text);
-                  toggleDrawer();
-                }}
-                sx={{
-                  color: active === text ? 'common.white' : 'common.black',
-                  bgcolor:
-                    active === text
-                      ? theme.palette.primary.main
-                      : 'transparent',
-                  borderLeft:
-                    active === text
-                      ? `4px solid ${theme.palette.primary.light}`
-                      : '4px solid transparent',
-                }}
-              >
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        alignItems="center"
+        height="100%"
+        py={2}
+        width="100%"
+      >
+        <Box width="100%">
+          <UserDetails collapsed={collapsed} />
+          <SidebarMenus collapsed={!collapsed} />
+        </Box>
+        <SignOutButton />
       </Box>
     </Drawer>
   );
