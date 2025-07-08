@@ -26,7 +26,6 @@ const OnboardingConversations = () => {
   const theme = useTheme();
   const { isMobile } = useAppContext();
   const isXs = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   return (
     <Box
@@ -42,7 +41,7 @@ const OnboardingConversations = () => {
         alignItems: 'center',
       }}
     >
-      {/* Joe message bubble */}
+      {/* First message bubble */}
       <Box
         sx={{
           position: 'absolute',
@@ -54,7 +53,7 @@ const OnboardingConversations = () => {
       >
         <MessageBubble
           time="2025-05-05 15:41:00"
-          bubbleColor={'secondary.light'}
+          bubbleColor={theme.palette.secondary.light}
           bubbleTimeColor={GREY_3D_COLOR}
           bubbleTextColor={common.white}
           tailPosition={ChatCardDirectionEnum.RIGHT}
@@ -156,7 +155,7 @@ const OnboardingConversations = () => {
           <Box width="fit-content" display="flex" justifyContent="flex-end">
             <MessageBubble
               time="2025-05-05 15:41:00"
-              bubbleColor={'secondary.light'}
+              bubbleColor={theme.palette.secondary.light}
               bubbleTextColor={common.black}
               tailPosition={ChatCardDirectionEnum.RIGHT}
               bubbleTimeColor={GREY_3D_COLOR}

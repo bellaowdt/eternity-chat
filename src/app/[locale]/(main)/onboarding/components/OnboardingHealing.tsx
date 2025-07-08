@@ -5,10 +5,12 @@ import {
   ONBOARDING_BG_COLOR,
   ONBOARDING_GRID_IMAGES,
 } from '@/constants/general';
-import { Avatar, Box, Stack, Typography } from '@mui/material';
+import { Avatar, Box, Stack, Typography, useTheme } from '@mui/material';
 import Image from 'next/image';
 
 const OnboardingHealing = () => {
+  const theme = useTheme();
+
   return (
     <Box
       display="flex"
@@ -36,7 +38,6 @@ const OnboardingHealing = () => {
           alt="Chris"
           fill
           style={{ objectFit: 'cover' }}
-          // style={{ objectFit: 'cover', objectPosition: 'top center' }}
           priority
         />
       </Box>
@@ -91,7 +92,7 @@ const OnboardingHealing = () => {
             variant="text"
             fullWidth
             sx={{
-              bgcolor: 'secondary.light',
+              bgcolor: theme.palette.secondary.light,
               py: 1,
             }}
           >

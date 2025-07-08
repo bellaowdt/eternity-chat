@@ -67,7 +67,11 @@ const CheckClubRulesForm = ({
                 >
                   {t.rich('pages.onboarding.welcome.terms', {
                     terms: (chunks) => (
-                      <Link href="/terms-conditions" underline="hover">
+                      <Link
+                        href="/terms-conditions"
+                        underline="hover"
+                        target="_blank"
+                      >
                         {chunks}
                       </Link>
                     ),

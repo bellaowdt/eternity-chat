@@ -5,7 +5,6 @@ import {
 } from '@/constants/general';
 import { DEFAULT_SIGNIN_PATH } from '@/constants/routes';
 import { useAppContext } from '@/hooks/useAppContext';
-import { KeyboardArrowRight } from '@mui/icons-material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import {
@@ -45,7 +44,9 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
   };
 
   const handleSkip = () => {
-    setActiveStep(steps.length - 1);
+    if (activeStep < steps.length - 1) {
+      setActiveStep((prev) => prev + 1);
+    }
   };
 
   const handleDotClick = (index: number) => {
@@ -130,10 +131,11 @@ const OnboardingDescription: FC<OnboardingDescriptionProps> = ({
             color: STEPPER_COLOR,
             minWidth: 0,
             padding: 0,
-            fontWeight: 700,
           }}
         >
-          Skip
+          <Typography variant="subtitle1" fontWeight={500}>
+            Skip
+          </Typography>
         </Button>
 
         <Box

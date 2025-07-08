@@ -184,8 +184,8 @@ const themeOptions: ThemeOptions = {
              @font-face {
                font-family: 'sfproDisplay';
                src: url('/assets/fonts/sfproDisplay/SFPro_Font_License.rtf') format('truetype');
-               font-weight: 300;
-               font-display: swap;
+               font-weight: 500;
+               font-display: normal;
             },
             @font-face {
                font-family: 'iransans';
