@@ -20,11 +20,8 @@ const TopBar: FC<TopBarProps> = ({ collapsed, toggleCollapsed }) => {
             <IconButton
               onClick={toggleCollapsed}
               edge="start"
-              color="secondary"
               sx={{
                 color: 'text.primary',
-                borderRadius: 0.2,
-                bgcolor: collapsed ? iconBackColorOpen : iconBackColor,
               }}
             >
               <MenuIcon />
