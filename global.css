@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'LatoBold';
+  src: url('/assets/fonts/lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'iranSansFont';
+  src: url('/assets/fonts/iransansWeb/woff/IRANSansWeb.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'LatoRegular';
+  src: url('/assets/fonts/lato/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AmbitRegular';
+  src: url('/assets/fonts/ambit/Ambit-Regular.ttf') format('truetype');
+}
+
+.latoStyleBold-en {
+  font-family: 'LatoBold' !important;
+}
+
+.latoStyleBold-ar,
+.latoStyleRegular-ar,
+.ambitStyleRegular-ar {
+  font-family: 'iranSansFont' !important;
+}
+
+.latoStyleRegular-en {
+  font-family: 'LatoRegular' !important;
+}
+
+.ambitStyleRegular-en {
+  font-family: 'AmbitRegular' !important;
+}

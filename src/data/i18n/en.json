@@ -1,0 +1,241 @@
+{
+  "siteInfo": {
+    "title": "Eternity Chat"
+  },
+  "common": {
+    "buttons": {
+      "return": "Return",
+      "yes": "Yes",
+      "no": "No",
+      "select": "Select",
+      "returnHome": "Return Home",
+      "refresh": "Refresh",
+      "reset": "Reset",
+      "submit": "Submit",
+      "detail": "Detail",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "login": "login",
+      "logout": "Logout",
+      "setting": "Settings",
+      "saveChanges": "Save Changes",
+      "continue": "Continue",
+      "or": "Or",
+      "googleBtn": "Continue with Google",
+      "changePassword": "Change Password",
+      "deleteAllChats": "Delete All Chats",
+      "helpCenter": "Help Center",
+      "back": "Back"
+    },
+    "fields": {
+      "name": "Name",
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "password": "Password",
+      "language": "Language",
+      "confirmPassword": "Confirm Password",
+      "namePlaceholder": "ex. John",
+      "emailPlaceholder": "sample@gmail.com",
+      "darkTheme": "Dark Theme",
+      "editImage": "Edit Image",
+      "female": "Female",
+      "male": "Male",
+      "age": "Age",
+      "occupation": "Occupation",
+      "tone": "Tone",
+      "gender": "Gender",
+      "personality": "Personality",
+      "tons": {
+        "happy": "Happy",
+        "sad": "Sad",
+        "natural": "Natural"
+      },
+      "cardholderName": "Cardholder Name",
+      "cardholderNameLable": "First & last name",
+      "cardNumber": "Card Number",
+      "cvv": "CVV",
+      "expirationDate": "Expiration Date",
+      "address": "Street Adress",
+      "country": "Country",
+      "province": "State/Province",
+      "city": "City",
+      "postalCode": "Postal Code"
+    },
+    "sidebar": {
+      "menu": {
+        "notification": "Notifications",
+        "settings": "Settings",
+        "subscription": "Subscription",
+        "helpCenter": "Help Center",
+        "privacyPolicy": "Privacy Policy"
+      }
+    }
+  },
+  "messages": {
+    "noRowFound": "There is no row to display!",
+    "personalityCreatedSuccessfully": "Your personality was created successfully!",
+    "somethingWentWrong": "Sorry! Something went wrong!",
+    "toast": {
+      "defaultError": "Encountered an error!",
+      "copied": "Copied!"
+    }
+  },
+  "pages": {
+    "account": {
+      "logoutMsg": "Are you sure you want to log out?",
+      "logoutConfirm": "Yes, Log Me Out"
+    },
+    "settings": {
+      "menu": {
+        "accountSetting": "Account Settings",
+        "general": "General",
+        "notificationPreference": "Notification Preference",
+        "privacySettings": "Privacy Settings"
+      },
+      "notifications": {
+        "email": "Email Notifications",
+        "inApp": "In-App Notifications",
+        "push": "Push Notifications"
+      },
+      "privacy": {
+        "twoFactorAuthentication": "Two-Factor Authentication",
+        "sessionManagement": "Session Management"
+      }
+    },
+    "signIn": {
+      "welcomeMsg": "Welcome to Eternity Chat",
+      "welcomeSubMsg": "A Space to Reconnect and Remember.",
+      "dontHaveAnAccount": "Don't have an account?"
+    },
+    "signUp": {
+      "createAccount": "Create Your Account",
+      "signUpPrivacyPolicyText": "By signing up, you agree to our <terms>Terms of Service </terms> and <policy>Privacy Policy</policy>.",
+      "alreadyHaveAnAccount": "Already have an account?"
+    },
+    "chat": {
+      "accuracyMsg": "The AI can’t fully replicate your loved one, but it uses their data to create meaningful conversations.",
+      "typeMsg": "Type a message",
+      "getChatResponseError": "Sorry! Something went wrong at my side.",
+      "addPersonality": "Add a New Personality",
+      "uploadDocument": "Please Upload Data.",
+      "toolbarIcons": {
+        "copy": "Copy",
+        "readAloud": "Read aloud",
+        "goodResponse": "Good response",
+        "badResponse": "Bad response"
+      },
+      "feedback": {
+        "feedbackAgain": "Give Feedback Again"
+      },
+      "documents": {
+        "documentList": "Your Document list:"
+      },
+      "notification": {
+        "title": "🔔 Free Trial: 6 days remaining",
+        "description": "You’re using the free version with text chat only. Upgrade anytime to unlock voice, memory recall, and more.",
+        "upgradeButton": "Upgrade your Plan"
+      },
+      "welcome": {
+        "welcomeMsg": "Welcome to Eternity Chat",
+        "description": "You now have access to text-based conversations with your AI companion — crafted from memories, moments, and the bond you shared."
+      }
+    },
+    "helpCenter": {
+      "menu": {
+        "generalMsg": "How can we help you?",
+        "faq": "FAQ",
+        "contactSupport": {
+          "title": "Contact Support",
+          "liveChat": "Live Chat",
+          "sendEmail": "Send Us an Email",
+          "requestCallback": "Request a Callback"
+        }
+      }
+    },
+    "paymentPlans": {
+      "comment": {
+        "title": "Choose how to begin",
+        "description1": "You've just completed setup. Now it’s time to begin your journey.",
+        "description2": "Whether you want to start gently with text conversations, or you're ready for a more immersive experience with voice and deeper memories-we have the right path for you."
+      },
+      "plans": {
+        "free": {
+          "price": "$0",
+          "duration": "",
+          "title": "Free Trial - 7 Days",
+          "planType": "",
+          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "features": {
+            "f1": "Real-time text chat with your AI loved one",
+            "f2": "No credit card required",
+            "f3": "7-day access"
+          },
+          "moreDetails": "",
+          "buttonTilte": "Start Free Trial"
+        },
+        "premium": {
+          "price": "$50",
+          "duration": "/month",
+          "title": "Premium",
+          "planType": "(Voice & More)",
+          "subTilte": "Want a deeper connection? Unlock the full experience.",
+          "features": {
+            "f1": "Voice calls with your loved one’s AI",
+            "f2": "Advanced emotional recall + memory simulation",
+            "f3": "Custom tone and personality controls",
+            "f4": "Priority customer support",
+            "f5": "Everything included in Free Trial"
+          },
+          "moreDetails": "",
+          "buttonTilte": "Upgrade to Premium"
+        }
+      },
+      "freeTrial": {
+        "welcome": "Welcome to Your Free Trial!",
+        "description": "You now have access to text-based conversations with your AI companion — crafted from memories, moments, and the bond you shared.",
+        "beginButton": "Begin Chat"
+      },
+      "premiumUpgrade": {
+        "title": "Upgrade to Premium",
+        "planDetailTitle": "Experience the full power of AI memory and presence",
+        "planDetails": "What’s Included in Premium:",
+        "features": {
+          "f1": "Voice Calls – Hear your loved one’s voice again",
+          "f2": "Deep Memory Recall – Simulate shared stories and emotional moments",
+          "f3": "Custom Personality Tuning – Adjust tone, mood, and conversation style",
+          "f4": "Unlimited Text Chat",
+          "f5": "Priority Support",
+          "f6": "7-Day Free Trial — You won’t be charged today"
+        },
+        "helpTitle": "Need help?",
+        "helpDescription": "If you have questions, <support>contact support </support>or read our <faq>FAQ</faq>"
+      },
+      "premiumSuccess": {
+        "welcome": "Welcome to the Full Experience!",
+        "description1": "You’ve successfully upgraded to Premium.",
+        "description2": "Your AI companion is now ready to connect with you on a deeper level — through voice, memory, and personalized interaction.",
+        "description3": "We’re honored to be part of your journey.",
+        "beginButton": "Let’s Begin"
+      },
+      "premiumFailed": {
+        "errorMsg": "Payment Failed!",
+        "description1": "Something went wrong while trying to activate your Premium plan. ",
+        "description2": "Don’t worry, no charges were made.",
+        "failButton": "Retry Payment"
+      },
+      "payment": {
+        "premiumPlan": "Premium Plan",
+        "premiumPlanNoteTitle": "Money-Back Guarantee Reminder:",
+        "premiumPlanNoteDescription1": "Remember, if you're not completely satisfied, we offer a money-back guarantee on your first month's subscription fee.",
+        "premiumPlanNoteDescription2": "By starting your subscription, you agree to be charged $5 per client per month. You can cancel anytime from your account settings.",
+        "button": "Upgrade to Premium"
+      }
+    },
+    "onboarding": {
+      "welcome": {
+        "terms": "I have read and agree to the  <terms>Terms of Service</terms>"
+      }
+    }
+  }
+}
