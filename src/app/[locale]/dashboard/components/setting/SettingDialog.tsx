@@ -12,6 +12,22 @@ import { useSettingMenus } from './hooks/useSettingMenus';
 import { useAppContext } from '@/hooks/useAppContext';
 
 export type SettingDialogProps = DialogProps;
+export const generalDialogMenuSettings = {
+  '& .MuiTab-root': {
+    textTransform: 'none',
+    alignItems: 'flex-start',
+    padding: 1,
+    borderRadius: 0.5,
+    marginBottom: { xs: 0, sm: 1 },
+    color: 'grey.600',
+    border: 'none',
+    '&.Mui-selected': {
+      backgroundColor: LAYOUT_BACKGROUND_BLUE,
+      fontWeight: 700,
+      color: 'black',
+    },
+  },
+};
 
 const SettingDialog: FC<SettingDialogProps> = ({ ...props }) => {
   const t = useTranslations();
@@ -51,20 +67,7 @@ const SettingDialog: FC<SettingDialogProps> = ({ ...props }) => {
             scrollButtons="auto"
             aria-label="settings tabs"
             sx={{
-              '& .MuiTab-root': {
-                textTransform: 'none',
-                alignItems: 'flex-start',
-                padding: 1,
-                borderRadius: 0.5,
-                marginBottom: { xs: 0, sm: 1 },
-                color: 'grey.600',
-                border: 'none',
-                '&.Mui-selected': {
-                  backgroundColor: LAYOUT_BACKGROUND_BLUE,
-                  fontWeight: 700,
-                  color: 'black',
-                },
-              },
+              ...generalDialogMenuSettings,
             }}
           >
             {menus.map((menu, index) => (

@@ -30,7 +30,7 @@ interface ISideBarMenu {
 
 const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const t = useTranslations();
-  const [settingDialog, setSettingDialog] = useState(true); //TODO:
+  const [settingDialog, setSettingDialog] = useState(false);
   const [helpCenterDialog, setHelpCenterDialog] = useState(false);
 
   const onToggleSettingDialog = () => {
