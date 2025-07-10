@@ -1,9 +1,7 @@
-import SizedButton from '@/components/common/SizedButton';
 import { CustomTextField } from '@/components/Fields';
 import {
   DASHBOARD_FORM_LABELS,
   DEFAULt_MALE_AVATAR_IMAGE,
-  FIXED_BUTTON_WIDTH_IN_MODALS_DASHBOARD,
 } from '@/constants/general';
 import { IAccountSetting } from '@/services/iam/types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,6 +11,7 @@ import { Avatar, Box, Button, Divider, Grid, Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import SaveButton from './SaveButton';
 
 const sharedTextFieldProps = {
   slotProps: {
@@ -48,7 +47,7 @@ const ProfileForm = () => {
     resolver: yupResolver(resolveSchema),
   });
   const { control } = methods;
-  console.log(control);
+  const typoClass = `latoStyleRegular-${locale}`;
 
   return (
     <FormProvider {...methods}>
@@ -81,7 +80,7 @@ const ProfileForm = () => {
             variant="subtitle1"
             fontWeight={400}
             color={DASHBOARD_FORM_LABELS}
-            className={`latoStyleRegular-${locale}`}
+            className={typoClass}
           >
             {labels.name}
           </Typography>
@@ -92,7 +91,7 @@ const ProfileForm = () => {
             name="name"
             placeholder="Linda Peterson"
             variant="standard"
-            className={`latoStyleRegular-${locale}`}
+            className={typoClass}
             {...sharedTextFieldProps}
           />
         </Grid>
@@ -105,7 +104,7 @@ const ProfileForm = () => {
             variant="subtitle1"
             fontWeight={400}
             color={DASHBOARD_FORM_LABELS}
-            className={`latoStyleRegular-${locale}`}
+            className={typoClass}
           >
             {labels.email}
           </Typography>
@@ -117,7 +116,7 @@ const ProfileForm = () => {
             type="email"
             placeholder={t('common.fields.emailPlaceholder')}
             variant="standard"
-            className={`latoStyleRegular-${locale}`}
+            className={typoClass}
             {...sharedTextFieldProps}
           />
         </Grid>
@@ -134,7 +133,7 @@ const ProfileForm = () => {
           variant="subtitle1"
           fontWeight={400}
           color={DASHBOARD_FORM_LABELS}
-          className={`latoStyleRegular-${locale}`}
+          className={typoClass}
         >
           {t('common.buttons.changePassword')}
         </Typography>
@@ -149,16 +148,7 @@ const ProfileForm = () => {
       </Box>
 
       <Box mt={4} display="flex" justifyContent="flex-end">
-        <SizedButton
-          variant="contained"
-          size="large"
-          sx={{
-            fontWeight: '700',
-            width: FIXED_BUTTON_WIDTH_IN_MODALS_DASHBOARD,
-          }}
-        >
-          {t('common.buttons.saveChanges')}
-        </SizedButton>
+        <SaveButton />
       </Box>
     </FormProvider>
   );
