@@ -122,6 +122,16 @@ export interface CustomTextFieldProps
   limitations?: TextLimitations & NumberLimitations;
   ControllerProps?: Partial<ControllerProps>;
   forbiddenChars?: string[];
+  slotProps?: {
+    input?: {
+      startAdornment?: ReactNode;
+      endAdornment?: ReactNode;
+    };
+    htmlInput?: {
+      startAdornment?: ReactNode;
+      endAdornment?: ReactNode;
+    };
+  };
 }
 
 export interface CurrencyTextFieldProps

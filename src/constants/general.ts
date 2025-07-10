@@ -19,9 +19,11 @@ export const GREY_3D_COLOR = '#3D3D3D';
 export const GREY_7D_COLOR = '#7D7D7D';
 export const GREY_F9_COLOR = '#F9F6F1';
 
-// export const LIGHT_BLUE_COLOR = '#A2CBF3';
 export const LAYOUT_BACKGROUND_BLUE = '#E0F0FF';
 export const STEPPER_COLOR = '#6C747F';
+
+// Dashboard
+export const DASHBOARD_FORM_LABELS = '#010A15';
 
 export const DEFAULt_NO_IMAGE = '/assets/images/placeholders/no-image.jpg';
 export const HOME_CHAT_EXPERIENCE = '/assets/images/home/home-chat.png';

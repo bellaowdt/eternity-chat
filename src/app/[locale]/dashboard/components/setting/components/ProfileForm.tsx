@@ -1,6 +1,7 @@
 import SizedButton from '@/components/common/SizedButton';
 import { CustomTextField } from '@/components/Fields';
 import {
+  DASHBOARD_FORM_LABELS,
   DEFAULt_MALE_AVATAR_IMAGE,
   FIXED_BUTTON_WIDTH_IN_MODALS_DASHBOARD,
 } from '@/constants/general';
@@ -9,7 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Avatar, Box, Button, Divider, Grid, Typography } from '@mui/material';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -29,6 +30,7 @@ const sharedTextFieldProps = {
 
 const ProfileForm = () => {
   const t = useTranslations();
+  const locale = useLocale();
 
   const labels: Record<keyof IAccountSetting, string> = {
     name: t('common.fields.name'),
@@ -75,7 +77,14 @@ const ProfileForm = () => {
       <Divider />
       <Grid container alignItems="center" py={2}>
         <Grid size={{ xs: 3 }}>
-          <Typography variant="body1">{labels.name}</Typography>
+          <Typography
+            variant="subtitle1"
+            fontWeight={400}
+            color={DASHBOARD_FORM_LABELS}
+            className={`latoStyleRegular-${locale}`}
+          >
+            {labels.name}
+          </Typography>
         </Grid>
         <Grid size={{ xs: 9 }}>
           <CustomTextField
@@ -83,6 +92,7 @@ const ProfileForm = () => {
             name="name"
             placeholder="Linda Peterson"
             variant="standard"
+            className={`latoStyleRegular-${locale}`}
             {...sharedTextFieldProps}
           />
         </Grid>
@@ -91,15 +101,23 @@ const ProfileForm = () => {
 
       <Grid container alignItems="center" py={2}>
         <Grid size={{ xs: 3 }}>
-          <Typography fontWeight={500}>{labels.email}</Typography>
+          <Typography
+            variant="subtitle1"
+            fontWeight={400}
+            color={DASHBOARD_FORM_LABELS}
+            className={`latoStyleRegular-${locale}`}
+          >
+            {labels.email}
+          </Typography>
         </Grid>
         <Grid size={{ xs: 9 }}>
           <CustomTextField
             label=""
             name="email"
             type="email"
-            placeholder="sample@gmail.com"
+            placeholder={t('common.fields.emailPlaceholder')}
             variant="standard"
+            className={`latoStyleRegular-${locale}`}
             {...sharedTextFieldProps}
           />
         </Grid>
@@ -112,7 +130,14 @@ const ProfileForm = () => {
         justifyContent="space-between"
         py={2}
       >
-        <Typography>{t('common.buttons.changePassword')}</Typography>
+        <Typography
+          variant="subtitle1"
+          fontWeight={400}
+          color={DASHBOARD_FORM_LABELS}
+          className={`latoStyleRegular-${locale}`}
+        >
+          {t('common.buttons.changePassword')}
+        </Typography>
         <ChevronRightIcon />
       </Box>
       <Divider />
