@@ -1,11 +1,14 @@
-import { Box, Tab, Tabs } from '@mui/material';
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
+import TabPanel from '@/components/TabPanel/TabPanel';
+import {
+  DIALOG_SIDEBAR_WIDTH,
+  LAYOUT_BACKGROUND_BLUE,
+} from '@/constants/general';
+import { Box, Tab, Tabs } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { FC, SyntheticEvent, useState } from 'react';
-import TabPanel from '@/components/TabPanel/TabPanel';
 import { useSettingMenus } from './hooks/useSettingMenus';
-import { DIALOG_SIDEBAR_WIDTH } from '@/constants/general';
 
 export type SettingDialogProps = DialogProps;
 
@@ -45,10 +48,12 @@ const SettingDialog: FC<SettingDialogProps> = ({ ...props }) => {
                 padding: 1,
                 borderRadius: 0.3,
                 marginBottom: 1,
-                color: 'text.primary',
+                color: 'grey.600',
                 '&.Mui-selected': {
-                  backgroundColor: (theme) => theme.palette.grey[200],
+                  backgroundColor: LAYOUT_BACKGROUND_BLUE,
                   border: (theme) => `1px solid ${theme.palette.grey[200]}`,
+                  fontWeight: 700,
+                  color: 'black',
                 },
               },
             }}

@@ -1,5 +1,5 @@
 import { Close } from '@mui/icons-material';
-import { DialogActions, Divider, IconButton } from '@mui/material';
+import { DialogActions, Divider, IconButton, Typography } from '@mui/material';
 import MuiDialog, {
   type DialogProps as MuiDialogProps,
 } from '@mui/material/Dialog';
@@ -45,10 +45,11 @@ const Dialog: FC<DialogProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              fontWeight: '600',
             }}
           >
-            {title}
+            <Typography variant="h4" fontWeight="700">
+              {title}
+            </Typography>
             <IconButton
               aria-label="close-dialog"
               onClick={() => {

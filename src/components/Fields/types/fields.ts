@@ -13,7 +13,6 @@ import {
   DateTimePickerProps,
   PickerValidDate,
 } from '@mui/x-date-pickers';
-import { type } from 'os';
 import { ReactNode } from 'react';
 import { ControllerProps, UseFormRegister } from 'react-hook-form';
 import { FileUploadProps } from 'react-material-file-upload';
