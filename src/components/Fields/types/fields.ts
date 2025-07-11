@@ -51,8 +51,8 @@ export interface CustomDatePickerProps<TDate extends PickerValidDate = Date>
 export interface CustomSelectProps extends OutlinedInputProps {
   resetFieldsOnChange?: string[];
   options: Option[];
-  //sx?: SxProps;
   labelFormatter?: (option: Option) => ReactNode;
+  showEndAdornment?: boolean;
 }
 
 export interface CustomAutoCompleteProps<

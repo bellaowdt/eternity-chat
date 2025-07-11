@@ -62,7 +62,10 @@ const Dialog: FC<DialogProps> = ({
           <Divider />
         </>
       )}
-      <DialogContent {...props.dialogContentProps}>
+      <DialogContent
+        {...props.dialogContentProps}
+        {...(props?.dialogContentProps ? { ...props.dialogContentProps } : {})}
+      >
         {props.children}
       </DialogContent>
       {dialogButtons && dialogButtons?.length > 0 && (

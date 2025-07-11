@@ -24,6 +24,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
   label,
   labelFormatter,
   resetFieldsOnChange = [],
+  showEndAdornment = true,
   ...props
 }) => {
   const { isLoading } = useLocalFormContext();
@@ -32,9 +33,6 @@ const CustomSelect: FC<CustomSelectProps> = ({
     formState: { errors },
     setValue,
   } = useFormContext();
-
-  // const { sx } = props;
-  // console.log(sx);
 
   return (
     <Controller
@@ -74,27 +72,16 @@ const CustomSelect: FC<CustomSelectProps> = ({
                 )}
                 <Select
                   {...props}
-                  // inputProps={{
-                  //   MenuProps: {
-                  //     MenuListProps: {
-                  //       sx: {
-                  //         backgroundColor: 'red',
-                  //       },
-                  //     },
-                  //   },
-                  // }}
                   sx={{
                     height: FIXED_SELECT_HEIGHT,
+                    ...props.sx,
                   }}
                   id={`${name}-select`}
                   value={normalizedValue}
                   onChange={handleChange}
                   endAdornment={
-                    normalizedValue ? (
-                      <ClearButtonAdornment
-                        onChange={field.onChange}
-                        // sx={{ marginRight: 1.5 }}
-                      />
+                    normalizedValue && showEndAdornment ? (
+                      <ClearButtonAdornment onChange={field.onChange} />
                     ) : undefined
                   }
                 >

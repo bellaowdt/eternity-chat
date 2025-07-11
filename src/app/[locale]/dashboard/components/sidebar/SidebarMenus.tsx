@@ -15,6 +15,7 @@ import { FC, useState } from 'react';
 import HelpCenterDialog from '../help-center/HelpCenterDialog';
 import SettingDialog from '../setting/SettingDialog';
 import RoundedIcon from '@/components/common/RoundedIcon';
+import NotificationDialog from '../notifications/NotificationDialog';
 
 interface SidebarMenusProps {
   collapsed: boolean;
@@ -32,6 +33,7 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const t = useTranslations();
   const [settingDialog, setSettingDialog] = useState(false);
   const [helpCenterDialog, setHelpCenterDialog] = useState(false);
+  const [notificationDialog, setNotificationDialog] = useState(true); //TODO: Change to false if you want to hide the notification dialog by default
 
   const onToggleSettingDialog = () => {
     setSettingDialog((prevState) => !prevState);
@@ -41,11 +43,16 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
     setHelpCenterDialog((prevState) => !prevState);
   };
 
+  const onToggleNotificationDialog = () => {
+    setNotificationDialog((prevState) => !prevState);
+  };
+
   const menus: ISideBarMenu[] = [
     {
       text: t('common.sidebar.menu.notification'),
       icon: `${DEFAULT_DASHBOARD_ICONS}/notification.png`,
       badgeCount: 1,
+      callFunc: onToggleNotificationDialog,
     },
     {
       text: t('common.sidebar.menu.settings'),
@@ -141,6 +148,10 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
       <HelpCenterDialog
         open={helpCenterDialog}
         onClose={onToggleHelpCenterDialog}
+      />
+      <NotificationDialog
+        open={notificationDialog}
+        onClose={onToggleNotificationDialog}
       />
     </>
   );
