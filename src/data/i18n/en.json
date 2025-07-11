@@ -27,7 +27,9 @@
       "deleteAllChats": "Delete All Chats",
       "helpCenter": "Help Center",
       "notifications": "Notifications",
-      "back": "Back"
+      "subscription": "Subscription",
+      "back": "Back",
+      "upgradeTopremium": "Upgrade to Premium"
     },
     "fields": {
       "name": "Name",

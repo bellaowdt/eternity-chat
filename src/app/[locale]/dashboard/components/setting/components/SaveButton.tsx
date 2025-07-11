@@ -3,7 +3,7 @@ import { FIXED_BUTTON_WIDTH_IN_MODALS_DASHBOARD } from '@/constants/general';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
-const SaveButton = () => {
+const SaveButton = ({ ...props }) => {
   const t = useTranslations();
   return (
     <SizedButton
@@ -13,8 +13,9 @@ const SaveButton = () => {
         fontWeight: '700',
         width: FIXED_BUTTON_WIDTH_IN_MODALS_DASHBOARD,
       }}
+      {...props}
     >
-      {t('common.buttons.saveChanges')}
+      {props.children ?? t('common.buttons.saveChanges')}
     </SizedButton>
   );
 };

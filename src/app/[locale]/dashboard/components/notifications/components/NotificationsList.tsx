@@ -1,43 +1,45 @@
-import { Box } from '@mui/material';
+import { Box, Typography, List, ListItem, Badge } from '@mui/material';
 import { useLocale } from 'next-intl';
 import { LAYOUT_BACKGROUND_BLUE, STEPPER_COLOR } from '@/constants/general';
-import { Typography, List, ListItem, Badge } from '@mui/material';
 import { useNotifications } from '../hooks/useNotifications';
 import RoundedIcon from '@/components/common/RoundedIcon';
 import Image from 'next/image';
+import { useAppContext } from '@/hooks/useAppContext';
 
 const NotificationsList = () => {
   const notifications = useNotifications();
   const locale = useLocale();
+  const { isMobile } = useAppContext();
 
   return (
-    <List>
+    <List disablePadding>
       {notifications.map((notif, index) => (
         <Box
           key={index}
           sx={{
             bgcolor: notif.unread ? LAYOUT_BACKGROUND_BLUE : 'transparent',
             mb: 1,
-            py: 2.5,
+            py: { xs: 2, sm: 2.5 },
+            px: { xs: 1.5, sm: 2 },
           }}
         >
-          <ListItem
-            sx={{
-              px: 3.5,
-            }}
-          >
+          <ListItem disableGutters>
             <Box
               display="flex"
               width="100%"
-              alignItems="center"
+              flexDirection={isMobile ? 'column' : 'row'}
+              alignItems={isMobile ? 'flex-start' : 'center'}
               justifyContent="space-between"
+              gap={isMobile ? 1.5 : 0}
             >
-              <Box display="flex" alignItems="center" gap={2}>
+              <Box display="flex" alignItems="center" gap={2} width="100%">
                 <RoundedIcon
                   width={35}
                   height={35}
                   sxProp={{
                     backgroundColor: notif.unread ? 'white' : '#E6E7E9',
+                    minWidth: 35,
+                    minHeight: 35,
                   }}
                   icon={
                     <Image
@@ -48,27 +50,39 @@ const NotificationsList = () => {
                     />
                   }
                 />
-
                 <Typography
-                  variant="subtitle1"
-                  fontWeight={notif.unread ? '600' : '400'}
+                  variant="body2"
+                  fontWeight={notif.unread ? 600 : 400}
                   className={`latoStyleRegular-${locale}`}
+                  sx={{
+                    wordBreak: 'break-word',
+                    fontSize: { xs: '0.875rem', sm: '1rem' },
+                  }}
                 >
                   {notif.title}
                 </Typography>
               </Box>
-              <Box display="flex" alignItems="center" gap={1}>
-                {notif.time}
+
+              <Box
+                display="flex"
+                alignItems="center"
+                gap={1}
+                flexShrink={0}
+                sx={{
+                  mt: { xs: 1, sm: 0 },
+                }}
+              >
                 <Typography
                   variant="caption"
                   color={STEPPER_COLOR}
                   className={`latoStyleRegular-${locale}`}
-                ></Typography>
+                  sx={{ fontSize: { xs: '0.75rem', sm: '0.8rem' } }}
+                >
+                  {notif.time}
+                </Typography>
 
                 {notif.unread && (
-                  <Typography fontWeight={notif.unread ? 'bold' : 'normal'}>
-                    <Badge color="secondary" variant="dot"></Badge>
-                  </Typography>
+                  <Badge color="secondary" variant="dot" sx={{ ml: 1 }} />
                 )}
               </Box>
             </Box>
