@@ -117,3 +117,35 @@ export const DefaultQuestionsList: Option[] = [
     value: 'How are you?',
   },
 ];
+
+// TODO: Get from API
+export const relationshipList: Option[] = [
+  {
+    id: 1,
+    label: 'Friend',
+    value: 'Friend',
+  },
+  {
+    id: 2,
+    label: 'Family',
+    value: 'Family',
+  },
+  {
+    id: 3,
+    label: 'Spouse',
+    value: 'Spouse',
+  },
+];
+
+export const genderList: Option[] = [
+  {
+    id: 10,
+    label: 'Female',
+    value: 'Female',
+  },
+  {
+    id: 20,
+    label: 'Male',
+    value: 'Male',
+  },
+];

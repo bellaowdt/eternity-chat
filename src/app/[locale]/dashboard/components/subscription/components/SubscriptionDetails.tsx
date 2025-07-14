@@ -18,7 +18,7 @@ import {
 } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import SaveButton from '../../setting/components/SaveButton';
+import SaveButton from '../../common/SaveButton';
 
 const PremiumUpgradeCard = () => {
   const t = useTranslations();

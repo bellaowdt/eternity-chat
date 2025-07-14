@@ -7,7 +7,7 @@ import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import SaveButton from './SaveButton';
+import SaveButton from '../../common/SaveButton';
 
 const GeneralSetting = () => {
   const t = useTranslations();

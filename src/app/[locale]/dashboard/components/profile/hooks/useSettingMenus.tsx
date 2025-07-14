@@ -1,13 +1,13 @@
 import GeneralSetting from '../components/GeneralSetting';
 import NotificationPreference from '../components/NotificationPreference';
-import ProfileForm from '../components/ProfileForm';
+import GeneralInformation from '../components/GeneralInformation';
 
 export const useEditInfoMenus = () => {
   // Submenu items under "Account Settings"
   const accountSettingsMenus = [
     {
       label: 'General Information',
-      component: <ProfileForm />,
+      component: <GeneralInformation />,
     },
     {
       label: 'Appearance',

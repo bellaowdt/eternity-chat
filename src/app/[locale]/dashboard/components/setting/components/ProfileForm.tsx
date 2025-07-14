@@ -6,26 +6,12 @@ import {
 import { IAccountSetting } from '@/services/iam/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Avatar, Box, Button, Divider, Grid, Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import SaveButton from './SaveButton';
-
-const sharedTextFieldProps = {
-  slotProps: {
-    input: {
-      startAdornment: <EditOutlinedIcon sx={{ color: 'grey.600' }} />,
-    },
-  },
-  sx: {
-    direction: 'rtl',
-    '& .MuiInputBase-root::before': {
-      borderBottom: '1 !important',
-    },
-  },
-};
+import SaveButton from '../../common/SaveButton';
+import { sharedTextFieldProps } from '../../common/SharedStyles';
 
 const ProfileForm = () => {
   const t = useTranslations();
