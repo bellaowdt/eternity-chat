@@ -4,7 +4,7 @@ import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCallback } from 'react';
 
-const PrivacySettings = () => {
+const Appearance = () => {
   const t = useTranslations();
   const locale = useLocale();
 
@@ -51,4 +51,4 @@ const PrivacySettings = () => {
   );
 };
 
-export default PrivacySettings;
+export default Appearance;

@@ -1,6 +1,10 @@
 import GeneralSetting from '../components/GeneralSetting';
-import NotificationPreference from '../components/NotificationPreference';
+import NotificationPreference from '../components/CommunicationStyle';
 import GeneralInformation from '../components/GeneralInformation';
+import PersonalityTraits from '../components/PersonalityTraits';
+import Appearance from '../components/Appearance';
+import CommunicationStyle from '../components/CommunicationStyle';
+import Memories from '../components/Memories';
 
 export const useEditInfoMenus = () => {
   // Submenu items under "Account Settings"
@@ -10,16 +14,21 @@ export const useEditInfoMenus = () => {
       component: <GeneralInformation />,
     },
     {
+      label: 'Personality Traits',
+      component: <PersonalityTraits />,
+    },
+
+    {
       label: 'Appearance',
-      component: <GeneralSetting />,
+      component: <Appearance />,
     },
     {
-      label: 'Notification Preference',
-      component: <NotificationPreference />,
+      label: 'Communication Style',
+      component: <CommunicationStyle />,
     },
     {
       label: 'Memories',
-      component: <NotificationPreference />,
+      component: <Memories />,
     },
   ];
 

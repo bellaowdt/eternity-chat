@@ -3,7 +3,7 @@ import { Divider, Grid, Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCallback } from 'react';
 
-const NotificationPreference = () => {
+const CommunicationStyle = () => {
   const t = useTranslations();
   const locale = useLocale();
 
@@ -56,4 +56,4 @@ const NotificationPreference = () => {
   );
 };
 
-export default NotificationPreference;
+export default CommunicationStyle;
