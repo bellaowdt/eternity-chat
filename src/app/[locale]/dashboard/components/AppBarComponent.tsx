@@ -15,8 +15,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import { DEFAULT_DASHBOARD_ICONS } from '@/constants/general';
+import UserInfoDialog from './profile/UserInfoDialog';
 
 const AppBarComponent = () => {
+  const [openDialog, setOpenDialog] = useState(true); //TODO
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -26,6 +28,11 @@ const AppBarComponent = () => {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleOpenEditProfile = () => {
+    setOpenDialog(!openDialog);
+    handleMenuClose();
   };
 
   return (
@@ -86,7 +93,7 @@ const AppBarComponent = () => {
             },
           }}
         >
-          <MenuItem onClick={handleMenuClose} sx={{ py: 1.5 }}>
+          <MenuItem onClick={handleOpenEditProfile} sx={{ py: 1.5 }}>
             <Image
               alt="Edit"
               src={`${DEFAULT_DASHBOARD_ICONS}/pen.png`}
@@ -132,6 +139,7 @@ const AppBarComponent = () => {
           </MenuItem>
         </Menu>
       </Box>
+      <UserInfoDialog open={openDialog} onClose={handleOpenEditProfile} />
     </Toolbar>
   );
 };

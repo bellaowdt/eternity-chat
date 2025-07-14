@@ -14,9 +14,6 @@ const UserDetails: FC<UserDetailsProps> = ({ collapsed }) => {
     email: 'bahar.keshavarzc@gmail.com',
   };
   const isFetching = false;
-  const handleOpenEditProfile = () => {
-    // Logic to open edit profile dialog
-  };
 
   return (
     <Stack
@@ -29,7 +26,6 @@ const UserDetails: FC<UserDetailsProps> = ({ collapsed }) => {
         alt=""
         src={profileData?.avatar}
         sx={{ width: avatarSize, height: avatarSize }}
-        onClick={handleOpenEditProfile}
         slotProps={{
           img: {
             width: avatarSize,
