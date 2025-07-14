@@ -33,7 +33,7 @@ type DialogType = 'settings' | 'help' | 'notifications' | 'subscription' | null;
 
 const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
   const t = useTranslations();
-  const [openDialog, setOpenDialog] = useState<DialogType>('subscription');
+  const [openDialog, setOpenDialog] = useState<DialogType>(null);
 
   const onToggleSettingDialog = () => {
     setOpenDialog((prevState) =>
@@ -155,7 +155,6 @@ const SidebarMenus: FC<SidebarMenusProps> = ({ collapsed }) => {
           );
         })}
       </List>
-      {openDialog}
       <SettingDialog
         open={openDialog === 'settings'}
         onClose={onToggleSettingDialog}
