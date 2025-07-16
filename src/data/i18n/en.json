@@ -17,7 +17,7 @@
       "delete": "Delete",
       "cancel": "Cancel",
       "login": "login",
-      "logout": "Logout",
+      "logout": "Logout?",
       "setting": "Settings",
       "saveChanges": "Save Changes",
       "continue": "Continue",
@@ -86,8 +86,8 @@
   },
   "pages": {
     "account": {
-      "logoutMsg": "Are you sure you want to log out?",
-      "logoutConfirm": "Yes, Log Me Out"
+      "logoutMsg": "Are you sure you want to log out? You’ll need to sign in again to access your conversations and saved memories.",
+      "logoutConfirm": "Yes, Log Me Out!"
     },
     "settings": {
       "menu": {

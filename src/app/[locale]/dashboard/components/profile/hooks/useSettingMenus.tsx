@@ -1,5 +1,3 @@
-import GeneralSetting from '../components/GeneralSetting';
-import NotificationPreference from '../components/CommunicationStyle';
 import GeneralInformation from '../components/GeneralInformation';
 import PersonalityTraits from '../components/PersonalityTraits';
 import Appearance from '../components/Appearance';

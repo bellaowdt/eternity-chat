@@ -1,10 +1,12 @@
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
+import { DEFAULT_MAX_WIDTH_469 } from '@/constants/general';
 import { DEFAULT_SIGNUP_PATH } from '@/constants/routes';
 import { Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
+import ModalInformation from '../ModalInformation';
 
 export type LogoutDialogProps = DialogProps;
 
@@ -25,30 +27,38 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
   return (
     <Dialog
       {...props}
-      title={t('common.buttons.logout')}
-      maxWidth="sm"
-      sx={{ marginX: 'auto', width: '600' }}
+      title=""
+      sx={{ marginX: 'auto', maxWidth: DEFAULT_MAX_WIDTH_469 }}
+      dialogActionSx={{ width: '80%' }}
+      dialogContentProps={{ sx: { p: 0 } }}
       dialogButtons={[
         {
           id: 'cancel',
           type: 'button',
           children: t('common.buttons.cancel'),
-          variant: 'outlined',
+          variant: 'contained',
           disableElevation: true,
-          color: 'inherit',
+          color: 'primary',
+          fullWidth: true,
           onClick: onClose,
         },
         {
           id: 'submit',
           type: 'submit',
           children: t('pages.account.logoutConfirm'),
-          variant: 'contained',
-          color: 'primary',
+          variant: 'text',
+          fullWidth: true,
+          color: 'inherit',
           onClick: handleClickOnSignOut,
         },
       ]}
     >
-      <Typography variant="h6">{t('pages.account.logoutMsg')}</Typography>
+      <ModalInformation
+        title={t('common.buttons.logout')}
+        icon="leave-door.png"
+      >
+        <Typography variant="h6">{t('pages.account.logoutMsg')}</Typography>
+      </ModalInformation>
     </Dialog>
   );
 };

@@ -8,6 +8,7 @@ export const NAVBAR_HEIGHT = 80;
 export const FIXED_BUTTON_HEIGHT = 55;
 export const FIXED_INPUT_HEIGHT = 51;
 export const FIXED_SELECT_HEIGHT = 50;
+export const DEFAULT_MAX_WIDTH_300 = 300;
 export const DEFAULT_MAX_WIDTH_469 = 469;
 export const DEFAULT_MAX_WIDTH_591 = 591;
 export const DEFAULT_MAX_WIDTH_713 = 713;
