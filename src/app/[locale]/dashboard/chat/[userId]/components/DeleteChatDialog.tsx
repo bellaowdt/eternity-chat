@@ -10,11 +10,11 @@ import { Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
-import ModalInformation from '../ModalInformation';
+import ModalInformation from '../../../components/ModalInformation';
 
-export type LogoutDialogProps = DialogProps;
+export type DeleteChatDialogProps = DialogProps;
 
-const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
+const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
   const t = useTranslations();
   const router = useRouter();
   const onClose = () => props.onClose?.({}, 'backdropClick');
@@ -40,7 +40,7 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
         {
           id: 'cancel',
           type: 'button',
-          children: t('pages.chat.dialogs.logout.cancelButton'),
+          children: t('pages.chat.dialogs.deleteChat.cancelButton'),
           variant: 'contained',
           disableElevation: true,
           color: 'primary',
@@ -52,7 +52,7 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
         {
           id: 'submit',
           type: 'submit',
-          children: t('pages.chat.dialogs.logout.confirmButton'),
+          children: t('pages.chat.dialogs.deleteChat.confirmButton'),
           variant: 'text',
           fullWidth: true,
           sx: { color: STEPPER_COLOR, fontWeight: 700 },
@@ -62,15 +62,15 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
       ]}
     >
       <ModalInformation
-        title={t('pages.chat.dialogs.logout.title')}
-        icon="leave-door.png"
+        title={t('pages.chat.dialogs.deleteChat.title')}
+        icon="trash-basket.png"
       >
         <Typography variant="h5" color={GREY_300} textAlign="center">
-          {t('pages.chat.dialogs.logout.description')}
+          {t('pages.chat.dialogs.deleteChat.description')}
         </Typography>
       </ModalInformation>
     </Dialog>
   );
 };
 
-export default LogoutDialog;
+export default DeleteChatDialog;
