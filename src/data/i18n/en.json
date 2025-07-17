@@ -157,6 +157,14 @@
           "description": "Are you sure you want to close this session? You won’t be able to continue the conversation unless you start a new one.",
           "confirmButton": "End the Chat",
           "cancelButton": "I want to Continue"
+        },
+        "feedback": {
+          "title": "How was your experience with John today?",
+          "description": "Your input is valuable in helping us better understand your needs and tailor our service accordingly.",
+          "confirmButton": "Submit Feedback",
+          "message": "message",
+          "star": "Rate your experience",
+          "messagePlaceholder": "Share your thoughts..."
         }
       }
     },

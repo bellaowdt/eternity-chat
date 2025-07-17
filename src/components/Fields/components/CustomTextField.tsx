@@ -32,7 +32,6 @@ const CustomTextField: FC<CustomTextFieldProps> = ({
     }
   };
 
-  console.log(props);
   return (
     <Controller
       name={props.name}

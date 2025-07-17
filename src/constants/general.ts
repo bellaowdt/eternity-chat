@@ -20,6 +20,7 @@ export const ONBOARDING_BG_COLOR = '#EEBF95';
 export const GREY_3D_COLOR = '#3D3D3D';
 export const GREY_7D_COLOR = '#7D7D7D';
 export const GREY_F9_COLOR = '#F9F6F1';
+export const GREY_F3_COLOR = '#F3F3F3';
 
 export const LAYOUT_BACKGROUND_BLUE = '#E0F0FF';
 export const STEPPER_COLOR = '#6C747F';

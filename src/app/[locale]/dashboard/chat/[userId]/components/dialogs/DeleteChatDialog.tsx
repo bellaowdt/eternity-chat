@@ -8,7 +8,7 @@ import {
 import { Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { FC } from 'react';
-import ModalInformation from '../../../components/ModalInformation';
+import ModalInformation from '../../../../components/ModalInformation';
 
 export type DeleteChatDialogProps = DialogProps;
 
