@@ -1,6 +1,10 @@
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
-import { DEFAULT_MAX_WIDTH_469 } from '@/constants/general';
+import {
+  DEFAULT_MAX_WIDTH_469,
+  GREY_300,
+  STEPPER_COLOR,
+} from '@/constants/general';
 import { DEFAULT_SIGNUP_PATH } from '@/constants/routes';
 import { Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
@@ -28,7 +32,8 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
     <Dialog
       {...props}
       title=""
-      sx={{ marginX: 'auto', maxWidth: DEFAULT_MAX_WIDTH_469 }}
+      maxWidth="sm"
+      sx={{ marginX: 'auto', width: DEFAULT_MAX_WIDTH_469 }}
       dialogActionSx={{ width: '80%' }}
       dialogContentProps={{ sx: { p: 0 } }}
       dialogButtons={[
@@ -40,7 +45,9 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
           disableElevation: true,
           color: 'primary',
           fullWidth: true,
+          sx: { fontWeight: 700 },
           onClick: onClose,
+          needStyling: false,
         },
         {
           id: 'submit',
@@ -48,8 +55,9 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
           children: t('pages.account.logoutConfirm'),
           variant: 'text',
           fullWidth: true,
-          color: 'inherit',
+          sx: { color: STEPPER_COLOR, fontWeight: 700 },
           onClick: handleClickOnSignOut,
+          needStyling: false,
         },
       ]}
     >
@@ -57,7 +65,9 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
         title={t('common.buttons.logout')}
         icon="leave-door.png"
       >
-        <Typography variant="h6">{t('pages.account.logoutMsg')}</Typography>
+        <Typography variant="h5" color={GREY_300}>
+          {t('pages.account.logoutMsg')}
+        </Typography>
       </ModalInformation>
     </Dialog>
   );

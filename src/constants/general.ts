@@ -8,7 +8,7 @@ export const NAVBAR_HEIGHT = 80;
 export const FIXED_BUTTON_HEIGHT = 55;
 export const FIXED_INPUT_HEIGHT = 51;
 export const FIXED_SELECT_HEIGHT = 50;
-export const DEFAULT_MAX_WIDTH_300 = 300;
+export const DEFAULT_MAX_WIDTH_369 = 369;
 export const DEFAULT_MAX_WIDTH_469 = 469;
 export const DEFAULT_MAX_WIDTH_591 = 591;
 export const DEFAULT_MAX_WIDTH_713 = 713;
@@ -23,6 +23,7 @@ export const GREY_F9_COLOR = '#F9F6F1';
 
 export const LAYOUT_BACKGROUND_BLUE = '#E0F0FF';
 export const STEPPER_COLOR = '#6C747F';
+export const GREY_300 = '#2C3948';
 
 // Dashboard
 export const DASHBOARD_FORM_LABELS = '#010A15';

@@ -70,13 +70,10 @@ const Dialog: FC<DialogProps> = ({
               <Close sx={{ fontSize: 18 }} />
             </IconButton>
           </DialogTitle>
-          {title ? <Divider /> : ''}
+          {title && <Divider />}
         </>
       )}
-      <DialogContent
-        {...props.dialogContentProps}
-        {...(props?.dialogContentProps ? { ...props.dialogContentProps } : {})}
-      >
+      <DialogContent {...props.dialogContentProps}>
         {props.children}
       </DialogContent>
       {dialogButtons && dialogButtons?.length > 0 && (
@@ -87,11 +84,15 @@ const Dialog: FC<DialogProps> = ({
             justifyContent: 'center',
           }}
         >
-          <Grid container spacing={1} sx={{ ...dialogActionSx }}>
+          <Grid container spacing={0.2} sx={{ ...dialogActionSx }}>
             {dialogButtons?.map((button, index) => {
               return (
                 <Grid key={index} size={{ xs: 12 }}>
-                  <ButtonWithLoading key={index} {...button} />
+                  <ButtonWithLoading
+                    needStyling={button.needStyling}
+                    key={index}
+                    {...button}
+                  />
                 </Grid>
               );
             })}

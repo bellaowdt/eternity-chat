@@ -1,10 +1,9 @@
 import {
-  DEFAULT_MAX_WIDTH_300,
+  DEFAULT_MAX_WIDTH_369,
   DEFAULT_DASHBOARD_ICONS,
 } from '@/constants/general';
-import { Box, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import { title } from 'process';
 import React, { FC, ReactNode } from 'react';
 
 type ModalInformationProps = {
@@ -19,29 +18,31 @@ const ModalInformation: FC<ModalInformationProps> = ({
   children,
 }) => {
   return (
-    <Box
-      maxWidth={DEFAULT_MAX_WIDTH_300}
-      width={{ xs: '90%', sm: DEFAULT_MAX_WIDTH_300 }}
-      marginX="auto"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      flexDirection="column"
-      px={{ xs: 2, sm: 3 }}
-      gap={2}
-    >
+    <Stack width="100%" justifyContent="center" alignItems="center">
       <Image
         alt=""
         src={`${DEFAULT_DASHBOARD_ICONS}/${icon}`}
-        width={36}
-        height={36}
+        width={42}
+        height={42}
       />
-      <Typography variant="h2" fontWeight={700}>
-        {title}
-      </Typography>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        maxWidth={DEFAULT_MAX_WIDTH_369}
+        width={{ xs: '90%', sm: DEFAULT_MAX_WIDTH_369 }}
+        px={{ xs: 2, sm: 4 }}
+        gap={2}
+        mb={4}
+      >
+        <Typography variant="h2" fontWeight={700} mt={3}>
+          {title}
+        </Typography>
 
-      {children}
-    </Box>
+        {children}
+      </Box>
+    </Stack>
   );
 };
 
