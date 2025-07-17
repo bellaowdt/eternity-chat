@@ -2,7 +2,7 @@ import {
   DEFAULT_MAX_WIDTH_369,
   DEFAULT_DASHBOARD_ICONS,
 } from '@/constants/general';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import React, { FC, ReactNode } from 'react';
 
@@ -18,7 +18,13 @@ const ModalInformation: FC<ModalInformationProps> = ({
   children,
 }) => {
   return (
-    <Stack width="100%" justifyContent="center" alignItems="center">
+    <Box
+      width="100%"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+    >
       <Image
         alt=""
         src={`${DEFAULT_DASHBOARD_ICONS}/${icon}`}
@@ -32,17 +38,21 @@ const ModalInformation: FC<ModalInformationProps> = ({
         flexDirection="column"
         maxWidth={DEFAULT_MAX_WIDTH_369}
         width={{ xs: '90%', sm: DEFAULT_MAX_WIDTH_369 }}
-        px={{ xs: 2, sm: 4 }}
-        gap={2}
+        gap={1}
         mb={4}
       >
-        <Typography variant="h2" fontWeight={700} mt={3}>
+        <Typography
+          variant="h2"
+          fontWeight={700}
+          mt={4}
+          mb={1}
+          textAlign="center"
+        >
           {title}
         </Typography>
-
         {children}
       </Box>
-    </Stack>
+    </Box>
   );
 };
 

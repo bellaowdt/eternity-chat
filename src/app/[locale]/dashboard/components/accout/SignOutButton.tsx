@@ -4,6 +4,7 @@ import { Logout } from '@mui/icons-material';
 import { useState } from 'react';
 import LogoutDialog from './LogoutDialog';
 import DeleteChatDialog from '../../chat/[userId]/components/DeleteChatDialog';
+import EndConversationDialog from '../../chat/[userId]/components/EndConversationDialog';
 
 const SignOutButton = () => {
   const t = useTranslations();
@@ -23,8 +24,12 @@ const SignOutButton = () => {
       >
         {t('common.buttons.logout')}
       </ButtonWithLoading>
-      {/* <LogoutDialog open={logoutDialog} onClose={onToggleLogoutDialog} /> */}
-      <DeleteChatDialog open={logoutDialog} onClose={onToggleLogoutDialog} />
+      <LogoutDialog open={logoutDialog} onClose={onToggleLogoutDialog} />
+      {/* <DeleteChatDialog open={logoutDialog} onClose={onToggleLogoutDialog} /> */}
+      {/* <EndConversationDialog
+        open={logoutDialog}
+        onClose={onToggleLogoutDialog}
+      /> */}
     </>
   );
 };

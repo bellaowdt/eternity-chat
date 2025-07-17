@@ -35,6 +35,8 @@ const Dialog: FC<DialogProps> = ({
 }) => {
   return (
     <MuiDialog
+      fullWidth
+      maxWidth={false}
       sx={{
         borderRadius: 0.7,
         ...props?.sx,

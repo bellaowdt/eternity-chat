@@ -5,19 +5,26 @@ import {
   GREY_300,
   STEPPER_COLOR,
 } from '@/constants/general';
+import { DEFAULT_SIGNUP_PATH } from '@/constants/routes';
 import { Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 import ModalInformation from '../../../components/ModalInformation';
 
-export type DeleteChatDialogProps = DialogProps;
+export type EndConversationDialogProps = DialogProps;
 
-const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
+const EndConversationDialog: FC<EndConversationDialogProps> = ({
+  ...props
+}) => {
   const t = useTranslations();
   const locale = useLocale();
+  const router = useRouter();
   const onClose = () => props.onClose?.({}, 'backdropClick');
 
-  const handleClickOnSignOut = async () => {};
+  const handleClickOnSignOut = async () => {
+    router.push(DEFAULT_SIGNUP_PATH);
+  };
 
   return (
     <Dialog
@@ -31,7 +38,7 @@ const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
         {
           id: 'cancel',
           type: 'button',
-          children: t('pages.chat.dialogs.deleteChat.cancelButton'),
+          children: t('pages.chat.dialogs.endTheConversation.cancelButton'),
           variant: 'contained',
           disableElevation: true,
           color: 'primary',
@@ -43,7 +50,7 @@ const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
         {
           id: 'submit',
           type: 'submit',
-          children: t('pages.chat.dialogs.deleteChat.confirmButton'),
+          children: t('pages.chat.dialogs.endTheConversation.confirmButton'),
           variant: 'text',
           fullWidth: true,
           sx: { color: STEPPER_COLOR, fontWeight: 700 },
@@ -53,8 +60,8 @@ const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
       ]}
     >
       <ModalInformation
-        title={t('pages.chat.dialogs.deleteChat.title')}
-        icon="trash-basket.png"
+        title={t('pages.chat.dialogs.endTheConversation.title')}
+        icon="sorry-icon.png"
       >
         <Typography
           variant="body2"
@@ -63,11 +70,11 @@ const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
           className={`latoStyleRegular-${locale}`}
           px={{ xs: 2, sm: 2 }}
         >
-          {t('pages.chat.dialogs.deleteChat.description')}
+          {t('pages.chat.dialogs.endTheConversation.description')}
         </Typography>
       </ModalInformation>
     </Dialog>
   );
 };
 
-export default DeleteChatDialog;
+export default EndConversationDialog;

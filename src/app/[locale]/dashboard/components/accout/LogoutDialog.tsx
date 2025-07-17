@@ -7,7 +7,7 @@ import {
 } from '@/constants/general';
 import { DEFAULT_SIGNUP_PATH } from '@/constants/routes';
 import { Typography } from '@mui/material';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 import ModalInformation from '../ModalInformation';
@@ -16,15 +16,12 @@ export type LogoutDialogProps = DialogProps;
 
 const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
   const t = useTranslations();
+  const locale = useLocale();
+
   const router = useRouter();
   const onClose = () => props.onClose?.({}, 'backdropClick');
 
-  //   const { mutateAsync, isPending } = useMutation({
-  //     mutationFn: auth.logout,
-  //   });
-
   const handleClickOnSignOut = async () => {
-    //   await mutateAsync();
     router.push(DEFAULT_SIGNUP_PATH);
   };
 
@@ -65,7 +62,13 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
         title={t('pages.chat.dialogs.logout.title')}
         icon="leave-door.png"
       >
-        <Typography variant="h5" color={GREY_300} textAlign="center">
+        <Typography
+          variant="body2"
+          color={GREY_300}
+          textAlign="center"
+          className={`latoStyleRegular-${locale}`}
+          px={{ xs: 2, sm: 2 }}
+        >
           {t('pages.chat.dialogs.logout.description')}
         </Typography>
       </ModalInformation>

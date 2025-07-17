@@ -152,7 +152,7 @@
           "confirmButton": "Yes, Delete the Chat",
           "cancelButton": "Cancel"
         },
-        "deleteAllChats": {
+        "endTheConversation": {
           "title": "End This Conversation?",
           "description": "Are you sure you want to close this session? You won’t be able to continue the conversation unless you start a new one.",
           "confirmButton": "End the Chat",
