@@ -30,7 +30,7 @@ const LogoutDialog: FC<LogoutDialogProps> = ({ ...props }) => {
       {...props}
       title=""
       maxWidth="sm"
-      sx={{ marginX: 'auto', width: DEFAULT_MAX_WIDTH_469 }}
+      sx={{ marginX: 'auto', width: { xs: '100%', sm: DEFAULT_MAX_WIDTH_469 } }}
       dialogActionSx={{ width: '80%' }}
       dialogContentProps={{ sx: { p: 0 } }}
       dialogButtons={[

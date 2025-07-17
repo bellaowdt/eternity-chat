@@ -165,6 +165,12 @@
           "message": "message",
           "star": "Rate your experience",
           "messagePlaceholder": "Share your thoughts..."
+        },
+        "feedbackThanks": {
+          "title": " Thank you!",
+          "subTitle": "Your feedback helps us improve Eternity Chat.",
+          "description": "We appreciate your input and will use it to enhance our service.",
+          "confirmButton": "Continue"
         }
       }
     },

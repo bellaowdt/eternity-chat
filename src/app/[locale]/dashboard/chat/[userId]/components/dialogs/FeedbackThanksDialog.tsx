@@ -1,23 +1,16 @@
 import { Dialog } from '@/components/Dialog';
 import { DialogProps } from '@/components/Dialog/Dialog';
-import {
-  DEFAULT_MAX_WIDTH_469,
-  GREY_300,
-  STEPPER_COLOR,
-} from '@/constants/general';
+import { DEFAULT_MAX_WIDTH_469, GREY_300 } from '@/constants/general';
 import { Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { FC } from 'react';
 import ModalInformation from '../../../../components/ModalInformation';
 
-export type DeleteChatDialogProps = DialogProps;
+export type FeedbackThanksDialogProps = DialogProps;
 
-const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
+const FeedbackThanksDialog: FC<FeedbackThanksDialogProps> = ({ ...props }) => {
   const t = useTranslations();
   const locale = useLocale();
-  const onClose = () => props.onClose?.({}, 'backdropClick');
-
-  const handleClickOnSignOut = async () => {};
 
   return (
     <Dialog
@@ -29,32 +22,21 @@ const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
       dialogContentProps={{ sx: { p: 0 } }}
       dialogButtons={[
         {
-          id: 'cancel',
-          type: 'button',
-          children: t('pages.chat.dialogs.deleteChat.cancelButton'),
+          id: 'submit',
+          type: 'submit',
+          children: t('pages.chat.dialogs.feedbackThanks.confirmButton'),
           variant: 'contained',
           disableElevation: true,
           color: 'primary',
           fullWidth: true,
-          sx: { fontWeight: 700 },
-          onClick: onClose,
-          needStyling: false,
-        },
-        {
-          id: 'submit',
-          type: 'submit',
-          children: t('pages.chat.dialogs.deleteChat.confirmButton'),
-          variant: 'text',
-          fullWidth: true,
-          sx: { color: STEPPER_COLOR, fontWeight: 700 },
-          onClick: handleClickOnSignOut,
+          sx: { fontWeight: 700, mb: 4 },
           needStyling: false,
         },
       ]}
     >
       <ModalInformation
-        title={t('pages.chat.dialogs.deleteChat.title')}
-        icon="trash-basket.png"
+        title={t('pages.chat.dialogs.feedbackThanks.title')}
+        subTitle={t('pages.chat.dialogs.feedbackThanks.subTitle')}
       >
         <Typography
           variant="body2"
@@ -62,12 +44,13 @@ const DeleteChatDialog: FC<DeleteChatDialogProps> = ({ ...props }) => {
           textAlign="center"
           className={`latoStyleRegular-${locale}`}
           px={{ xs: 2, sm: 2 }}
+          mt={2}
         >
-          {t('pages.chat.dialogs.deleteChat.description')}
+          {t('pages.chat.dialogs.feedbackThanks.description')}
         </Typography>
       </ModalInformation>
     </Dialog>
   );
 };
 
-export default DeleteChatDialog;
+export default FeedbackThanksDialog;
