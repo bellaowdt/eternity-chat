@@ -10,7 +10,7 @@ import FeedbackThanksDialog from '../../chat/[userId]/components/dialogs/Feedbac
 
 const SignOutButton = () => {
   const t = useTranslations();
-  const [logoutDialog, setLogoutDialog] = useState(true); // TODO:
+  const [logoutDialog, setLogoutDialog] = useState(false);
 
   const onToggleLogoutDialog = () => {
     setLogoutDialog((prevState) => !prevState);

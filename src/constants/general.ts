@@ -7,6 +7,8 @@ export const DIALOG_SIDEBAR_WIDTH = 240;
 export const NAVBAR_HEIGHT = 80;
 export const FIXED_BUTTON_HEIGHT = 55;
 export const FIXED_INPUT_HEIGHT = 51;
+export const FIXED_INPUT_MEDIUM_HEIGHT = 42;
+
 export const FIXED_SELECT_HEIGHT = 50;
 export const DEFAULT_MAX_WIDTH_369 = 369;
 export const DEFAULT_MAX_WIDTH_469 = 469;

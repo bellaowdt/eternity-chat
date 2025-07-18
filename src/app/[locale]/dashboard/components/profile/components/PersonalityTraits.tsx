@@ -7,12 +7,11 @@ import {
 } from '@/constants/general';
 import { PersonalityTraitsPayload } from '@/services/onboarding/types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Avatar, Box, Divider, Grid, Typography } from '@mui/material';
+import { Box, Divider, Grid, Typography } from '@mui/material';
 import { useLocale, useTranslations } from 'next-intl';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SaveButton from '../../common/SaveButton';
-import { sharedTextFieldProps } from '../../common/SharedStyles';
 
 const PersonalityTraits = () => {
   const t = useTranslations();

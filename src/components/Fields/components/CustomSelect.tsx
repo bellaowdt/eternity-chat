@@ -16,6 +16,7 @@ import useLocalFormContext from '../hooks/useLocalFormContext';
 import { CustomSelectProps } from '../types';
 import ClearButtonAdornment from './ClearButtonAdornment';
 import { FIXED_SELECT_HEIGHT } from '@/constants/general';
+import { sharedDropdownFieldProps } from '@/app/[locale]/dashboard/components/common/SharedStyles';
 
 const CustomSelect: FC<CustomSelectProps> = ({
   options = [],
@@ -61,6 +62,8 @@ const CustomSelect: FC<CustomSelectProps> = ({
           });
         };
 
+        console.log('props :::::sx:::', props?.sx);
+
         return (
           <CustomSkeleton isLoading={isLoading}>
             <FormControl fullWidth error={!!errors[name]} size={size}>
@@ -74,7 +77,8 @@ const CustomSelect: FC<CustomSelectProps> = ({
                   {...props}
                   sx={{
                     height: FIXED_SELECT_HEIGHT,
-                    ...props.sx,
+                    // ...sharedDropdownFieldProps,
+                    ...props?.sx,
                   }}
                   id={`${name}-select`}
                   value={normalizedValue}
@@ -92,6 +96,8 @@ const CustomSelect: FC<CustomSelectProps> = ({
                   ))}
                 </Select>
 
+                {/* <div>sx:{JSON.stringify(props.sx)}</div> */}
+                {/* <div>{props?.sx}</div> */}
                 {errors[name]?.message && (
                   <FormHelperText>
                     {errors[name]?.message?.toString()}

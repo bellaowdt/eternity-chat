@@ -13,3 +13,12 @@ export const sharedTextFieldProps = {
     },
   },
 };
+
+export const sharedDropdownFieldProps = {
+  '&.MuiOutlinedInput-root': {
+    backgroundColor: 'blue',
+    '&.Mui-focused': {
+      backgroundColor: 'blue',
+    },
+  },
+};

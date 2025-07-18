@@ -98,7 +98,7 @@ const PremiumUpgradeCard = () => {
         className={typoClass}
         sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}
       >
-        Experience the full power of AI memory and presence.
+        Experience the full power of AI memory and presence.111
       </Typography>
 
       {/* Feature List */}
